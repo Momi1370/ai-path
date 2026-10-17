@@ -4,6 +4,7 @@
 // Only the learning part of the plan is published (ML sessions); personal details are filtered out and
 // the build fails if a forbidden word survives.
 import { mkdir, readFile, writeFile, copyFile, readdir, rm } from 'node:fs/promises';
+import { existsSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -15,8 +16,16 @@ const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const PLAN_REPO = join(ROOT, '..', 'AI-Engineering-Plan-2026-27');
 const [notesPath = join(PLAN_REPO, 'notes/course-notes.md'), planPath = join(PLAN_REPO, 'plan/this-week.md'), assetsDir = join(PLAN_REPO, 'assets')] = process.argv.slice(2);
 const PLAN_YEAR = 2026;
+// Private words (for example the owner's own name) live in tools/forbidden.local.txt, one per line.
+// That file is git-ignored on purpose, so the words themselves never reach the public repo.
+const LOCAL_WORDS_FILE = new URL('./forbidden.local.txt', import.meta.url);
+const escapeRe = (w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+if (!existsSync(LOCAL_WORDS_FILE)) console.warn('ai-path: tools/forbidden.local.txt not found, so private words are NOT being checked.');
+const LOCAL_FORBIDDEN = existsSync(LOCAL_WORDS_FILE)
+  ? readFileSync(LOCAL_WORDS_FILE, 'utf8').split('\n').map((w) => w.trim()).filter((w) => w && !w.startsWith('#')).map((w) => new RegExp(escapeRe(w), 'i'))
+  : [];
 // Never in anything published, and the extra words never in the weekly plan (the notes may use them as examples).
-export const FORBIDDEN = [/MDDP/i, /retake/i, /issue #\d/i, /JobSpark/i, /loan-ops-copilot/i];
+export const FORBIDDEN = [/MDDP/i, /retake/i, ...LOCAL_FORBIDDEN, /issue #\d/i, /JobSpark/i, /loan-ops-copilot/i];
 export const FORBIDDEN_PLAN = [/budget/i, /payment/i, /gmail/i, /calendar/i, /\bEUR\b/, /\bX scan\b/i];
 
 // ---------- helpers ----------
