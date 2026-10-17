@@ -1,0 +1,16 @@
+{
+  "name": "ai-path",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build-content.mjs",
+    "test": "node --test test/*.test.mjs",
+    "validate": "node tools/validate.mjs",
+    "serve": "node tools/serve.mjs 8080",
+    "smoke": "node tools/smoke.mjs"
+  },
+  "devDependencies": {
+    "katex": "0.16.9",
+    "marked": "12.0.2"
+  }
+}
