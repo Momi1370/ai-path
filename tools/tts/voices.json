@@ -1,0 +1,7 @@
+{
+  "version": "1",
+  "voices": [
+    { "id": "heart", "name": "Heart", "engine": "kokoro", "lang_code": "a", "voice": "af_heart", "speed": 0.95 },
+    { "id": "emma", "name": "Emma", "engine": "kokoro", "lang_code": "b", "voice": "bf_emma", "speed": 0.95 }
+  ]
+}

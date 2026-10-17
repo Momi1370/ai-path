@@ -1,7 +1,7 @@
 import { h, toast } from '../dom.js';
 import { stageCounts, STAGES, streak, lastDays } from '../review.js';
 import { isWatched } from '../videos.js';
-import { buildBackup, parseBackup, NEW_PER_DAY, defaultState } from '../store.js';
+import { buildBackup, parseBackup, NEW_PER_DAY, VOICES, RATES, defaultState } from '../store.js';
 
 const COLORS = { learned: 'var(--good)', familiar: 'var(--accent)', learning: 'var(--muted)', new: 'var(--line)' };
 let confirmReset = false;
@@ -38,6 +38,10 @@ function settings(ctx) {
   return h('div', { class: 'card', style: 'margin-top:10px' }, h('strong', {}, 'Settings and backup'),
     h('div', { class: 'row', style: 'margin:10px 0' }, h('label', { for: 'perday', class: 'grow' }, 'New cards per day'),
       h('select', { id: 'perday', onChange: (e) => ctx.update((st) => ({ ...st, settings: { ...st.settings, newPerDay: +e.target.value } })) }, NEW_PER_DAY.map((n) => h('option', { value: n, selected: n === s.settings.newPerDay }, n)))),
+    h('div', { class: 'row', style: 'margin:10px 0' }, h('label', { for: 'voice', class: 'grow' }, 'Reading voice'),
+      h('select', { id: 'voice', onChange: (e) => ctx.update((st) => ({ ...st, settings: { ...st.settings, voice: e.target.value } })) }, VOICES.map((v) => h('option', { value: v, selected: v === s.settings.voice }, v === 'heart' ? 'Heart' : 'Emma')))),
+    h('div', { class: 'row', style: 'margin:10px 0' }, h('label', { for: 'rate', class: 'grow' }, 'Reading speed'),
+      h('select', { id: 'rate', onChange: (e) => ctx.update((st) => ({ ...st, settings: { ...st.settings, rate: +e.target.value } })) }, RATES.map((r) => h('option', { value: r, selected: r === s.settings.rate }, `${r}×`)))),
     h('p', { class: 'small muted' }, 'Your progress stays on this phone. Save a backup file before you clear Safari data or change phones.'),
     h('div', { class: 'row', style: 'flex-wrap:wrap' },
       h('button', { type: 'button', class: 'btn small', onClick: () => {

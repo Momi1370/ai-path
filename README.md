@@ -17,14 +17,14 @@ Your progress stays on your phone. Use **Progress → Settings and backup** to s
 - **Today**: the ML sessions of the current week (reading, videos, drills) with tick boxes.
 - **Watch**: the video list. Each video plays in the app, with a quick check of 3 questions from its chapter.
 - **Review**: about 195 cards (questions, glossary terms, formulas) scheduled with [FSRS](https://github.com/open-spaced-repetition/ts-fsrs), like Taalmaatje. New cards per day can be 3, 5, 10 or 15.
-- **Notes**: 18 chapters, a formula sheet, a reading list, a glossary and full-text search. Your place in each chapter is remembered, and **Listen** reads a chapter aloud with the phone's own voice.
+- **Notes**: 18 chapters, a formula sheet, a reading list, a glossary and full-text search. Your place in each chapter is remembered. **Listen** reads a chapter aloud in a recorded voice (Heart or Emma), highlights the sentence and the word being read, scrolls along, and continues with the next chapter. Tap a sentence to hear it from there. Speed 0.85× to 1.75×, lock-screen controls included.
 - **Progress**: videos watched, chapters read, streak, cards by memory stage, reviews per day.
 
 ## Development
 
 ```bash
 npm install          # build tools only: marked and KaTeX
-npm run build        # notes + plan -> content/ and assets/
+npm run build        # notes + plan -> content/, assets/ and the voice scripts in tools/tts/scripts/
 npm test             # unit tests (Node 22+)
 npm run validate     # check the generated content
 npm run serve        # http://127.0.0.1:8080
@@ -39,11 +39,16 @@ The content comes from a separate private repo (`AI-Engineering-Plan-2026-27`, e
 
 ```bash
 npm run build        # reads ../AI-Engineering-Plan-2026-27/notes/course-notes.md and plan/this-week.md
+python tools/tts/generate.py && node tools/tts/manifest.mjs   # new audio only for chapters whose text changed (see tools/tts/README.md)
 npm test && npm run smoke
 git add -A && git commit -m "Content: week N" && git push
 ```
 
 `tools/build-content.mjs` publishes only the **ML sessions** of the weekly plan, strips clock times, issue links and private remarks, and fails the build if a forbidden word (see `FORBIDDEN` in the script) ends up in any published file. The build track, the calendar and everything personal stay in the private repo.
+
+## Read-aloud audio
+
+The voices are [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0), Heart and Emma, made ahead of time on the Mac: one MP3 per chapter and voice (about 30 MB per voice in total) plus a small JSON file with the time of every sentence and word. Chapter text carries `data-s` / `data-w` marks, so the app highlights what is being read without any speech engine on the phone. Audio is fetched the first time you play a chapter and then kept for offline use. Code, tables, formulas and the answers are not read aloud. Details: `tools/tts/README.md`.
 
 ## Licence
 

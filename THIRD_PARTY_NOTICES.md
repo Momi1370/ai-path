@@ -31,3 +31,7 @@ SOFTWARE.
 ## Build tools (not shipped)
 
 [marked](https://github.com/markedjs/marked) (MIT) and [KaTeX](https://github.com/KaTeX/KaTeX) (MIT) turn the notes into the content files. The app ships only their output (HTML and MathML).
+
+## Voices (audio/)
+
+The read-aloud audio is generated with [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) by hexgrad (Apache-2.0), voices `af_heart` (Heart) and `bf_emma` (Emma), with [misaki](https://github.com/hexgrad/misaki) for pronunciation. The models are not shipped, only the audio they made.

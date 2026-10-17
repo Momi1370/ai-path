@@ -1,5 +1,7 @@
 export const STORAGE_KEY = 'aipath.v1';
 export const NEW_PER_DAY = [3, 5, 10, 15];
+export const VOICES = ['heart', 'emma'];
+export const RATES = [0.85, 1, 1.15, 1.3, 1.5, 1.75];
 
 export function defaultState() {
   return {
@@ -11,7 +13,8 @@ export function defaultState() {
     read: {},          // chapter or appendix id -> true
     scroll: {},        // chapter or appendix id -> 0..1, how far you read
     last: '',          // the page you read last, e.g. "ch-9"
-    settings: { newPerDay: 10, fontScale: 1 },
+    audioPos: {},      // chapter number -> sentence where the voice stopped
+    settings: { newPerDay: 10, fontScale: 1, voice: 'heart', rate: 1 },
   };
 }
 
@@ -33,9 +36,12 @@ export function migrate(raw) {
     read: mapOf(raw.read, (x) => x === true),
     scroll: mapOf(raw.scroll, (x) => typeof x === 'number' && x >= 0 && x <= 1),
     last: typeof raw.last === 'string' ? raw.last : '',
+    audioPos: mapOf(raw.audioPos, (x) => Number.isInteger(x) && x >= 0),
     settings: {
       newPerDay: NEW_PER_DAY.includes(s.newPerDay) ? s.newPerDay : base.settings.newPerDay,
       fontScale: typeof s.fontScale === 'number' && s.fontScale >= 0.85 && s.fontScale <= 1.6 ? s.fontScale : 1,
+      voice: VOICES.includes(s.voice) ? s.voice : 'heart',
+      rate: RATES.includes(s.rate) ? s.rate : 1,
     },
   };
 }

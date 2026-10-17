@@ -43,3 +43,13 @@ test('a backup round-trips and other files are refused', () => {
 test('localDate is the local calendar day', () => {
   assert.equal(localDate(new Date(2026, 9, 5, 23, 59)), '2026-10-05');
 });
+
+test('voice, speed and where the voice stopped are kept; odd values are reset', () => {
+  const s = migrate({ version: 1, audioPos: { 9: 14, 10: -1, 11: 'x' }, settings: { voice: 'emma', rate: 1.3 } });
+  assert.deepEqual(s.audioPos, { 9: 14 });
+  assert.equal(s.settings.voice, 'emma');
+  assert.equal(s.settings.rate, 1.3);
+  const bad = migrate({ version: 1, settings: { voice: 'robot', rate: 7 } });
+  assert.equal(bad.settings.voice, 'heart');
+  assert.equal(bad.settings.rate, 1);
+});

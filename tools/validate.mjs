@@ -33,6 +33,23 @@ export async function validate() {
   }
   for (const f of pre.files) await access(root + f).catch(() => problems.push(`precache lists a missing file ${f}`));
   if (!search.length) problems.push('empty search index');
+  // read-aloud audio: only chapters whose text still matches may be listed, and every file must exist
+  const manifest = await json('audio/manifest.json').catch(() => null);
+  if (manifest) {
+    for (const [n, entry] of Object.entries(manifest.chapters)) {
+      const chapter = await json(`content/chapters/ch-${n}.json`).catch(() => null);
+      if (!chapter) { problems.push(`audio for missing chapter ${n}`); continue; }
+      if (chapter.speechHash !== entry.hash) problems.push(`chapter ${n}: audio is for older text (run tools/tts/generate.py and manifest.mjs)`);
+      const script = await json(`tools/tts/scripts/ch-${n}.json`);
+      for (const v of Object.keys(entry.voices)) {
+        await access(`${root}audio/${v}/ch-${n}.${entry.hash}.mp3`).catch(() => problems.push(`missing audio/${v}/ch-${n}.${entry.hash}.mp3`));
+        const t = await json(`audio/${v}/ch-${n}.${entry.hash}.json`).catch(() => null);
+        if (!t) { problems.push(`missing timings for ${v} chapter ${n}`); continue; }
+        if (t.s.length !== script.sentences.length) problems.push(`${v} chapter ${n}: ${t.s.length} timed sentences, ${script.sentences.length} in the script`);
+        t.s.forEach(([a, b, ws], i) => { if (!(a <= b) || ws.length !== script.sentences[i]?.w || ws.some((x, k) => x < a - 0.01 || x > b + 0.01 || (k && x < ws[k - 1]))) problems.push(`${v} chapter ${n} sentence ${i}: bad timings`); });
+      }
+    }
+  }
   return problems;
 }
 

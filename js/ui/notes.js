@@ -1,5 +1,6 @@
 import { h } from '../dom.js';
 import { search } from '../search.js';
+import { attach } from './listen.js';
 
 let q = '';
 
@@ -42,8 +43,7 @@ async function reader(ctx, el, page, section) {
   const art = h('article', { class: 'read', style: `--fs:${ctx.state.settings.fontScale}`, html: data.html });
   const bar = h('div', { class: 'row' }, h('a', { class: 'btn small', href: '#/notes' }, '‹ Notes'), h('span', { class: 'grow' }),
     h('button', { type: 'button', class: 'btn small', 'aria-label': 'Smaller text', onClick: () => zoom(-0.1) }, 'A−'),
-    h('button', { type: 'button', class: 'btn small', 'aria-label': 'Larger text', onClick: () => zoom(0.1) }, 'A+'),
-    listenButton(ctx, art));
+    h('button', { type: 'button', class: 'btn small', 'aria-label': 'Larger text', onClick: () => zoom(0.1) }, 'A+'));
   function zoom(d) {
     const v = Math.min(1.6, Math.max(0.85, +(ctx.state.settings.fontScale + d).toFixed(2)));
     ctx.update((s) => ({ ...s, settings: { ...s.settings, fontScale: v } }));
@@ -51,6 +51,8 @@ async function reader(ctx, el, page, section) {
   }
   el.append(bar);
   if (isChapter) {
+    const listen = await attach(ctx, el, art, data);
+    if (listen) bar.append(listen);
     el.append(h('p', { class: 'label', style: 'margin-top:16px' }, `Part ${data.part} · Chapter ${data.n}`), h('h1', {}, data.title));
     if (data.sections.length) el.append(h('details', { class: 'card', style: 'margin:10px 0' }, h('summary', {}, 'In this chapter'), h('div', { class: 'stack small', style: 'margin-top:8px' }, data.sections.map((s) => h('a', { href: `#/notes/${page}/${s.id}` }, s.title)))));
   } else el.append(h('h1', { style: 'margin-top:16px' }, data.title));
@@ -79,7 +81,7 @@ async function reader(ctx, el, page, section) {
     }, 300);
   };
   addEventListener('scroll', onScroll, { passive: true });
-  ctx.onLeave(() => { clearTimeout(timer); removeEventListener('scroll', onScroll); stopSpeech(); });
+  ctx.onLeave(() => { clearTimeout(timer); removeEventListener('scroll', onScroll); });
 }
 
 async function glossary(ctx, el) {
@@ -94,21 +96,4 @@ async function glossary(ctx, el) {
   el.append(h('a', { class: 'btn small', href: '#/notes' }, '‹ Notes'), h('h1', { style: 'margin-top:14px' }, 'Glossary'), h('p', { class: 'muted' }, `${terms.length} terms, one plain line each.`),
     h('input', { type: 'search', id: 'gq', placeholder: 'Find a term', 'aria-label': 'Find a term', onInput: (e) => { gq = e.target.value; paint(); } }), list);
   paint();
-}
-
-// ---- read aloud (the phone's own voice; works offline) ----
-let speaking = false;
-function stopSpeech() { try { globalThis.speechSynthesis?.cancel(); } catch { /* no speech on this device */ } speaking = false; }
-function listenButton(ctx, art) {
-  if (!globalThis.speechSynthesis) return null;
-  const b = h('button', { type: 'button', class: 'btn small' }, '♪ Listen');
-  b.addEventListener('click', () => {
-    if (speaking) { stopSpeech(); b.textContent = '♪ Listen'; return; }
-    const text = [...art.querySelectorAll('h3, h4, p, li')].map((n) => n.textContent.trim()).filter(Boolean).join('. ');
-    const parts = text.replace(/\s+/g, ' ').match(/[^.!?]+[.!?]*/g) ?? [];
-    speaking = true; b.textContent = '■ Stop';
-    globalThis.speechSynthesis.cancel();
-    parts.forEach((p, i) => { const u = new SpeechSynthesisUtterance(p); u.lang = 'en-US'; if (i === parts.length - 1) u.onend = () => { speaking = false; b.textContent = '♪ Listen'; }; globalThis.speechSynthesis.speak(u); });
-  });
-  return b;
 }

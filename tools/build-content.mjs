@@ -9,6 +9,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Marked } from 'marked';
 import katex from 'katex/dist/katex.mjs';
+import { annotate } from './speech.mjs';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const PLAN_REPO = join(ROOT, '..', 'AI-Engineering-Plan-2026-27');
@@ -188,6 +189,8 @@ async function main() {
   const out = (p) => join(ROOT, p);
   await rm(out('content'), { recursive: true, force: true });
   await mkdir(out('content/chapters'), { recursive: true });
+  await rm(out('tools/tts/scripts'), { recursive: true, force: true });
+  await mkdir(out('tools/tts/scripts'), { recursive: true });
   await mkdir(out('assets/notes'), { recursive: true });
 
   const notes = parseNotes(await readFile(notesPath, 'utf8'));
@@ -204,7 +207,10 @@ async function main() {
     const withAnswers = html.replace(/<p><em>Answers\.<\/em>([\s\S]*?)<\/p>/, '<details class="answers"><summary>Show answers</summary><p>$1</p></details>');
     const words = plainText(html).split(' ').length;
     const sections = [...withAnswers.matchAll(/<h4 id="([^"]+)">([^<]*)<\/h4>/g)].map((m) => ({ id: m[1], title: m[2] }));
-    await writeFile(out(`content/chapters/ch-${c.n}.json`), JSON.stringify({ n: c.n, title: c.title, part: c.part, partName: c.partName, words, minutes: Math.max(1, Math.round(words / 200)), sections, html: withAnswers }));
+    // every spoken word gets a data-s / data-w mark (for the read-aloud highlight); the script goes to the voice generator
+    const spoken = annotate(withAnswers);
+    await writeFile(out(`content/chapters/ch-${c.n}.json`), JSON.stringify({ n: c.n, title: c.title, part: c.part, partName: c.partName, words, minutes: Math.max(1, Math.round(words / 200)), sections, speechHash: spoken.hash, html: spoken.html }));
+    await writeFile(out(`tools/tts/scripts/ch-${c.n}.json`), JSON.stringify({ n: c.n, title: c.title, hash: spoken.hash, sentences: spoken.sentences }, null, 0) + '\n');
     let part = toc.parts.find((p) => p.letter === c.part);
     if (!part) toc.parts.push(part = { letter: c.part, name: c.partName, chapters: [] });
     part.chapters.push({ n: c.n, title: c.title, minutes: Math.max(1, Math.round(words / 200)) });

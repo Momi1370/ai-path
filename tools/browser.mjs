@@ -105,8 +105,8 @@ export async function launch({ width = 320, height = 900, args = [] } = {}) {
       return true;
     })()`),
     text: () => evaluate('document.querySelector("main").innerText'),
-    async screenshot(path) {
-      const { data } = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true });
+    async screenshot(path, { full = true } = {}) {
+      const { data } = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: full });
       await writeFile(path, Buffer.from(data, 'base64'));
     },
     async close() {

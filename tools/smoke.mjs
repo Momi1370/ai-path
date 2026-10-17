@@ -6,7 +6,7 @@ import { serve } from './serve.mjs';
 
 const server = await serve(0);
 const base = `http://127.0.0.1:${server.address().port}`;
-const b = await launch({ width: 360, height: 800 });
+const b = await launch({ width: 360, height: 800, args: ['--autoplay-policy=no-user-gesture-required', '--mute-audio'] });
 const shots = process.env.SHOTS;
 let failed = 0;
 
@@ -43,6 +43,32 @@ try {
   await check('glossary', '#/notes/e', 'notes', 'Glossary');
   await check('progress', '#/progress', 'progress', 'Cards by stage');
 
+  // Read-aloud: press Listen, the voice plays and the sentence and word being read are highlighted and move on.
+  await check('listen', '#/notes/ch-9', 'notes', 'Logistic regression', async (br, p) => {
+    if (!(await br.click('Listen'))) { p.push('no Listen button'); return; }
+    if (!(await br.waitFor('document.querySelector(".listen-bar") && !document.querySelector(".listen-bar").hidden', 4000))) { p.push('the player did not open'); return; }
+    if (!(await br.waitFor('document.querySelectorAll(".sp-s").length > 0 && document.querySelector(".sp-w")', 15000))) { p.push('nothing was highlighted'); return; }
+    const w1 = await br.evaluate('document.querySelector(".sp-w").textContent');
+    const t1 = await br.evaluate('+document.querySelector(".listen-bar .seek").value');
+    await new Promise((r) => setTimeout(r, 4000));
+    const w2 = await br.evaluate('document.querySelector(".sp-w")?.textContent');
+    const t2 = await br.evaluate('+document.querySelector(".listen-bar .seek").value');
+    if (!(t2 > t1)) p.push(`the voice did not move on (${t1} -> ${t2})`);
+    if (w1 === w2) p.push('the highlighted word did not change');
+    const s1 = await br.evaluate('document.querySelector(".sp-w").dataset.s');
+    await br.click('+15');
+    await new Promise((r) => setTimeout(r, 600));
+    const s2 = await br.evaluate('document.querySelector(".sp-w")?.dataset.s');
+    if (s1 === s2) p.push('skipping 15 seconds did not move the highlight');
+    if (await br.evaluate('document.querySelectorAll(".listen-bar .chip").length > 1')) {
+      await br.click('Emma');
+      await new Promise((r) => setTimeout(r, 2500));
+      if (!(await br.evaluate('document.querySelector(".listen-bar .play").getAttribute("aria-label") === "Pause"'))) p.push('switching to Emma stopped the voice');
+      if (!(await br.evaluate('document.querySelectorAll(".sp-w").length > 0'))) p.push('no highlight after switching voice');
+    }
+    await br.click('✕');
+    if (await br.evaluate('document.querySelector(".listen-bar") && !document.querySelector(".listen-bar").hidden')) p.push('the player did not close');
+  });
   // A review session: grade a card, see the schedule saved.
   await check('session', '#/review', 'review', null, async (br, p) => {
     await br.click('Start');
