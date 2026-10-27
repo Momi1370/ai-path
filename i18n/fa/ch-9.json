@@ -1,0 +1,154 @@
+{
+ "grkdgq": {
+  "en": "Purpose. Many business questions have a yes or no answer: will this cu",
+  "fa": "**هدف.** خیلی از سؤال‌های کسب‌وکار جواب بله یا خیر دارند: آیا این مشتری پس می‌دهد، پیشنهاد را می‌پذیرد، ترک می‌کند؟ رگرسیون لجستیک مدل اول استاندارد برای آن‌هاست. توضیح دادنش آسان است، به‌عنوان مدل پایه سخت شکست می‌خورد، و بلوک سازنده‌ی شبکه‌های عصبی هم هست."
+ },
+ "akcbhg": {
+  "en": "Key ideas",
+  "fa": "**ایده‌های کلیدی**"
+ },
+ "3he73e": {
+  "en": "Despite its name, logistic regression is a classification model. It ou",
+  "fa": "با وجود اسمش، رگرسیون لجستیک یک مدل دسته‌بندی است. یک احتمال بین 0 و 1 خروجی می‌دهد."
+ },
+ "5fi3mv": {
+  "en": "It takes the same weighted sum as linear regression, z = w . x + b, an",
+  "fa": "همان مجموع وزنی رگرسیون خطی را می‌گیرد، `z = w . x + b`، و آن را از تابع سیگموید (sigmoid) رد می‌کند."
+ },
+ "gcag6r": {
+  "en": "The decision boundary is where z = 0, which is where the probability i",
+  "fa": "مرز تصمیم جایی است که `z = 0` است، یعنی جایی که احتمال 0.5 است."
+ },
+ "eeo3eq": {
+  "en": "The 0.5 cut-off is a choice, not a law. You can move it.",
+  "fa": "آستانه‌ی 0.5 یک انتخاب است، نه قانون. می‌توانی جابه‌جایش کنی."
+ },
+ "1hjcs1e": {
+  "en": "9.1 Why not a straight line?",
+  "fa": "9.1 چرا یک خط راست نه؟"
+ },
+ "1htri46": {
+  "en": "Ng's example is a tumour that is benign (0) or malignant (1), predicte",
+  "fa": "مثال Ng یک تومور است که خوش‌خیم (0) یا بدخیم (1) است و از روی اندازه‌اش پیش‌بینی می‌شود. می‌توانی یک خط راست به آن 0 و 1ها برازش کنی و هر چیز بالای 0.5 را بدخیم بنامی. روی داده‌ی مرتب کار می‌کند، ولی به دو دلیل خراب می‌شود (Ng، ویدیوی 31):"
+ },
+ "14sw6sp": {
+  "en": "Add one very large tumour far to the right. The line tilts to chase it",
+  "fa": "یک تومور خیلی بزرگ را دور در سمت راست اضافه کن. خط کج می‌شود تا دنبالش برود، نقطه‌ی عبور از 0.5 جابه‌جا می‌شود، و بعضی تومورهایی که درست دسته‌بندی شده بودند حالا غلط‌اند. یک داده‌ی پرت نباید قانون تو را بازنویسی کند."
+ },
+ "edm5zx": {
+  "en": "The line produces numbers like -0.4 and 1.7. They are not probabilitie",
+  "fa": "خط عددهایی مثل 0.4- و 1.7 تولید می‌کند. این‌ها احتمال نیستند و معنایی ندارند."
+ },
+ "w68csw": {
+  "en": "We need a curve that stays between 0 and 1 and flattens at both ends.",
+  "fa": "به منحنی‌ای نیاز داریم که بین 0 و 1 بماند و در دو سر صاف شود."
+ },
+ "1pn3bub": {
+  "en": "9.2 The sigmoid",
+  "fa": "9.2 سیگموید"
+ },
+ "1foakfl": {
+  "en": "For a very large z the sigmoid is close to 1. For a very large negativ",
+  "fa": "برای `z` خیلی بزرگ سیگموید نزدیک 1 است. برای `z` خیلی منفی نزدیک 0 است. در `z = 0` دقیقاً 0.5 است. چند مقدار: `g(-3) = 0.047` و `g(-1) = 0.269` و `g(0) = 0.5` و `g(1) = 0.731` و `g(3) = 0.953`."
+ },
+ "1varrju": {
+  "en": "Read the model's output as a probability: if f(x) = 0.7, the model say",
+  "fa": "خروجی مدل را به‌عنوان احتمال بخوان: اگر `f(x) = 0.7` باشد، مدل می‌گوید برای این ورودی 70٪ شانس هست که `y = 1` باشد (و پس 30٪ شانس که `y = 0`)."
+ },
+ "1pcu4k": {
+  "en": "9.3 The decision boundary",
+  "fa": "9.3 مرز تصمیم"
+ },
+ "1n93bvl": {
+  "en": "To turn the probability into a yes or no, use a threshold, usually 0.5",
+  "fa": "برای تبدیل احتمال به بله یا خیر از یک آستانه استفاده کن، معمولاً 0.5. سیگموید دقیقاً وقتی حداقل 0.5 است که `z` حداقل 0 باشد، پس مدل وقتی `w . x + b` حداقل 0 باشد 1 را پیش‌بینی می‌کند. مجموعه‌ی ورودی‌هایی که `w . x + b = 0` است **مرز تصمیم** است: وقتی دو ویژگی هست یک خط."
+ },
+ "101qacz": {
+  "en": "Take w = [1, 1] and b = -3. The boundary is x1 + x2 = 3.",
+  "fa": "`w = [1, 1]` و `b = -3` را بگیر. مرز `x1 + x2 = 3` است."
+ },
+ "3bwkqw": {
+  "en": "Straight boundaries are not the limit. If you feed the model squared f",
+  "fa": "مرزهای مستقیم محدودیت نیستند. اگر به مدل ویژگی‌های به توان دو بدهی، مثل `x1` به توان دو و `x2` به توان دو (فصل 8)، آن‌وقت با وزن‌های 1 و 1 و `b = -1` مرز `x1² + x2² = 1` یک دایره است: نقطه‌های داخل دسته‌ی 0 و نقطه‌های بیرون دسته‌ی 1. مدل هنوز رگرسیون لجستیک است؛ فقط ویژگی‌ها عوض شده‌اند."
+ },
+ "18x5qr4": {
+  "en": "9.4 Odds and log-odds",
+  "fa": "9.4 شانس و لگاریتم شانس"
+ },
+ "1hxdppz": {
+  "en": "Beyond the videos (this is the statistician's view, as in StatQuest). ",
+  "fa": "**بیرون از ویدیوها** (این دید آماردان است، مثل StatQuest). **شانس (odds)** یک رویداد `p` تقسیم بر `(1 - p)` است: احتمال 0.8 یعنی شانس 4 به 1. لگاریتم شانس **لگاریتم‌شانس (log-odds، یا logit)** است: `ln 4 = 1.386`."
+ },
+ "1ggo5on": {
+  "en": "Here is the neat fact: z = w . x + b is exactly the log-odds. Logistic",
+  "fa": "نکته‌ی جالب این است: `z = w . x + b` دقیقاً همان لگاریتم‌شانس است. رگرسیون لجستیک رگرسیون خطی روی لگاریتم‌شانس است و سیگموید فقط لگاریتم‌شانس را دوباره به احتمال تبدیل می‌کند. این راهی برای خواندن وزن‌ها می‌دهد: هر افزایش 1 در ویژگی `j` شانس را در `e` به توان `w_j` ضرب می‌کند. وزن 0.5 شانس را در 1.649 ضرب می‌کند، پس «4 به 1» با ثابت بودن بقیه به حدود «6.6 به 1» تبدیل می‌شود."
+ },
+ "mhot63": {
+  "en": "9.5 The threshold is a choice",
+  "fa": "9.5 آستانه یک انتخاب است"
+ },
+ "1rd39jk": {
+  "en": "The default 0.5 treats both mistakes as equally bad. In lending they a",
+  "fa": "پیش‌فرض 0.5 هر دو اشتباه را به یک اندازه بد می‌داند. در وام‌دهی این‌طور نیست. تأیید وامی که نکول می‌کند خیلی گران‌تر از رد متقاضی خوب است. می‌توانی آستانه را پایین بیاوری تا موارد پرریسک بیشتری علامت بخورند (وام بد بیشتری گرفته می‌شود، با هشدار کاذب بیشتر) یا بالا ببری تا سخت‌گیرتر باشد. فصل 12 نشان می‌دهد چطور با عدد انتخاب کنی."
+ },
+ "1afohi2": {
+  "en": "9.6 More than two classes",
+  "fa": "9.6 بیش از دو دسته"
+ },
+ "1wjzp79": {
+  "en": "Beyond the videos. With more than two classes (the Gmail tabs example)",
+  "fa": "**بیرون از ویدیوها.** با بیش از دو دسته (مثال تب‌های Gmail) سیگموید با تابع **softmax** جایگزین می‌شود. یک امتیاز برای هر دسته را به احتمال‌هایی تبدیل می‌کند که جمعشان 1 است. دوباره به‌عنوان لایه‌ی آخر بیشتر شبکه‌های عصبی با آن برخورد می‌کنی."
+ },
+ "v2ocgu": {
+  "en": "Loan example. The probability that an offer is accepted is the sigmoid",
+  "fa": "**مثال وام.** احتمال پذیرش یک پیشنهاد سیگموید `w1 x amount + w2 x terms + w3 x credit score + b` است. احتمال 0.83 یعنی «حدود 83 از 100 پیشنهاد مثل این پذیرفته می‌شوند». می‌توانی پیشنهادها را با آن رتبه‌بندی کنی، یا با یک آستانه به تصمیم تبدیلش کنی، و یک توضیح برای مشتری می‌تواند از وزن‌ها استفاده کند: مبلغ بزرگ‌تر شانس پذیرش را با یک ضریب مشخص کم می‌کند."
+ },
+ "1qknwjp": {
+  "en": "Common mistakes",
+  "fa": "**اشتباه‌های رایج**"
+ },
+ "1t74hdc": {
+  "en": "Using linear regression on a 0 or 1 target.",
+  "fa": "استفاده از رگرسیون خطی روی هدف 0 یا 1."
+ },
+ "19fw1wg": {
+  "en": "Thinking the model output is a certainty. It is a probability, and onl",
+  "fa": "فکر کردن اینکه خروجی مدل یک قطعیت است. یک احتمال است، و فقط به اندازه‌ی کالیبراسیونش خوب است (فصل 12)."
+ },
+ "1kw16qi": {
+  "en": "Treating 0.5 as sacred.",
+  "fa": "مقدس دانستن 0.5."
+ },
+ "nn5h4u": {
+  "en": "Forgetting to scale the features before training (Chapter 8).",
+  "fa": "فراموش کردن مقیاس‌دهی ویژگی‌ها پیش از آموزش (فصل 8)."
+ },
+ "cocq5o": {
+  "en": "Check yourself",
+  "fa": "**خودت را بسنج**"
+ },
+ "nol2k": {
+  "en": "Compute sigmoid(0) and say what it means.",
+  "fa": "`sigmoid(0)` را حساب کن و بگو چه معنایی دارد."
+ },
+ "lrl11a": {
+  "en": "For w = [2, -1], b = 1 and x = [1, 3], what is z, and what does the mo",
+  "fa": "برای `w = [2, -1]` و `b = 1` و `x = [1, 3]` مقدار `z` چیست و مدل چه پیش‌بینی می‌کند؟"
+ },
+ "1v7oi55": {
+  "en": "Why can a straight line not be the model for yes or no data?",
+  "fa": "چرا یک خط راست نمی‌تواند مدل داده‌های بله/خیر باشد؟"
+ },
+ "14agplj": {
+  "en": "A probability is 0.2. What are the odds?",
+  "fa": "احتمال 0.2 است. شانس (odds) چیست؟"
+ },
+ "19ynbuy": {
+  "en": "(1) 0.5: the model is undecided, and the input is on the decision boun",
+  "fa": "*پاسخ‌ها.* (1) 0.5: مدل مردد است و ورودی روی مرز تصمیم قرار دارد. (2) `z = 2 x 1 - 1 x 3 + 1 = 0`، پس احتمال 0.5 است، دقیقاً روی مرز. (3) مقدارهایی بیرون از 0 و 1 می‌دهد و یک داده‌ی پرت می‌تواند آستانه‌اش را جابه‌جا کند. (4) `0.2 / 0.8 = 0.25`، یعنی 1 به 4."
+ },
+ "15wtmb2": {
+  "en": "Go deeper: Ng, course 1, videos 31 to 33 · StatQuest, Logistic Regress",
+  "fa": "**برای مطالعه‌ی بیشتر:** Ng، درس 1، ویدیوهای 31 تا 33 · StatQuest، Logistic Regression (9 دقیقه) و برای لگاریتم‌شانس، Odds and Log(Odds), Clearly Explained · بخش رگرسیون لجستیک scikit-learn."
+ }
+}

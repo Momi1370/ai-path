@@ -32,6 +32,20 @@ try {
   await check('today', '#/today', 'today', 'This week');
   await check('watch', '#/watch', 'watch', 'videos watched');
   await check('video', '#/watch/Kdsp6soqA7o', 'watch', 'Mark as watched', async (br, p) => { if (!(await br.evaluate('!!document.querySelector("iframe.player")'))) p.push('no player'); });
+  await check('sessions', '#/watch', 'watch', 'videos watched', async (br, p) => {
+    if (!/Session 5/i.test(await br.text())) p.push('Session 5 is not listed');
+    if (!(await br.evaluate('document.querySelectorAll("details.session").length >= 5'))) p.push('the sessions book is missing sessions');
+    // open Session 4 and see its videos
+    await br.evaluate('document.querySelectorAll("details.session")[3].open = true');
+    if (!(await br.evaluate('[...document.querySelectorAll("details.session")[3].querySelectorAll("a.vrow")].some((a) => /ROC/.test(a.textContent))'))) p.push('Session 4 does not list the ROC video');
+    // search the video pages
+    await br.evaluate('(() => { const i = document.getElementById("vq"); i.value = "ROC"; i.dispatchEvent(new Event("input")); })()');
+    if (!(await br.waitFor('[...document.querySelectorAll("a.card")].some((a) => /ROC and AUC/.test(a.textContent))', 5000))) p.push('searching "ROC" did not find the ROC video');
+  });
+  await check('video-text', '#/watch/4jRBRDbJemM', 'watch', 'Text version', async (br, p) => {
+    if (!(await br.evaluate('!!document.querySelector("article.vtext") && /AUC/.test(document.querySelector("article.vtext").textContent)'))) p.push('the text page does not explain AUC');
+    if (!(await br.evaluate('/Session 4/.test(document.body.textContent)'))) p.push('no session label');
+  });
   await check('review', '#/review', 'review', 'Start');
   await check('notes', '#/notes', 'notes', 'Part A');
   await check('chapter', '#/notes/ch-9', 'notes', 'Logistic regression', async (br, p) => {
@@ -90,6 +104,39 @@ try {
   await check('search', '#/notes', 'notes', 'Notes', async (br, p) => {
     await br.evaluate('(() => { const i = document.getElementById("q"); i.value = "sigmoid"; i.dispatchEvent(new Event("input")); })()');
     if (!(await br.waitFor('document.querySelectorAll("a.card").length > 3', 5000))) p.push('search returned nothing for "sigmoid"');
+  });
+  // Notes search also finds the video page that explains a word.
+  await check('search-video', '?o=7#/notes', 'notes', 'Notes', async (br, p) => {
+    await br.evaluate('(() => { const i = document.getElementById("q"); i.value = "ROC"; i.dispatchEvent(new Event("input")); })()');
+    if (!(await br.waitFor('[...document.querySelectorAll("a.card")].some((a) => /Video · Session 4/.test(a.textContent))', 5000))) p.push('searching "ROC" in Notes found no video page');
+  });
+  // Farsi: off by default; the setting turns it on everywhere, and nothing scrolls sideways.
+  await check('farsi-off', '?o=8#/notes/e', 'notes', 'Glossary', async (br, p) => {
+    if (await br.evaluate('[...document.querySelectorAll(".fa")].some((e) => e.offsetHeight > 0)')) p.push('Farsi is visible while the setting is off');
+  });
+  await check('farsi-switch', '?o=9#/progress', 'progress', 'Farsi explanations', async (br, p) => {
+    await br.evaluate('document.getElementById("farsi").click()');
+    if (!(await br.waitFor('document.body.classList.contains("fa-on") && document.getElementById("farsi").getAttribute("aria-checked") === "true"', 3000))) p.push('the Farsi switch did not turn on');
+  });
+  await check('farsi-glossary', '?o=10#/notes/e', 'notes', 'Glossary', async (br, p) => {
+    if (!(await br.evaluate('[...document.querySelectorAll(".fa")].filter((e) => e.offsetHeight > 0 && getComputedStyle(e).direction === "rtl").length > 50'))) p.push('the glossary shows no Farsi');
+  });
+  await check('farsi-card', '?o=11#/watch/4jRBRDbJemM', 'watch', null, async (br, p) => {
+    if (!(await br.click('Quick check'))) { p.push('no Quick check button'); return; }
+    if (!(await br.waitFor('document.querySelector(".flash")', 5000))) { p.push('the quick check did not start'); return; }
+    await br.click('Show answer');
+    if (!(await br.evaluate('document.querySelectorAll(".flash .fa").length >= 2'))) p.push('the review card shows no Farsi (question and answer)');
+  });
+  await check('farsi-chapter', '?o=13#/notes/ch-14', 'notes', 'Neural networks', async (br, p) => {
+    if (!(await br.evaluate('[...document.querySelectorAll("article.read .fa")].filter((e) => e.offsetHeight > 0 && getComputedStyle(e).direction === "rtl").length > 30'))) p.push('chapter 14 shows too little Farsi');
+    if (!(await br.evaluate('!!document.querySelector("article.read li > .fa")'))) p.push('no Farsi inside list items');
+  });
+  await check('farsi-missing', '?o=14#/notes/ch-1', 'notes', 'What machine learning is', async (br, p) => {
+    if (!/not available for this chapter yet|translated so far/.test(await br.text())) p.push('a chapter without Farsi gives no hint');
+  });
+  await check('farsi-off-again', '?o=12#/progress', 'progress', 'Farsi explanations', async (br, p) => {
+    await br.evaluate('document.getElementById("farsi").click()');
+    if (!(await br.waitFor('!document.body.classList.contains("fa-on")', 3000))) p.push('the Farsi switch did not turn off');
   });
   // Offline: after one visit the service worker has saved everything, and the app opens with no network.
   await check('online', '#/today', 'today', 'This week');

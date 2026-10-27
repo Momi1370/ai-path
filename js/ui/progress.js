@@ -1,21 +1,23 @@
 import { h, toast } from '../dom.js';
 import { stageCounts, STAGES, streak, lastDays } from '../review.js';
 import { isWatched } from '../videos.js';
+import { allVideos } from './watch.js';
 import { buildBackup, parseBackup, NEW_PER_DAY, VOICES, RATES, defaultState } from '../store.js';
 
 const COLORS = { learned: 'var(--good)', familiar: 'var(--accent)', learning: 'var(--muted)', new: 'var(--line)' };
 let confirmReset = false;
 
 export async function render(ctx, el) {
-  const [cards, vids, toc] = await Promise.all([ctx.load('content/cards.json'), ctx.load('content/videos.json'), ctx.load('content/toc.json')]);
+  const [cards, vids, toc, weeks] = await Promise.all([ctx.load('content/cards.json'), ctx.load('content/videos.json'), ctx.load('content/toc.json'), ctx.load('content/weeks.json')]);
+  const all = allVideos(weeks, vids);
   const s = ctx.state;
   const counts = stageCounts(s, cards);
-  const watched = vids.videos.filter((v) => isWatched(s, v)).length;
+  const watched = all.filter((v) => isWatched(s, v)).length;
   const chapters = toc.parts.flatMap((p) => p.chapters);
   const readCount = chapters.filter((c) => s.read[`ch-${c.n}`]).length;
   const days = lastDays(s), max = Math.max(5, ...days.map((d) => d.reviews));
   el.append(h('h1', {}, 'Progress'),
-    h('div', { class: 'grid2', style: 'margin:12px 0' }, tile(`${watched} / ${vids.videos.length}`, 'videos watched'), tile(`${readCount} / ${chapters.length}`, 'chapters read'), tile(streak(s), 'day streak'), tile(counts.learned, 'cards learned')),
+    h('div', { class: 'grid2', style: 'margin:12px 0' }, tile(`${watched} / ${all.length}`, 'videos watched'), tile(`${readCount} / ${chapters.length}`, 'chapters read'), tile(streak(s), 'day streak'), tile(counts.learned, 'cards learned')),
     h('div', { class: 'card' }, h('strong', {}, 'Cards by stage'),
       h('div', { class: 'bar', style: 'margin:10px 0' }, [...STAGES].reverse().map((k) => h('i', { style: `width:${(100 * counts[k]) / cards.length}%;background:${COLORS[k]}` }))),
       h('div', { class: 'chips small' }, STAGES.map((k) => h('span', {}, h('b', { style: `color:${COLORS[k]}` }, '● '), `${counts[k]} ${k}`))),
@@ -42,6 +44,8 @@ function settings(ctx) {
       h('select', { id: 'voice', onChange: (e) => ctx.update((st) => ({ ...st, settings: { ...st.settings, voice: e.target.value } })) }, VOICES.map((v) => h('option', { value: v, selected: v === s.settings.voice }, v === 'heart' ? 'Heart' : 'Emma')))),
     h('div', { class: 'row', style: 'margin:10px 0' }, h('label', { for: 'rate', class: 'grow' }, 'Reading speed'),
       h('select', { id: 'rate', onChange: (e) => ctx.update((st) => ({ ...st, settings: { ...st.settings, rate: +e.target.value } })) }, RATES.map((r) => h('option', { value: r, selected: r === s.settings.rate }, `${r}×`)))),
+    h('div', { class: 'row', style: 'margin:10px 0' }, h('label', { for: 'farsi', class: 'grow' }, 'Farsi explanations (\u0641\u0627\u0631\u0633ی)', h('div', { class: 'small muted' }, 'Shows a Farsi explanation under the English one, where it exists.')),
+      h('button', { type: 'button', id: 'farsi', role: 'switch', 'aria-checked': String(s.settings.farsi), class: `switch ${s.settings.farsi ? 'on' : ''}`, onClick: () => { ctx.update((st) => ({ ...st, settings: { ...st.settings, farsi: !st.settings.farsi } })); ctx.rerender(); } }, h('i', {}))),
     h('p', { class: 'small muted' }, 'Your progress stays on this phone. Save a backup file before you clear Safari data or change phones.'),
     h('div', { class: 'row', style: 'flex-wrap:wrap' },
       h('button', { type: 'button', class: 'btn small', onClick: () => {

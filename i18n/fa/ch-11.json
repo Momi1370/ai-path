@@ -1,0 +1,198 @@
+{
+ "e9lekm": {
+  "en": "Purpose. The most common way a model fails is not that it learned too ",
+  "fa": "**هدف.** رایج‌ترین شکل شکست یک مدل این نیست که کم یاد گرفته، بلکه این است که چیز اشتباهی یاد گرفته: نویز داده‌ی آموزشی‌اش را. فهمیدن این شکست و ابزارهای مقابله با آن چیزی است که یک مدل کارآمد را از یک نمونه‌ی نمایشی که روی داده‌ی واقعی از هم می‌پاشد جدا می‌کند."
+ },
+ "akcbhg": {
+  "en": "Key ideas",
+  "fa": "**ایده‌های کلیدی**"
+ },
+ "nsciee": {
+  "en": "Underfitting (high bias): too simple, bad on training data and on new ",
+  "fa": "کم‌برازش (سوگیری بالا): خیلی ساده، روی داده‌ی آموزشی و داده‌ی جدید هر دو بد."
+ },
+ "nytdmf": {
+  "en": "Overfitting (high variance): too flexible, great on training data, bad",
+  "fa": "بیش‌برازش (واریانس بالا): خیلی انعطاف‌پذیر، روی داده‌ی آموزشی عالی، روی داده‌ی جدید بد."
+ },
+ "1u4gsx1": {
+  "en": "The test error is U-shaped as flexibility grows, while the training er",
+  "fa": "با بالا رفتن انعطاف‌پذیری، خطای تست U‌شکل است در حالی که خطای آموزش فقط پایین می‌آید. فاصله‌ی بین این دو علامت هشدار است."
+ },
+ "1omyh4l": {
+  "en": "Regularization adds a penalty on large weights to the cost. It trades ",
+  "fa": "منظم‌سازی (regularization) به هزینه یک جریمه برای وزن‌های بزرگ اضافه می‌کند. کمی دقت آموزشی را می‌دهد تا رفتار بهتری روی داده‌ی جدید بگیرد. قدرتش lambda است."
+ },
+ "1soxqqf": {
+  "en": "11.1 Underfit, about right, overfit",
+  "fa": "11.1 کم‌برازش، مناسب، بیش‌برازش"
+ },
+ "1g4zzah": {
+  "en": "The same fourteen noisy points, fitted three ways. The straight line i",
+  "fa": "همان چهارده نقطه‌ی نویزی، با سه روش برازش‌شده. خط راست خیلی ساده است: منحنی داده را از دست می‌دهد (کم‌برازش). منحنی ملایم الگوی واقعی را دنبال می‌کند. منحنی پرپیچ‌وخم از نزدیک همه‌ی نقطه‌ها می‌گذرد، ولی بین نقطه‌ها شدید نوسان می‌کند و برای یک ورودی جدید بد پیش‌بینی می‌کند (بیش‌برازش). نسخه‌ی خانه‌های Ng: یک خط راست منحنی قیمت را دنبال نمی‌کند، یک درجه‌دو برازش معقولی است، و یک چندجمله‌ای با درجه‌ی بالا همه‌ی خانه‌های آموزشی را دقیقاً می‌زند و در بین آن‌ها قیمت‌های پوچ می‌دهد."
+ },
+ "1p6cgb9": {
+  "en": "The goal is generalization: doing well on data the model has not seen.",
+  "fa": "هدف **تعمیم (generalization)** است: خوب‌بودن روی داده‌ای که مدل ندیده. مدلی که مجموعه‌ی آموزشی‌اش را حفظ می‌کند مثل دانشجویی است که جواب‌های امتحان سال پیش را از بر کرده."
+ },
+ "fw6zvi": {
+  "en": "The same happens in classification. An overfit decision boundary twist",
+  "fa": "همین در دسته‌بندی هم رخ می‌دهد. یک مرز تصمیم بیش‌برازش‌شده دور نقطه‌های تکی می‌پیچد؛ مرز خوب هموار است."
+ },
+ "pezgus": {
+  "en": "11.2 Bias and variance",
+  "fa": "11.2 سوگیری و واریانس"
+ },
+ "1iv0tvw": {
+  "en": "StatQuest's Bias and Variance video (7 minutes) gives the standard wor",
+  "fa": "ویدیوی Bias and Variance از StatQuest (7 دقیقه) کلمه‌های استاندارد برای این دو شکست را می‌دهد:"
+ },
+ "1b8qqwk": {
+  "en": "Bias is the systematic miss of a model that is too simple to follow th",
+  "fa": "**سوگیری (bias)** اشتباه سیستماتیک مدلی است که برای دنبال‌کردن الگوی واقعی خیلی ساده است. یک خط راست از میان یک منحنی روی هر مجموعه‌داده‌ای به یک شکل غلط است."
+ },
+ "i8vfp1": {
+  "en": "Variance is how much a model changes when you give it a different samp",
+  "fa": "**واریانس (variance)** این است که مدل وقتی نمونه‌ی متفاوتی از داده به آن بدهی چقدر تغییر می‌کند. یک مدل خیلی انعطاف‌پذیر هر نویزی را که دیده برازش می‌کند، پس نمونه‌ی متفاوت منحنی کاملاً متفاوتی می‌دهد."
+ },
+ "y66b8b": {
+  "en": "The figure averages 200 runs on data from a wavy curve plus noise. The",
+  "fa": "نمودار میانگین 200 اجرا روی داده‌ای از یک منحنی موجی به‌علاوه‌ی نویز است. خطای تست خطا روی داده‌ی جدید است. برای یک خط راست (درجه‌ی 1) برابر 0.293 است، برای یک درجه‌سه 0.120 و برای چندجمله‌ای درجه‌ی 11 برابر 0.372. هم‌زمان خطای آموزش مدام پایین می‌آید، تا 0.013 در درجه‌ی 11. مدلی که روی داده‌ی آموزشی خودش تقریباً کامل نمره می‌گیرد می‌تواند روی داده‌ی جدید بدترین باشد. این **موازنه‌ی سوگیری و واریانس** است: مدل‌های ساده‌تر سوگیری بیشتر و واریانس کمتر دارند، مدل‌های انعطاف‌پذیر برعکس، و بهترین مدل بین این دو است. Infinite Codes آن را مهم‌ترین ایده‌ی یادگیری ماشین می‌نامد."
+ },
+ "1e8rlu0": {
+  "en": "11.3 Diagnosing which problem you have",
+  "fa": "11.3 تشخیص اینکه کدام مشکل را داری"
+ },
+ "1bpg66f": {
+  "en": "Compare the error on the training set with the error on a validation s",
+  "fa": "خطای مجموعه‌ی آموزشی را با خطای یک مجموعه‌ی اعتبارسنجی مقایسه کن (فصل 3). عددها می‌گویند از کدام سمت اشتباه می‌کنی:"
+ },
+ "1rw5gsw": {
+  "en": "(Ng covers this properly in course 2, \"advice for applying machine lea",
+  "fa": "(Ng این را در درس 2، «توصیه برای به‌کارگیری یادگیری ماشین»، درست پوشش می‌دهد. فعلاً عادتش کافی است: همیشه به هر دو عدد نگاه کن.)"
+ },
+ "1y70dal": {
+  "en": "11.4 Three remedies for overfitting",
+  "fa": "11.4 سه درمان بیش‌برازش"
+ },
+ "189ov08": {
+  "en": "Collect more data. With many more examples the wiggly curve cannot pas",
+  "fa": "**داده‌ی بیشتر جمع کن.** با نمونه‌های خیلی بیشتر، منحنی پرپیچ‌وخم نمی‌تواند از همه‌شان بگذرد. بهترین درمان است ولی اغلب ممکن نیست."
+ },
+ "92ijnm": {
+  "en": "Use fewer features (or lower the polynomial degree). Pick the most rel",
+  "fa": "**از ویژگی‌های کمتر استفاده کن** (یا درجه‌ی چندجمله‌ای را کم کن). مرتبط‌ترین‌ها را انتخاب کن؛ به این **انتخاب ویژگی (feature selection)** می‌گویند. عیبش: اطلاعات را دور می‌ریزی."
+ },
+ "1hkutdp": {
+  "en": "Regularize. Keep all the features but stop any single weight from beco",
+  "fa": "**منظم‌سازی کن.** همه‌ی ویژگی‌ها را نگه دار ولی نگذار هیچ وزنی خیلی بزرگ شود (Ng، ویدیوی 38)."
+ },
+ "1uw52mq": {
+  "en": "11.5 Regularization",
+  "fa": "11.5 منظم‌سازی (Regularization)"
+ },
+ "1nkznc": {
+  "en": "The wiggles of an overfit model come from large weights: the model nee",
+  "fa": "پیچ‌وخم‌های یک مدل بیش‌برازش از وزن‌های بزرگ می‌آیند: مدل برای خمیدن تند به عددهای بزرگ نیاز دارد. پس یک جریمه برای وزن‌های بزرگ به هزینه اضافه کن تا آموزش مجبور شود بین برازش و سادگی تعادل بگیرد:"
+ },
+ "ilexha": {
+  "en": "The first term is the usual error: fit the data. The second is the new",
+  "fa": "جمله‌ی اول خطای معمولی است: داده را برازش کن. جمله‌ی دوم جریمه‌ی جدید است: وزن‌ها را کوچک نگه دار."
+ },
+ "1esvimx": {
+  "en": "lambda (a hyperparameter you choose) sets the balance. With lambda = 0",
+  "fa": "`lambda` (ابرپارامتری که تو انتخاب می‌کنی) تعادل را تعیین می‌کند. با `lambda = 0` جریمه‌ای نیست و به مدل اولیه برمی‌گردی. با `lambda` خیلی بزرگ وزن‌ها تقریباً به صفر رانده می‌شوند و مدل تقریباً صاف می‌شود، که کم‌برازش است."
+ },
+ "ehf42k": {
+  "en": "The bias b is usually not penalized (Ng, video 39).",
+  "fa": "بایاس `b` معمولاً جریمه نمی‌شود (Ng، ویدیوی 39)."
+ },
+ "1on5ejn": {
+  "en": "Dividing by 2m, as in the first term, keeps lambda comparable across d",
+  "fa": "تقسیم بر `2m`، مثل جمله‌ی اول، باعث می‌شود `lambda` برای مجموعه‌داده‌هایی با اندازه‌های متفاوت قابل مقایسه بماند."
+ },
+ "1ccklms": {
+  "en": "In gradient descent the only change is one extra term in the update of",
+  "fa": "در گرادیان کاهشی تنها تغییر یک جمله‌ی اضافه در به‌روزرسانی هر وزن است (Ng، ویدیوهای 40 و 41، برای رگرسیون خطی و لجستیک):"
+ },
+ "7dn52n": {
+  "en": "Rearranged, it reads w_j (1 - alpha lambda / m) minus the usual step. ",
+  "fa": "بازآرایی‌شده، به‌صورت `w_j (1 - alpha lambda / m)` منهای گام معمول خوانده می‌شود. در هر تکرار وزن اول با یک ضریب خیلی کوچک کوچک می‌شود و بعد مثل قبل جابه‌جا می‌شود. به همین دلیل این جریمه را **کاهش وزن (weight decay)** هم می‌نامند. برای رگرسیون لجستیک فرمول یکی است؛ فقط `f` سیگموید است."
+ },
+ "1hufn5h": {
+  "en": "11.6 L2 and L1",
+  "fa": "11.6 L2 و L1"
+ },
+ "1o8fgsp": {
+  "en": "Beyond the videos. The penalty above, the sum of squared weights, is c",
+  "fa": "**بیرون از ویدیوها.** جریمه‌ی بالا، مجموع مربع وزن‌ها، **منظم‌سازی L2** یا **ridge** نامیده می‌شود. جایگزینش **L1** (**lasso**) است که مجموع قدر مطلق وزن‌ها را اضافه می‌کند. L1 تمایل دارد بعضی وزن‌ها را دقیقاً به صفر برساند، پس ویژگی‌ها را هم انتخاب می‌کند. **Elastic net** این دو را ترکیب می‌کند. StatQuest ویدیوهای کوتاهی درباره‌ی هرکدام دارد و «Ridge vs Lasso, Visualized» نشان می‌دهد چرا L1 صفر می‌دهد."
+ },
+ "vq0ljk": {
+  "en": "11.7 Regularization in practice",
+  "fa": "11.7 منظم‌سازی در عمل"
+ },
+ "du8ik7": {
+  "en": "In scikit-learn, lambda is called alpha in Ridge, and for LogisticRegr",
+  "fa": "در scikit-learn، `lambda` در `Ridge` همان `alpha` نام دارد و برای `LogisticRegression` تنظیمش `C` است، که `C = 1 / lambda` (`C` کوچک یعنی منظم‌سازی قوی). هر دو را با یک گرادیان کاهشی دست‌ساز با فرمول‌های بالا مقایسه کردم و دقیقاً جور درمی‌آیند."
+ },
+ "1l5zmrg": {
+  "en": "The experiment below fits a degree 10 polynomial to 15 noisy points wi",
+  "fa": "آزمایش زیر یک چندجمله‌ای درجه‌ی 10 را روی 15 نقطه‌ی نویزی با قدرت‌های مختلف منظم‌سازی برازش می‌کند و روی 200 مجموعه‌داده‌ی تصادفی میانگین می‌گیرد:"
+ },
+ "17xdljq": {
+  "en": "The lesson is in the shape: as lambda grows, the training error only r",
+  "fa": "درس در شکل نهفته است: وقتی `lambda` بزرگ می‌شود، خطای آموزش فقط بالا می‌رود، در حالی که خطای تست اول پایین می‌آید و بعد بالا می‌رود. نویز در این داده بهترین خطای تست ممکن را حدود 0.06 محدود می‌کند، پس بهبود از 0.092 به 0.082 سهم واقعی از چیزی است که ممکن بود. `lambda` را مثل هر ابرپارامتر دیگری انتخاب می‌کنی: چند مقدار را امتحان کن و آن را که بهترین خطای اعتبارسنجی را دارد نگه دار (فصل 12)، هرگز بهترین خطای آموزش را نه."
+ },
+ "1u74oi2": {
+  "en": "Loan example. Suppose you have 3,000 labelled applications and 60 cand",
+  "fa": "**مثال وام.** فرض کن 3000 درخواست برچسب‌دار و 60 ویژگی نامزد داری که خیلی‌شان هم‌پوشانی دارند (مبلغ، مبلغ به ازای هر قسط، هزینه‌ی ماهانه، درآمد، نسبت بدهی). با این‌همه کم ردیف و این‌همه ستون، مدل منظم‌نشده الگوهای اتفاقی پیدا می‌کند. منظم‌سازی به‌علاوه‌ی یک مجموعه‌ی اعتبارسنجی برای انتخاب `lambda` دفاع استاندارد است. یک رگرسیون لجستیک ساده و به‌شدت منظم‌شده روی چنین جدولی مدل پایه‌ی خیلی سختی برای شکست‌دادن است."
+ },
+ "1qknwjp": {
+  "en": "Common mistakes",
+  "fa": "**اشتباه‌های رایج**"
+ },
+ "1sunn6h": {
+  "en": "Judging a model by training error alone.",
+  "fa": "قضاوت درباره‌ی مدل فقط با خطای آموزش."
+ },
+ "sj21r": {
+  "en": "Choosing lambda by the test set (then the test set is no longer a fair",
+  "fa": "انتخاب `lambda` با مجموعه‌ی تست (آن‌وقت مجموعه‌ی تست دیگر داور منصفی نیست)."
+ },
+ "1iukfzt": {
+  "en": "Forgetting to scale features before regularizing: the penalty treats a",
+  "fa": "فراموش کردن مقیاس‌دهی ویژگی‌ها پیش از منظم‌سازی: جریمه با همه‌ی وزن‌ها یکسان رفتار می‌کند، پس ویژگی‌های مقیاس‌نشده به‌ناحق جریمه می‌شوند."
+ },
+ "1bjv9jt": {
+  "en": "Making the model more flexible whenever it is wrong, without checking ",
+  "fa": "هر بار که مدل اشتباه می‌کند آن را انعطاف‌پذیرتر کردن، بدون بررسی اینکه خطا از سوگیری است یا واریانس."
+ },
+ "cocq5o": {
+  "en": "Check yourself",
+  "fa": "**خودت را بسنج**"
+ },
+ "1qxrszi": {
+  "en": "Your training error is 2% and your validation error is 18%. What is th",
+  "fa": "خطای آموزش 2٪ و خطای اعتبارسنجی 18٪ است. مشکل چیست و دو راه‌حل کدام‌اند؟"
+ },
+ "ayxwvw": {
+  "en": "What happens to the weights as lambda becomes very large?",
+  "fa": "وقتی `lambda` خیلی بزرگ می‌شود وزن‌ها چه می‌شوند؟"
+ },
+ "3shcl0": {
+  "en": "Why is a model that is perfect on its training data suspicious?",
+  "fa": "چرا مدلی که روی داده‌ی آموزشش بی‌نقص است مشکوک است؟"
+ },
+ "1snsr94": {
+  "en": "In scikit-learn, which C corresponds to a lambda of 10?",
+  "fa": "در scikit-learn کدام `C` با `lambda` برابر 10 مطابقت دارد؟"
+ },
+ "vqr7qp": {
+  "en": "(1) High variance (overfitting). Remedies: more data, fewer features, ",
+  "fa": "*پاسخ‌ها.* (1) واریانس بالا (بیش‌برازش). راه‌حل‌ها: داده‌ی بیشتر، ویژگی‌های کمتر، مدل ساده‌تر، منظم‌سازی بیشتر. (2) به سمت صفر کوچک می‌شوند و مدل تقریباً صاف می‌شود (کم‌برازش). (3) شاید نویز را حفظ کرده باشد، پس روی داده‌ی جدید احتمالاً بدتر عمل می‌کند. (4) `C = 1 / 10 = 0.1`."
+ },
+ "1gvc25s": {
+  "en": "Go deeper: Ng, course 1, videos 37 to 41 · StatQuest, Machine Learning",
+  "fa": "**برای مطالعه‌ی بیشتر:** Ng، درس 1، ویدیوهای 37 تا 41 · StatQuest، Machine Learning Fundamentals: Bias and Variance، Regularization Part 1: Ridge (20 دقیقه) و Ridge vs Lasso, Visualized (9 دقیقه) · راهنمای مدل‌های خطی scikit-learn، بخش‌های ridge و lasso."
+ }
+}

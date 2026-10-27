@@ -1,0 +1,182 @@
+{
+ "ubhwps": {
+  "en": "Purpose. Large language models are neural networks, so before the agen",
+  "fa": "**هدف.** مدل‌های زبانی بزرگ شبکه‌ی عصبی هستند، پس پیش از فصل‌های عامل (agent) باید اجزایشان را بشناسی. خبر خوب: اولین جزء را از قبل می‌شناسی. یک نورون تنها همان رگرسیون لجستیک است."
+ },
+ "akcbhg": {
+  "en": "Key ideas",
+  "fa": "**ایده‌های کلیدی**"
+ },
+ "1pxdz9h": {
+  "en": "A neuron computes a weighted sum plus a bias, then passes it through a",
+  "fa": "یک نورون مجموع وزنی به‌علاوه‌ی بایاس را حساب می‌کند و بعد آن را از یک تابع فعال‌سازی (activation function) رد می‌کند."
+ },
+ "1nfb8ru": {
+  "en": "Layers of neurons learn their own features. Many layers is what \"deep\"",
+  "fa": "لایه‌های نورون‌ها ویژگی‌های خودشان را یاد می‌گیرند. «عمیق» یعنی لایه‌های زیاد."
+ },
+ "1bvtlgx": {
+  "en": "Without a non-linear activation, any number of layers collapses into o",
+  "fa": "بدون تابع فعال‌سازی غیرخطی، هر تعداد لایه به یک مدل خطی ساده تبدیل می‌شود."
+ },
+ "im8dpr": {
+  "en": "Training is gradient descent, with the slopes for all layers computed ",
+  "fa": "آموزش همان گرادیان کاهشی است و شیب‌های همه‌ی لایه‌ها با پس‌انتشار (backpropagation) حساب می‌شود."
+ },
+ "uzouej": {
+  "en": "For tables of data, trees often win. Neural networks shine on images, ",
+  "fa": "برای داده‌های جدولی اغلب درخت‌ها برنده‌اند. شبکه‌های عصبی روی تصویر، متن، صدا و داده‌های بدون ساختار می‌درخشند."
+ },
+ "13ibmbo": {
+  "en": "14.1 One neuron",
+  "fa": "14.1 یک نورون"
+ },
+ "1i2jk0b": {
+  "en": "A neuron takes the features, multiplies each by a weight, adds a bias,",
+  "fa": "یک نورون ویژگی‌ها را می‌گیرد، هرکدام را در یک وزن ضرب می‌کند، بایاس را اضافه می‌کند و تابع فعال‌سازی `g` را اعمال می‌کند:"
+ },
+ "16itwp5": {
+  "en": "With g as the sigmoid this is exactly logistic regression (Chapter 9).",
+  "fa": "وقتی `g` سیگموید باشد، این دقیقاً رگرسیون لجستیک است (فصل 9). مثال: ورودی `x = [2, -1]`، وزن `w = [0.5, 0.25]`، بایاس `b = 0.1`. آنگاه `z = 2 x 0.5 + (-1) x 0.25 + 0.1 = 0.85`. با فعال‌سازی ReLU (بیشینه‌ی 0 و `z`) خروجی 0.85 است؛ با سیگموید 0.701."
+ },
+ "1mlgu5r": {
+  "en": "14.2 Layers learn features",
+  "fa": "14.2 لایه‌ها ویژگی‌ها را یاد می‌گیرند"
+ },
+ "1jilzpf": {
+  "en": "Stack neurons into a layer, and layers into a network. The first layer",
+  "fa": "نورون‌ها را در یک لایه روی هم بگذار و لایه‌ها را در یک شبکه. لایه‌ی اول ورودی‌های خام را می‌بیند. لایه‌ی بعد خروجی‌های لایه‌ی اول را می‌بیند و همین‌طور ادامه دارد. در یک شبکه‌ی تصویر (مثال Shaw Talebi) لایه‌های اول لبه‌ها را تشخیص می‌دهند، لایه‌های بعد لبه‌ها را به چشم و سبیل ترکیب می‌کنند و آخرین لایه تصمیم می‌گیرد «گربه». هیچ‌کس به شبکه نمی‌گوید دنبال سبیل بگردد: خودش ویژگی‌های مفید را پیدا می‌کند. به همین دلیل یادگیری عمیق به مهندسی ویژگی دستی خیلی کمتری نسبت به مدل‌های سنتی فصل 13 نیاز دارد (کار روی ویژگی‌ها در فصل 8 دقیقاً همان چیزی است که خودکار می‌کند)."
+ },
+ "lkayg9": {
+  "en": "The activation must be non-linear. Two linear layers in a row, W2 (W1 ",
+  "fa": "تابع فعال‌سازی باید غیرخطی باشد. دو لایه‌ی خطی پشت‌سرهم، `W2 (W1 x)`، برابرند با یک لایه‌ی خطی با وزن `(W2 W1)`؛ پس بدون یک تابع غیرخطی میان آن‌ها، عمق چیزی اضافه نمی‌کند. غیرخطی‌بودن است که اجازه می‌دهد شبکه تقریباً هر الگویی را یاد بگیرد."
+ },
+ "wfw3h7": {
+  "en": "14.3 Training",
+  "fa": "14.3 آموزش"
+ },
+ "ejkpsy": {
+  "en": "Training is the gradient descent of Chapter 6 on a cost function, with",
+  "fa": "آموزش همان گرادیان کاهشی فصل 6 روی یک تابع هزینه است، با دو اضافه:"
+ },
+ "u4o81b": {
+  "en": "Backpropagation computes the slope of the cost with respect to every w",
+  "fa": "**پس‌انتشار** شیب هزینه را نسبت به هر وزن در هر لایه حساب می‌کند. از قاعده‌ی زنجیری حساب دیفرانسیل استفاده می‌کند: شبکه را رو به جلو اجرا می‌کند تا پیش‌بینی و هزینه به دست بیاید، بعد رو به عقب، و شیب‌ها را از آخرین لایه به اولین لایه می‌رساند. لازم نیست این را با دست کد بزنی: کتابخانه‌هایی مثل PyTorch خودکار انجامش می‌دهند."
+ },
+ "1cwfqbk": {
+  "en": "Mini-batches and Adam. Each step uses a small batch of examples (8 to ",
+  "fa": "**مینی‌بچ‌ها و Adam.** هر گام از یک دسته‌ی کوچک نمونه (8 تا 32 در مثال Shaw) استفاده می‌کند و بهینه‌ساز Adam اندازه‌ی گام را برای هر پارامتر تطبیق می‌دهد (فصل 6)."
+ },
+ "1tg6msk": {
+  "en": "The usual hyperparameters are the number of epochs (passes over the da",
+  "fa": "ابرپارامترهای معمول عبارت‌اند از تعداد epoch (گذر روی داده‌ها)، نرخ یادگیری، اندازه‌ی batch و **dropout**، یک منظم‌ساز که هنگام آموزش تصادفی بعضی نورون‌ها را خاموش می‌کند تا شبکه به هیچ‌کدامشان تکیه نکند (فصل 11)."
+ },
+ "127y3ry": {
+  "en": "14.4 Architectures",
+  "fa": "14.4 معماری‌ها"
+ },
+ "k6qfjp": {
+  "en": "A large language model is a very large transformer trained on text to ",
+  "fa": "یک **مدل زبانی بزرگ** یک ترنسفورمر (transformer) خیلی بزرگ است که روی متن آموزش دیده تا کلمه‌ی بعدی را پیش‌بینی کند. اول روی حجم عظیمی متن آموزش می‌بیند، بعد با نمونه‌های نظارت‌شده و یادگیری تقویتی بهبود داده می‌شود (فصل 1)."
+ },
+ "e64rpw": {
+  "en": "14.5 Layer by layer in code",
+  "fa": "14.5 لایه به لایه در کد"
+ },
+ "1142emc": {
+  "en": "In code, a layer is one weight matrix W and one bias vector b. W has o",
+  "fa": "در کد، یک لایه یک ماتریس وزن `W` و یک بردار بایاس `b` است. `W` به ازای هر ورودی یک سطر و به ازای هر نورون یک ستون دارد، پس ستون `j` وزن‌های نورون `j` را نگه می‌دارد. خروجی لایه تابع فعال‌سازی است که روی (ورودی‌ها ضربدر `W`، به‌علاوه‌ی `b`) اعمال می‌شود، و ورودی لایه‌ی بعد می‌شود. درس دوم Ng این را با TensorFlow آموزش می‌دهد؛ ایده در هر کتابخانه‌ای یکی است."
+ },
+ "twftt9": {
+  "en": "Take the network of the paper drill: two inputs, a hidden layer of two",
+  "fa": "شبکه‌ی تمرین کاغذی را در نظر بگیر: دو ورودی، یک لایه‌ی پنهان با دو نورون سیگموید، یک خروجی سیگموید، و `x = [2, 1]`. اینجا دو بار آمده، یک بار نورون به نورون و یک بار با ماتریس:"
+ },
+ "1kyds9x": {
+  "en": "Both versions give 0.731 and 0.622 in the hidden layer and 0.527 at th",
+  "fa": "هر دو روش در لایه‌ی پنهان 0.731 و 0.622 و در خروجی 0.527 می‌دهند. نسخه‌ی ماتریسی یک دسته‌ی کامل را هم می‌گیرد: اگر `X` دارای `m` سطر و `n` ستون باشد، `W` دارای `n` سطر و `units` ستون، و `b` دارای `units` عدد، آنگاه `X @ W + b` دارای `m` سطر و `units` ستون است (فصل 7 توضیح می‌دهد چرا یک ضرب ماتریسی از حلقه بهتر است)."
+ },
+ "jr0kg9": {
+  "en": "The same network in Keras, the library that sits on top of TensorFlow ",
+  "fa": "همان شبکه در Keras، کتابخانه‌ای که روی TensorFlow سوار است (و از Keras 3 به بعد روی JAX و PyTorch هم):"
+ },
+ "12x7muu": {
+  "en": "Dense(units, activation) is a layer in which every neuron sees every i",
+  "fa": "`Dense(units, activation)` لایه‌ای است که هر نورونش همه‌ی ورودی‌ها را می‌بیند و `Sequential` لایه‌ها را پشت هم می‌چیند. آموزش دادن `model.compile(...)` و `model.fit(...)` اضافه می‌کند که پس‌انتشار 14.3 را برایت اجرا می‌کنند."
+ },
+ "1xclnsp": {
+  "en": "Counting parameters. A dense layer with n inputs and u neurons has u x",
+  "fa": "**شمردن پارامترها.** یک لایه‌ی متراکم با `n` ورودی و `u` نورون `u x (n + 1)` پارامتر دارد: `n` وزن به‌علاوه‌ی یک بایاس برای هر نورون."
+ },
+ "hrepbm": {
+  "en": "Two lessons. The first layer holds almost everything (10,025 of 10,431",
+  "fa": "دو درس. لایه‌ی اول تقریباً همه‌چیز را در خود دارد (10,025 از 10,431، حدود 96٪)، چون ورودی‌های زیاد را ضرب می‌کند. و شبکه‌ای با 10,431 پارامتر که روی 5000 ردیف وام آموزش ببیند می‌تواند آن‌ها را به‌سادگی حفظ کند (فصل 11)؛ به همین دلیل 14.6 می‌گوید اول جنگل را امتحان کن."
+ },
+ "i7awal": {
+  "en": "All code in this section was run on 27 Oct 2026 (NumPy 2.5, Keras 3.15",
+  "fa": "*همه‌ی کدهای این بخش در 27 اکتبر 2026 اجرا شدند (NumPy 2.5 و Keras 3.15 با backend مربوط به JAX)؛ عددهای چاپ‌شده واقعی‌اند.*"
+ },
+ "1fvojcf": {
+  "en": "14.6 When to use it",
+  "fa": "14.6 کی از آن استفاده کنیم"
+ },
+ "xca9qm": {
+  "en": "Use neural networks when the input is unstructured (images, audio, tex",
+  "fa": "از شبکه‌های عصبی وقتی استفاده کن که ورودی بدون ساختار است (تصویر، صدا، متن) و داده‌ی زیاد داری، یا وقتی می‌توانی از یک مدل **از پیش‌آموزش‌دیده** شروع کنی، مثل LLMها و مدل‌های امبدینگ. برای جدولی از عددها و دسته‌ها، مثل داده‌ی وام، مجموعه‌های درختی که با دقت تنظیم شده باشند اغلب با شبکه‌های عصبی برابری می‌کنند یا از آن‌ها بهترند (Grinsztajn و همکاران این را روی 45 مجموعه‌داده بررسی کردند). اول جنگل را امتحان کن."
+ },
+ "1q04iik": {
+  "en": "Loan example. To read scanned payslips and extract the income, use a n",
+  "fa": "**مثال وام.** برای خواندن فیش‌های حقوقی اسکن‌شده و استخراج درآمد، از شبکه‌ی عصبی (یک مدل بینایی یا زبانی از پیش‌آموزش‌دیده) استفاده کن. برای پیش‌بینی اینکه مشتری یک پیشنهاد را می‌پذیرد یا نه، از یک جدول با 15 ستون، با رگرسیون لجستیک و یک جنگل گرادیان‌بوست‌شده شروع کن."
+ },
+ "1qknwjp": {
+  "en": "Common mistakes",
+  "fa": "**اشتباه‌های رایج**"
+ },
+ "3253ar": {
+  "en": "Thinking \"deep\" means \"better\".",
+  "fa": "فکر کردن اینکه «عمیق» یعنی «بهتر»."
+ },
+ "12r10l9": {
+  "en": "Training a big network from scratch on a few thousand rows.",
+  "fa": "آموزش یک شبکه‌ی بزرگ از صفر روی چند هزار ردیف."
+ },
+ "if0m5x": {
+  "en": "Forgetting that a network needs the same care as any model: a baseline",
+  "fa": "فراموش کردن اینکه شبکه هم مثل هر مدل دیگری مراقبت می‌خواهد: یک مدل پایه، ورودی‌های مقیاس‌شده و یک مجموعه‌ی اعتبارسنجی."
+ },
+ "cocq5o": {
+  "en": "Check yourself",
+  "fa": "**خودت را بسنج**"
+ },
+ "1a9hdgb": {
+  "en": "Why is logistic regression a one-neuron neural network?",
+  "fa": "چرا رگرسیون لجستیک یک شبکه‌ی عصبی با یک نورون است؟"
+ },
+ "1q3p2mn": {
+  "en": "Why do hidden layers need a non-linear activation?",
+  "fa": "چرا لایه‌های پنهان به تابع فعال‌سازی غیرخطی نیاز دارند؟"
+ },
+ "1die7nr": {
+  "en": "What does backpropagation compute?",
+  "fa": "پس‌انتشار چه چیزی را حساب می‌کند؟"
+ },
+ "119przn": {
+  "en": "You have 5,000 rows of loan data. Do you start with a neural network? ",
+  "fa": "5000 ردیف داده‌ی وام داری. آیا با شبکه‌ی عصبی شروع می‌کنی؟ چرا بله یا چرا نه؟"
+ },
+ "rau46o": {
+  "en": "A layer has 400 inputs and 25 neurons. How many parameters does it hav",
+  "fa": "یک لایه 400 ورودی و 25 نورون دارد. چند پارامتر دارد؟"
+ },
+ "1f09vcn": {
+  "en": "X has 5 rows and 3 columns, and the layer has 4 neurons. What shape is",
+  "fa": "`X` پنج سطر و سه ستون دارد و لایه 4 نورون دارد. شکل `X @ W + b` چیست؟"
+ },
+ "5oxinx": {
+  "en": "(1) A neuron is a weighted sum plus bias passed through an activation;",
+  "fa": "*پاسخ‌ها.* (1) نورون مجموع وزنی به‌علاوه‌ی بایاس است که از یک تابع فعال‌سازی می‌گذرد؛ با سیگموید همان فرمول رگرسیون لجستیک است. (2) وگرنه لایه‌های روی هم به یک مدل خطی ساده تبدیل می‌شوند و قدرتی اضافه نمی‌کنند. (3) شیب هزینه نسبت به هر وزن، لایه به لایه، با قاعده‌ی زنجیری. (4) نه: با یک جدول کوچک، با رگرسیون لجستیک و مجموعه‌های درختی شروع کن که ساده‌ترند و معمولاً به همان اندازه دقیق‌اند؛ شبکه‌ی عصبی را برای داده‌های بدون ساختار یا مدل‌های از پیش‌آموزش‌دیده نگه دار. (5) `25 x (400 + 1) = 10,025`: یک وزن برای هر ورودی به‌علاوه‌ی یک بایاس برای هر نورون. (6) 5 سطر و 4 ستون: یک خروجی برای هر نورون به ازای هر نمونه."
+ },
+ "m0bu1h": {
+  "en": "Go deeper: Shaw Talebi, ML Foundations for AI Engineers · 3Blue1Brown'",
+  "fa": "**برای مطالعه‌ی بیشتر:** Shaw Talebi، ML Foundations for AI Engineers · مجموعه‌ی شبکه‌ی عصبی 3Blue1Brown (بهترین مقدمه‌ی تصویری) · Andrej Karpathy، Neural Networks: Zero to Hero (یکی را از صفر بساز، بعد یک GPT) · Goodfellow و Bengio و Courville، Deep Learning (رایگان، مرجع) · درس دوم Ng (شبکه‌های عصبی؛ هفته‌ی 1 در بخش 14.5 است و راهنمای Keras در پیوست C)."
+ }
+}

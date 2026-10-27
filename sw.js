@@ -2,7 +2,7 @@
 // tools/build-content.mjs); its version changes whenever the content does, which refreshes the cache.
 const SHELL = ['./', 'index.html', 'css/app.css', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'vendor/ts-fsrs.mjs',
   'js/app.js', 'js/dom.js', 'js/store.js', 'js/srs.js', 'js/review.js', 'js/search.js', 'js/plan.js', 'js/videos.js',
-  'js/ui/today.js', 'js/ui/watch.js', 'js/ui/review.js', 'js/ui/notes.js', 'js/ui/listen.js', 'js/timing.js', 'js/ui/progress.js'];
+  'js/ui/today.js', 'js/ui/watch.js', 'js/ui/review.js', 'js/ui/notes.js', 'js/ui/listen.js', 'js/timing.js', 'js/ui/progress.js', 'js/i18n.js'];
 const PREFIX = 'aipath-';
 const AUDIO = 'audio-aipath'; // chapter audio is kept when the app updates; the app removes files the manifest no longer lists
 

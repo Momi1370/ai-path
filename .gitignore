@@ -3,3 +3,4 @@ node_modules/
 .claude/
 .venv-kokoro/
 tools/forbidden.local.txt
+i18n/en-blocks.json

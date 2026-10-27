@@ -1,6 +1,7 @@
 import { h } from '../dom.js';
 import { dueIds, newIds, gradeCard, Grade, formatWait, KINDS } from '../review.js';
 import { previews, newCard } from '../srs.js';
+import { farsi } from '../i18n.js';
 
 let kind = '';
 export let session = null;
@@ -34,7 +35,7 @@ function card(ctx, el, byId) {
   el.append(
     h('div', { class: 'row' }, h('button', { type: 'button', class: 'btn small', onClick: () => { endSession(); ctx.rerender(); } }, '‹ Stop'),
       h('span', { class: 'grow small muted', style: 'text-align:center' }, `${s.i + 1} / ${s.ids.length} · ${label}`), h('span', { style: 'width:60px' })),
-    h('div', { class: 'card flash', style: 'margin-top:12px' }, h('div', { class: 'front', html: c.front }), s.shown ? h('div', { class: 'back', html: c.back }) : null,
+    h('div', { class: 'card flash', style: 'margin-top:12px' }, h('div', { class: 'front', html: c.front }), farsi(c.fa?.f), s.shown ? h('div', { class: 'back', html: c.back }) : null, s.shown ? farsi(c.fa?.b) : null,
       s.shown && c.kind === 'question' ? h('a', { class: 'small', href: `#/notes/ch-${c.ch}` }, `Read chapter ${c.ch}`) : null),
     s.shown ? grades(ctx, id) : h('button', { type: 'button', class: 'btn primary wide', style: 'margin-top:12px', onClick: () => { s.shown = true; ctx.rerender(); } }, 'Show answer'));
 }

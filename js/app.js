@@ -1,4 +1,5 @@
 import { createStore } from './store.js';
+import { applyFarsi } from './i18n.js';
 import { h, clear } from './dom.js';
 import * as today from './ui/today.js';
 import * as watch from './ui/watch.js';
@@ -40,6 +41,7 @@ async function render(fresh = true) {
   const [name = 'today', a, b] = parse();
   const route = TABS.some(([id]) => id === name) ? name : 'today';
   const keepScroll = !fresh ? scrollY : 0;
+  applyFarsi(ctx.state.settings.farsi);
   for (const fn of leaveHooks) fn();
   leaveHooks = [];
   document.querySelectorAll('[data-tab]').forEach((t) => { const on = t.dataset.tab === route; t.classList.toggle('active', on); if (on) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current'); });

@@ -1,6 +1,7 @@
 import { h } from '../dom.js';
 import { search } from '../search.js';
 import { attach } from './listen.js';
+import { farsi } from '../i18n.js';
 
 let q = '';
 
@@ -16,14 +17,14 @@ async function index(ctx, el) {
   const run = async () => {
     results.replaceChildren();
     if (q.trim().length < 2) return;
-    const hits = search(await ctx.load('content/search.json'), q);
+    const hits = search(await ctx.load('content/search.json'), q, 30, { fa: ctx.state.settings.farsi });
     results.append(h('div', { class: 'label' }, `${hits.length} result${hits.length === 1 ? '' : 's'}`),
-      ...hits.map(({ entry, snippet }) => h('a', { class: 'card', style: 'text-decoration:none;color:inherit', href: entry.page ? `#/notes/${entry.page}` : `#/notes/ch-${entry.ch}${entry.id ? `/${entry.id}` : ''}` },
-        h('strong', {}, entry.title), h('div', { class: 'small muted' }, entry.ch ? `Chapter ${entry.ch}` : 'Appendix'), h('div', { class: 'snippet' }, snippet))));
+      ...hits.map(({ entry, snippet }) => h('a', { class: 'card', style: 'text-decoration:none;color:inherit', href: entry.vid ? `#/watch/${entry.vid}` : entry.page ? `#/notes/${entry.page}` : `#/notes/ch-${entry.ch}${entry.id ? `/${entry.id}` : ''}` },
+        h('strong', {}, entry.title), h('div', { class: 'small muted' }, entry.vid ? `Video · Session ${entry.session}` : entry.ch ? `Chapter ${entry.ch}` : 'Appendix'), h('div', { class: 'snippet' }, snippet))));
     if (!hits.length) results.append(h('div', { class: 'card empty' }, 'Nothing found. Try fewer or different words.'));
   };
-  const input = h('input', { type: 'search', id: 'q', placeholder: 'Search all chapters and terms', value: q, 'aria-label': 'Search notes', onInput: (e) => { q = e.target.value; run(); } });
-  el.append(h('h1', {}, 'Notes'), h('p', { class: 'muted' }, 'A textbook of 18 chapters. Search finds the exact section.'), input, results);
+  const input = h('input', { type: 'search', id: 'q', placeholder: 'Search chapters, terms and videos', value: q, 'aria-label': 'Search notes', onInput: (e) => { q = e.target.value; run(); } });
+  el.append(h('h1', {}, 'Notes'), h('p', { class: 'muted' }, 'A textbook of 18 chapters. Search finds the exact section, or the video page that explains it.'), input, results);
   if (q) run();
   const last = ctx.state.last;
   const lastCh = last.startsWith('ch-') ? toc.parts.flatMap((p) => p.chapters).find((c) => `ch-${c.n}` === last) : null;
@@ -53,7 +54,8 @@ async function reader(ctx, el, page, section) {
   if (isChapter) {
     const listen = await attach(ctx, el, art, data);
     if (listen) bar.append(listen);
-    el.append(h('p', { class: 'label', style: 'margin-top:16px' }, `Part ${data.part} · Chapter ${data.n}`), h('h1', {}, data.title));
+    el.append(h('p', { class: 'label', style: 'margin-top:16px' }, `Part ${data.part} · Chapter ${data.n}`), h('h1', {}, data.title),
+      data.fa && data.fa.translated < data.fa.total ? h('p', { class: 'fa-only small muted' }, data.fa.translated ? `Farsi: ${data.fa.translated} of ${data.fa.total} paragraphs are translated so far. The rest stays in English.` : 'Farsi is not available for this chapter yet.') : null);
     if (data.sections.length) el.append(h('details', { class: 'card', style: 'margin:10px 0' }, h('summary', {}, 'In this chapter'), h('div', { class: 'stack small', style: 'margin-top:8px' }, data.sections.map((s) => h('a', { href: `#/notes/${page}/${s.id}` }, s.title)))));
   } else el.append(h('h1', { style: 'margin-top:16px' }, data.title));
   el.append(art);
@@ -90,8 +92,8 @@ async function glossary(ctx, el) {
   let gq = '';
   const paint = () => {
     const w = gq.trim().toLowerCase();
-    const shown = w ? terms.filter((t) => `${t.front} ${t.back}`.toLowerCase().includes(w)) : terms;
-    list.replaceChildren(...shown.map((t) => h('div', { class: 'card' }, h('strong', { html: t.front }), h('div', { class: 'muted', html: t.back }))), shown.length ? null : h('div', { class: 'card empty' }, 'No such term.'));
+    const shown = w ? terms.filter((t) => `${t.front} ${t.back} ${ctx.state.settings.farsi ? `${t.fa?.f ?? ''} ${t.fa?.b ?? ''}` : ''}`.toLowerCase().includes(w)) : terms;
+    list.replaceChildren(...shown.map((t) => h('div', { class: 'card' }, h('strong', { html: t.front }), farsi(t.fa?.f), h('div', { class: 'muted', html: t.back }), farsi(t.fa?.b))), shown.length ? null : h('div', { class: 'card empty' }, 'No such term.'));
   };
   el.append(h('a', { class: 'btn small', href: '#/notes' }, '‹ Notes'), h('h1', { style: 'margin-top:14px' }, 'Glossary'), h('p', { class: 'muted' }, `${terms.length} terms, one plain line each.`),
     h('input', { type: 'search', id: 'gq', placeholder: 'Find a term', 'aria-label': 'Find a term', onInput: (e) => { gq = e.target.value; paint(); } }), list);

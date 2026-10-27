@@ -1,0 +1,1199 @@
+{
+ "8sp4gy": {
+  "en": "Explain the difference between a rule-based system and a machine learn",
+  "fa": {
+   "f": "تفاوت سیستم قانون‌محور (rule-based) و سیستم یادگیری ماشین را با یک مثال وام توضیح بده.",
+   "b": "سیستم قانون‌محور قوانینی را اجرا می‌کند که یک انسان نوشته است؛ سیستم یادگیری الگو را از پرونده‌های گذشته و نتیجه‌های آن‌ها پیدا می‌کند."
+  }
+ },
+ "1ni7mx5": {
+  "en": "Name the two phases of a model's life and say which one is expensive. ",
+  "fa": {
+   "f": "دو مرحله‌ی زندگی یک مدل را نام ببر و بگو کدام گران است.",
+   "b": "آموزش (training) و استنتاج (inference)؛ آموزش گران‌تر است."
+  }
+ },
+ "l8dz6y": {
+  "en": "Is deep learning a way to learn, like supervised learning? Explain.  =",
+  "fa": {
+   "f": "آیا یادگیری عمیق (deep learning) یک روش یادگیری است، مثل یادگیری نظارت‌شده؟ توضیح بده.",
+   "b": "نه. یادگیری عمیق یک نوع مدل است که می‌تواند به هر یک از سه روش یادگیری آموزش ببیند."
+  }
+ },
+ "1cbrar": {
+  "en": "Give one task in a bank where you would write a rule instead of traini",
+  "fa": {
+   "f": "یک کار در بانک بگو که در آن به‌جای آموزش مدل، قانون می‌نویسی.",
+   "b": "مثلاً بررسی اینکه متقاضی به سن قانونی رسیده است."
+  }
+ },
+ "gvrnen": {
+  "en": "Is \"predict whether a customer repays\" regression or classification? W",
+  "fa": {
+   "f": "آیا «پیش‌بینی اینکه مشتری وام را برمی‌گرداند یا نه» رگرسیون است یا دسته‌بندی؟ چرا؟",
+   "b": "دسته‌بندی (classification): جواب یک دسته است (برمی‌گرداند یا نه)."
+  }
+ },
+ "sjk4zv": {
+  "en": "Is \"find groups of similar loan applicants\" supervised or unsupervised",
+  "fa": {
+   "f": "آیا «پیدا کردن گروه‌های مشابه از متقاضیان وام» نظارت‌شده است یا نظارت‌نشده؟",
+   "b": "نظارت‌نشده (unsupervised): جواب درستی برای یادگرفتن وجود ندارد."
+  }
+ },
+ "3tngoq": {
+  "en": "Give one loan example of anomaly detection.  =>  Flagging an applicati",
+  "fa": {
+   "f": "یک مثال وام برای تشخیص ناهنجاری (anomaly detection) بزن.",
+   "b": "علامت‌گذاری درخواستی که الگویش با همه‌ی درخواست‌های قبلی فرق دارد، به‌عنوان بررسی تقلب."
+  }
+ },
+ "1bjw8j": {
+  "en": "What is the label in supervised learning?  =>  The right answer y that",
+  "fa": {
+   "f": "در یادگیری نظارت‌شده، برچسب (label) چیست؟",
+   "b": "جواب درست `y` که همراه هر نمونه‌ی آموزشی می‌آید."
+  }
+ },
+ "5wy8ow": {
+  "en": "In the offers table, what are m and n, and what is x^(3)?  =>  m = 5, ",
+  "fa": {
+   "f": "در جدول پیشنهادها (offers) مقدار `m` و `n` چیست و `x^(3)` چیست؟",
+   "b": "`m = 5`، `n = 3` و `x^(3) = [5000, 24, 780]`."
+  }
+ },
+ "40tuvi": {
+  "en": "What is the difference between a parameter and a hyperparameter? Give ",
+  "fa": {
+   "f": "تفاوت پارامتر (parameter) و ابرپارامتر (hyperparameter) چیست؟ از هرکدام یک مثال بزن.",
+   "b": "پارامتر را مدل یاد می‌گیرد (مثل وزن `w`)؛ ابرپارامتر را خودت انتخاب می‌کنی (مثل نرخ یادگیری)."
+  }
+ },
+ "go3076": {
+  "en": "Why must a test set be used only once, at the end?  =>  If you tune on",
+  "fa": {
+   "f": "چرا مجموعه‌ی تست (test set) باید فقط یک بار و در پایان استفاده شود؟",
+   "b": "اگر با آن تنظیم کنی، دیگر داده‌ی دیده‌نشده نیست و نمره بیش‌ازحد خوش‌بینانه می‌شود."
+  }
+ },
+ "tm7ec1": {
+  "en": "Give an example of leakage in a loan model.  =>  Using \"days in collec",
+  "fa": {
+   "f": "یک مثال از نشت داده (leakage) در مدل وام بزن.",
+   "b": "استفاده از «روزهای حضور در وصول مطالبات» برای پیش‌بینی نکول: این را فقط بعد از شروع نکول می‌دانی."
+  }
+ },
+ "178ee87": {
+  "en": "For f(x) = 0.2 x + 30, what is the prediction at x = 100, and what doe",
+  "fa": {
+   "f": "برای `f(x) = 0.2 x + 30` پیش‌بینی در `x = 100` چیست و عدد 30 چه معنایی دارد؟",
+   "b": "`0.2 x 100 + 30 = 50`؛ عدد 30 پیش‌بینی در `x = 0` است، یعنی بایاس (bias)."
+  }
+ },
+ "1d9fb7x": {
+  "en": "Why do we square the errors instead of just adding them?  =>  Plain er",
+  "fa": {
+   "f": "چرا خطاها را به توان دو می‌رسانیم و فقط جمعشان نمی‌کنیم؟",
+   "b": "خطاهای بالا و پایین خط همدیگر را خنثی می‌کنند؛ توان دو بزرگ‌ترین اشتباه‌ها را هم بیشتر جریمه می‌کند."
+  }
+ },
+ "1ukk1ia": {
+  "en": "Why can we not trust a fitted line far outside the data it saw?  =>  T",
+  "fa": {
+   "f": "چرا نباید به خطی که برازش شده، دور از داده‌هایی که دیده اعتماد کنیم؟",
+   "b": "ممکن است رابطه بیرون از آن بازه فرق کند و داده هیچ شاهدی درباره‌ی آن ندارد."
+  }
+ },
+ "1j320ir": {
+  "en": "Compute J for the points (1, 2), (2, 4) and w = 2, b = 0.  =>  The lin",
+  "fa": {
+   "f": "برای نقطه‌های `(1, 2)` و `(2, 4)` و `w = 2` و `b = 0` مقدار `J` را حساب کن.",
+   "b": "خط 2 و 4 را پیش‌بینی می‌کند، خطاها صفرند، پس `J = 0`."
+  }
+ },
+ "1sc0cet": {
+  "en": "Why divide by m? Why divide by 2?  =>  Dividing by m makes the cost an",
+  "fa": {
+   "f": "چرا تقسیم بر `m`؟ چرا تقسیم بر 2؟",
+   "b": "تقسیم بر `m` هزینه را به میانگین تبدیل می‌کند تا به مقدار داده وابسته نباشد؛ عدد 2 فقط 2 حاصل از مشتق را خنثی می‌کند."
+  }
+ },
+ "491bwg": {
+  "en": "What does convex mean, and why is it good news?  =>  The cost has one ",
+  "fa": {
+   "f": "محدب (convex) یعنی چه و چرا خبر خوبی است؟",
+   "b": "هزینه یک ته دارد و دره‌ی کاذب ندارد، پس رفتن به سمت پایین همیشه به بهترین جواب می‌رسد."
+  }
+ },
+ "t6a60s": {
+  "en": "A slope is positive. In which direction does w move, and why?  =>  w m",
+  "fa": {
+   "f": "شیب مثبت است. `w` به کدام سمت می‌رود و چرا؟",
+   "b": "`w` به چپ، یعنی به مقدار کوچک‌تر می‌رود، چون `w := w - alpha x slope` و شیب مثبت است."
+  }
+ },
+ "1sheptl": {
+  "en": "You see the cost going up and down on successive iterations. Name two ",
+  "fa": {
+   "f": "می‌بینی هزینه در تکرارهای پشت‌سرهم بالا و پایین می‌شود. دو دلیل ممکن را نام ببر.",
+   "b": "`alpha` خیلی بزرگ است (از هدف رد می‌شود)، یا یک اشکال در کد مثل خطای علامت."
+  }
+ },
+ "ndcomg": {
+  "en": "Why does gradient descent slow down near the minimum even if alpha doe",
+  "fa": {
+   "f": "چرا گرادیان کاهشی (gradient descent) نزدیک مینیمم کند می‌شود، حتی اگر `alpha` تغییر نکند؟",
+   "b": "شیب با نزدیک‌شدن به ته کوچک می‌شود، پس هر گام کوچک‌تر است."
+  }
+ },
+ "diupzy": {
+  "en": "Do one step by hand for the points (1, 2), (2, 4) from w = 0, b = 0 wi",
+  "fa": {
+   "f": "برای نقطه‌های `(1, 2)` و `(2, 4)` از `w = 0` و `b = 0` با `alpha = 0.1` یک گام را دستی انجام بده. بعدش `w` و `b` چقدرند؟",
+   "b": "خطاها `-2` و `-4` هستند؛ `dw = (1/2)(-2 x 1 + -4 x 2) = -5` و `db = (1/2)(-2 - 4) = -3`؛ پس `w = 0.5` و `b = 0.3`."
+  }
+ },
+ "f5qjri": {
+  "en": "With n = 4 features, how many parameters does the model learn?  =>  Fi",
+  "fa": {
+   "f": "با `n = 4` ویژگی (feature)، مدل چند پارامتر یاد می‌گیرد؟",
+   "b": "پنج تا: چهار وزن و یک بایاس."
+  }
+ },
+ "1y3g9tp": {
+  "en": "Compute w . x + b for w = \\[1, 2, 3\\], x = \\[4, 5, 6\\], b = -10.  =>  ",
+  "fa": {
+   "f": "`w . x + b` را برای `w = [1, 2, 3]` و `x = [4, 5, 6]` و `b = -10` حساب کن.",
+   "b": "`4 + 10 + 18 - 10 = 22`."
+  }
+ },
+ "1lbb90q": {
+  "en": "Give two reasons that `np.dot` beats a for loop.  =>  Shorter code, an",
+  "fa": {
+   "f": "دو دلیل بگو که چرا `np.dot` از حلقه‌ی for بهتر است.",
+   "b": "کد کوتاه‌تر است و خیلی سریع‌تر اجرا می‌شود، چون از کد کامپایل‌شده و سخت‌افزار موازی استفاده می‌کند."
+  }
+ },
+ "7wa84d": {
+  "en": "Why is the normal equation not enough for the rest of the course?  => ",
+  "fa": {
+   "f": "چرا معادله‌ی نرمال (normal equation) برای بقیه‌ی درس کافی نیست؟",
+   "b": "فقط برای رگرسیون خطی کار می‌کند؛ رگرسیون لجستیک و شبکه‌های عصبی چنین فرمولی ندارند."
+  }
+ },
+ "dksykg": {
+  "en": "Why does a feature measured in thousands make gradient descent slow?  ",
+  "fa": {
+   "f": "چرا ویژگی‌ای که در اندازه‌ی هزارها است گرادیان کاهشی را کند می‌کند؟",
+   "b": "وزن آن ویژگی باید خیلی کوچک باشد و سطح هزینه به یک دره‌ی باریک تبدیل می‌شود که گرادیان کاهشی در آن زیگزاگ می‌رود."
+  }
+ },
+ "wvwhkp": {
+  "en": "Z-score the value 1000 when the mean is 600 and the standard deviation",
+  "fa": {
+   "f": "مقدار 1000 را با میانگین 600 و انحراف معیار 450 نمره‌ی z (Z-score) کن.",
+   "b": "`(1000 - 600) / 450 = 0.89`."
+  }
+ },
+ "3qvayv": {
+  "en": "Why is polynomial regression still called linear regression?  =>  Beca",
+  "fa": {
+   "f": "چرا رگرسیون چندجمله‌ای (polynomial) هنوز «رگرسیون خطی» نامیده می‌شود؟",
+   "b": "چون نسبت به وزن‌ها خطی است، حتی اگر ویژگی‌ها توان‌های `x` باشند."
+  }
+ },
+ "1yr6e2i": {
+  "en": "Name two features you could build from the columns OfferedAmount and N",
+  "fa": {
+   "f": "دو ویژگی نام ببر که می‌توانی از ستون‌های `OfferedAmount` و `NumberOfTerms` بسازی.",
+   "b": "`AmountPerTerm` (مبلغ تقسیم بر تعداد اقساط) و لگاریتم مبلغ."
+  }
+ },
+ "12i2xr0": {
+  "en": "Compute sigmoid(0) and say what it means.  =>  0.5: the model is undec",
+  "fa": {
+   "f": "`sigmoid(0)` را حساب کن و بگو چه معنایی دارد.",
+   "b": "0.5: مدل مردد است و ورودی روی مرز تصمیم (decision boundary) قرار دارد."
+  }
+ },
+ "1oc5xe9": {
+  "en": "For w = \\[2, -1\\], b = 1 and x = \\[1, 3\\], what is z, and what does th",
+  "fa": {
+   "f": "برای `w = [2, -1]` و `b = 1` و `x = [1, 3]` مقدار `z` چیست و مدل چه پیش‌بینی می‌کند؟",
+   "b": "`z = 2 x 1 - 1 x 3 + 1 = 0`، پس احتمال 0.5 است، دقیقاً روی مرز."
+  }
+ },
+ "1ymrvkz": {
+  "en": "Why can a straight line not be the model for yes or no data?  =>  It g",
+  "fa": {
+   "f": "چرا یک خط راست نمی‌تواند مدل داده‌های بله/خیر باشد؟",
+   "b": "مقدارهایی بیرون از 0 و 1 می‌دهد و یک داده‌ی پرت می‌تواند آستانه‌اش را جابه‌جا کند."
+  }
+ },
+ "alc7ip": {
+  "en": "A probability is 0.2. What are the odds?  =>  0.2 / 0.8 = 0.25, which ",
+  "fa": {
+   "f": "احتمال 0.2 است. شانس (odds) چیست؟",
+   "b": "`0.2 / 0.8 = 0.25`، یعنی 1 به 4."
+  }
+ },
+ "pi96z6": {
+  "en": "Compute the loss for y = 1 when f = 0.8, and for y = 0 when f = 0.8.  ",
+  "fa": {
+   "f": "زیان (loss) را برای `y = 1` وقتی `f = 0.8` و برای `y = 0` وقتی `f = 0.8` حساب کن.",
+   "b": "`-ln(0.8) = 0.223` و `-ln(0.2) = 1.609`."
+  }
+ },
+ "in5jta": {
+  "en": "Why is the cost exactly 0.693 at w = 0, b = 0?  =>  Every prediction i",
+  "fa": {
+   "f": "چرا هزینه در `w = 0` و `b = 0` دقیقاً 0.693 است؟",
+   "b": "همه‌ی پیش‌بینی‌ها 0.5 هستند و `-ln(0.5) = 0.693` برای هر دو برچسب."
+  }
+ },
+ "qi1l2v": {
+  "en": "What changes between the gradient for linear and logistic regression? ",
+  "fa": {
+   "f": "بین گرادیان رگرسیون خطی و لجستیک چه چیزی عوض می‌شود؟",
+   "b": "فقط پیش‌بینی `f`: در حالت لجستیک یک سیگموید (sigmoid) است."
+  }
+ },
+ "1llkeg2": {
+  "en": "Why does log loss punish a confident wrong answer so hard, and is that",
+  "fa": {
+   "f": "چرا زیان لگاریتمی (log loss) جواب غلطِ با اطمینان را این‌قدر سخت جریمه می‌کند و آیا این مطلوب است؟",
+   "b": "وقتی پیش‌بینی غلط به قطعیت نزدیک می‌شود، زیان بی‌نهایت بزرگ می‌شود. این مطلوب است، چون مدل را به سمت کالیبره‌بودن (calibrated) می‌برد: قطعیتی را که نداری ادعا نکن."
+  }
+ },
+ "wbrlyj": {
+  "en": "Your training error is 2% and your validation error is 18%. What is th",
+  "fa": {
+   "f": "خطای آموزش 2٪ و خطای اعتبارسنجی 18٪ است. مشکل چیست و دو راه‌حل کدام‌اند؟",
+   "b": "واریانس بالا (بیش‌برازش، overfitting). راه‌حل‌ها: داده‌ی بیشتر، ویژگی‌های کمتر، مدل ساده‌تر، منظم‌سازی (regularization) بیشتر."
+  }
+ },
+ "gzsd8f": {
+  "en": "What happens to the weights as lambda becomes very large?  =>  They sh",
+  "fa": {
+   "f": "وقتی lambda خیلی بزرگ می‌شود وزن‌ها چه می‌شوند؟",
+   "b": "به سمت صفر کوچک می‌شوند و مدل تقریباً صاف می‌شود (کم‌برازش، underfitting)."
+  }
+ },
+ "1di67r7": {
+  "en": "Why is a model that is perfect on its training data suspicious?  =>  I",
+  "fa": {
+   "f": "چرا مدلی که روی داده‌ی آموزشش بی‌نقص است مشکوک است؟",
+   "b": "شاید نویز را حفظ کرده باشد، پس روی داده‌ی جدید احتمالاً بدتر عمل می‌کند."
+  }
+ },
+ "1mt8bqh": {
+  "en": "In scikit-learn, which C corresponds to a lambda of 10?  =>  C = 1 / 1",
+  "fa": {
+   "f": "در scikit-learn کدام `C` با lambda برابر 10 مطابقت دارد؟",
+   "b": "`C = 1 / 10 = 0.1`."
+  }
+ },
+ "1xoiphb": {
+  "en": "A fraud model has 99% accuracy and the fraud rate is 1%. Is it good? W",
+  "fa": {
+   "f": "یک مدل تقلب دقت 99٪ دارد و نرخ تقلب 1٪ است. آیا خوب است؟ چه چیزی را بررسی می‌کنی؟",
+   "b": "لزوماً نه: اگر همیشه «تقلب نیست» پیش‌بینی کنی هم 99٪ می‌گیری. دقت (precision) و بازیابی (recall) دسته‌ی تقلب را بررسی کن و با مدل پایه (baseline) مقایسه کن."
+  }
+ },
+ "r3my0g": {
+  "en": "TP = 20, FP = 30, FN = 10. Compute precision and recall.  =>  Precisio",
+  "fa": {
+   "f": "`TP = 20` و `FP = 30` و `FN = 10`. دقت (precision) و بازیابی (recall) را حساب کن.",
+   "b": "`precision = 20 / 50 = 0.40`؛ `recall = 20 / 30 = 0.67`."
+  }
+ },
+ "1otbo97": {
+  "en": "You lower the threshold from 0.5 to 0.3. What happens to precision and",
+  "fa": {
+   "f": "آستانه را از 0.5 به 0.3 کم می‌کنی. دقت و بازیابی چه می‌شوند و چرا؟",
+   "b": "بازیابی بالا می‌رود و دقت معمولاً پایین می‌آید، چون موارد بیشتری علامت می‌خورند، از جمله موارد غلط بیشتر."
+  }
+ },
+ "1sqd0qg": {
+  "en": "Why split loan data by date instead of randomly?  =>  A random split l",
+  "fa": {
+   "f": "چرا داده‌های وام را بر اساس تاریخ تقسیم می‌کنیم و نه تصادفی؟",
+   "b": "تقسیم تصادفی اجازه می‌دهد مدل روی داده‌های بعد از موردهایی که تست می‌شود آموزش ببیند، که نتیجه را بهتر از واقع نشان می‌دهد. در عمل مدل فقط آینده را پیش‌بینی می‌کند."
+  }
+ },
+ "g18lsx": {
+  "en": "Which algorithms in this chapter need feature scaling, and why?  =>  K",
+  "fa": {
+   "f": "کدام الگوریتم‌های این فصل به مقیاس‌دهی ویژگی (feature scaling) نیاز دارند و چرا؟",
+   "b": "KNN، SVM، شبکه‌های عصبی، k-means و PCA، چون از فاصله یا جمع روی ویژگی‌ها استفاده می‌کنند و ویژگی‌ای با اندازه‌ی هزارها بقیه را تحت‌الشعاع قرار می‌دهد."
+  }
+ },
+ "n6um4u": {
+  "en": "Why does a random forest overfit less than one deep decision tree?  =>",
+  "fa": {
+   "f": "چرا جنگل تصادفی (random forest) کمتر از یک درخت تصمیم عمیق بیش‌برازش می‌کند؟",
+   "b": "درخت‌های مختلف زیادی رأی می‌دهند و خطاهای هرکدام تا حدی همدیگر را خنثی می‌کنند (واریانس کمتر)."
+  }
+ },
+ "7et9za": {
+  "en": "What is the difference between clustering and classification?  =>  Cla",
+  "fa": {
+   "f": "تفاوت خوشه‌بندی (clustering) و دسته‌بندی (classification) چیست؟",
+   "b": "دسته‌بندی برچسب‌های مشخص دارد و آن‌ها را یاد می‌گیرد؛ خوشه‌بندی برچسب ندارد و گروه‌ها را خودش می‌سازد."
+  }
+ },
+ "dbp8gk": {
+  "en": "You have 3,000 loans and 20 columns. Which two models do you try first",
+  "fa": {
+   "f": "3000 وام و 20 ستون داری. اول کدام دو مدل را امتحان می‌کنی و چطور انتخاب می‌کنی؟",
+   "b": "یک رگرسیون لجستیک منظم‌شده به‌عنوان مدل پایه، و یک جنگل تصادفی یا گرادیان بوستینگ؛ با اعتبارسنجی متقاطع (cross-validation) روی یک مجموعه‌ی کنارگذاشته‌شده مقایسه‌شان می‌کنی."
+  }
+ },
+ "ojyj42": {
+  "en": "Why is logistic regression a one-neuron neural network?  =>  A neuron ",
+  "fa": {
+   "f": "چرا رگرسیون لجستیک یک شبکه‌ی عصبی با یک نورون است؟",
+   "b": "نورون یک مجموع وزنی به‌علاوه‌ی بایاس است که از یک تابع فعال‌سازی (activation) می‌گذرد؛ با سیگموید، همان فرمول رگرسیون لجستیک است."
+  }
+ },
+ "1wfl83q": {
+  "en": "Why do hidden layers need a non-linear activation?  =>  Otherwise stac",
+  "fa": {
+   "f": "چرا لایه‌های پنهان (hidden layers) به تابع فعال‌سازی غیرخطی نیاز دارند؟",
+   "b": "وگرنه لایه‌های پشت‌سرهم به یک مدل خطی ساده تبدیل می‌شوند و هیچ قدرتی اضافه نمی‌کنند."
+  }
+ },
+ "1wa3js5": {
+  "en": "What does backpropagation compute?  =>  The slope of the cost with res",
+  "fa": {
+   "f": "پس‌انتشار (backpropagation) چه چیزی را حساب می‌کند؟",
+   "b": "شیب هزینه نسبت به هر وزن را، لایه به لایه، با استفاده از قاعده‌ی زنجیری (chain rule)."
+  }
+ },
+ "ebq98n": {
+  "en": "You have 5,000 rows of loan data. Do you start with a neural network? ",
+  "fa": {
+   "f": "5000 ردیف داده‌ی وام داری. آیا با شبکه‌ی عصبی شروع می‌کنی؟ چرا بله یا چرا نه؟",
+   "b": "نه: با یک جدول کوچک، با رگرسیون لجستیک و مجموعه‌های درختی شروع کن که ساده‌ترند و معمولاً به همان اندازه دقیق‌اند؛ شبکه‌ی عصبی را برای داده‌های بدون ساختار یا مدل‌های از پیش‌آموزش‌دیده نگه دار."
+  }
+ },
+ "ube08q": {
+  "en": "A layer has 400 inputs and 25 neurons. How many parameters does it hav",
+  "fa": {
+   "f": "یک لایه 400 ورودی و 25 نورون دارد. چند پارامتر دارد؟",
+   "b": "`25 x (400 + 1) = 10,025`: یک وزن برای هر ورودی به‌علاوه‌ی یک بایاس برای هر نورون."
+  }
+ },
+ "ttppg0": {
+  "en": "X has 5 rows and 3 columns, and the layer has 4 neurons. What shape is",
+  "fa": {
+   "f": "`X` پنج ردیف و سه ستون دارد و لایه 4 نورون دارد. شکل `X @ W + b` چیست؟",
+   "b": "5 ردیف و 4 ستون: برای هر نمونه یک خروجی به ازای هر نورون."
+  }
+ },
+ "1aqmgm0": {
+  "en": "Compute the cosine similarity of \\[1, 0\\] and \\[0, 1\\], and of \\[2, 2\\",
+  "fa": {
+   "f": "شباهت کسینوسی (cosine similarity) را برای `[1, 0]` و `[0, 1]` و همچنین برای `[2, 2]` و `[1, 1]` حساب کن.",
+   "b": "0 و 1."
+  }
+ },
+ "1j5h4x": {
+  "en": "Derive the derivative of (w x - y) squared with respect to w.  =>  2 (",
+  "fa": {
+   "f": "مشتق `(w x - y)` به توان دو را نسبت به `w` به دست بیاور.",
+   "b": "`2 (w x - y) x`، با قاعده‌ی زنجیری."
+  }
+ },
+ "1dj340l": {
+  "en": "You run 40 tests at the 5% level on random data. About how many will l",
+  "fa": {
+   "f": "40 آزمون را در سطح 5٪ روی داده‌ی تصادفی اجرا می‌کنی. حدوداً چند تا فقط به‌اتفاق معنادار به نظر می‌رسند؟",
+   "b": "حدود 2 تا (`40 x 0.05`)."
+  }
+ },
+ "t91pfr": {
+  "en": "A disease affects 1% of people. A test finds 90% of the sick and wrong",
+  "fa": {
+   "f": "بیماری‌ای 1٪ مردم را درگیر می‌کند. آزمایش 90٪ بیماران را پیدا می‌کند و به‌اشتباه 9٪ سالم‌ها را علامت می‌زند. اگر آزمایشت مثبت شد، احتمال بیمار بودنت چقدر است؟",
+   "b": "`0.9 x 0.01 = 0.009` از بیماران علامت می‌خورند؛ `0.09 x 0.99 = 0.0891` از سالم‌ها؛ `0.009 / (0.009 + 0.0891)` حدود 9٪ است. بیشتر مثبت‌ها هشدار کاذب‌اند چون بیماری نادر است."
+  }
+ },
+ "ueh3s0": {
+  "en": "Name the three features that every definition of an agent shares.  => ",
+  "fa": {
+   "f": "سه ویژگی‌ای را نام ببر که در همه‌ی تعریف‌های «عامل» (agent) مشترک است.",
+   "b": "یک مدل زبانی بزرگ (LLM)، ابزارها و مقداری خودمختاری."
+  }
+ },
+ "1i6l4g5": {
+  "en": "Which of the five patterns has no fixed end, and what does it therefor",
+  "fa": {
+   "f": "کدام یک از پنج الگو پایان ثابت ندارد و بنابراین به چه چیزی نیاز دارد؟",
+   "b": "ارزیاب-بهینه‌ساز (evaluator-optimizer)، چون حلقه می‌زند؛ به یک قاعده‌ی توقف و یک سقف تعداد نوبت نیاز دارد."
+  }
+ },
+ "16ouc98": {
+  "en": "Give a loan example of routing.  =>  Classify each message as a databa",
+  "fa": {
+   "f": "یک مثال وام برای مسیریابی (routing) بزن.",
+   "b": "هر پیام را به‌صورت «سؤال پایگاه داده»، «سؤال سیاست» یا «هر دو» دسته‌بندی کن و بعد آن را از مسیر مناسب بفرست."
+  }
+ },
+ "w4s0kc": {
+  "en": "Why can an LLM not answer \"what is 48,317 x 29\" reliably on its own, a",
+  "fa": {
+   "f": "چرا یک LLM به‌تنهایی نمی‌تواند به‌طور قابل‌اعتماد به «48,317 x 29 چند می‌شود؟» جواب بدهد و چه چیزی این را درست می‌کند؟",
+   "b": "LLMها متن تولید می‌کنند و ممکن است در حساب اشتباه کنند؛ یک مفسر کد یا ابزار ماشین‌حساب آن را دقیق حساب می‌کند."
+  }
+ },
+ "7uerr3": {
+  "en": "Which of Barry Zhang's four questions would stop you from building an ",
+  "fa": {
+   "f": "کدام یک از چهار سؤال Barry Zhang جلوی ساختن عامل برای «تأیید یا رد خودکار وام» را می‌گیرد؟",
+   "b": "هزینه و قابل‌کشف‌بودن خطاها: تأیید اشتباه گران است و تشخیصش سخت، پس یک انسان را در حلقه نگه دار و اختیارات عامل را محدود کن."
+  }
+ },
+ "15om5d1": {
+  "en": "What are the three parts of an agent?  =>  The environment, the tools ",
+  "fa": {
+   "f": "سه بخش یک عامل (agent) چیست؟",
+   "b": "محیط (environment)، ابزارها (tools) و پرامپت سیستم (system prompt)."
+  }
+ },
+ "1rc74up": {
+  "en": "Why should a safety rule be enforced in code and not in the prompt?  =",
+  "fa": {
+   "f": "چرا قانون ایمنی باید در کد اعمال شود و نه در پرامپت؟",
+   "b": "پرامپت را می‌شود نادیده گرفت یا دور زد؛ اتصال فقط‌خواندنی و بررسی با پارسر را نه."
+  }
+ },
+ "16q66kk": {
+  "en": "In the tool-use loop, what must a `tool_result` carry back, and where ",
+  "fa": {
+   "f": "در حلقه‌ی استفاده از ابزار، `tool_result` چه چیزی را باید برگرداند و در کدام قسمت پیام قرار می‌گیرد؟",
+   "b": "`tool_use_id` همان فراخوانی، خروجی به‌عنوان محتوا، و `is_error` اگر شکست خورده باشد؛ نتیجه‌های ابزار در ابتدای پیام جدید کاربر می‌آیند."
+  }
+ },
+ "1l67al4": {
+  "en": "Why is hybrid search better than embeddings alone for a question about",
+  "fa": {
+   "f": "چرا جستجوی ترکیبی (hybrid) برای سؤالی درباره‌ی «ماده‌ی 7» از امبدینگ‌ها به‌تنهایی بهتر است؟",
+   "b": "امبدینگ‌ها روی رشته‌های دقیق ضعیف‌اند؛ BM25 عبارت دقیق را تطبیق می‌دهد."
+  }
+ },
+ "130jwbf": {
+  "en": "Compute the reciprocal rank fusion score of a chunk that is first in o",
+  "fa": {
+   "f": "امتیاز ادغام رتبه‌ی معکوس (reciprocal rank fusion) را برای تکه‌ای حساب کن که در یک فهرست اول و در فهرست دیگر سوم است (`k = 60`).",
+   "b": "`1/61 + 1/63 = 0.01639 + 0.01587 = 0.0323`."
+  }
+ },
+ "y6tveh": {
+  "en": "What does contextual retrieval add to a chunk, and when?  =>  A short ",
+  "fa": {
+   "f": "بازیابی زمینه‌ای (contextual retrieval) چه چیزی به یک تکه اضافه می‌کند و کی؟",
+   "b": "یک توضیح کوتاه که LLM می‌نویسد و می‌گوید تکه کجای سندش قرار دارد؛ پیش از امبد کردن و پیش از ایندکس BM25 به ابتدای تکه اضافه می‌شود."
+  }
+ },
+ "6htvut": {
+  "en": "Why measure hit@k before judging the generated answers?  =>  If the ri",
+  "fa": {
+   "f": "چرا پیش از قضاوت درباره‌ی پاسخ‌های تولیدشده، `hit@k` را اندازه می‌گیریم؟",
+   "b": "اگر پاراگراف درست بازیابی نشود، هیچ مولدی نمی‌تواند درست جواب بدهد، پس بازیابی را اول به‌تنهایی اندازه می‌گیریم."
+  }
+ },
+ "vuj2ar": {
+  "en": "Model  =>  A function that turns inputs into a prediction",
+  "fa": {
+   "f": "مدل",
+   "b": "تابعی که ورودی‌ها را به یک پیش‌بینی تبدیل می‌کند"
+  }
+ },
+ "15j6cjq": {
+  "en": "Feature (x)  =>  An input you know, like house size or loan amount",
+  "fa": {
+   "f": "ویژگی (x)",
+   "b": "ورودی‌ای که می‌دانی، مثل اندازه‌ی خانه یا مبلغ وام"
+  }
+ },
+ "s1un4r": {
+  "en": "Target, label (y)  =>  What you predict; a label is its true value in ",
+  "fa": {
+   "f": "هدف، برچسب (y)",
+   "b": "چیزی که پیش‌بینی می‌کنی؛ برچسب مقدار درست آن در داده‌ی آموزشی است"
+  }
+ },
+ "frlm5f": {
+  "en": "Training set  =>  The examples the model learns from; m is how many th",
+  "fa": {
+   "f": "مجموعه‌ی آموزشی",
+   "b": "نمونه‌هایی که مدل از آن‌ها یاد می‌گیرد؛ `m` تعداد آن‌هاست"
+  }
+ },
+ "1kxuily": {
+  "en": "Prediction (ŷ, y-hat)  =>  The model's guess for y",
+  "fa": {
+   "f": "پیش‌بینی (ŷ)",
+   "b": "حدس مدل برای `y`"
+  }
+ },
+ "i2tbmd": {
+  "en": "Parameters (w, b)  =>  The numbers training adjusts; also called weigh",
+  "fa": {
+   "f": "پارامترها (w, b)",
+   "b": "عددهایی که آموزش تنظیم می‌کند؛ وزن‌ها یا ضریب‌ها هم نامیده می‌شوند"
+  }
+ },
+ "1yey73q": {
+  "en": "Hyperparameter  =>  A setting you choose before training: learning rat",
+  "fa": {
+   "f": "ابرپارامتر",
+   "b": "تنظیمی که پیش از آموزش خودت انتخاب می‌کنی: نرخ یادگیری، `K`، تعداد epoch، اندازه‌ی batch"
+  }
+ },
+ "198x3fl": {
+  "en": "Cost or loss function (J)  =>  One score for how wrong the model is; t",
+  "fa": {
+   "f": "تابع هزینه یا زیان (J)",
+   "b": "یک نمره که نشان می‌دهد مدل چقدر غلط است؛ آموزش آن را کوچک می‌کند"
+  }
+ },
+ "1q90boi": {
+  "en": "Squared error  =>  (ŷ - y)²: big misses count much more than small one",
+  "fa": {
+   "f": "مربع خطا",
+   "b": "`(ŷ - y)²`: اشتباه‌های بزرگ خیلی بیشتر از کوچک‌ها حساب می‌شوند"
+  }
+ },
+ "ksv6ae": {
+  "en": "Gradient, derivative  =>  The slope: which way is uphill, and how stee",
+  "fa": {
+   "f": "گرادیان، مشتق",
+   "b": "شیب: کدام طرف بالاست و چقدر تند است"
+  }
+ },
+ "1kuzqrh": {
+  "en": "Gradient descent  =>  Repeated small steps downhill on the cost",
+  "fa": {
+   "f": "گرادیان کاهشی",
+   "b": "گام‌های کوچک و تکراری به سمت پایین روی تابع هزینه"
+  }
+ },
+ "1ow1wc": {
+  "en": "Learning rate (α)  =>  The step size of gradient descent",
+  "fa": {
+   "f": "نرخ یادگیری (α)",
+   "b": "اندازه‌ی گام در گرادیان کاهشی"
+  }
+ },
+ "1bv7nv8": {
+  "en": "Convex  =>  Bowl-shaped, with one bottom and no false valleys",
+  "fa": {
+   "f": "محدب",
+   "b": "کاسه‌ای شکل، با یک ته و بدون دره‌ی کاذب"
+  }
+ },
+ "6c47u1": {
+  "en": "Local vs global minimum  =>  A valley vs the lowest valley of all",
+  "fa": {
+   "f": "مینیمم محلی در برابر سراسری",
+   "b": "یک دره در برابر پایین‌ترین دره‌ی همه"
+  }
+ },
+ "1o9gcas": {
+  "en": "Batch gradient descent  =>  Every step uses all training examples",
+  "fa": {
+   "f": "گرادیان کاهشی دسته‌ای (batch)",
+   "b": "هر گام از همه‌ی نمونه‌های آموزشی استفاده می‌کند"
+  }
+ },
+ "nddutt": {
+  "en": "Regression  =>  Predicting a number",
+  "fa": {
+   "f": "رگرسیون",
+   "b": "پیش‌بینی یک عدد"
+  }
+ },
+ "gagrbz": {
+  "en": "Classification  =>  Predicting a category from a small set",
+  "fa": {
+   "f": "دسته‌بندی",
+   "b": "پیش‌بینی یک دسته از میان تعداد کمی دسته"
+  }
+ },
+ "6lnx3f": {
+  "en": "Clustering  =>  Grouping similar examples without labels",
+  "fa": {
+   "f": "خوشه‌بندی",
+   "b": "گروه‌بندی نمونه‌های مشابه بدون برچسب"
+  }
+ },
+ "umrv7": {
+  "en": "Anomaly detection  =>  Finding unusual examples, like fraud",
+  "fa": {
+   "f": "تشخیص ناهنجاری",
+   "b": "پیدا کردن نمونه‌های غیرعادی، مثل تقلب"
+  }
+ },
+ "gvjccp": {
+  "en": "Dimensionality reduction  =>  Squeezing many features into a few, keep",
+  "fa": {
+   "f": "کاهش بُعد",
+   "b": "فشرده‌کردن ویژگی‌های زیاد به چند ویژگی، با حفظ بیشتر اطلاعات"
+  }
+ },
+ "29ezp6": {
+  "en": "Overfitting  =>  Memorizing the training data and failing on new data",
+  "fa": {
+   "f": "بیش‌برازش",
+   "b": "حفظ‌کردن داده‌ی آموزشی و شکست روی داده‌ی جدید"
+  }
+ },
+ "177qrbo": {
+  "en": "Underfitting  =>  Too simple to capture the pattern, even in the train",
+  "fa": {
+   "f": "کم‌برازش",
+   "b": "آن‌قدر ساده که الگو را نمی‌گیرد، حتی روی داده‌ی آموزشی"
+  }
+ },
+ "faneh": {
+  "en": "Feature engineering  =>  Choosing or building better inputs by hand, l",
+  "fa": {
+   "f": "مهندسی ویژگی",
+   "b": "انتخاب یا ساختن ورودی‌های بهتر با دست، مثل مبلغ تقسیم بر مدت"
+  }
+ },
+ "vauay0": {
+  "en": "Training vs inference  =>  Learning the parameters vs using them on ne",
+  "fa": {
+   "f": "آموزش در برابر استنتاج",
+   "b": "یادگرفتن پارامترها در برابر استفاده از آن‌ها روی داده‌ی جدید"
+  }
+ },
+ "mxwveb": {
+  "en": "Epoch  =>  One full pass over the training data",
+  "fa": {
+   "f": "دوره (epoch)",
+   "b": "یک گذر کامل روی داده‌ی آموزشی"
+  }
+ },
+ "1xf975a": {
+  "en": "Neuron  =>  Weighted sum of inputs plus a bias, through an activation ",
+  "fa": {
+   "f": "نورون",
+   "b": "مجموع وزنی ورودی‌ها به‌علاوه‌ی یک بایاس که از یک تابع فعال‌سازی می‌گذرد"
+  }
+ },
+ "1sq5sdm": {
+  "en": "Deep learning  =>  Neural networks with many layers that learn their o",
+  "fa": {
+   "f": "یادگیری عمیق",
+   "b": "شبکه‌های عصبی با لایه‌های زیاد که ویژگی‌های خودشان را یاد می‌گیرند"
+  }
+ },
+ "12c1ig0": {
+  "en": "Reinforcement learning  =>  Learning by trial and error to earn the mo",
+  "fa": {
+   "f": "یادگیری تقویتی",
+   "b": "یادگیری با آزمون و خطا برای گرفتن بیشترین پاداش"
+  }
+ },
+ "f33ymy": {
+  "en": "Multiple linear regression  =>  Linear regression with several feature",
+  "fa": {
+   "f": "رگرسیون خطی چندگانه",
+   "b": "رگرسیون خطی با چند ویژگی: `f = w · x + b`"
+  }
+ },
+ "1u9t869": {
+  "en": "Vector  =>  A list of numbers, such as all the weights, or all the fea",
+  "fa": {
+   "f": "بردار",
+   "b": "فهرستی از عددها، مثل همه‌ی وزن‌ها یا همه‌ی ویژگی‌های یک نمونه"
+  }
+ },
+ "17nk2u3": {
+  "en": "Dot product  =>  Multiply matching pairs of two vectors and add the re",
+  "fa": {
+   "f": "ضرب داخلی (dot product)",
+   "b": "درایه‌های متناظر دو بردار را در هم ضرب کن و نتیجه‌ها را جمع بزن"
+  }
+ },
+ "1siy8bz": {
+  "en": "Vectorization  =>  Doing a whole-list calculation in one parallel step",
+  "fa": {
+   "f": "برداری‌سازی (vectorization)",
+   "b": "انجام محاسبه‌ی کل یک فهرست در یک گام موازی (`np.dot`) به‌جای حلقه: کوتاه‌تر و خیلی سریع‌تر"
+  }
+ },
+ "xnrf5a": {
+  "en": "NumPy  =>  The Python library for arrays and fast number crunching",
+  "fa": {
+   "f": "NumPy",
+   "b": "کتابخانه‌ی پایتون برای آرایه‌ها و محاسبه‌ی سریع عددی"
+  }
+ },
+ "1ytu869": {
+  "en": "Normal equation  =>  A one-shot formula for w and b; only for linear r",
+  "fa": {
+   "f": "معادله‌ی نرمال",
+   "b": "فرمولی یک‌مرحله‌ای برای `w` و `b`؛ فقط برای رگرسیون خطی و با ویژگی‌های زیاد کند است"
+  }
+ },
+ "1boq3yg": {
+  "en": "Feature scaling  =>  Rescaling features to similar ranges (about -1 to",
+  "fa": {
+   "f": "مقیاس‌دهی ویژگی",
+   "b": "تغییر مقیاس ویژگی‌ها به بازه‌های مشابه (حدود 1- تا 1) تا گرادیان کاهشی سریع‌تر شود"
+  }
+ },
+ "fu9wc1": {
+  "en": "Mean normalization  =>  (x - mean) / (max - min)",
+  "fa": {
+   "f": "نرمال‌سازی با میانگین",
+   "b": "`(x - mean) / (max - min)`"
+  }
+ },
+ "f07063": {
+  "en": "Z-score normalization  =>  (x - mean) / standard deviation",
+  "fa": {
+   "f": "نرمال‌سازی نمره‌ی z",
+   "b": "`(x - mean) / standard deviation`"
+  }
+ },
+ "59bmz1": {
+  "en": "Learning curve  =>  Cost against iterations; it should fall after ever",
+  "fa": {
+   "f": "منحنی یادگیری",
+   "b": "هزینه در برابر تکرارها؛ باید بعد از هر گام پایین بیاید"
+  }
+ },
+ "1po1p8y": {
+  "en": "Convergence  =>  The point where the cost stops falling noticeably",
+  "fa": {
+   "f": "همگرایی",
+   "b": "نقطه‌ای که هزینه دیگر به‌طور محسوس پایین نمی‌آید"
+  }
+ },
+ "14652on": {
+  "en": "Polynomial regression  =>  Linear regression on x, x squared, x cubed,",
+  "fa": {
+   "f": "رگرسیون چندجمله‌ای",
+   "b": "رگرسیون خطی روی `x` و `x²` و `x³` برای برازش منحنی‌ها"
+  }
+ },
+ "7qfrm0": {
+  "en": "Adjusted R squared  =>  R squared corrected for the number of features",
+  "fa": {
+   "f": "R² تعدیل‌شده",
+   "b": "R² که برای تعداد ویژگی‌های اضافه‌شده اصلاح شده است (StatQuest)"
+  }
+ },
+ "1kiw71w": {
+  "en": "Residual sum of squares (RSS)  =>  The sum of squared gaps between poi",
+  "fa": {
+   "f": "مجموع مربعات باقی‌مانده (RSS)",
+   "b": "مجموع مربع فاصله‌ی نقطه‌ها از خط؛ همان ایده‌ی تابع هزینه"
+  }
+ },
+ "13kvmm6": {
+  "en": "Bias-variance trade-off  =>  Too simple misses the pattern (bias); too",
+  "fa": {
+   "f": "موازنه‌ی سوگیری و واریانس",
+   "b": "خیلی ساده الگو را از دست می‌دهد (سوگیری)؛ خیلی انعطاف‌پذیر دنبال نویز می‌رود (واریانس)"
+  }
+ },
+ "m4gwco": {
+  "en": "Agent  =>  An LLM system that uses tools and decides its own steps; ag",
+  "fa": {
+   "f": "عامل (agent)",
+   "b": "سیستم LLM که از ابزار استفاده می‌کند و گام‌هایش را خودش تعیین می‌کند؛ میزان خودمختاری یک طیف است"
+  }
+ },
+ "1p71jmn": {
+  "en": "Workflow  =>  A predefined sequence of steps with at least one LLM ins",
+  "fa": {
+   "f": "گردش‌کار (workflow)",
+   "b": "دنباله‌ای از پیش‌تعریف‌شده از گام‌ها که حداقل یک LLM درونش دارد"
+  }
+ },
+ "x4y6jl": {
+  "en": "Tool use  =>  Letting an LLM call search, code, APIs or a database to ",
+  "fa": {
+   "f": "استفاده از ابزار (tool use)",
+   "b": "اجازه‌دادن به LLM که جستجو، کد، API یا پایگاه داده را صدا بزند تا دنیای واقعی را ببیند و در آن عمل کند"
+  }
+ },
+ "17l5da5": {
+  "en": "Baseline  =>  The simplest sensible prediction (the average, or the mo",
+  "fa": {
+   "f": "مدل پایه (baseline)",
+   "b": "ساده‌ترین پیش‌بینی معقول (میانگین یا رایج‌ترین دسته) که مدل باید از آن بهتر باشد"
+  }
+ },
+ "13afrak": {
+  "en": "Binary classification  =>  Classification with two possible answers, c",
+  "fa": {
+   "f": "دسته‌بندی دودویی",
+   "b": "دسته‌بندی با دو جواب ممکن، دسته‌ی منفی (0) و مثبت (1)؛ مثبت به معنی «خوب» نیست"
+  }
+ },
+ "32ecod": {
+  "en": "Generalization  =>  Doing well on data the model has not seen",
+  "fa": {
+   "f": "تعمیم (generalization)",
+   "b": "خوب‌بودن روی داده‌ای که مدل ندیده است"
+  }
+ },
+ "121u3td": {
+  "en": "Data leakage  =>  Information from the test set, or from the future, g",
+  "fa": {
+   "f": "نشت داده (data leakage)",
+   "b": "رسیدن اطلاعات مجموعه‌ی تست یا آینده به آموزش، که نتیجه را بهتر از واقع نشان می‌دهد"
+  }
+ },
+ "yqaqw": {
+  "en": "Cross-validation  =>  Splitting the data into k parts and rotating whi",
+  "fa": {
+   "f": "اعتبارسنجی متقاطع",
+   "b": "تقسیم داده به `k` قسمت و چرخاندن اینکه کدام قسمت تست باشد، سپس میانگین‌گرفتن نمره‌ها"
+  }
+ },
+ "1lqfbe9": {
+  "en": "Confusion matrix  =>  A 2 x 2 table counting true positives, false pos",
+  "fa": {
+   "f": "ماتریس درهم‌ریختگی (confusion matrix)",
+   "b": "جدول 2 در 2 که مثبت‌های درست، مثبت‌های کاذب، منفی‌های کاذب و منفی‌های درست را می‌شمارد"
+  }
+ },
+ "1skdcqp": {
+  "en": "Precision  =>  Of the cases the model flagged, the share that were tru",
+  "fa": {
+   "f": "دقت (precision)",
+   "b": "از مواردی که مدل علامت زد، چه سهمی واقعاً مثبت بودند"
+  }
+ },
+ "119r9je": {
+  "en": "Recall (sensitivity)  =>  Of the truly positive cases, the share the m",
+  "fa": {
+   "f": "بازیابی (recall، حساسیت)",
+   "b": "از مواردی که واقعاً مثبت‌اند، چه سهمی را مدل گرفت"
+  }
+ },
+ "8y76tr": {
+  "en": "F1 score  =>  One number that is high only when precision and recall a",
+  "fa": {
+   "f": "امتیاز F1",
+   "b": "یک عدد که فقط وقتی بالاست که دقت و بازیابی هر دو بالا باشند"
+  }
+ },
+ "p75hp3": {
+  "en": "ROC curve and AUC  =>  Recall against false-alarm rate over all thresh",
+  "fa": {
+   "f": "منحنی ROC و AUC",
+   "b": "بازیابی در برابر نرخ هشدار کاذب روی همه‌ی آستانه‌ها، و مساحت زیر آن (0.5 تصادفی است، 1 کامل)"
+  }
+ },
+ "gnw3zj": {
+  "en": "Threshold  =>  The probability cut-off that turns a prediction into ye",
+  "fa": {
+   "f": "آستانه (threshold)",
+   "b": "مرز احتمالی که پیش‌بینی را به بله یا خیر تبدیل می‌کند؛ پیش‌فرض 0.5 است ولی انتخابی است"
+  }
+ },
+ "139ftir": {
+  "en": "Calibration  =>  Whether a predicted 70% really happens about 70% of t",
+  "fa": {
+   "f": "کالیبراسیون",
+   "b": "اینکه آیا احتمال پیش‌بینی‌شده‌ی 70٪ واقعاً حدود 70٪ مواقع اتفاق می‌افتد"
+  }
+ },
+ "1whie4p": {
+  "en": "Sigmoid  =>  The S-shaped function 1 / (1 + e^-z) that squeezes any nu",
+  "fa": {
+   "f": "سیگموید",
+   "b": "تابع S‌شکل `1 / (1 + e^-z)` که هر عددی را به بازه‌ی 0 تا 1 فشرده می‌کند"
+  }
+ },
+ "12axq5q": {
+  "en": "Decision boundary  =>  The inputs where the model switches from one cl",
+  "fa": {
+   "f": "مرز تصمیم",
+   "b": "ورودی‌هایی که مدل در آن‌ها از یک دسته به دسته‌ی دیگر می‌رود (`w . x + b = 0`)"
+  }
+ },
+ "1lzolfu": {
+  "en": "Log loss  =>  The cost of logistic regression; punishes confident wron",
+  "fa": {
+   "f": "زیان لگاریتمی (log loss)",
+   "b": "هزینه‌ی رگرسیون لجستیک؛ جواب غلطِ با اطمینان را سخت جریمه می‌کند"
+  }
+ },
+ "1te3g64": {
+  "en": "Maximum likelihood  =>  Choosing the parameters that make the observed",
+  "fa": {
+   "f": "بیشینه‌ی درست‌نمایی (maximum likelihood)",
+   "b": "انتخاب پارامترهایی که داده‌ی مشاهده‌شده را تا حد ممکن محتمل می‌کنند"
+  }
+ },
+ "ha616r": {
+  "en": "Odds and log-odds  =>  p / (1 - p) and its logarithm; the weighted sum",
+  "fa": {
+   "f": "شانس و لگاریتم شانس",
+   "b": "`p / (1 - p)` و لگاریتمش؛ مجموع وزنی در رگرسیون لجستیک همان لگاریتم شانس است"
+  }
+ },
+ "17uyjfk": {
+  "en": "Softmax  =>  Turns one score per class into probabilities that add up ",
+  "fa": {
+   "f": "سافت‌مکس (softmax)",
+   "b": "یک امتیاز برای هر دسته را به احتمال‌هایی تبدیل می‌کند که جمعشان 1 است"
+  }
+ },
+ "11hxx2c": {
+  "en": "Regularization  =>  Adding a penalty on large weights to the cost, to ",
+  "fa": {
+   "f": "منظم‌سازی (regularization)",
+   "b": "اضافه‌کردن جریمه‌ای برای وزن‌های بزرگ به هزینه، برای کم‌کردن بیش‌برازش"
+  }
+ },
+ "vsyax5": {
+  "en": "Lambda  =>  The strength of the regularization penalty, chosen on vali",
+  "fa": {
+   "f": "لامبدا (lambda)",
+   "b": "قدرت جریمه‌ی منظم‌سازی که روی داده‌ی اعتبارسنجی انتخاب می‌شود"
+  }
+ },
+ "1r333o1": {
+  "en": "L2 (ridge) and L1 (lasso)  =>  Penalties on the squared weights (shrin",
+  "fa": {
+   "f": "L2 (ridge) و L1 (lasso)",
+   "b": "جریمه روی مربع وزن‌ها (آن‌ها را کوچک می‌کند) یا روی قدر مطلقشان (می‌تواند بعضی را دقیقاً صفر کند)"
+  }
+ },
+ "gbvp3g": {
+  "en": "Weight decay  =>  Another name for L2: every update first shrinks each",
+  "fa": {
+   "f": "کاهش وزن (weight decay)",
+   "b": "نام دیگر L2: هر به‌روزرسانی اول هر وزن را کمی کوچک می‌کند"
+  }
+ },
+ "wlq1rm": {
+  "en": "Bias (error)  =>  The systematic miss of a model that is too simple",
+  "fa": {
+   "f": "سوگیری (bias، خطا)",
+   "b": "اشتباه سیستماتیک مدلی که خیلی ساده است"
+  }
+ },
+ "r6hneh": {
+  "en": "Variance (error)  =>  How much a model changes when the training data ",
+  "fa": {
+   "f": "واریانس (خطا)",
+   "b": "اینکه مدل با عوض‌شدن داده‌ی آموزشی چقدر تغییر می‌کند؛ برای مدل‌های خیلی انعطاف‌پذیر زیاد است"
+  }
+ },
+ "1w5iduq": {
+  "en": "Multicollinearity  =>  Features that move together, which makes indivi",
+  "fa": {
+   "f": "هم‌خطی چندگانه (multicollinearity)",
+   "b": "ویژگی‌هایی که با هم تغییر می‌کنند و وزن تک‌تک آن‌ها را ناپایدار می‌کنند"
+  }
+ },
+ "1exgpia": {
+  "en": "Ensemble  =>  A model made of many models whose outputs are combined (",
+  "fa": {
+   "f": "مجموعه‌ی مدل‌ها (ensemble)",
+   "b": "مدلی ساخته‌شده از چند مدل که خروجی‌هایشان ترکیب می‌شود (جنگل‌ها، بوستینگ)"
+  }
+ },
+ "1vvlbv1": {
+  "en": "Bagging and boosting  =>  Many independent models that vote, versus mo",
+  "fa": {
+   "f": "بگینگ و بوستینگ",
+   "b": "مدل‌های مستقل زیادی که رأی می‌دهند، در برابر مدل‌هایی که پشت‌سرهم ساخته می‌شوند و هرکدام خطاهای قبلی را درست می‌کند"
+  }
+ },
+ "42ewu0": {
+  "en": "K-means  =>  Clustering that repeats: assign points to the nearest cen",
+  "fa": {
+   "f": "K-means",
+   "b": "خوشه‌بندی‌ای که تکرار می‌کند: هر نقطه را به نزدیک‌ترین مرکز بده، بعد هر مرکز را به وسط نقطه‌هایش ببر"
+  }
+ },
+ "13qpaew": {
+  "en": "PCA  =>  Finds the few directions of greatest variation, to compress c",
+  "fa": {
+   "f": "PCA",
+   "b": "چند جهت با بیشترین تغییرات را پیدا می‌کند تا ستون‌های همبسته را فشرده کند"
+  }
+ },
+ "15m6v9z": {
+  "en": "Self-supervised learning  =>  Labels made from the data itself, such a",
+  "fa": {
+   "f": "یادگیری خودنظارتی",
+   "b": "برچسب‌هایی که از خود داده ساخته می‌شوند، مثل پیش‌بینی کلمه‌ی بعدی یک متن"
+  }
+ },
+ "7wio6h": {
+  "en": "Activation function  =>  The non-linear function (ReLU, sigmoid, softm",
+  "fa": {
+   "f": "تابع فعال‌سازی",
+   "b": "تابع غیرخطی (ReLU، sigmoid، softmax) که بعد از مجموع وزنی نورون اعمال می‌شود"
+  }
+ },
+ "1r2h9j0": {
+  "en": "Backpropagation  =>  Computes the slope of the cost for every weight i",
+  "fa": {
+   "f": "پس‌انتشار (backpropagation)",
+   "b": "شیب هزینه را برای هر وزن شبکه، لایه به لایه، با قاعده‌ی زنجیری حساب می‌کند"
+  }
+ },
+ "hac1ri": {
+  "en": "Forward propagation  =>  Running the inputs through the layers from le",
+  "fa": {
+   "f": "انتشار روبه‌جلو (forward propagation)",
+   "b": "عبور ورودی‌ها از لایه‌ها از چپ به راست تا پیش‌بینی به دست بیاید"
+  }
+ },
+ "5hrur3": {
+  "en": "Dense layer  =>  A layer in which every neuron sees every input from t",
+  "fa": {
+   "f": "لایه‌ی متراکم (dense)",
+   "b": "لایه‌ای که در آن هر نورون همه‌ی ورودی‌های لایه‌ی قبل را می‌بیند"
+  }
+ },
+ "9mv7ks": {
+  "en": "Keras  =>  A Python library for building neural networks in a few line",
+  "fa": {
+   "f": "Keras",
+   "b": "کتابخانه‌ی پایتون برای ساختن شبکه‌های عصبی در چند خط؛ روی TensorFlow، JAX یا PyTorch اجرا می‌شود"
+  }
+ },
+ "1kn2ymt": {
+  "en": "Gini impurity  =>  How mixed a group is: 1 minus the sum of squared cl",
+  "fa": {
+   "f": "ناخالصی جینی (Gini impurity)",
+   "b": "یک گروه چقدر مخلوط است: 1 منهای مجموع مربع سهم دسته‌ها؛ درخت تقسیمی را انتخاب می‌کند که آن را بیشتر کم کند"
+  }
+ },
+ "16che15": {
+  "en": "Dropout  =>  Randomly switching off some neurons during training so th",
+  "fa": {
+   "f": "دراپ‌اوت (dropout)",
+   "b": "خاموش‌کردن تصادفی بعضی نورون‌ها هنگام آموزش تا شبکه به هیچ‌کدام تکیه نکند"
+  }
+ },
+ "8lmoar": {
+  "en": "Transformer  =>  The network design behind LLMs: attention lets every ",
+  "fa": {
+   "f": "ترنسفورمر (transformer)",
+   "b": "طراحی شبکه پشت LLMها: توجه (attention) به هر کلمه اجازه می‌دهد همه‌ی کلمه‌های دیگر را ببیند"
+  }
+ },
+ "17gudrj": {
+  "en": "Test-time compute  =>  Letting a model generate more tokens while it t",
+  "fa": {
+   "f": "محاسبه‌ی زمان آزمون (test-time compute)",
+   "b": "اجازه‌دادن به مدل که هنگام فکر کردن توکن بیشتری تولید کند، که جواب‌هایش را بهتر می‌کند"
+  }
+ },
+ "axft0q": {
+  "en": "Context window  =>  Everything the model can see at once: instructions",
+  "fa": {
+   "f": "پنجره‌ی زمینه (context window)",
+   "b": "هر چیزی که مدل هم‌زمان می‌بیند: دستورها، گفتگو، نتیجه‌ی ابزارها؛ محدود است و بر اساس توکن قیمت‌گذاری می‌شود"
+  }
+ },
+ "1wnvjir": {
+  "en": "Tool schema  =>  The name, description and parameters of a tool as the",
+  "fa": {
+   "f": "طرح‌واره‌ی ابزار (tool schema)",
+   "b": "نام، توضیح و پارامترهای یک ابزار، همان‌طور که مدل می‌بیند"
+  }
+ },
+ "myc6hd": {
+  "en": "Trajectory  =>  The full sequence of messages and tool calls of one ag",
+  "fa": {
+   "f": "مسیر اجرا (trajectory)",
+   "b": "کل دنباله‌ی پیام‌ها و فراخوانی ابزارها در یک اجرای عامل؛ برای اشکال‌زدایی آن را بخوان"
+  }
+ },
+ "1p7ubio": {
+  "en": "Orchestrator-workers  =>  A workflow where a planner LLM decides the s",
+  "fa": {
+   "f": "هماهنگ‌کننده-کارگرها (orchestrator-workers)",
+   "b": "گردش‌کاری که در آن یک LLM برنامه‌ریز گام‌ها را تعیین می‌کند و به کارگرها می‌سپارد"
+  }
+ },
+ "1thu9tw": {
+  "en": "Evaluator-optimizer  =>  A writer LLM and a reviewer loop until a stop",
+  "fa": {
+   "f": "ارزیاب-بهینه‌ساز (evaluator-optimizer)",
+   "b": "یک LLM نویسنده و یک بازبین که تا رسیدن به قاعده‌ی توقف حلقه می‌زنند؛ الگویی با بیشترین خودمختاری"
+  }
+ },
+ "ear63s": {
+  "en": "Execution accuracy  =>  For text-to-SQL: whether the generated query r",
+  "fa": {
+   "f": "دقت اجرایی (execution accuracy)",
+   "b": "برای تبدیل متن به SQL: آیا کوئری تولیدشده همان ردیف‌های کوئری طلایی را برمی‌گرداند"
+  }
+ },
+ "1gzk97w": {
+  "en": "RAG  =>  Retrieval-augmented generation: look up passages first, then ",
+  "fa": {
+   "f": "RAG",
+   "b": "تولید تقویت‌شده با بازیابی: اول پاراگراف‌ها را پیدا کن، بعد با ارجاع از روی آن‌ها جواب بده"
+  }
+ },
+ "onutwi": {
+  "en": "Chunk  =>  A passage of a document, the unit that is indexed and retri",
+  "fa": {
+   "f": "تکه (chunk)",
+   "b": "یک پاراگراف از سند، واحدی که ایندکس و بازیابی می‌شود"
+  }
+ },
+ "7xuyzt": {
+  "en": "Embedding  =>  A vector that represents the meaning of a text, so that",
+  "fa": {
+   "f": "امبدینگ (embedding)",
+   "b": "برداری که معنای یک متن را نشان می‌دهد، تا متن‌های مشابه نزدیک هم باشند"
+  }
+ },
+ "1bw5j39": {
+  "en": "Cosine similarity  =>  How closely two vectors point the same way: 1 t",
+  "fa": {
+   "f": "شباهت کسینوسی",
+   "b": "اینکه دو بردار چقدر هم‌جهت‌اند: 1 یکسان، 0 بی‌ارتباط، 1- مخالف"
+  }
+ },
+ "egbnm7": {
+  "en": "BM25  =>  Keyword scoring that rewards shared rare words and corrects ",
+  "fa": {
+   "f": "BM25",
+   "b": "امتیازدهی کلیدواژه‌ای که کلمه‌های نادر مشترک را پاداش می‌دهد و طول متن را اصلاح می‌کند"
+  }
+ },
+ "15miv6t": {
+  "en": "Reciprocal rank fusion  =>  Merging ranked lists: each item earns 1 / ",
+  "fa": {
+   "f": "ادغام رتبه‌ی معکوس (RRF)",
+   "b": "ادغام فهرست‌های رتبه‌دار: هر مورد از هر فهرستی که در آن هست `1 / (k + rank)` امتیاز می‌گیرد"
+  }
+ },
+ "k4eh6w": {
+  "en": "Reranker  =>  A second model that re-scores the top retrieved passages",
+  "fa": {
+   "f": "بازرتبه‌بند (reranker)",
+   "b": "مدل دومی که پاراگراف‌های برتر بازیابی‌شده را دوباره امتیاز می‌دهد و چند تای بهترین را نگه می‌دارد"
+  }
+ },
+ "w7xwls": {
+  "en": "hit@k  =>  The share of questions whose right passage is among the top",
+  "fa": {
+   "f": "hit@k",
+   "b": "سهم سؤال‌هایی که پاراگراف درستشان در `k` مورد برتر بازیابی‌شده است"
+  }
+ }
+}

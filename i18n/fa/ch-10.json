@@ -1,0 +1,154 @@
+{
+ "lexwxy": {
+  "en": "Purpose. To use logistic regression you must find its weights. That ne",
+  "fa": "**هدف.** برای استفاده از رگرسیون لجستیک باید وزن‌هایش را پیدا کنی. این به یک تابع هزینه نیاز دارد که با احتمال‌ها جور باشد، و بعد همان گرادیان کاهشی قبلی. نکته‌ی شگفت‌آور این است که چقدر کم چیز عوض می‌شود."
+ },
+ "akcbhg": {
+  "en": "Key ideas",
+  "fa": "**ایده‌های کلیدی**"
+ },
+ "17f30cq": {
+  "en": "Squared error is a bad cost for logistic regression: with a sigmoid it",
+  "fa": "مربع خطا برای رگرسیون لجستیک هزینه‌ی بدی است: با سیگموید یک سطح ناهموار می‌دهد. هزینه‌ی درست **زیان لگاریتمی (log loss)** است."
+ },
+ "9qp6pb": {
+  "en": "The log loss punishes a confident wrong answer very hard.",
+  "fa": "زیان لگاریتمی جواب غلطِ با اطمینان را خیلی سخت جریمه می‌کند."
+ },
+ "1eesdab": {
+  "en": "The gradient has exactly the same form as for linear regression: (pred",
+  "fa": "گرادیان دقیقاً همان شکل رگرسیون خطی را دارد: (پیش‌بینی منهای هدف) ضربدر ویژگی. فقط پیش‌بینی حالا یک سیگموید است."
+ },
+ "1xpep5i": {
+  "en": "At w = 0 and b = 0 the cost is always 0.693, the natural log of 2. Thi",
+  "fa": "در `w = 0` و `b = 0` هزینه همیشه 0.693 است، لگاریتم طبیعی 2. این یک بررسی سریع اشکال است."
+ },
+ "3k5tka": {
+  "en": "10.1 Why not squared error?",
+  "fa": "10.1 چرا مربع خطا نه؟"
+ },
+ "1glj1fp": {
+  "en": "If you put the sigmoid inside the squared-error cost, the cost surface",
+  "fa": "اگر سیگموید را داخل هزینه‌ی مربع خطا بگذاری، سطح هزینه دیگر یک کاسه‌ی واحد نیست: تکه‌های مسطح و تله دارد و گرادیان کاهشی ممکن است گیر کند. هزینه‌ی دیگری شکل کاسه را نگه می‌دارد (Ng، ویدیوی 34)."
+ },
+ "apifcx": {
+  "en": "10.2 The loss on one example",
+  "fa": "10.2 زیان روی یک نمونه"
+ },
+ "15z2tyw": {
+  "en": "For one example with true label y and prediction f (a probability):",
+  "fa": "برای یک نمونه با برچسب درست `y` و پیش‌بینی `f` (یک احتمال):"
+ },
+ "52bqa0": {
+  "en": "If y = 1, the loss is -log(f). When f is near 1 the loss is near 0. Wh",
+  "fa": "اگر `y = 1` باشد، زیان `-log(f)` است. وقتی `f` نزدیک 1 است زیان نزدیک 0 است. وقتی `f` نزدیک 0 است زیان منفجر می‌شود."
+ },
+ "yucr8b": {
+  "en": "If y = 0, the loss is -log(1 - f). The same, mirrored.",
+  "fa": "اگر `y = 0` باشد، زیان `-log(1 - f)` است. همان، آینه‌ای."
+ },
+ "13gv3p0": {
+  "en": "The model is encouraged to be right, and to be humble when it is unsur",
+  "fa": "مدل تشویق می‌شود که درست باشد، و وقتی مطمئن نیست فروتن. چون `y` یا 0 است یا 1، این دو حالت در یک خط جا می‌شوند (Ng، ویدیوی 35)، و هزینه‌ی `J` میانگین این زیان روی همه‌ی `m` نمونه است:"
+ },
+ "lff612": {
+  "en": "When y is 1 the second term vanishes, and when y is 0 the first does, ",
+  "fa": "وقتی `y` برابر 1 است جمله‌ی دوم حذف می‌شود و وقتی 0 است جمله‌ی اول، که دو حالت بالا را می‌دهد. در `w = 0` و `b = 0` همه‌ی پیش‌بینی‌ها 0.5 هستند، پس هر زیان `-log(0.5) = 0.693` است و میانگین هم همین. اگر کدت آنجا 0.693 چاپ نمی‌کند، اشکال دارد."
+ },
+ "cmxm2n": {
+  "en": "10.3 Where the log loss comes from",
+  "fa": "10.3 زیان لگاریتمی از کجا می‌آید"
+ },
+ "1jxtw8h": {
+  "en": "Beyond the videos (StatQuest's Logistic Regression Details Pt 2 shows ",
+  "fa": "**بیرون از ویدیوها** (Logistic Regression Details Pt 2 از StatQuest قدم‌به‌قدم نشان می‌دهد). زیان لگاریتمی همان **بیشینه‌ی درست‌نمایی (maximum likelihood)** در لباس مبدل است. درست‌نمایی احتمالی است که مدل به دقیقاً آنچه رخ داد داده بود: `f` را برای هر نمونه با `y = 1` و `(1 - f)` را برای هر نمونه با `y = 0` ضرب کن. بهترین پارامترها این حاصل‌ضرب را تا حد ممکن بزرگ می‌کنند. حاصل‌ضرب عددهای کوچک زیاد دست‌وپاگیر است، پس لگاریتم بگیر که آن را به جمع تبدیل می‌کند، و علامت را عوض کن تا «بزرگ‌ترین درست‌نمایی» به «کوچک‌ترین هزینه» تبدیل شود. نتیجه همان هزینه‌ی بالا است. پس انتخابی دلبخواهی نیست: اصل محتمل‌ترکردن داده‌ی مشاهده‌شده است."
+ },
+ "8kncfr": {
+  "en": "10.4 The gradient",
+  "fa": "10.4 گرادیان"
+ },
+ "kk95tt": {
+  "en": "This looks exactly like the linear regression update from Chapter 7, a",
+  "fa": "این دقیقاً مثل به‌روزرسانی رگرسیون خطی فصل 7 به نظر می‌رسد و Ng اشاره می‌کند این چقدر عجیب است. تفاوت داخل `f` پنهان است: برای رگرسیون خطی `w . x + b` است و اینجا سیگموید `w . x + b` (Ng، ویدیوی 36). تصادفی نیست: هر دو از یک خانواده‌ی مدل‌ها می‌آیند (مدل‌های خطی تعمیم‌یافته) و هزینه همین‌طور طراحی شده."
+ },
+ "d0o2ge": {
+  "en": "10.5 Code from scratch, checked against scikit-learn",
+  "fa": "10.5 کد از صفر، چک‌شده با scikit-learn"
+ },
+ "ugn4yk": {
+  "en": "The handmade model and scikit-learn agree to three decimals. The model",
+  "fa": "مدل دست‌ساز و scikit-learn تا سه رقم اعشار موافق‌اند. مدل 86.2٪ را درست می‌گیرد، در برابر مدل پایه‌ی 62٪ (همیشه حدس زدن دسته‌ی اکثریت). این مقایسه‌ای است که هر بار باید بکنی (فصل 3). توجه کن که این دقت روی داده‌ی آموزشی است. نمره‌ی منصفانه به داده‌ی کنارگذاشته‌شده نیاز دارد."
+ },
+ "18u63ps": {
+  "en": "10.6 In practice",
+  "fa": "10.6 در عمل"
+ },
+ "1dhrydr": {
+  "en": "Scale the features first (Chapter 8), or gradient descent will crawl.",
+  "fa": "اول ویژگی‌ها را مقیاس‌دهی کن (فصل 8)، وگرنه گرادیان کاهشی می‌خزد."
+ },
+ "1ghdems": {
+  "en": "If one class is rare (defaults, fraud), accuracy is a poor yardstick; ",
+  "fa": "اگر یک دسته نادر است (نکول، تقلب)، دقت معیار بدی است؛ فصل 12 را بخوان."
+ },
+ "cz1i7g": {
+  "en": "Add regularization when you have many features or little data (Chapter",
+  "fa": "وقتی ویژگی‌های زیاد یا داده‌ی کم داری منظم‌سازی اضافه کن (فصل 11)."
+ },
+ "zk9imy": {
+  "en": "scikit-learn's LogisticRegression has regularization on by default, wi",
+  "fa": "`LogisticRegression` در scikit-learn به‌طور پیش‌فرض منظم‌سازی روشن دارد، با قدرت `C` که `C` برابر 1 تقسیم بر `lambda` است. برای برازش بدون منظم‌سازی، مثل بالا، `C=np.inf` بده."
+ },
+ "1cnh28i": {
+  "en": "Loan example. Train a classifier on the offers table with label Accept",
+  "fa": "**مثال وام.** روی جدول پیشنهادها یک دسته‌بند با برچسب `Accepted` آموزش بده. 20٪ ردیف‌ها را کنار بگذار، با میانگین و انحراف معیار آموزش مقیاس‌دهی کن، تابع خودت و scikit-learn را روی همان ویژگی‌های مقیاس‌شده برازش کن، و بررسی کن وزن‌ها موافق‌اند. بعد دقت کنارگذاشته‌شده را با مدل پایه‌ی پیش‌بینی رایج‌ترین نتیجه مقایسه کن. این دقیقاً تمرین چهارشنبه‌ی هفته‌ی 3 است."
+ },
+ "1qknwjp": {
+  "en": "Common mistakes",
+  "fa": "**اشتباه‌های رایج**"
+ },
+ "immg2q": {
+  "en": "Using squared error as the cost.",
+  "fa": "استفاده از مربع خطا به‌عنوان هزینه."
+ },
+ "2itp77": {
+  "en": "Writing log(0): if a prediction is exactly 0 or 1 and wrong, the loss ",
+  "fa": "نوشتن `log(0)`: اگر پیش‌بینی دقیقاً 0 یا 1 باشد و غلط باشد، زیان بی‌نهایت است. کتابخانه‌ها مقدارها را کمی از 0 و 1 دور نگه می‌دارند."
+ },
+ "xpcrk8": {
+  "en": "Reporting training accuracy as if it were the real score.",
+  "fa": "گزارش دقت آموزش انگار نمره‌ی واقعی است."
+ },
+ "g72cja": {
+  "en": "Comparing your weights with scikit-learn's without setting the same re",
+  "fa": "مقایسه‌ی وزن‌هایت با scikit-learn بدون تنظیم منظم‌سازی یکسان."
+ },
+ "cocq5o": {
+  "en": "Check yourself",
+  "fa": "**خودت را بسنج**"
+ },
+ "ugwt0g": {
+  "en": "Compute the loss for y = 1 when f = 0.8, and for y = 0 when f = 0.8.",
+  "fa": "زیان را برای `y = 1` وقتی `f = 0.8` و برای `y = 0` وقتی `f = 0.8` حساب کن."
+ },
+ "1vfa84i": {
+  "en": "Why is the cost exactly 0.693 at w = 0, b = 0?",
+  "fa": "چرا هزینه در `w = 0` و `b = 0` دقیقاً 0.693 است؟"
+ },
+ "17nn8gc": {
+  "en": "What changes between the gradient for linear and logistic regression?",
+  "fa": "بین گرادیان رگرسیون خطی و لجستیک چه چیزی عوض می‌شود؟"
+ },
+ "11tej6r": {
+  "en": "Why does log loss punish a confident wrong answer so hard, and is that",
+  "fa": "چرا زیان لگاریتمی جواب غلطِ با اطمینان را این‌قدر سخت جریمه می‌کند و آیا این مطلوب است؟"
+ },
+ "d7v03l": {
+  "en": "(1) -ln(0.8) = 0.223 and -ln(0.2) = 1.609. (2) Every prediction is 0.5",
+  "fa": "*پاسخ‌ها.* (1) `-ln(0.8) = 0.223` و `-ln(0.2) = 1.609`. (2) همه‌ی پیش‌بینی‌ها 0.5 هستند و `-ln(0.5) = 0.693` برای هر دو برچسب. (3) فقط پیش‌بینی `f`: در حالت لجستیک یک سیگموید است. (4) وقتی پیش‌بینی غلط به قطعیت نزدیک می‌شود، زیان بی‌نهایت بزرگ می‌شود. این مطلوب است، چون مدل را به سمت کالیبره‌بودن می‌برد: قطعیتی را که نداری ادعا نکن."
+ },
+ "16hdrjl": {
+  "en": "Go deeper: Ng, course 1, videos 34 to 36 · StatQuest, Logistic Regress",
+  "fa": "**برای مطالعه‌ی بیشتر:** Ng، درس 1، ویدیوهای 34 تا 36 · StatQuest، Logistic Regression Details Pt 2: Maximum Likelihood · صفحه‌ی مدل‌های خطی scikit-learn (برای هزینه‌ی دقیقی که کمینه می‌کند به بخش رگرسیون لجستیک آن نگاه کن)."
+ }
+}

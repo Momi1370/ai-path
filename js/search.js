@@ -1,12 +1,13 @@
 const tokens = (q) => q.toLowerCase().split(/[^\p{L}\p{N}]+/u).filter((t) => t.length >= 2);
 
 // Every word of the query must appear in the section; titles count more than text.
-export function search(index, query, limit = 30) {
+export function search(index, query, limit = 30, opts = {}) {
   const words = tokens(query);
   if (!words.length) return [];
   const out = [];
   for (const entry of index) {
-    const title = entry.title.toLowerCase(), text = entry.text.toLowerCase();
+    const farsi = opts.fa && entry.fa ? ` ${entry.fa}` : '';
+    const title = entry.title.toLowerCase(), text = (entry.text + farsi).toLowerCase();
     let score = 0;
     let ok = true;
     for (const w of words) {
@@ -14,7 +15,7 @@ export function search(index, query, limit = 30) {
       if (!inTitle && !n) { ok = false; break; }
       score += (inTitle ? 6 : 0) + Math.min(n, 5);
     }
-    if (ok) out.push({ entry, score, snippet: snippet(entry.text, words[0]) });
+    if (ok) out.push({ entry, score, snippet: snippet(entry.text + farsi, words[0]) });
   }
   return out.sort((a, b) => b.score - a.score).slice(0, limit);
 }

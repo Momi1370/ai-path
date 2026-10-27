@@ -26,6 +26,19 @@ export async function validate() {
     for (const m of data.html.matchAll(/href="#\/notes\/(ch-\d+)/g)) if (!chapters.some((x) => `ch-${x.n}` === m[1])) problems.push(`chapter ${ch.n}: link to missing ${m[1]}`);
   }
   for (const v of videos.videos) if (!/^[\w-]{11}$/.test(v.id ?? '')) problems.push(`video ${v.n} has a bad id`);
+  // the sessions book: every video in a session has a text page, and every page belongs to a session
+  const weeks = await json('content/weeks.json'), vnotes = await json('content/vnotes.json');
+  const inSessions = new Set();
+  for (const s of weeks.sessions) for (const e of s.videos) {
+    if (inSessions.has(e.id)) problems.push(`session ${s.n}: video ${e.id} is listed twice`);
+    inSessions.add(e.id);
+    if (e.missing || !vnotes[e.id]) problems.push(`session ${s.n}: video ${e.id} has no text page`);
+  }
+  for (const [id, note] of Object.entries(vnotes)) {
+    if (!inSessions.has(id)) problems.push(`text page ${id} is in no session`);
+    if (!note.title || !note.html?.trim()) problems.push(`text page ${id} is empty`);
+    for (const n of note.chapters) if (!chapters.some((x) => x.n === n)) problems.push(`text page ${id} points at missing chapter ${n}`);
+  }
   for (const d of week.days) {
     const tasks = [...d.html.matchAll(/data-task="([^"]+)"/g)].map((m) => m[1]);
     if (new Set(tasks).size !== tasks.length) problems.push(`${d.label}: duplicate task ids`);

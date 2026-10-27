@@ -129,3 +129,22 @@ body.has-player { padding-bottom: 190px; }
 .listen-bar .seek { flex: 1; min-width: 0; accent-color: var(--accent); height: 28px; }
 .listen-bar .play { min-width: 52px; font-size: 1.1rem; padding: 6px 14px; }
 .listen-bar .chip { min-height: 36px; }
+
+/* Farsi explanations: hidden until Settings turns them on (body.fa-on); right to left, under the English block */
+.fa, .fa-only { display: none; }
+body.fa-on .fa, body.fa-on .fa-only { display: block; }
+.fa { direction: rtl; text-align: right; unicode-bidi: plaintext; font-family: "Vazirmatn", "Geeza Pro", "Noto Naskh Arabic", "Segoe UI", Tahoma, system-ui, sans-serif; font-size: .98em; line-height: 1.9; color: var(--ink); background: var(--accent-soft); border-right: 3px solid var(--accent); border-radius: 8px; padding: 6px 12px; margin: 4px 0 12px; max-width: none; }
+article.read li > .fa { margin: 6px 0; }
+article.read h3 + .fa, article.read h4 + .fa { font-weight: 600; }
+.fa code { direction: ltr; unicode-bidi: isolate; }
+.flash .fa { margin: 0; text-align: right; }
+.flash .back + .fa { margin-top: 6px; }
+.switch { width: 50px; height: 30px; border-radius: 999px; border: 1px solid var(--line); background: var(--line); position: relative; flex: none; padding: 0; }
+.switch i { position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: var(--surface); transition: transform .15s; }
+.switch.on { background: var(--good); border-color: var(--good); }
+.switch.on i { transform: translateX(20px); }
+details.session > summary { cursor: pointer; list-style: none; }
+details.session > summary::-webkit-details-marker { display: none; }
+details.session[open] > summary { margin-bottom: 4px; }
+article.vtext { margin-top: 12px; }
+article.vtext .basis { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 8px; }

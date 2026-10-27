@@ -14,7 +14,7 @@ export function defaultState() {
     scroll: {},        // chapter or appendix id -> 0..1, how far you read
     last: '',          // the page you read last, e.g. "ch-9"
     audioPos: {},      // chapter number -> sentence where the voice stopped
-    settings: { newPerDay: 10, fontScale: 1, voice: 'heart', rate: 1 },
+    settings: { newPerDay: 10, fontScale: 1, voice: 'heart', rate: 1, farsi: false },
   };
 }
 
@@ -42,6 +42,7 @@ export function migrate(raw) {
       fontScale: typeof s.fontScale === 'number' && s.fontScale >= 0.85 && s.fontScale <= 1.6 ? s.fontScale : 1,
       voice: VOICES.includes(s.voice) ? s.voice : 'heart',
       rate: RATES.includes(s.rate) ? s.rate : 1,
+      farsi: s.farsi === true,
     },
   };
 }

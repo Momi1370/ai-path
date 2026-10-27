@@ -1,0 +1,27 @@
+{
+ "1": {
+  "topic": "What machine learning is, linear regression and gradient descent",
+  "first": [
+   "BUTjcAjfMgY",
+   "E0Hmnixke2g"
+  ]
+ },
+ "2": {
+  "topic": "Many features, vectorization, feature scaling and polynomial regression"
+ },
+ "3": {
+  "topic": "Classification: logistic regression, overfitting and regularization"
+ },
+ "4": {
+  "topic": "Measuring a model, neural networks and decision trees"
+ },
+ "5": {
+  "topic": "Neural networks in code",
+  "links": [
+   {
+    "title": "Course 2, week 1: Neural Networks (17 videos, 140 minutes)",
+    "url": "https://www.deeplearning.ai/courses/machine-learning-specialization/"
+   }
+  ]
+ }
+}

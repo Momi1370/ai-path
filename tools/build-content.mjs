@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { Marked } from 'marked';
 import katex from 'katex/dist/katex.mjs';
 import { annotate } from './speech.mjs';
+import { listBlocks, injectFarsi, loadFa } from './i18n.mjs';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const PLAN_REPO = join(ROOT, '..', 'AI-Engineering-Plan-2026-27');
@@ -152,6 +153,37 @@ export function parseFormulas(md) {
   return tableRows(md.split('\n')).map((c, i) => ({ id: `f${i + 1}`, kind: 'formula', ch: parseInt(c[2], 10) || 0, front: unescapeMd(c[0]), back: unescapeMd(c[1]) + (c[2] ? ` (Chapter ${c[2]})` : '') }));
 }
 
+// ---------- video notes and sessions ----------
+// video-notes/<id>.md: a small header (id, title, source, duration, chapters, basis) and the text page of one video.
+export function parseVideoNote(text) {
+  const m = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/.exec(text);
+  if (!m) throw new Error('video note without a header');
+  const meta = {};
+  for (const line of m[1].split('\n')) { const k = /^(\w+):\s*(.*)$/.exec(line); if (k) meta[k[1]] = k[2].trim(); }
+  if (!/^[\w-]{11}$/.test(meta.id ?? '')) throw new Error(`video note with a bad id: ${meta.id}`);
+  return {
+    id: meta.id, title: meta.title ?? '', source: meta.source ?? '', duration: meta.duration ?? '',
+    chapters: (meta.chapters ?? '').split(',').map((x) => +x.trim()).filter(Boolean),
+    basis: meta.basis === 'notes' ? 'notes' : 'transcript', md: m[2].trim(),
+  };
+}
+
+// Session n = plan week n. A video belongs to the first week whose plan links it.
+export function parseSessions(files) {
+  const seen = new Set(), sessions = [];
+  for (const text of files) {
+    const wm = /week (\d+) \(([^)]+)\)/i.exec(text);
+    if (!wm) continue;
+    const ids = [];
+    for (const m of text.matchAll(/\[[^\]]*\]\((https:\/\/www\.youtube\.com\/watch\?v=[\w-]{11}[^)]*)\)/g)) {
+      const id = youtubeId(m[1]);
+      if (id && !seen.has(id)) { seen.add(id); ids.push(id); }
+    }
+    sessions.push({ n: +wm[1], dates: wm[2], ids });
+  }
+  return sessions;
+}
+
 // ---------- plan ----------
 const MONTHS = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
 export function isoOf(label) {
@@ -216,6 +248,8 @@ async function main() {
   const r = makeRenderer({ routeOf: (s) => routeBySlug.get(s), videoTitles });
 
   const cards = [], warnings = [], search = [], toc = { parts: [], appendices: [] };
+  const enBlocks = {};                       // every translatable block, for tools/i18n.mjs
+  const faCards = await loadFa('cards');
   for (const c of notes.chapters) {
     r.resetIds();
     const html = r.html(c.md);
@@ -224,16 +258,22 @@ async function main() {
     const sections = [...withAnswers.matchAll(/<h4 id="([^"]+)">([^<]*)<\/h4>/g)].map((m) => ({ id: m[1], title: m[2] }));
     // every spoken word gets a data-s / data-w mark (for the read-aloud highlight); the script goes to the voice generator
     const spoken = annotate(withAnswers);
-    await writeFile(out(`content/chapters/ch-${c.n}.json`), JSON.stringify({ n: c.n, title: c.title, part: c.part, partName: c.partName, words, minutes: Math.max(1, Math.round(words / 200)), sections, speechHash: spoken.hash, html: spoken.html }));
+    // Farsi goes in after the voice script is made, so the read-aloud text never changes
+    const faBlocks = listBlocks(withAnswers), faIds = faBlocks.map((b) => b.id), faDict = await loadFa(`ch-${c.n}`);
+    enBlocks[`ch-${c.n}`] = faBlocks;
+    const faHtml = injectFarsi(spoken.html, faIds, faDict, r.inline);
+    const faPre = injectFarsi(withAnswers, faIds, faDict, r.inline);
+    await writeFile(out(`content/chapters/ch-${c.n}.json`), JSON.stringify({ n: c.n, title: c.title, part: c.part, partName: c.partName, words, minutes: Math.max(1, Math.round(words / 200)), sections, speechHash: spoken.hash, fa: { total: faHtml.total, translated: faHtml.translated }, html: faHtml.html }));
     await writeFile(out(`tools/tts/scripts/ch-${c.n}.json`), JSON.stringify({ n: c.n, title: c.title, hash: spoken.hash, sentences: spoken.sentences }, null, 0) + '\n');
     let part = toc.parts.find((p) => p.letter === c.part);
     if (!part) toc.parts.push(part = { letter: c.part, name: c.partName, chapters: [] });
     part.chapters.push({ n: c.n, title: c.title, minutes: Math.max(1, Math.round(words / 200)) });
     // search: split the chapter html at h4 headings
-    const pieces = withAnswers.split(/(?=<h4 id=)/);
+    const pieces = faPre.html.split(/(?=<h4 id=)/);
     for (const p of pieces) {
       const hm = /^<h4 id="([^"]+)">([^<]*)<\/h4>/.exec(p);
-      search.push({ ch: c.n, id: hm?.[1] ?? '', title: hm ? hm[2] : c.title, text: plainText(p).slice(0, 4000) });
+      const farsi = [...p.matchAll(/<div class="fa"[^>]*>([\s\S]*?)<\/div>/g)].map((m) => plainText(m[1])).join(' ');
+      search.push({ ch: c.n, id: hm?.[1] ?? '', title: hm ? hm[2] : c.title, text: plainText(p.replace(/<div class="fa"[\s\S]*?<\/div>/g, '')).slice(0, 4000), ...(farsi ? { fa: farsi.slice(0, 4000) } : {}) });
     }
     const checks = parseChecks(c);
     if (checks.warn) warnings.push(checks.warn);
@@ -250,10 +290,16 @@ async function main() {
     search.push({ ch: 0, id: '', title: `Appendix ${a.id.toUpperCase()}: ${a.title}`, text: plainText(html).slice(0, 4000), page: a.id });
   }
   toc.appendices.push({ id: 'e', title: 'Glossary' });
-  for (const g of cards.filter((c) => c.kind === 'term')) search.push({ ch: 0, id: '', title: g.front, text: g.back, page: 'e' });
+  const cardFaId = (c) => fnv(`${c.kind}|${c.front}|${c.back}`);
+  enBlocks.cards = cards.filter((c) => c.kind !== 'formula').map((c) => ({ id: cardFaId(c), en: `${c.front}  =>  ${c.back}` }));
+  for (const g of cards.filter((c) => c.kind === 'term')) { const fa = faCards[cardFaId(g)]; search.push({ ch: 0, id: '', title: g.front, text: g.back, page: 'e', ...(fa ? { fa: [fa.f, fa.b].filter(Boolean).join(' ') } : {}) }); }
 
   // render card text (inline markdown only)
-  for (const c of cards) { c.front = r.inline(c.front); c.back = r.inline(c.back); }
+  for (const c of cards) {
+    const fa = faCards[cardFaId(c)];
+    c.front = r.inline(c.front); c.back = r.inline(c.back);
+    if (fa && (fa.f || fa.b)) c.fa = { ...(fa.f ? { f: r.inline(fa.f) } : {}), ...(fa.b ? { b: r.inline(fa.b) } : {}) };
+  }
   const videos = parseVideos(notes.appendices.find((a) => a.id === 'b').md);
 
   // plan
@@ -277,6 +323,50 @@ async function main() {
   };
   await writeFile(out('content/week.json'), JSON.stringify(week));
 
+  // video text pages (video-notes/*.md) and the sessions book (session n = plan week n)
+  const vnoteDir = join(ROOT, 'video-notes');
+  const faVideos = await loadFa('videos');
+  const vr = makeRenderer({ videoTitles });
+  const vnotes = {}, videoBlocks = new Map();
+  if (existsSync(vnoteDir)) {
+    for (const f of (await readdir(vnoteDir)).filter((x) => x.endsWith('.md')).sort()) {
+      const { md, ...note } = parseVideoNote(await readFile(join(vnoteDir, f), 'utf8'));
+      vr.resetIds();
+      const html = vr.html(md);
+      const blocks = listBlocks(html);
+      for (const b of blocks) videoBlocks.set(b.id, b);
+      const inj = injectFarsi(html, blocks.map((b) => b.id), faVideos, r.inline);
+      vnotes[note.id] = { ...note, fa: { total: inj.total, translated: inj.translated }, html: inj.html };
+    }
+  }
+  enBlocks.videos = [...videoBlocks.values()];
+  const weeksDir = join(dirname(dirname(planPath)), 'weeks');
+  const weekTexts = existsSync(weeksDir) ? await Promise.all((await readdir(weeksDir)).filter((f) => /^week-\d+\.md$/.test(f)).sort().map((f) => readFile(join(weeksDir, f), 'utf8'))) : [];
+  const sessions = parseSessions([...weekTexts, await readFile(planPath, 'utf8')]);
+  const topicsFile = join(vnoteDir, 'sessions.json');
+  const topics = existsSync(topicsFile) ? JSON.parse(readFileSync(topicsFile, 'utf8')) : {};
+  // videos a session needs that the plan text does not link (for example the overview videos of week 1), shown first
+  for (const sn of sessions) { const first = topics[sn.n]?.first ?? []; sn.ids = [...first, ...sn.ids.filter((id) => !first.includes(id))]; }
+  const ngStatus = (n) => videos.find((v) => v.title.startsWith(`Ng, course 1, week ${n}:`))?.status ?? 'Next';
+  const sessionOf = new Map();
+  const sessionsOut = sessions.map((sn) => ({
+    n: sn.n, dates: sn.dates, topic: topics[sn.n]?.topic ?? '', ...(topics[sn.n]?.links ? { links: topics[sn.n].links } : {}),
+    videos: sn.ids.map((id) => {
+      sessionOf.set(id, sn.n);
+      const note = vnotes[id];
+      if (!note) warnings.push(`session ${sn.n}: video ${id} has no text page (video-notes/${id}.md)`);
+      const indexed = videos.find((v) => v.id === id);
+      const status = indexed ? indexed.status : /Andrew Ng/.test(note?.source ?? '') ? ngStatus(sn.n) : 'Next';
+      return { id, status, ...(note ? {} : { missing: true }) };
+    }),
+  }));
+  await writeFile(out('content/weeks.json'), JSON.stringify({ sessions: sessionsOut }));
+  await writeFile(out('content/vnotes.json'), JSON.stringify(vnotes));
+  for (const note of Object.values(vnotes)) {
+    const farsi = [...note.html.matchAll(/<div class="fa"[^>]*>([\s\S]*?)<\/div>/g)].map((m) => plainText(m[1])).join(' ');
+    search.push({ ch: 0, id: '', title: note.title, text: plainText(note.html.replace(/<div class="fa"[\s\S]*?<\/div>/g, '')).slice(0, 4000), vid: note.id, session: sessionOf.get(note.id) ?? 0, ...(farsi ? { fa: farsi.slice(0, 4000) } : {}) });
+  }
+
   // videos: the index plus anything linked from this week's plan that is not in it
   const known = new Set(videos.map((v) => v.id));
   const extra = [];
@@ -289,6 +379,8 @@ async function main() {
   await writeFile(out('content/cards.json'), JSON.stringify(cards));
   await writeFile(out('content/toc.json'), JSON.stringify(toc));
   await writeFile(out('content/search.json'), JSON.stringify(search));
+  await mkdir(out('i18n'), { recursive: true });
+  await writeFile(out('i18n/en-blocks.json'), JSON.stringify(enBlocks));
 
   // assets used by the notes
   const imgs = new Set();
