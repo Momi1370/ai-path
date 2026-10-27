@@ -141,7 +141,7 @@ export function parseVideos(md) {
       n: +c[0], id: youtubeId(lm[2]), title: lm[1], source: meta.replace(/,?\s*(\d+:\d\d|\d+ h \d+ min|\d+ min)\s*$/, '').trim(), duration: dur,
       layer: c[2], chapters: c[3].split(',').map((x) => +x.trim()).filter(Boolean), status: c[4],
     };
-  }).filter(Boolean);
+  }).filter((v) => v && /^[\w-]{11}$/.test(v.id ?? '')); // rows that are not YouTube videos (a course page) stay in the notes only
 }
 
 export function parseGlossary(md) {
@@ -164,7 +164,13 @@ const stripTimes = (s) => s
   .replace(/^(\s*- \[ \] )\d\d:\d\d-\d\d:\d\d[,:]\s*(\S)/gm, (m, lead, c) => lead + c.toUpperCase())
   .replace(/\s*\([^)]*issue #\d+[^)]*\)/g, '')
   .replace(/ without payment\. If it does not, tell me on Sunday\./g, ' for free.')
+  .replace(/ without payment\b/g, '')
+  .replace(/\s*\(see above\)/g, '')
   .replace(/ of Course notes/g, ' of the notes');
+// private logistics (payment, issue numbers, notes to the owner) never reach the app: drop those sentences and brackets
+export const dropPrivate = (s) => s
+  .replace(/\s*\([^)]*(?:payment|issue #\d+)[^)]*\)/gi, '')
+  .split(/(?<=\.)\s+/).filter((x) => !/payment|tell me on Sunday/i.test(x)).join(' ');
 // "Chapter 12" in the plan becomes a link to that chapter in the app
 const linkChapters = (html) => html.replace(/(>[^<]*?)\bChapter (\d+)\b/g, (m, pre, n) => `${pre}<a href="#/notes/ch-${n}">Chapter ${n}</a>`);
 
@@ -174,7 +180,7 @@ export function parsePlan(md) {
   const wm = /week (\d+) \(([^)]+)\)/.exec(title);
   const sections = splitByHeading(lines, 2); // the repo copy of the plan is one heading level up from the doc
   const intro = sections[0].lines.join('\n');
-  const videosPara = /^\*\*The videos:\*\*.*$/m.exec(intro)?.[0] ?? '';
+  const videosPara = dropPrivate(/^\*\*The videos:\*\*.*$/m.exec(intro)?.[0] ?? '').replace(/ of Course notes/g, ' of the notes');
   const days = [];
   for (const s of sections.slice(1)) {
     const dm = /^(Mon|Tues|Wednes|Thurs|Fri|Satur|Sun)day (\d+ \w{3})/.exec(s.title ?? '');
@@ -189,7 +195,7 @@ export function parsePlan(md) {
     if (ml) days.push({ key: dm[1].slice(0, 3), label: `${dm[1]}day ${dm[2]}`, iso: isoOf(dm[2]), md: ml });
   }
   const done = sections.find((s) => /is done when/.test(s.title ?? ''));
-  const doneItems = (done?.lines ?? []).filter((l) => /^- \[ \] \*\*(ML|Course 2):/.test(l));
+  const doneItems = (done?.lines ?? []).filter((l) => /^- \[ \] \*\*(ML|Course 2):/.test(l)).map(dropPrivate);
   return { n: wm ? +wm[1] : 0, dates: wm?.[2] ?? '', videosPara, days, doneItems };
 }
 

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { slug, fnv, youtubeId, makeRenderer, parseNotes, parseChecks, parseVideos, parseGlossary, parseFormulas, parsePlan, isoOf } from '../tools/build-content.mjs';
+import { slug, fnv, youtubeId, makeRenderer, parseNotes, parseChecks, parseVideos, parseGlossary, parseFormulas, parsePlan, isoOf, dropPrivate } from '../tools/build-content.mjs';
 
 test('slug matches GitHub heading anchors', () => {
   assert.equal(slug('Chapter 9: Logistic regression, predicting yes or no'), 'chapter-9-logistic-regression-predicting-yes-or-no');
@@ -130,4 +130,10 @@ test('dates become ISO days', () => {
   assert.equal(isoOf('nonsense'), null);
   assert.equal(fnv('abc'), fnv('abc'));
   assert.notEqual(fnv('abc'), fnv('abd'));
+});
+
+test('private logistics never reach the app', () => {
+  const para = '**The videos:** Course 2 is 17 videos. Open the page: if it needs payment, tell me on Sunday (issue #24). Then watch them.';
+  assert.equal(dropPrivate(para), '**The videos:** Course 2 is 17 videos. Then watch them.');
+  assert.equal(dropPrivate('- [ ] **Course 2:** week 1 opens (or the payment question is on the list).'), '- [ ] **Course 2:** week 1 opens.');
 });
