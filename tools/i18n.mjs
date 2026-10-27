@@ -103,7 +103,7 @@ async function main([cmd, scope, arg]) {
     let t = 0, d = 0;
     for (const [s, list] of Object.entries(all)) {
       const dict = await loadFa(s);
-      const have = list.filter((b) => dict[b.id]).length;
+      const have = list.filter((b) => dict[b.id] || b.auto).length;
       const orphans = Object.keys(dict).filter((id) => !list.some((b) => b.id === id)).length;
       t += list.length; d += have;
       console.log(`${s.padEnd(8)} ${String(have).padStart(4)} / ${String(list.length).padEnd(4)} ${have === list.length ? 'done' : ''}${orphans ? `  (${orphans} old translations no longer match)` : ''}`);
@@ -111,7 +111,7 @@ async function main([cmd, scope, arg]) {
     console.log(`total    ${d} / ${t}`);
   } else if (cmd === 'todo') {
     const dict = await loadFa(scope);
-    const list = (all[scope] ?? []).filter((b) => !dict[b.id]).slice(0, +arg || 20);
+    const list = (all[scope] ?? []).filter((b) => !dict[b.id] && !b.auto).slice(0, +arg || 20);
     for (const b of list) console.log(`${b.id}\t${b.en}`);
     console.error(`${list.length} shown`);
   } else if (cmd === 'add') {

@@ -148,3 +148,6 @@ details.session > summary::-webkit-details-marker { display: none; }
 details.session[open] > summary { margin-bottom: 4px; }
 article.vtext { margin-top: 12px; }
 article.vtext .basis { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 8px; }
+
+.fa-tag { display: none; color: var(--accent); }
+body.fa-on .fa-tag { display: inline; }

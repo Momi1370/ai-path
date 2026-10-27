@@ -1,0 +1,198 @@
+{
+ "1v6xbji": {
+  "en": "Purpose. Gradient descent is the general way to minimize a cost. It tr",
+  "fa": "**هدف.** گرادیان کاهشی راه عمومی کمینه‌کردن یک هزینه است. رگرسیون خطی، رگرسیون لجستیک و بزرگ‌ترین شبکه‌های عصبی را آموزش می‌دهد. اگر آن را بفهمی، می‌فهمی تقریباً هر مدل این کتاب چطور یاد می‌گیرد."
+ },
+ "akcbhg": {
+  "en": "Key ideas",
+  "fa": "**ایده‌های کلیدی**"
+ },
+ "wd19xe": {
+  "en": "Start with any w and b, then repeatedly take a small step downhill on ",
+  "fa": "از هر `w` و `b` شروع کن و بعد مدام یک گام کوچک به سمت پایین روی هزینه بردار."
+ },
+ "ftjnj7": {
+  "en": "The step direction comes from the derivative (the slope). The step siz",
+  "fa": "جهت گام از مشتق (شیب) می‌آید. اندازه‌ی گام را نرخ یادگیری `alpha` تعیین می‌کند."
+ },
+ "kzrwcw": {
+  "en": "Update all parameters at the same time.",
+  "fa": "همه‌ی پارامترها را هم‌زمان به‌روز کن."
+ },
+ "opruoi": {
+  "en": "Alpha too small is slow. Alpha too large overshoots and can make the c",
+  "fa": "`alpha` خیلی کوچک کند است. `alpha` خیلی بزرگ از هدف رد می‌شود و می‌تواند هزینه را بالا ببرد."
+ },
+ "1mnhs30": {
+  "en": "The learning curve (cost against iterations) tells you whether trainin",
+  "fa": "منحنی یادگیری (هزینه در برابر تکرارها) می‌گوید آموزش کار می‌کند یا نه."
+ },
+ "ghnj6i": {
+  "en": "6.1 The idea",
+  "fa": "6.1 ایده"
+ },
+ "1cghx0o": {
+  "en": "Imagine you are walking down a dark valley with a torch that lights on",
+  "fa": "تصور کن در یک دره‌ی تاریک با چراغ‌قوه‌ای راه می‌روی که فقط پاهایت را روشن می‌کند. ته دره را نمی‌بینی، ولی حس می‌کنی زمین به کدام طرف شیب دارد. پس در تندترین جهت سرازیری یک گام کوچک برمی‌داری، دوباره شیب را حس می‌کنی و تکرار می‌کنی. تصویر Ng یک زمین گلف تپه‌ای است: روی یک تپه بایست، کامل دور خودت بچرخ، یک گام کوچک در تندترین جهت سرازیری بردار، تکرار کن. آخرش ته یک دره می‌رسی."
+ },
+ "pi2tir": {
+  "en": "6.2 The update rule",
+  "fa": "6.2 قاعده‌ی به‌روزرسانی"
+ },
+ "1eymjz2": {
+  "en": "The sign := means \"assign\", as in code. It is not a claim that both si",
+  "fa": "علامت `:=` یعنی «مقدار بده»، مثل کد. ادعا نیست که دو طرف برابرند."
+ },
+ "qo6rsa": {
+  "en": "alpha is the learning rate, a small positive number such as 0.01. It s",
+  "fa": "`alpha` نرخ یادگیری است، یک عدد مثبت کوچک مثل 0.01. اندازه‌ی هر گام را تعیین می‌کند."
+ },
+ "uzvway": {
+  "en": "The derivative is the slope of the cost in that direction. If the slop",
+  "fa": "مشتق شیب هزینه در آن جهت است. اگر شیب مثبت باشد (سربالایی به سمت راست)، کم‌کردنش `w` را به چپ می‌برد. اگر شیب منفی باشد، `w` به راست می‌رود. در هر دو حالت به سمت پایین می‌روی."
+ },
+ "5wj9so": {
+  "en": "Update w and b simultaneously: compute both new values from the old on",
+  "fa": "`w` و `b` را **هم‌زمان** به‌روز کن: اول هر دو مقدار جدید را از روی قدیمی‌ها حساب کن، بعد جایگزین کن. به‌روز کردن `w` و بعد استفاده از `w`ی جدید برای حساب گام `b` یک اشکال ظریف است."
+ },
+ "29jy48": {
+  "en": "When you reach the minimum the slope is 0, so the update changes nothi",
+  "fa": "وقتی به مینیمم می‌رسی شیب 0 است، پس به‌روزرسانی هیچ چیز را عوض نمی‌کند: الگوریتم همگرا شده است. حتی با `alpha` ثابت، گام‌ها نزدیک ته خودشان کوچک می‌شوند چون شیب کوچک می‌شود."
+ },
+ "10w2lhm": {
+  "en": "6.3 The derivatives for linear regression",
+  "fa": "6.3 مشتق‌ها برای رگرسیون خطی"
+ },
+ "m8pb5c": {
+  "en": "Calculus gives (Ng, video 19):",
+  "fa": "حساب دیفرانسیل می‌دهد (Ng، ویدیوی 19):"
+ },
+ "1w0iogt": {
+  "en": "In words: the step for b is the average error. The step for w is the a",
+  "fa": "به زبان ساده: گام `b` میانگین خطاست. گام `w` میانگین خطا ضربدر ورودی است، پس نمونه‌هایی با ورودی بزرگ در مورد `w` حرف بیشتری دارند. 2ای که از مشتق مربع می‌آید 1/2 هزینه را خنثی می‌کند."
+ },
+ "17o17aw": {
+  "en": "6.4 A worked example, by hand",
+  "fa": "6.4 یک مثال حل‌شده، دستی"
+ },
+ "1abhaxz": {
+  "en": "Take the three points (1, 1), (2, 2), (3, 3), start at w = 0, b = 0, a",
+  "fa": "سه نقطه‌ی `(1, 1)` و `(2, 2)` و `(3, 3)` را بگیر، از `w = 0` و `b = 0` شروع کن و `alpha = 0.1` بگذار."
+ },
+ "3h2jl0": {
+  "en": "Predictions: 0, 0, 0. Errors f - y: -1, -2, -3. The cost is 2.333.",
+  "fa": "پیش‌بینی‌ها: 0 و 0 و 0. خطاها `f - y`: `-1` و `-2` و `-3`. هزینه 2.333 است."
+ },
+ "13e79wk": {
+  "en": "dJ/dw = (1/3) x (-1 x 1 + -2 x 2 + -3 x 3) = -14/3 = -4.667. dJ/db = (",
+  "fa": "`dJ/dw = (1/3) x (-1 x 1 + -2 x 2 + -3 x 3) = -14/3 = -4.667`. `dJ/db = (1/3) x (-1 - 2 - 3) = -2`."
+ },
+ "1f4j5yu": {
+  "en": "New w = 0 - 0.1 x (-4.667) = 0.467. New b = 0 - 0.1 x (-2) = 0.2.",
+  "fa": "`w` جدید = `0 - 0.1 x (-4.667) = 0.467`. `b` جدید = `0 - 0.1 x (-2) = 0.2`."
+ },
+ "3cxe57": {
+  "en": "The new cost is 0.470, down from 2.333.",
+  "fa": "هزینه‌ی جدید 0.470 است، پایین‌آمده از 2.333."
+ },
+ "1qtvfe5": {
+  "en": "Repeating gives, after steps 2, 3, 4, 5: w = 0.676, 0.770, 0.813, 0.83",
+  "fa": "تکرار می‌دهد، پس از گام‌های 2 و 3 و 4 و 5: `w` برابر 0.676 و 0.770 و 0.813 و 0.833 و هزینه‌ها 0.101 و 0.027 و 0.012 و 0.009. پس از 2,000 گام به `w = 1.0` و `b = 0.0` می‌رسد. هزینه در ابتدا که شیب تندترین است سریع‌تر از همه می‌افتد و بعد می‌خزد."
+ },
+ "q12pdl": {
+  "en": "6.5 Code from scratch",
+  "fa": "6.5 کد از صفر"
+ },
+ "piw6js": {
+  "en": "Same fifty points as in Chapter 4:",
+  "fa": "همان پنجاه نقطه‌ی فصل 4:"
+ },
+ "1gm0x0u": {
+  "en": "Gradient descent lands within 0.004 of the exact answer from the formu",
+  "fa": "گرادیان کاهشی تا 0.004 به جواب دقیق فرمول می‌رسد."
+ },
+ "bsffxy": {
+  "en": "6.6 Choosing the learning rate",
+  "fa": "6.6 انتخاب نرخ یادگیری"
+ },
+ "j082dg": {
+  "en": "On this data, after 500 steps:",
+  "fa": "روی این داده، پس از 500 گام:"
+ },
+ "gwoiva": {
+  "en": "If the learning rate is too large, a step jumps over the bottom and la",
+  "fa": "اگر نرخ یادگیری خیلی بزرگ باشد، یک گام از روی ته می‌پرد و آن‌طرف بالاتر فرود می‌آید، بعد حتی دورتر برمی‌گردد. هزینه در هر گام بزرگ‌تر می‌شود. اگر خیلی کوچک باشد، آموزش درست است ولی ممکن است تا ابد منتظر بمانی."
+ },
+ "54yv6j": {
+  "en": "6.7 Is it working? The learning curve",
+  "fa": "6.7 آیا کار می‌کند؟ منحنی یادگیری"
+ },
+ "hxdsf7": {
+  "en": "Plot the cost J after every iteration (not against w or b). This is th",
+  "fa": "هزینه‌ی `J` را بعد از هر تکرار رسم کن (نه در برابر `w` یا `b`). این **منحنی یادگیری** است (Ng، ویدیوی 27)."
+ },
+ "1gmi093": {
+  "en": "If gradient descent works, J goes down on every single iteration.",
+  "fa": "اگر گرادیان کاهشی کار کند، `J` در هر تکرار پایین می‌آید."
+ },
+ "oncqyf": {
+  "en": "If J ever goes up, alpha is too large, or there is a bug. A classic bu",
+  "fa": "اگر `J` هر وقت بالا رفت، `alpha` خیلی بزرگ است یا اشکالی هست. یک اشکال کلاسیک نوشتن `w + alpha x slope` به‌جای منهاست."
+ },
+ "1l7w0zv": {
+  "en": "When the curve flattens, training has converged. The number of iterati",
+  "fa": "وقتی منحنی صاف می‌شود آموزش همگرا شده است. تعداد تکرار لازم می‌تواند برای یک مسئله 30 و برای دیگری 100,000 باشد، پس از قبل نمی‌شود دانست."
+ },
+ "1abf5ax": {
+  "en": "An automatic test: stop when J falls by less than a tiny epsilon (such",
+  "fa": "یک آزمون خودکار: وقتی `J` در یک تکرار کمتر از یک epsilon ریز (مثلاً 0.001) پایین بیاید متوقف شو. Ng انتخاب epsilon را سخت می‌داند، پس ترجیح می‌دهد به نمودار نگاه کند."
+ },
+ "z70btn": {
+  "en": "Debugging tip: set alpha to a very small number. J must then fall on e",
+  "fa": "**نکته‌ی اشکال‌زدایی:** `alpha` را روی یک عدد خیلی کوچک بگذار. آن‌وقت `J` باید در هر تکرار پایین بیاید. اگر نیامد، کد اشکال دارد. `alpha`ی ریز برای اشکال‌زدایی است، نه برای آموزش واقعی."
+ },
+ "13hw78n": {
+  "en": "Choosing alpha: try values about three times apart: 0.001, 0.003, 0.01",
+  "fa": "**انتخاب `alpha`:** مقدارهایی با فاصله‌ی تقریباً سه برابر امتحان کن: 0.001 و 0.003 و 0.01 و 0.03 و 0.1. از هرکدام چند تکرار اجرا کن، منحنی‌ها را رسم کن و بزرگ‌ترین مقداری را که هنوز پیوسته پایین می‌آید، یا کمی کوچک‌تر از آن را، انتخاب کن."
+ },
+ "1inygj3": {
+  "en": "6.8 Batch, stochastic and mini-batch",
+  "fa": "6.8 دسته‌ای، تصادفی و مینی‌بچ"
+ },
+ "11fjmfm": {
+  "en": "Beyond the videos. The version above uses all m examples for every ste",
+  "fa": "**بیرون از ویدیوها.** نسخه‌ی بالا همه‌ی `m` نمونه را برای هر گام به کار می‌برد. این **گرادیان کاهشی دسته‌ای (batch)** است (Ng، ویدیوی 20). برای میلیون‌ها نمونه کند است، پس کارورزان شیب را روی یک گروه کوچک تصادفی از نمونه‌ها در هر گام حساب می‌کنند: **گرادیان کاهشی تصادفی (stochastic)** یک نمونه استفاده می‌کند و **مینی‌بچ** چند تا (اغلب 32 تا 256). گام‌ها نویزی‌تر می‌شوند ولی خیلی ارزان‌تر، و مدل باز هم همگرا می‌شود. شبکه‌های عصبی تقریباً همیشه با مینی‌بچ و نسخه‌ی بهبودیافته‌ای از گرادیان کاهشی به نام **Adam** آموزش می‌بینند که اندازه‌ی گام را برای هر پارامتر تطبیق می‌دهد."
+ },
+ "xnkms6": {
+  "en": "Loan example. Training the monthly-cost model from a table of offers i",
+  "fa": "**مثال وام.** آموزش مدل هزینه‌ی ماهانه از یک جدول پیشنهادها دقیقاً همین حلقه است: پیش‌بینی کن، فاصله تا هزینه‌ی ماهانه‌ی واقعی را بسنج، دو شیب را حساب کن، `w` و `b` را کمی تکان بده و تکرار کن تا منحنی یادگیری صاف شود."
+ },
+ "1qknwjp": {
+  "en": "Common mistakes",
+  "fa": "**اشتباه‌های رایج**"
+ },
+ "1x2ujnl": {
+  "en": "Updating w and b one after the other instead of simultaneously.",
+  "fa": "به‌روز کردن `w` و `b` یکی پس از دیگری به‌جای هم‌زمان."
+ },
+ "jp2l5o": {
+  "en": "Choosing alpha by a single guess and never plotting the learning curve",
+  "fa": "انتخاب `alpha` با یک حدس و هرگز رسم نکردن منحنی یادگیری."
+ },
+ "xrc1qh": {
+  "en": "Plus instead of minus in the update.",
+  "fa": "مثبت به‌جای منفی در به‌روزرسانی."
+ },
+ "1idkxb7": {
+  "en": "Running gradient descent on unscaled features and wondering why it is ",
+  "fa": "اجرای گرادیان کاهشی روی ویژگی‌های مقیاس‌نشده و تعجب از اینکه چرا کند است (فصل 8)."
+ },
+ "cocq5o": {
+  "en": "Check yourself",
+  "fa": "**خودت را بسنج**"
+ },
+ "11wddgd": {
+  "en": "Go deeper: Ng, course 1, videos 15 to 20 and 27 to 28 · 3Blue1Brown's ",
+  "fa": "**برای مطالعه‌ی بیشتر:** Ng، درس 1، ویدیوهای 15 تا 20 و 27 تا 28 · مجموعه‌ی شبکه‌ی عصبی 3Blue1Brown بهترین انیمیشن گرادیان کاهشی را دارد (فصل 2) · یادداشت‌های درس Stanford CS229، فصل‌های اول (ریاضی بیشتر)."
+ }
+}

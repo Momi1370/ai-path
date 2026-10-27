@@ -1,0 +1,138 @@
+{
+ "1mrtbea": {
+  "en": "Purpose. Nearly every formula in this book uses the same few symbols. ",
+  "fa": "**هدف.** تقریباً هر فرمول این کتاب از همان چند نماد استفاده می‌کند. آن‌ها را یک بار اینجا یاد بگیر. همچنین یاد بگیر چرا کیفیت داده و آزمون صادقانه از هر الگوریتمی مهم‌تر است."
+ },
+ "akcbhg": {
+  "en": "Key ideas",
+  "fa": "**ایده‌های کلیدی**"
+ },
+ "1auif25": {
+  "en": "A dataset is a table. A row is one example, a column is one feature, a",
+  "fa": "مجموعه‌داده یک جدول است. هر سطر یک نمونه است، هر ستون یک ویژگی، و یک ستون ویژه هدف (برچسب) است."
+ },
+ "185lfqw": {
+  "en": "Parameters are learned by training. Hyperparameters are chosen by you ",
+  "fa": "پارامترها با آموزش یاد گرفته می‌شوند. ابرپارامترها را خودت پیش از آموزش انتخاب می‌کنی."
+ },
+ "1g9ddts": {
+  "en": "Always test on data the model never saw. Split the data into training,",
+  "fa": "همیشه روی داده‌ای تست کن که مدل هرگز ندیده. داده را به مجموعه‌های آموزش، اعتبارسنجی و تست تقسیم کن."
+ },
+ "1mcjqp1": {
+  "en": "Before building a model, measure a trivial baseline. A model that does",
+  "fa": "پیش از ساختن مدل، یک مدل پایه‌ی بدیهی را اندازه بگیر. مدلی که از آن بهتر نباشد بی‌فایده است."
+ },
+ "fg94cn": {
+  "en": "3.1 A dataset is a table",
+  "fa": "3.1 مجموعه‌داده یک جدول است"
+ },
+ "1nwqeaa": {
+  "en": "Here are five rows of a loan-offers table. The values are made up for ",
+  "fa": "اینجا پنج سطر از جدول پیشنهادهای وام است. مقدارها برای توضیح ساختگی‌اند."
+ },
+ "1scqyzh": {
+  "en": "Columns 1 to 3 are the inputs (features). The last column is what you ",
+  "fa": "ستون‌های 1 تا 3 ورودی‌ها (ویژگی‌ها) هستند. ستون آخر چیزی است که می‌خواهی پیش‌بینی کنی (هدف، یا برچسب). هر سطر یک نمونه‌ی آموزشی است. مدل از سطرهایی که هدفشان معلوم است یاد می‌گیرد و بعد روی سطرهای جدیدی که هدفشان معلوم نیست به کار می‌رود."
+ },
+ "17u96p4": {
+  "en": "3.2 Notation",
+  "fa": "3.2 نمادگذاری"
+ },
+ "nwbqcv": {
+  "en": "A vector is just a list of numbers. x^(2) is the vector of all feature",
+  "fa": "بردار فقط فهرستی از عددهاست. `x^(2)` بردار همه‌ی ویژگی‌های سطر دوم است."
+ },
+ "1ecnf7c": {
+  "en": "3.3 Parameters and hyperparameters",
+  "fa": "3.3 پارامترها و ابرپارامترها"
+ },
+ "ptulmu": {
+  "en": "Parameters are the numbers the algorithm learns: w and b in a line, th",
+  "fa": "**پارامترها** عددهایی هستند که الگوریتم یاد می‌گیرد: `w` و `b` در یک خط، وزن‌ها در یک شبکه‌ی عصبی. **ابرپارامترها** تنظیم‌هایی هستند که پیش از آموزش انتخاب می‌کنی و آموزش تغییرشان نمی‌دهد: نرخ یادگیری، تعداد گذر روی داده (epoch)، `K` در نزدیک‌ترین همسایه‌ها، قدرت منظم‌سازی، درجه‌ی چندجمله‌ای. ابرپارامترهای خوب را با امتحان کردن مقدارها و اندازه‌گیری روی داده‌ی کنارگذاشته‌شده پیدا می‌کنی، نه با حدس زدن (Shaw Talebi)."
+ },
+ "mpc539": {
+  "en": "3.4 Train, validation and test sets",
+  "fa": "3.4 مجموعه‌های آموزش، اعتبارسنجی و تست"
+ },
+ "1kd7gwo": {
+  "en": "A model that scores well on the examples it was fitted to has proved n",
+  "fa": "مدلی که روی نمونه‌هایی که با آن‌ها برازش شده نمره‌ی خوب می‌گیرد چیزی را ثابت نکرده، همان‌طور که دانشجویی که سؤال‌های امتحان را از قبل دیده چیزی را ثابت نمی‌کند. به داده‌ای نیاز داری که مدل هرگز ندیده:"
+ },
+ "1pp2xyo": {
+  "en": "Two rules that save careers. First, fit any preparation step (such as ",
+  "fa": "دو قاعده که آبروی آدم را نجات می‌دهند. اول، هر مرحله‌ی آماده‌سازی (مثل مقیاس‌دهی) را فقط روی مجموعه‌ی آموزشی برازش کن و بعد روی بقیه اعمال کن. برازش آن روی همه‌چیز اجازه می‌دهد اطلاعات سطرهای تست به آموزش نشت کند. دوم، برای داده‌ای که ترتیب زمانی دارد، مثل وام‌ها، بر اساس تاریخ تقسیم کن: روی گذشته آموزش بده، روی آینده تست کن. تقسیم تصادفی به مدل اجازه می‌دهد به آینده سرک بکشد و نتیجه را بهتر نشان می‌دهد. فصل 12 عمیق‌تر می‌شود."
+ },
+ "s63heo": {
+  "en": "3.5 Data quality",
+  "fa": "3.5 کیفیت داده"
+ },
+ "1d2u424": {
+  "en": "Machine learning is only as good as its data: garbage in, garbage out.",
+  "fa": "یادگیری ماشین فقط به اندازه‌ی داده‌اش خوب است: ورودی آشغال، خروجی آشغال. داده‌ی خوب **کمیت** دارد (نمونه‌ی خیلی کم به بیش‌برازش می‌انجامد، فصل 11) و **کیفیت** (Shaw Talebi):"
+ },
+ "oru3eh": {
+  "en": "Accurate. An age of 35 that should be 53, or an income of $12,000 that",
+  "fa": "**دقیق.** سن 35 که باید 53 باشد، یا درآمد 12,000 دلار که واقعاً ماهانه است، چیز غلطی به مدل یاد می‌دهد."
+ },
+ "17ytqjh": {
+  "en": "Diverse and representative. A churn model trained only on Pro users wi",
+  "fa": "**متنوع و نماینده.** مدل ریزش مشتری که فقط روی کاربران Pro آموزش دیده روی مشتری‌های Enterprise شکست می‌خورد."
+ },
+ "1ur0q9i": {
+  "en": "Beyond the videos. Three traps that are especially common in lending:",
+  "fa": "**بیرون از ویدیوها.** سه تله که در وام‌دهی خصوصاً رایج‌اند:"
+ },
+ "hzzdqt": {
+  "en": "Selection bias. You only know whether people repaid if you approved th",
+  "fa": "**سوگیری انتخاب (selection bias).** فقط اگر تأییدشان کرده باشی می‌دانی آدم‌ها پس داده‌اند یا نه. مدلی که روی وام‌های تأییدشده آموزش دیده هرگز ردشده‌ها را ندیده."
+ },
+ "1ndlfel": {
+  "en": "Leakage. A feature that is only known after the outcome, such as a col",
+  "fa": "**نشت (leakage).** ویژگی‌ای که فقط بعد از نتیجه معلوم می‌شود، مثل وضعیت وصول مطالبات، مدل را در تست درخشان و در تولید بی‌فایده نشان می‌دهد. همیشه بپرس: آیا این مقدار را در لحظه‌ی تصمیم می‌داشتم؟"
+ },
+ "3flvce": {
+  "en": "Label noise. The target itself can be wrong or defined inconsistently,",
+  "fa": "**نویز برچسب (label noise).** خود هدف می‌تواند غلط یا ناهماهنگ تعریف شده باشد، مثلاً «نکول» در یک سیستم 60 روز تأخیر و در دیگری 90 روز."
+ },
+ "1ik4cq3": {
+  "en": "3.6 Always measure a baseline",
+  "fa": "3.6 همیشه یک مدل پایه اندازه بگیر"
+ },
+ "qrefef": {
+  "en": "A baseline is the simplest sensible prediction: for regression, predic",
+  "fa": "**مدل پایه (baseline)** ساده‌ترین پیش‌بینی معقول است: برای رگرسیون، میانگین هدف‌های آموزشی را پیش‌بینی کن؛ برای دسته‌بندی، رایج‌ترین دسته را. اگر 95٪ پیشنهادها پذیرفته می‌شوند، مدلی که همیشه «پذیرفته می‌شود» بگوید 95٪ دقت دارد و کاملاً بی‌فایده است. مدلت باید با اختلافی که اهمیت دارد از مدل پایه بهتر باشد، وگرنه پیچیدگی‌اش را توجیه نمی‌کند."
+ },
+ "e3q90t": {
+  "en": "Loan example. In the table above, three of five offers are accepted (6",
+  "fa": "**مثال وام.** در جدول بالا، سه از پنج پیشنهاد پذیرفته شده‌اند (60٪). مدل پایه‌ای که همیشه «پذیرفته می‌شود» پیش‌بینی کند 60٪ مواقع درست می‌گوید. هر دسته‌بندی که روی این جدول می‌سازی باید از 60٪ بهتر باشد، آن هم روی سطرهایی که با آن‌ها آموزش ندیده."
+ },
+ "1qknwjp": {
+  "en": "Common mistakes",
+  "fa": "**اشتباه‌های رایج**"
+ },
+ "ptpv41": {
+  "en": "Scoring a model on its training data, and then being surprised in prod",
+  "fa": "امتیازدادن به مدل روی داده‌ی آموزشی‌اش و بعد غافلگیر شدن در تولید."
+ },
+ "1482o47": {
+  "en": "Scaling or cleaning the whole dataset before splitting it (leakage).",
+  "fa": "مقیاس‌دهی یا تمیزکردن کل مجموعه‌داده پیش از تقسیم کردنش (نشت)."
+ },
+ "oh7uk2": {
+  "en": "Random-splitting time-ordered data.",
+  "fa": "تقسیم تصادفی داده‌ی دارای ترتیب زمانی."
+ },
+ "3paikq": {
+  "en": "Skipping the baseline.",
+  "fa": "رد شدن از مدل پایه."
+ },
+ "cocq5o": {
+  "en": "Check yourself",
+  "fa": "**خودت را بسنج**"
+ },
+ "6osfif": {
+  "en": "Go deeper: Google's Rules of Machine Learning (practical, written by e",
+  "fa": "**برای مطالعه‌ی بیشتر:** Rules of Machine Learning از گوگل (عملی، نوشته‌ی مهندس‌ها) · صفحه‌های scikit-learn درباره‌ی اعتبارسنجی متقاطع و پیش‌پردازش · An Introduction to Statistical Learning، کتاب رایگان."
+ }
+}

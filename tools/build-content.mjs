@@ -153,6 +153,22 @@ export function parseFormulas(md) {
   return tableRows(md.split('\n')).map((c, i) => ({ id: `f${i + 1}`, kind: 'formula', ch: parseInt(c[2], 10) || 0, front: unescapeMd(c[0]), back: unescapeMd(c[1]) + (c[2] ? ` (Chapter ${c[2]})` : '') }));
 }
 
+// The "Check yourself" questions and the answers paragraph of a chapter come from review cards that may already have a
+// Farsi translation; returns { blockId: farsi } for the blocks that can be built from them.
+export function deriveCheckFarsi(blocks, cards, faCards, cardFaId, plain) {
+  const out = {};
+  const norm = (t) => t.replace(/\s+/g, ' ').trim();
+  const fas = cards.map((c) => faCards[cardFaId(c)]);
+  cards.forEach((c, i) => {
+    const b = blocks.find((x) => x.en === norm(plain(c.front)));
+    if (b && fas[i]?.f) out[b.id] = fas[i].f;
+  });
+  // the answers paragraph ("(1) ... (2) ...") sits inside a "Show answers" fold, without its "Answers." label
+  const answers = blocks.find((x) => x.en.startsWith('(1) '));
+  if (answers && cards.length && fas.every((f) => f?.b)) out[answers.id] = fas.map((f, i) => `(${i + 1}) ${f.b}`).join(' ');
+  return out;
+}
+
 // ---------- video notes and sessions ----------
 // video-notes/<id>.md: a small header (id, title, source, duration, chapters, basis) and the text page of one video.
 export function parseVideoNote(text) {
@@ -250,6 +266,7 @@ async function main() {
   const cards = [], warnings = [], search = [], toc = { parts: [], appendices: [] };
   const enBlocks = {};                       // every translatable block, for tools/i18n.mjs
   const faCards = await loadFa('cards');
+  const cardFaId = (c) => fnv(`${c.kind}|${c.front}|${c.back}`);
   for (const c of notes.chapters) {
     r.resetIds();
     const html = r.html(c.md);
@@ -259,15 +276,19 @@ async function main() {
     // every spoken word gets a data-s / data-w mark (for the read-aloud highlight); the script goes to the voice generator
     const spoken = annotate(withAnswers);
     // Farsi goes in after the voice script is made, so the read-aloud text never changes
-    const faBlocks = listBlocks(withAnswers), faIds = faBlocks.map((b) => b.id), faDict = await loadFa(`ch-${c.n}`);
-    enBlocks[`ch-${c.n}`] = faBlocks;
+    const checks = parseChecks(c);
+    const faBlocks = listBlocks(withAnswers), faIds = faBlocks.map((b) => b.id);
+    // the questions and answers of "Check yourself" are also review cards: reuse their translations
+    const auto = deriveCheckFarsi(faBlocks, checks.cards, faCards, cardFaId, (md) => plainText(r.inline(md)));
+    const faDict = { ...auto, ...(await loadFa(`ch-${c.n}`)) };
+    enBlocks[`ch-${c.n}`] = faBlocks.map((b) => (auto[b.id] ? { ...b, auto: true } : b));
     const faHtml = injectFarsi(spoken.html, faIds, faDict, r.inline);
     const faPre = injectFarsi(withAnswers, faIds, faDict, r.inline);
     await writeFile(out(`content/chapters/ch-${c.n}.json`), JSON.stringify({ n: c.n, title: c.title, part: c.part, partName: c.partName, words, minutes: Math.max(1, Math.round(words / 200)), sections, speechHash: spoken.hash, fa: { total: faHtml.total, translated: faHtml.translated }, html: faHtml.html }));
     await writeFile(out(`tools/tts/scripts/ch-${c.n}.json`), JSON.stringify({ n: c.n, title: c.title, hash: spoken.hash, sentences: spoken.sentences }, null, 0) + '\n');
     let part = toc.parts.find((p) => p.letter === c.part);
     if (!part) toc.parts.push(part = { letter: c.part, name: c.partName, chapters: [] });
-    part.chapters.push({ n: c.n, title: c.title, minutes: Math.max(1, Math.round(words / 200)) });
+    part.chapters.push({ n: c.n, title: c.title, minutes: Math.max(1, Math.round(words / 200)), fa: { total: faHtml.total, translated: faHtml.translated } });
     // search: split the chapter html at h4 headings
     const pieces = faPre.html.split(/(?=<h4 id=)/);
     for (const p of pieces) {
@@ -275,7 +296,6 @@ async function main() {
       const farsi = [...p.matchAll(/<div class="fa"[^>]*>([\s\S]*?)<\/div>/g)].map((m) => plainText(m[1])).join(' ');
       search.push({ ch: c.n, id: hm?.[1] ?? '', title: hm ? hm[2] : c.title, text: plainText(p.replace(/<div class="fa"[\s\S]*?<\/div>/g, '')).slice(0, 4000), ...(farsi ? { fa: farsi.slice(0, 4000) } : {}) });
     }
-    const checks = parseChecks(c);
     if (checks.warn) warnings.push(checks.warn);
     cards.push(...checks.cards);
   }
@@ -290,7 +310,6 @@ async function main() {
     search.push({ ch: 0, id: '', title: `Appendix ${a.id.toUpperCase()}: ${a.title}`, text: plainText(html).slice(0, 4000), page: a.id });
   }
   toc.appendices.push({ id: 'e', title: 'Glossary' });
-  const cardFaId = (c) => fnv(`${c.kind}|${c.front}|${c.back}`);
   enBlocks.cards = cards.filter((c) => c.kind !== 'formula').map((c) => ({ id: cardFaId(c), en: `${c.front}  =>  ${c.back}` }));
   for (const g of cards.filter((c) => c.kind === 'term')) { const fa = faCards[cardFaId(g)]; search.push({ ch: 0, id: '', title: g.front, text: g.back, page: 'e', ...(fa ? { fa: [fa.f, fa.b].filter(Boolean).join(' ') } : {}) }); }
 

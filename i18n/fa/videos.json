@@ -1,0 +1,1738 @@
+{
+ "1wxw8hj": {
+  "en": "What it teaches. How a probability becomes a yes or no, and where the ",
+  "fa": "**آنچه می‌آموزد.** احتمال چطور به بله یا خیر تبدیل می‌شود و خط جداکننده کجا قرار دارد."
+ },
+ "tg8idn": {
+  "en": "Key points",
+  "fa": "**نکته‌های کلیدی**"
+ },
+ "1xuyo16": {
+  "en": "Predict 1 when f(x) is at least 0.5 (a common threshold). That happens",
+  "fa": "وقتی `f(x)` حداقل 0.5 است (آستانه‌ی رایج) `1` را پیش‌بینی کن. این دقیقاً وقتی رخ می‌دهد که `z = w . x + b` حداقل 0 باشد."
+ },
+ "j1vfqk": {
+  "en": "The line z = 0 is the decision boundary: the place where the model is ",
+  "fa": "خط `z = 0` مرز تصمیم است: جایی که مدل بین 0 و 1 بی‌طرف است."
+ },
+ "1c2aqiv": {
+  "en": "Example with two features: w1 = 1, w2 = 1, b = -3. The boundary is x1 ",
+  "fa": "مثال با دو ویژگی: `w1 = 1` و `w2 = 1` و `b = -3`. مرز `x1 + x2 - 3 = 0` است، یعنی خط `x1 + x2 = 3`. یک طرف 1 پیش‌بینی می‌شود و طرف دیگر 0."
+ },
+ "uk2d4p": {
+  "en": "With extra polynomial features the boundary can be a circle or a more ",
+  "fa": "با ویژگی‌های چندجمله‌ای اضافه، مرز می‌تواند یک دایره یا منحنی پیچیده‌تر باشد."
+ },
+ "1gvzcjp": {
+  "en": "Remember. The decision boundary is where w . x + b = 0.",
+  "fa": "**یادت بماند.** مرز تصمیم جایی است که `w . x + b = 0` است."
+ },
+ "14z6ocn": {
+  "en": "What it teaches. Three ways to reduce overfitting.",
+  "fa": "**آنچه می‌آموزد.** سه راه برای کم‌کردن بیش‌برازش."
+ },
+ "1v80916": {
+  "en": "Get more training data. With more examples a flexible model has less r",
+  "fa": "**داده‌ی آموزشی بیشتر جمع کن.** با نمونه‌های بیشتر، یک مدل انعطاف‌پذیر جای کمتری برای دنبال کردن نویز دارد. وقتی توانش را داری بهترین راه‌حل است."
+ },
+ "9z176k": {
+  "en": "Use fewer features. Too many features, especially with little data, in",
+  "fa": "**از ویژگی‌های کمتر استفاده کن.** ویژگی‌های زیاد، به‌خصوص با داده‌ی کم، بیش‌برازش را دعوت می‌کنند؛ انتخاب مفیدترین‌ها (انتخاب ویژگی) کمک می‌کند، به قیمت دور ریختن اطلاعات."
+ },
+ "1i1dxvb": {
+  "en": "Regularization. Keep all the features but shrink the size of the weigh",
+  "fa": "**منظم‌سازی (Regularization).** همه‌ی ویژگی‌ها را نگه دار ولی اندازه‌ی وزن‌ها را کوچک کن تا هیچ ویژگی‌ای غالب نشود. این راه‌حلی است که ویدیوهای بعدی می‌سازند."
+ },
+ "1fpzx4e": {
+  "en": "Regularizing b is not needed in practice.",
+  "fa": "منظم‌کردن `b` در عمل لازم نیست."
+ },
+ "81dnuf": {
+  "en": "Remember. More data, fewer features, or smaller weights.",
+  "fa": "**یادت بماند.** داده‌ی بیشتر، ویژگی کمتر، یا وزن کوچک‌تر."
+ },
+ "1di9m0f": {
+  "en": "What it teaches. The university version of the same material, with mor",
+  "fa": "**آنچه می‌آموزد.** نسخه‌ی دانشگاهی همین مطالب، با ریاضی بیشتر. مطالعه‌ی عمیق‌تر اختیاری، که برای تمرین‌های هفتگی لازم نیست."
+ },
+ "bwtix4": {
+  "en": "Linear regression with the notation theta for the parameters.",
+  "fa": "رگرسیون خطی با نمادگذاری `theta` برای پارامترها."
+ },
+ "mcuqjq": {
+  "en": "Gradient descent drawn on the cost surface, then batch and stochastic ",
+  "fa": "گرادیان کاهشی روی سطح هزینه رسم‌شده، بعد گرادیان کاهشی دسته‌ای و تصادفی."
+ },
+ "vll36b": {
+  "en": "The normal equation: a closed-form way to fit a linear model in one st",
+  "fa": "معادله‌ی نرمال: راهی با فرمول بسته برای برازش یک مدل خطی در یک گام، که با نمادگذاری مشتق ماتریسی در چند خط به جای چند صفحه به دست می‌آید."
+ },
+ "rqjdgj": {
+  "en": "Choosing the learning rate is mostly empirical: people try several val",
+  "fa": "انتخاب نرخ یادگیری بیشتر تجربی است: آدم‌ها چند مقدار را امتحان می‌کنند و یکی را که کار می‌کند نگه می‌دارند."
+ },
+ "1lfbi84": {
+  "en": "Remember. Gradient descent walks to the answer; the normal equation ju",
+  "fa": "**یادت بماند.** گرادیان کاهشی تا جواب راه می‌رود؛ معادله‌ی نرمال وقتی داده به اندازه‌ی کافی کوچک است مستقیم می‌پرد آنجا."
+ },
+ "1atma0z": {
+  "en": "What it teaches. How to judge a classifier across every possible thres",
+  "fa": "**آنچه می‌آموزد.** چطور یک دسته‌بند را روی همه‌ی آستانه‌های ممکن بسنجیم، نه فقط 0.5."
+ },
+ "1uj37hu": {
+  "en": "A model such as logistic regression gives probabilities. Each threshol",
+  "fa": "مدلی مثل رگرسیون لجستیک احتمال می‌دهد. هر آستانه (0.5 و 0.2 و 0.9 ...) یک ماتریس درهم‌ریختگی متفاوت می‌دهد."
+ },
+ "1qr9mr2": {
+  "en": "The ROC curve plots the true positive rate (sensitivity) against the f",
+  "fa": "**منحنی ROC** نرخ مثبت درست (حساسیت) را در برابر نرخ مثبت کاذب (1 منهای اختصاصیت) برای همه‌ی آستانه‌ها رسم می‌کند. هر نقطه‌ی روی منحنی یک آستانه است."
+ },
+ "799z07": {
+  "en": "The diagonal line is a model that guesses at random. The closer the cu",
+  "fa": "خط قطری مدلی است که تصادفی حدس می‌زند. هرچه منحنی به گوشه‌ی بالا-چپ نزدیک‌تر شود مدل بهتر است. از منحنی برای انتخاب آستانه‌ای که با هزینه‌هایت جور است استفاده کن."
+ },
+ "zjk1m6": {
+  "en": "AUC, the area under the curve, is one number for comparing models: 0.5",
+  "fa": "**AUC**، مساحت زیر منحنی، یک عدد برای مقایسه‌ی مدل‌هاست: 0.5 تصادفی است، 1.0 کامل."
+ },
+ "xtakeo": {
+  "en": "When the positive class is rare, precision (true positives / predicted",
+  "fa": "وقتی دسته‌ی مثبت نادر است، دقت (precision: مثبت‌های درست / مثبت‌های پیش‌بینی‌شده) اغلب از نرخ مثبت کاذب آموزنده‌تر است."
+ },
+ "q73nfc": {
+  "en": "Remember. ROC shows the trade-off; AUC scores it with one number.",
+  "fa": "**یادت بماند.** ROC موازنه را نشان می‌دهد؛ AUC آن را با یک عدد امتیاز می‌دهد."
+ },
+ "1pxly0v": {
+  "en": "What it teaches. How to tell whether gradient descent is working.",
+  "fa": "**آنچه می‌آموزد.** چطور بفهمیم گرادیان کاهشی کار می‌کند."
+ },
+ "1nr0pqx": {
+  "en": "Plot the cost J against the number of iterations (the learning curve).",
+  "fa": "هزینه‌ی `J` را در برابر تعداد تکرارها رسم کن (منحنی یادگیری)."
+ },
+ "195594s": {
+  "en": "If it works, J goes down on every single iteration. If J ever goes up,",
+  "fa": "اگر کار کند، `J` در هر تکرار پایین می‌آید. اگر `J` هر وقت بالا رفت، `alpha` احتمالاً خیلی بزرگ است یا اشکالی هست."
+ },
+ "1cfa1sf": {
+  "en": "The curve flattens when the algorithm has converged. The number of ite",
+  "fa": "منحنی وقتی الگوریتم همگرا شده صاف می‌شود. تعداد تکرارهای لازم بین مسائل خیلی فرق می‌کند."
+ },
+ "u4wv81": {
+  "en": "An automatic convergence test (stop when J drops by less than a small ",
+  "fa": "یک آزمون همگرایی خودکار (متوقف شو وقتی `J` کمتر از یک epsilon کوچک پایین بیاید) ممکن است، ولی نگاه کردن به منحنی آموزنده‌تر است و زود هشدار می‌دهد."
+ },
+ "aiu1m2": {
+  "en": "Remember. The learning curve should fall on every iteration, then flat",
+  "fa": "**یادت بماند.** منحنی یادگیری باید در هر تکرار پایین بیاید، بعد صاف شود."
+ },
+ "u79u0m": {
+  "en": "What it teaches. Training logistic regression with gradient descent.",
+  "fa": "**آنچه می‌آموزد.** آموزش رگرسیون لجستیک با گرادیان کاهشی."
+ },
+ "k9ajg": {
+  "en": "Find w and b that minimize J, using the same update rule as before: w_",
+  "fa": "`w` و `b`ای را پیدا کن که `J` را کمینه می‌کنند، با همان قاعده‌ی به‌روزرسانی قبلی: `w_j` برابر `w_j` منهای `alpha` ضربدر شیب، و همین‌طور برای `b`."
+ },
+ "izne9": {
+  "en": "The slopes look identical to linear regression: the average of (f minu",
+  "fa": "شیب‌ها مثل رگرسیون خطی به نظر می‌رسند: میانگین `(f - y)` ضربدر `x_j`، و میانگین `(f - y)`."
+ },
+ "er1u8v": {
+  "en": "The difference is the definition of f: in linear regression f = w . x ",
+  "fa": "تفاوت در تعریف `f` است: در رگرسیون خطی `f = w . x + b` و در رگرسیون لجستیک `f = sigmoid(w . x + b)`."
+ },
+ "1f64qhp": {
+  "en": "Vectorization and feature scaling work here too. In practice many prac",
+  "fa": "برداری‌سازی و مقیاس‌دهی ویژگی اینجا هم کار می‌کنند. در عمل خیلی از کارورزان برای این از scikit-learn استفاده می‌کنند."
+ },
+ "y4oqbe": {
+  "en": "Remember. Same update equations, different f. After training, a new x ",
+  "fa": "**یادت بماند.** همان معادله‌های به‌روزرسانی، `f` متفاوت. پس از آموزش، یک `x` جدید یک احتمال می‌دهد."
+ },
+ "kpaacs": {
+  "en": "What it teaches. The tool used for the labs: the Jupyter Notebook.",
+  "fa": "**آنچه می‌آموزد.** ابزاری که برای آزمایشگاه‌ها استفاده می‌شود: Jupyter Notebook."
+ },
+ "78cd20": {
+  "en": "Jupyter is the default environment of most machine learning and data s",
+  "fa": "Jupyter محیط پیش‌فرض بیشتر کارورزان یادگیری ماشین و علم داده است."
+ },
+ "ghvfjm": {
+  "en": "A notebook has text cells and code cells. Shift+Enter runs a cell.",
+  "fa": "یک notebook سلول‌های متن و سلول‌های کد دارد. `Shift+Enter` یک سلول را اجرا می‌کند."
+ },
+ "1jk6u4v": {
+  "en": "The optional labs need no coding from you: you open them and run the c",
+  "fa": "آزمایشگاه‌های اختیاری از تو کدنویسی نمی‌خواهند: بازشان می‌کنی و کد را اجرا می‌کنی تا ببینی کد یادگیری ماشین چطور رفتار می‌کند. آزمایشگاه‌های تمرینی بعداً از تو می‌خواهند مقداری کد بنویسی."
+ },
+ "19ade6": {
+  "en": "Remember. Run, read, change one thing, run again. That is how to learn",
+  "fa": "**یادت بماند.** اجرا کن، بخوان، یک چیز را عوض کن، دوباره اجرا کن. این‌طور از یک notebook یاد می‌گیری."
+ },
+ "1jku529": {
+  "en": "What it teaches. The statistician's view of linear regression: least s",
+  "fa": "**آنچه می‌آموزد.** دید آماردان از رگرسیون خطی: کمترین مربعات، R² و p-value. یک پشتیبان اختیاری اگر تابع هزینه مبهم بود."
+ },
+ "1d0xvku": {
+  "en": "Least squares: draw a line through the data, measure each point's dist",
+  "fa": "**کمترین مربعات:** خطی از میان داده بکش، فاصله‌ی هر نقطه تا آن را بسنج، فاصله‌ها را به توان دو برسان، جمع بزن و خطی را که کوچک‌ترین مجموع را دارد نگه دار. همان ایده‌ی مربع خطا در درس Ng است."
+ },
+ "1bqixma": {
+  "en": "R squared compares the variation around the mean with the variation ar",
+  "fa": "R² تغییرات دور میانگین را با تغییرات دور خط برازش‌شده مقایسه می‌کند: (تغییرات دور میانگین منهای تغییرات دور خط) تقسیم بر تغییرات دور میانگین. می‌گوید خط چقدر از تغییرات را توضیح می‌دهد."
+ },
+ "y4wzb7": {
+  "en": "With more predictors (the example adds tail length to mouse weight) le",
+  "fa": "با پیش‌بین‌های بیشتر (مثال طول دم را به وزن موش اضافه می‌کند) کمترین مربعات یک عرض از مبدأ و یک عدد برای هر پیش‌بین تخمین می‌زند."
+ },
+ "1ozna2q": {
+  "en": "A p-value, from an F statistic that uses the number of parameters in t",
+  "fa": "یک p-value، از یک آماره‌ی F که تعداد پارامترهای خط برازش و خط میانگین را به کار می‌برد، می‌گوید آیا رابطه می‌تواند اتفاقی باشد."
+ },
+ "1ydl5s1": {
+  "en": "Remember. R squared near 1 means the line explains most of the variati",
+  "fa": "**یادت بماند.** R² نزدیک 1 یعنی خط بیشتر تغییرات را توضیح می‌دهد."
+ },
+ "1emodsg": {
+  "en": "What it teaches. A long, general-audience tour of how a model like Cha",
+  "fa": "**آنچه می‌آموزد.** یک گشت طولانی برای مخاطب عام درباره‌ی اینکه مدلی مثل ChatGPT چطور ساخته می‌شود و چیست. برنامه‌ی تو فصل توکن‌بندی (از 7:47 شروع می‌شود) را معرفی کرده بود تا توضیح دهد چرا قیمت‌ها بر اساس توکن است. گزیده‌های استفاده‌شده برای این صفحه از سراسر ویدیو آمده‌اند؛ خود فصل توکن‌بندی با جزئیات خوانده نشد."
+ },
+ "tkjym5": {
+  "en": "The arc of the video",
+  "fa": "**مسیر ویدیو**"
+ },
+ "ihtbs7": {
+  "en": "Pretraining: download and clean a huge amount of internet text, turn i",
+  "fa": "**پیش‌آموزش (pretraining):** حجم عظیمی متن اینترنت را دانلود و تمیز کن، به توکن تبدیلش کن و یک شبکه‌ی عصبی را آموزش بده توکن بعدی را پیش‌بینی کند."
+ },
+ "79mciz": {
+  "en": "Inference: the model samples one token at a time, so the same prompt c",
+  "fa": "**استنتاج (inference):** مدل هر بار یک توکن نمونه‌برداری می‌کند، پس همان پرامپت می‌تواند جواب‌های متفاوت بدهد («جهان‌های موازی»)."
+ },
+ "ahv9wq": {
+  "en": "From base model to assistant: post-training on conversations written b",
+  "fa": "**از مدل پایه تا دستیار:** پس‌آموزش روی گفتگوهایی که برچسب‌زن‌های انسانی نوشته‌اند به مدل یاد می‌دهد مثل یک دستیار جواب بدهد."
+ },
+ "1e0ma35": {
+  "en": "Hallucinations, the model's knowledge in its parameters versus the wor",
+  "fa": "توهم‌ها (hallucinations)، دانش مدل در پارامترهایش در برابر حافظه‌ی کاری در زمینه‌اش، و اینکه چرا ابزارهایی مثل جستجوی وب کمک می‌کنند."
+ },
+ "1hvegbn": {
+  "en": "Reinforcement learning, reasoning models (the DeepSeek discussion) and",
+  "fa": "یادگیری تقویتی، مدل‌های استدلالی (بحث DeepSeek) و یادگیری از بازخورد انسانی."
+ },
+ "he0xgj": {
+  "en": "Remember. A model is a very large next-token predictor; treat its outp",
+  "fa": "**یادت بماند.** مدل یک پیش‌بین بسیار بزرگ توکن بعدی است؛ با خروجی‌اش مثل یک پیش‌نویس رفتار کن که خودت بررسی می‌کنی."
+ },
+ "1pdelrh": {
+  "en": "What it teaches. Underfitting and overfitting, for regression and clas",
+  "fa": "**آنچه می‌آموزد.** کم‌برازش و بیش‌برازش، برای رگرسیون و دسته‌بندی."
+ },
+ "1bev673": {
+  "en": "Underfit: a straight line through house-price data that clearly curves",
+  "fa": "**کم‌برازش:** یک خط راست از میان داده‌ی قیمت خانه که آشکارا خمیده است. مدل خیلی ساده است و سوگیری بالا دارد."
+ },
+ "cvzmd3": {
+  "en": "Just right: a curve that fits the training data and should also fit ne",
+  "fa": "**مناسب:** منحنی‌ای که داده‌ی آموزشی را برازش می‌کند و باید خانه‌های جدید را هم برازش کند (تعمیم می‌دهد)."
+ },
+ "z2iyt6": {
+  "en": "Overfit: a high-order polynomial that passes through every training po",
+  "fa": "**بیش‌برازش:** یک چندجمله‌ای با درجه‌ی بالا که از هر نقطه‌ی آموزشی می‌گذرد، تقریباً بیش‌ازحد خوب. به نمونه‌های جدید تعمیم نمی‌دهد و واریانس بالا دارد."
+ },
+ "5hlmu7": {
+  "en": "The same happens in classification: a decision boundary that is too si",
+  "fa": "همین در دسته‌بندی هم رخ می‌دهد: مرز تصمیم خیلی ساده کم‌برازش می‌کند، مرزی که دور هر نقطه می‌پیچد بیش‌برازش."
+ },
+ "1tlxhsq": {
+  "en": "Next video: how to fix overfitting.",
+  "fa": "ویدیوی بعدی: چطور بیش‌برازش را درست کنیم."
+ },
+ "2y01jo": {
+  "en": "Remember. Generalization is the goal: do well on examples the model ha",
+  "fa": "**یادت بماند.** هدف تعمیم است: روی نمونه‌هایی که مدل هرگز ندیده خوب عمل کن."
+ },
+ "w41zvi": {
+  "en": "What it teaches. A big-picture tour of machine learning for people who",
+  "fa": "**آنچه می‌آموزد.** یک گشت کلی از یادگیری ماشین برای کسانی که با هوش مصنوعی می‌سازند. ویدیوی مرور جلسه‌ی 1 است: اول آن را ببین، بعد سراغ جزئیات برو."
+ },
+ "qcjz26": {
+  "en": "Points the notes take from it",
+  "fa": "**نکته‌هایی که یادداشت‌ها از آن می‌گیرند**"
+ },
+ "o47few": {
+  "en": "\"Learning\" means searching for the parameters that fit the examples be",
+  "fa": "«یادگیری» یعنی جست‌وجوی پارامترهایی که بهترین جور را با نمونه‌ها دارند. برای یک خط راست این‌ها شیب و عرض از مبدأ هستند."
+ },
+ "1s99z1e": {
+  "en": "Machine learning is only as good as its data: both quantity (too few e",
+  "fa": "یادگیری ماشین فقط به اندازه‌ی داده‌اش خوب است: هم کمیت (نمونه‌ی خیلی کم به بیش‌برازش می‌انجامد) و هم کیفیت مهم‌اند."
+ },
+ "1nh53b4": {
+  "en": "Neural networks learn their own features. In an image network the firs",
+  "fa": "شبکه‌های عصبی ویژگی‌های خودشان را یاد می‌گیرند. در یک شبکه‌ی تصویر لایه‌های اول لبه‌ها را تشخیص می‌دهند، لایه‌های بعد لبه‌ها را به چشم و سبیل ترکیب می‌کنند و آخرین لایه تصمیم می‌گیرد «گربه». هیچ‌کس سبیل را برنامه‌ریزی نمی‌کند."
+ },
+ "197knir": {
+  "en": "Training uses small batches of examples at each step (8 to 32 in the v",
+  "fa": "آموزش در هر گام از دسته‌های کوچک نمونه (8 تا 32 در مثال ویدیو) و یک بهینه‌ساز مثل Adam استفاده می‌کند."
+ },
+ "lhsbnf": {
+  "en": "Remember. Parameters are learned from data, and the quality of the dat",
+  "fa": "**یادت بماند.** پارامترها از داده یاد گرفته می‌شوند و کیفیت داده سقف کیفیت مدل را تعیین می‌کند."
+ },
+ "1u5yc7y": {
+  "en": "What it teaches. How the S-shaped curve of logistic regression is fitt",
+  "fa": "**آنچه می‌آموزد.** منحنی S‌شکل رگرسیون لجستیک چطور برازش می‌شود: با بیشینه‌ی درست‌نمایی (maximum likelihood)، نه کمترین مربعات. نگاهی عمیق‌تر و اختیاری به پشت زیان لگاریتمی."
+ },
+ "1ywc8q": {
+  "en": "Logistic regression works on the log odds scale, where the raw data si",
+  "fa": "رگرسیون لجستیک روی مقیاس لگاریتم‌شانس کار می‌کند، جایی که داده‌ی خام در مثبت و منفی بی‌نهایت می‌نشیند، پس باقی‌مانده‌های معمولی قابل استفاده نیستند."
+ },
+ "p4niip": {
+  "en": "Instead, try a candidate line, convert it to a curve of probabilities,",
+  "fa": "در عوض، یک خط نامزد را امتحان کن، آن را به منحنی احتمال‌ها تبدیل کن، و برای هر موش بپرس: وضعیت مشاهده‌شده‌اش (چاق یا نه) زیر این منحنی چقدر محتمل است؟"
+ },
+ "17uxus7": {
+  "en": "For an obese mouse the likelihood is the height of the curve at its we",
+  "fa": "برای یک موش چاق درست‌نمایی ارتفاع منحنی در وزن اوست؛ برای موش غیرچاق 1 منهای آن ارتفاع است."
+ },
+ "16mfrsc": {
+  "en": "Multiply the likelihoods of all mice to get the likelihood of the curv",
+  "fa": "درست‌نمایی همه‌ی موش‌ها را در هم ضرب کن تا درست‌نمایی منحنی به دست بیاید. آماردان‌ها لگاریتمش را می‌گیرند و لگاریتم‌ها را جمع می‌کنند، چون منحنی‌ای که یکی را بیشینه می‌کند دیگری را هم بیشینه می‌کند."
+ },
+ "zbnulw": {
+  "en": "Pick the curve with the highest log-likelihood. Maximizing log likelih",
+  "fa": "منحنی با بیشترین لگاریتم درست‌نمایی را انتخاب کن. بیشینه‌کردن لگاریتم درست‌نمایی همان کمینه‌کردن زیان لگاریتمی در تابع هزینه‌ی Ng است."
+ },
+ "tmb326": {
+  "en": "Remember. Best curve = the one that makes the observed data most proba",
+  "fa": "**یادت بماند.** بهترین منحنی = آنکه داده‌ی مشاهده‌شده را محتمل‌ترین می‌کند."
+ },
+ "icpm3z": {
+  "en": "What it teaches. How to build the cost function that scores how well a",
+  "fa": "**آنچه می‌آموزد.** چطور تابع هزینه‌ای بسازیم که امتیاز بدهد یک خط چقدر خوب برازش شده."
+ },
+ "1pjc72z": {
+  "en": "The model is f(x) = w x + b. If w = 0.5 and b = 0 the line passes thro",
+  "fa": "مدل `f(x) = w x + b` است. اگر `w = 0.5` و `b = 0` خط از مبدأ با شیب 0.5 می‌گذرد؛ `b` عرض از مبدأ است."
+ },
+ "1s9q5gr": {
+  "en": "The error of one example is y-hat minus y. Square it so negative and p",
+  "fa": "خطای یک نمونه y-hat منهای y است. آن را به توان دو برسان تا خطاهای منفی و مثبت همدیگر را خنثی نکنند."
+ },
+ "1cdgohi": {
+  "en": "Sum the squared errors over all m examples, then divide by m so the co",
+  "fa": "مربع خطاها را روی همه‌ی `m` نمونه جمع بزن، بعد بر `m` تقسیم کن تا هزینه صرفاً با بزرگ‌شدن داده بزرگ نشود."
+ },
+ "55crcs": {
+  "en": "By convention the cost divides by 2m, which makes the later derivative",
+  "fa": "طبق قرارداد هزینه بر `2m` تقسیم می‌شود که مشتق بعدی را مرتب‌تر می‌کند. این هزینه‌ی مربع خطا `J(w, b)` است."
+ },
+ "11i9xjk": {
+  "en": "Goal: find w and b that make J as small as possible.",
+  "fa": "هدف: `w` و `b`ای را پیدا کن که `J` را تا حد ممکن کوچک کنند."
+ },
+ "317jjx": {
+  "en": "Remember. Cost = average squared mistake (with an extra 1/2). Small co",
+  "fa": "**یادت بماند.** هزینه = میانگین مربع اشتباه (با یک 1/2 اضافه). هزینه‌ی کم یعنی برازش خوب."
+ },
+ "pl3z5i": {
+  "en": "What it teaches. A gentle picture of what a neural network does: fit a",
+  "fa": "**آنچه می‌آموزد.** تصویری ملایم از کاری که یک شبکه‌ی عصبی می‌کند: برازش یک خط‌خطی (squiggle)."
+ },
+ "12hq27j": {
+  "en": "A neural network is a way to fit a flexible curve (a squiggle) to data",
+  "fa": "شبکه‌ی عصبی راهی برای برازش یک منحنی انعطاف‌پذیر (squiggle) به داده‌ای است که یک خط راست نمی‌تواند دنبالش برود، مثلاً اینکه یک دارو در دوزهای مختلف چقدر مؤثر است."
+ },
+ "ry6twv": {
+  "en": "Nodes in the hidden layer each apply an activation function (softplus,",
+  "fa": "گره‌های لایه‌ی پنهان هرکدام یک تابع فعال‌سازی (softplus، ReLU یا sigmoid) را روی یک ورودی وزن‌دار به‌علاوه‌ی بایاس اعمال می‌کنند. این ورودی را به یک منحنی خم می‌کند."
+ },
+ "12e2cjz": {
+  "en": "The curves from several hidden nodes are scaled by more weights and ad",
+  "fa": "منحنی‌های چند گره‌ی پنهان با وزن‌های بیشتر مقیاس می‌شوند و با هم جمع می‌شوند. نتیجه خط‌خطی نهایی است."
+ },
+ "yhd91": {
+  "en": "Weights and biases are learned from the data. More hidden nodes give a",
+  "fa": "وزن‌ها و بایاس‌ها از داده یاد گرفته می‌شوند. گره‌های پنهان بیشتر منحنی انعطاف‌پذیرتری می‌دهند."
+ },
+ "1eh8naz": {
+  "en": "Remember. Hidden nodes make bent pieces; the output adds the pieces in",
+  "fa": "**یادت بماند.** گره‌های پنهان تکه‌های خمیده می‌سازند؛ خروجی تکه‌ها را در یک منحنی جمع می‌کند."
+ },
+ "a7i57y": {
+  "en": "What it teaches. Practical advice from Anthropic on when and how to bu",
+  "fa": "**آنچه می‌آموزد.** توصیه‌ی عملی Anthropic درباره‌ی اینکه کی و چطور یک عامل بسازیم. از پست وبلاگ «Building Effective Agents» پیروی می‌کند."
+ },
+ "1swur0x": {
+  "en": "Do not build an agent for everything. Check that the task is complex e",
+  "fa": "برای همه‌چیز عامل نساز. بررسی کن وظیفه به اندازه‌ی کافی پیچیده و ارزشمند است و هزینه‌ی اشتباه‌ها قابل مدیریت."
+ },
+ "iwb673": {
+  "en": "De-risk the critical capabilities first. For a coding agent: can it wr",
+  "fa": "اول قابلیت‌های حیاتی را کم‌ریسک کن. برای یک عامل کدنویسی: آیا می‌تواند کد خوب بنویسد، اشکال‌زدایی کند و از خطاهای خودش برگردد؟ اگر یکی از این‌ها گلوگاه است دامنه را کم کن."
+ },
+ "ao3wdq": {
+  "en": "Keep it simple. An agent is three things: an environment, a set of too",
+  "fa": "ساده نگه دار. یک عامل سه چیز است: یک محیط، مجموعه‌ای از ابزارها و یک پرامپت سیستم. این سه را درست کن پیش از بهینه‌سازی."
+ },
+ "12f1nx7": {
+  "en": "Optimizations come later: cache the trajectory to cut cost for coding ",
+  "fa": "بهینه‌سازی‌ها بعداً می‌آیند: مسیر اجرا را برای کم‌کردن هزینه در کدنویسی و استفاده از کامپیوتر کش کن، فراخوانی ابزارها را برای کم‌کردن تأخیر در جستجو موازی اجرا کن، و پیشرفت را نشان بده تا کاربران اعتماد کنند."
+ },
+ "sjrn30": {
+  "en": "Think like your agent: it sees only its context window. Put the whole ",
+  "fa": "مثل عاملت فکر کن: فقط پنجره‌ی زمینه‌اش را می‌بیند. کل مسیر اجرا را جلوی مدل بگذار و بپرس چرا یک تصمیم را گرفت."
+ },
+ "1vjdj40": {
+  "en": "Remember. Environment, tools, system prompt: get those right, and read",
+  "fa": "**یادت بماند.** محیط، ابزارها، پرامپت سیستم: این‌ها را درست کن، و مسیر اجرای عاملت را مثل یک متن بخوان."
+ },
+ "1iicg4y": {
+  "en": "What it teaches. A fast tour of the main algorithms in one picture. Ch",
+  "fa": "**آنچه می‌آموزد.** یک گشت سریع از الگوریتم‌های اصلی در یک تصویر. فصل 13 یادداشت‌ها روی آن ساخته شده."
+ },
+ "117jw1a": {
+  "en": "Examples the notes take from it",
+  "fa": "**مثال‌هایی که یادداشت‌ها از آن می‌گیرند**"
+ },
+ "hnfpmv": {
+  "en": "Supervised: nearest neighbours; support vector machines (separating ca",
+  "fa": "**نظارت‌شده:** نزدیک‌ترین همسایه‌ها؛ ماشین بردار پشتیبان (جداکردن گربه‌ها از فیل‌ها با وزن و طول بینی)؛ نایو بیز (فیلتر اسپم)؛ درخت‌های تصمیم (ریسک حمله‌ی قلبی)؛ جنگل تصادفی و بوستینگ (درخت‌های زیاد)؛ شبکه‌های عصبی (تشخیص ارقام دست‌نویس)."
+ },
+ "1v2v510": {
+  "en": "Unsupervised: k-means clustering (emails grouped into three unnamed gr",
+  "fa": "**نظارت‌نشده:** خوشه‌بندی k-means (ایمیل‌هایی که در سه گروه بی‌نام دسته‌بندی می‌شوند) و PCA (طول و ارتفاع ماهی به یک ویژگی «شکل» تبدیل می‌شوند)."
+ },
+ "1c5igbb": {
+  "en": "Each algorithm has a typical use. Pick one by trying a simple baseline",
+  "fa": "هر الگوریتم کاربرد معمولی دارد. یکی را با امتحان کردن یک مدل پایه‌ی ساده و اندازه‌گیری روی داده‌ی کنارگذاشته‌شده انتخاب کن."
+ },
+ "yvy7de": {
+  "en": "Remember. Supervised needs labels; unsupervised finds structure. For t",
+  "fa": "**یادت بماند.** نظارت‌شده برچسب لازم دارد؛ نظارت‌نشده ساختار پیدا می‌کند. برای داده‌های جدولی، درخت‌ها و بوستینگ انتخاب‌های اول معمولی‌اند."
+ },
+ "vjnb7d": {
+  "en": "What it teaches. Multiple regression is linear regression with more th",
+  "fa": "**آنچه می‌آموزد.** رگرسیون چندگانه رگرسیون خطی با بیش از یک پیش‌بین است، و به تو اجازه می‌دهد آزمون کنی آیا جمع‌کردن یک پیش‌بین تازه ارزشش را دارد."
+ },
+ "1m7vvr2": {
+  "en": "It adds more dimensions to the model: instead of body length from mous",
+  "fa": "بُعدهای بیشتری به مدل اضافه می‌کند: به‌جای طول بدن از روی وزن موش تنها، از وزن و طول دم استفاده کن. شکل برازش‌شده یک صفحه (یا شیء با بُعد بالاتر) است که هنوز با کمترین مربعات پیدا می‌شود."
+ },
+ "1n60q3t": {
+  "en": "R squared is calculated the same way, but it is adjusted for the extra",
+  "fa": "R² همان‌طور حساب می‌شود ولی برای پارامترهای اضافه تعدیل می‌شود، پس اضافه‌کردن یک پیش‌بین بی‌فایده نمی‌تواند آن را مفت بالا ببرد."
+ },
+ "i7uel6": {
+  "en": "A p-value for the whole model comes from an F statistic, as for simple",
+  "fa": "p-value برای کل مدل از یک آماره‌ی F می‌آید، مثل رگرسیون ساده."
+ },
+ "u31mvk": {
+  "en": "The key trick: compare the simple model (without tail length) with the",
+  "fa": "ترفند کلیدی: مدل ساده (بدون طول دم) را با مدل چندگانه (با آن) مقایسه کن. p-value کوچک یعنی پیش‌بین اضافه ارزش زحمت جمع‌کردن را دارد."
+ },
+ "1h8yl7d": {
+  "en": "Remember. A predictor earns its place only if the bigger model beats t",
+  "fa": "**یادت بماند.** یک پیش‌بین فقط وقتی جایش را کسب می‌کند که مدل بزرگ‌تر از مدل کوچک‌تر بیش از شانس بهتر باشد."
+ },
+ "175ax6g": {
+  "en": "What it teaches. Bias and variance, with one example of mouse weight a",
+  "fa": "**آنچه می‌آموزد.** سوگیری و واریانس، با یک مثال از وزن و قد موش‌ها."
+ },
+ "g2c68s": {
+  "en": "The true relationship between weight and height is a curve. Split the ",
+  "fa": "رابطه‌ی واقعی بین وزن و قد یک منحنی است. داده را به یک مجموعه‌ی آموزشی و یک مجموعه‌ی تست تقسیم کن."
+ },
+ "11v869x": {
+  "en": "A straight line (linear regression) cannot bend, so it cannot match th",
+  "fa": "یک خط راست (رگرسیون خطی) نمی‌تواند خم شود، پس نمی‌تواند با منحنی جور شود: سوگیری بالا دارد. ولی مجموع مربعاتش روی مجموعه‌داده‌های مختلف مشابه است، پس واریانس کم دارد."
+ },
+ "1yomfkx": {
+  "en": "A wiggly curve that passes through every training point fits the train",
+  "fa": "یک منحنی پرپیچ‌وخم که از هر نقطه‌ی آموزشی می‌گذرد مجموعه‌ی آموزشی را کامل برازش می‌کند (همه‌ی فاصله‌ها صفر)، ولی خطایش روی داده‌ی تست از یک مجموعه‌داده تا دیگری خیلی تغییر می‌کند: سوگیری کم، واریانس بالا. بیش‌برازش می‌کند."
+ },
+ "tpi97o": {
+  "en": "What we want is a model with low bias and low variance, found by balan",
+  "fa": "آنچه می‌خواهیم مدلی با سوگیری کم و واریانس کم است که با موازنه‌ی بین مدل‌های ساده و پیچیده پیدا می‌شود. ویدیو منظم‌سازی، بوستینگ و بگینگ (جنگل تصادفی) را راه‌های پیدا کردن این موازنه نام می‌برد."
+ },
+ "19p38ji": {
+  "en": "Remember. High bias = too simple, misses the pattern. High variance = ",
+  "fa": "**یادت بماند.** سوگیری بالا = خیلی ساده، الگو را از دست می‌دهد. واریانس بالا = خیلی پرپیچ‌وخم، نویز را حفظ می‌کند."
+ },
+ "1792bal": {
+  "en": "What it teaches. Fitting curves with a linear-regression algorithm.",
+  "fa": "**آنچه می‌آموزد.** برازش منحنی‌ها با یک الگوریتم رگرسیون خطی."
+ },
+ "127dw6f": {
+  "en": "If a straight line does not fit, add features such as x squared or x c",
+  "fa": "اگر یک خط راست جور نیست، ویژگی‌هایی مثل `x²` یا `x³` اضافه کن. مدل هنوز نسبت به وزن‌ها خطی است، پس همان گرادیان کاهشی کار می‌کند."
+ },
+ "nggktb": {
+  "en": "Another choice is the square root of x; it rises but flattens, without",
+  "fa": "انتخاب دیگر ریشه‌ی دوم `x` است؛ بالا می‌رود ولی صاف می‌شود، بدون اینکه هرگز پایین بیاید. ویژگی‌ها را با نگاه کردن به شکل داده انتخاب کن."
+ },
+ "rp0yv8": {
+  "en": "When you use powers of x, feature scaling becomes very important, beca",
+  "fa": "وقتی از توان‌های `x` استفاده می‌کنی، مقیاس‌دهی ویژگی خیلی مهم می‌شود، چون `x` و `x²` و `x³` بازه‌های بسیار متفاوتی دارند."
+ },
+ "1usgl40": {
+  "en": "Next week: classification, the first algorithm that predicts categorie",
+  "fa": "هفته‌ی بعد: دسته‌بندی، اولین الگوریتمی که دسته‌ها را پیش‌بینی می‌کند. در عمل کتابخانه‌هایی مثل scikit-learn بخش زیادی از این را برایت انجام می‌دهند."
+ },
+ "4zui32": {
+  "en": "Remember. Curves are just more features.",
+  "fa": "**یادت بماند.** منحنی‌ها فقط ویژگی‌های بیشترند."
+ },
+ "nj7tes": {
+  "en": "What it teaches. How a network learns from training examples.",
+  "fa": "**آنچه می‌آموزد.** یک شبکه چطور از نمونه‌های آموزشی یاد می‌گیرد."
+ },
+ "14qnbva": {
+  "en": "A cost function scores the whole network: for one example, add up the ",
+  "fa": "یک **تابع هزینه** کل شبکه را امتیاز می‌دهد: برای یک نمونه، مربع تفاضل فعال‌سازی‌های خروجی و مقدارهای مطلوب را جمع بزن؛ بعد روی همه‌ی نمونه‌های آموزشی میانگین بگیر."
+ },
+ "grfv4n": {
+  "en": "The cost is a function of all 13,002 weights and biases. Gradient desc",
+  "fa": "هزینه تابعی از همه‌ی 13,002 وزن و بایاس است. گرادیان کاهشی همه‌ی آن‌ها را در جهتی که هزینه را سریع‌تر کم می‌کند (گرادیان منفی) تکان می‌دهد."
+ },
+ "1rzqtkt": {
+  "en": "The size of each component of the gradient shows which weights matter ",
+  "fa": "اندازه‌ی هر مؤلفه‌ی گرادیان نشان می‌دهد کدام وزن‌ها برای هزینه مهم‌ترند."
+ },
+ "1huh6ek": {
+  "en": "Backpropagation, the next chapter, is the fast way to compute the grad",
+  "fa": "پس‌انتشار، فصل بعدی، راه سریع محاسبه‌ی گرادیان است."
+ },
+ "1dnoatm": {
+  "en": "A caution: in the example the network does not learn the neat edge-and",
+  "fa": "یک هشدار: در مثال، شبکه ویژگی‌های مرتب لبه و حلقه‌ای را که امید می‌رفت یاد نمی‌گیرد؛ یک الگوی کارآمد پیدا می‌کند و با ورودی‌های نویز تصادفی مشکل دارد."
+ },
+ "er7d55": {
+  "en": "Remember. Learning = repeated small steps downhill on a cost that depe",
+  "fa": "**یادت بماند.** یادگیری = گام‌های کوچک تکراری به سمت پایین روی هزینه‌ای که به هر وزن بستگی دارد."
+ },
+ "1qqokjo": {
+  "en": "What it teaches. The intuition of backpropagation, without the calculu",
+  "fa": "**آنچه می‌آموزد.** شهود پس‌انتشار، بدون حساب دیفرانسیل."
+ },
+ "1ylu07u": {
+  "en": "For one training example, ask how every weight, bias and earlier activ",
+  "fa": "برای یک نمونه‌ی آموزشی بپرس هر وزن، بایاس و فعال‌سازی قبلی چطور باید تغییر کند تا خروجی به جواب درست نزدیک‌تر شود. یک نورون خروجی غلط می‌خواهد فعال‌سازی‌اش به اندازه‌ای بالا یا پایین برود."
+ },
+ "rhhqjk": {
+  "en": "Weights attached to bright neurons and large errors matter most, since",
+  "fa": "وزن‌های متصل به نورون‌های روشن و خطاهای بزرگ مهم‌ترند، چون تغییرشان بیشترین اثر را دارد."
+ },
+ "14lrop2": {
+  "en": "Each neuron in the layer before also wants to change, and that desire ",
+  "fa": "هر نورون در لایه‌ی قبل هم می‌خواهد تغییر کند و این خواست لایه به لایه به عقب منتقل می‌شود. این جریان رو به عقب همان پس‌انتشار است."
+ },
+ "xqhws5": {
+  "en": "Averaging the nudges over all training examples gives the gradient. Do",
+  "fa": "میانگین‌گرفتن از تکان‌ها روی همه‌ی نمونه‌های آموزشی گرادیان را می‌دهد. انجام این کار برای هر نمونه کند است، پس آموزش از مینی‌بچ‌ها استفاده می‌کند (گرادیان کاهشی تصادفی): تقریبی خام ولی سریع."
+ },
+ "1v92ce2": {
+  "en": "Remember. Errors flow backwards to tell each weight which way to move.",
+  "fa": "**یادت بماند.** خطاها به عقب جریان می‌یابند تا به هر وزن بگویند به کدام سمت برود."
+ },
+ "th5y0l": {
+  "en": "What it teaches. How supervised learning works end to end, and the sha",
+  "fa": "**آنچه می‌آموزد.** یادگیری نظارت‌شده از ابتدا تا انتها چطور کار می‌کند، و شکل مدل خطی."
+ },
+ "1nnpm0n": {
+  "en": "The training set (features and targets) goes into the learning algorit",
+  "fa": "مجموعه‌ی آموزشی (ویژگی‌ها و هدف‌ها) به الگوریتم یادگیری می‌رود که تابع `f`، یعنی مدل، را خروجی می‌دهد."
+ },
+ "vehhdd": {
+  "en": "A new input x goes into f, which outputs y-hat, the prediction (an est",
+  "fa": "یک ورودی جدید `x` به `f` می‌رود که y-hat، یعنی پیش‌بینی (یک تخمین)، را خروجی می‌دهد. `y` بدون کلاه هدف واقعی است."
+ },
+ "1wi658t": {
+  "en": "For linear regression f(x) = w x + b. w and b are the parameters the a",
+  "fa": "برای رگرسیون خطی `f(x) = w x + b`. `w` و `b` پارامترهایی‌اند که الگوریتم باید انتخاب کند."
+ },
+ "199r5ca": {
+  "en": "With one input feature this is called univariate linear regression.",
+  "fa": "با یک ویژگی ورودی این رگرسیون خطی تک‌متغیره نامیده می‌شود."
+ },
+ "1gbqvur": {
+  "en": "To make it work you need a cost function, one of the most universal id",
+  "fa": "برای کارکردنش به یک تابع هزینه نیاز داری، یکی از جهان‌شمول‌ترین ایده‌ها در یادگیری ماشین."
+ },
+ "wrq4cj": {
+  "en": "Remember. y is the real answer; y-hat is the model's guess.",
+  "fa": "**یادت بماند.** `y` جواب واقعی است؛ y-hat حدس مدل."
+ },
+ "15lc2gq": {
+  "en": "What it teaches. How to lay out a classifier's right and wrong answers",
+  "fa": "**آنچه می‌آموزد.** چطور جواب‌های درست و غلط یک دسته‌بند را در یک جدول بچینیم."
+ },
+ "y5olsb": {
+  "en": "Rows are what the model predicted, columns are what is actually true (",
+  "fa": "سطرها آنچه مدل پیش‌بینی کرده‌اند و ستون‌ها آنچه واقعاً درست است (بعضی کتاب‌ها جابه‌جایشان می‌کنند، پس همیشه برچسب‌ها را بخوان)."
+ },
+ "kj4e24": {
+  "en": "For a yes-or-no problem the four cells are true positives (predicted y",
+  "fa": "برای یک مسئله‌ی بله یا خیر چهار خانه عبارت‌اند از مثبت‌های درست (بله پیش‌بینی شد، بله بود)، مثبت‌های کاذب (بله پیش‌بینی شد، نه بود)، منفی‌های کاذب (نه پیش‌بینی شد، بله بود) و منفی‌های درست (نه پیش‌بینی شد، نه بود)."
+ },
+ "1sf5ou6": {
+  "en": "The diagonal holds the correct predictions; everything off the diagona",
+  "fa": "قطر پیش‌بینی‌های درست را دارد؛ هر چیز بیرون از قطر یک اشتباه است."
+ },
+ "bjjgjc": {
+  "en": "With more than two classes the matrix gets one row and one column per ",
+  "fa": "با بیش از دو دسته ماتریس به ازای هر دسته یک سطر و یک ستون می‌گیرد. ویدیو دو مدل را با چیدن هر دو ماتریس مقایسه می‌کند."
+ },
+ "17yhkbf": {
+  "en": "Remember. Check the labels first: which axis is predicted and which is",
+  "fa": "**یادت بماند.** اول برچسب‌ها را بررسی کن: کدام محور پیش‌بینی است و کدام واقعی؟"
+ },
+ "uc1s9n": {
+  "en": "What it teaches. Reading the contour plot together with the line it de",
+  "fa": "**آنچه می‌آموزد.** خواندن نمودار تراز در کنار خطی که توصیف می‌کند."
+ },
+ "zvs71v": {
+  "en": "A point on the contour plot (for example w about -0.15 and b about 800",
+  "fa": "یک نقطه روی نمودار تراز (مثلاً `w` حدود 0.15- و `b` حدود 800) یک زوج پارامتر است و با یک خط مشخص از میان داده متناظر است. یک نقطه‌ی دور خطی بد با هزینه‌ی بزرگ می‌دهد."
+ },
+ "oayqv1": {
+  "en": "The error of each data point is the vertical distance between the poin",
+  "fa": "خطای هر نقطه‌ی داده فاصله‌ی عمودی بین نقطه و خط است. هزینه مربع آن فاصله‌ها را جمع می‌کند."
+ },
+ "5ep1v8": {
+  "en": "Points near the centre of the rings give lines that fit close to the m",
+  "fa": "نقطه‌های نزدیک مرکز حلقه‌ها خط‌هایی می‌دهند که نزدیک کمترین مجموع مربع خطای ممکن برازش می‌شوند."
+ },
+ "qkw3qi": {
+  "en": "Finding the centre by hand is not practical, so we need an algorithm: ",
+  "fa": "پیدا کردن مرکز با دست عملی نیست، پس به یک الگوریتم نیاز داریم: گرادیان کاهشی."
+ },
+ "gqd759": {
+  "en": "Remember. Moving toward the centre of the rings = the line fits the da",
+  "fa": "**یادت بماند.** حرکت به سمت مرکز حلقه‌ها = خط بهتر با داده جور می‌شود."
+ },
+ "kp61cl": {
+  "en": "What it teaches. What the dot product really means, which explains why",
+  "fa": "**آنچه می‌آموزد.** ضرب داخلی واقعاً یعنی چه، که توضیح می‌دهد چرا یک نورون `w . x` را حساب می‌کند."
+ },
+ "1tyx30s": {
+  "en": "The numerical recipe: multiply matching coordinates and add. The geome",
+  "fa": "دستور عددی: مختصات متناظر را ضرب و جمع کن. تصویر هندسی: یک بردار را روی دیگری تصویر کن و طول‌ها را ضرب کن."
+ },
+ "1dp8ntk": {
+  "en": "The surprising fact is that the two views agree. The reason is duality",
+  "fa": "نکته‌ی شگفت‌آور این است که این دو دید موافق‌اند. دلیلش **دوگانگی (duality)** است: یک بردار با 2 عدد با یک تبدیل خطی از صفحه به خط اعداد، که به‌صورت ماتریس 1 در 2 نوشته می‌شود، معادل است."
+ },
+ "13gsil9": {
+  "en": "Applying that transformation to a vector is computationally identical ",
+  "fa": "اعمال آن تبدیل روی یک بردار از نظر محاسباتی با گرفتن ضرب داخلی با آن بردار یکسان است. ضرب داخلی با یک بردار واحد تصویر روی بُرد آن است؛ مقیاس‌کردن بردار نتیجه را مقیاس می‌کند."
+ },
+ "6xe8lo": {
+  "en": "So a vector can be seen as the embodiment of a transformation, not onl",
+  "fa": "پس یک بردار را می‌شود تجسم یک تبدیل دید، نه فقط یک فلش."
+ },
+ "1iqu6bm": {
+  "en": "Remember. w . x measures how much x points in the direction of w, whic",
+  "fa": "**یادت بماند.** `w . x` اندازه می‌گیرد `x` چقدر در جهت `w` اشاره می‌کند، به همین دلیل مثل یک امتیاز کار می‌کند."
+ },
+ "8m6vui": {
+  "en": "What it teaches. How regularization changes the cost function.",
+  "fa": "**آنچه می‌آموزد.** منظم‌سازی تابع هزینه را چطور تغییر می‌دهد."
+ },
+ "w6w4v3": {
+  "en": "Add a penalty to the cost: lambda divided by 2m times the sum of the s",
+  "fa": "یک جریمه به هزینه اضافه کن: lambda تقسیم بر `2m` ضربدر مجموع مربع وزن‌ها. مدل حالا دو هدف را متعادل می‌کند: برازش داده (هزینه‌ی معمول) و کوچک نگه‌داشتن وزن‌ها (جریمه)."
+ },
+ "xhl6k5": {
+  "en": "Lambda is the regularization strength. Lambda = 0 means no penalty, so",
+  "fa": "lambda قدرت منظم‌سازی است. `lambda = 0` یعنی بدون جریمه، پس مدل می‌تواند بیش‌برازش کند. lambda خیلی بزرگ هر وزن را به سمت 0 می‌راند، پس مدل تقریباً یک خط صاف (`f = b`) می‌شود و کم‌برازش می‌کند."
+ },
+ "1lopgor": {
+  "en": "You pick a lambda in between, by checking performance on data the mode",
+  "fa": "یک lambda بین این دو انتخاب می‌کنی، با بررسی عملکرد روی داده‌ای که مدل روی آن آموزش ندیده."
+ },
+ "1bld28k": {
+  "en": "The penalty usually leaves b out.",
+  "fa": "جریمه معمولاً `b` را کنار می‌گذارد."
+ },
+ "pzivd4": {
+  "en": "Remember. Cost = how wrong it is + lambda x how big the weights are.",
+  "fa": "**یادت بماند.** هزینه = چقدر غلط است + lambda ضربدر وزن‌ها چقدر بزرگ‌اند."
+ },
+ "9t38c5": {
+  "en": "What it teaches. The same regularization applied to logistic regressio",
+  "fa": "**آنچه می‌آموزد.** همین منظم‌سازی اعمال‌شده روی رگرسیون لجستیک."
+ },
+ "1sul6sg": {
+  "en": "Add the same penalty, lambda divided by 2m times the sum of squared we",
+  "fa": "همان جریمه، lambda تقسیم بر `2m` ضربدر مجموع مربع وزن‌ها، را به هزینه‌ی لجستیک اضافه کن."
+ },
+ "1ww5cjr": {
+  "en": "The update equations look just like regularized linear regression; onl",
+  "fa": "معادله‌های به‌روزرسانی دقیقاً مثل رگرسیون خطی منظم‌شده‌اند؛ فقط `f` فرق دارد (سیگموید `w . x + b`)."
+ },
+ "5kv82i": {
+  "en": "With many polynomial features, regularization stops the decision bound",
+  "fa": "با ویژگی‌های چندجمله‌ای زیاد، منظم‌سازی جلوی پیچیدن مرز تصمیم دور نقطه‌های تکی را می‌گیرد."
+ },
+ "a7lrfk": {
+  "en": "That ends the first course of the specialization: you can now train, t",
+  "fa": "این درس اول تخصص را تمام می‌کند: حالا می‌توانی دو مدل اصلی را آموزش بدهی، تنظیم کنی و منظم کنی."
+ },
+ "1os46l9": {
+  "en": "In scikit-learn the knob is C, which equals 1 / lambda: a small C mean",
+  "fa": "در scikit-learn دستگیره `C` است که برابر `1 / lambda` است: `C` کوچک یعنی منظم‌سازی قوی."
+ },
+ "hg11zi": {
+  "en": "Remember. Same penalty, same shrink step; the model is just a sigmoid ",
+  "fa": "**یادت بماند.** همان جریمه، همان گام کوچک‌کردن؛ مدل فقط یک سیگموید روی آن است."
+ },
+ "vn2rqx": {
+  "en": "What it teaches. Why the update rule makes sense, using the slope of t",
+  "fa": "**آنچه می‌آموزد.** چرا قاعده‌ی به‌روزرسانی معنا دارد، با استفاده از شیب منحنی."
+ },
+ "14ay5hh": {
+  "en": "Take a one-parameter cost curve. The slope at a point is positive if t",
+  "fa": "یک منحنی هزینه با یک پارامتر بگیر. اگر مماس به بالا و راست اشاره کند شیب در یک نقطه مثبت است. آن‌وقت `w` منهای `alpha` ضربدر یک عدد مثبت `w` را کوچک‌تر می‌کند، که به چپ و سرازیری حرکت می‌کند."
+ },
+ "i7u6b1": {
+  "en": "If the slope is negative, subtracting a negative number makes w bigger",
+  "fa": "اگر شیب منفی باشد، کم‌کردن یک عدد منفی `w` را بزرگ‌تر می‌کند، به راست حرکت می‌کند، باز هم سرازیری."
+ },
+ "16fcbjb": {
+  "en": "Either way w moves toward the minimum. Next question: how to choose al",
+  "fa": "در هر دو حالت `w` به سمت مینیمم می‌رود. سؤال بعدی: چطور `alpha` را انتخاب کنیم و وقتی خیلی کوچک یا بزرگ است چه می‌شود."
+ },
+ "wuo5mc": {
+  "en": "Remember. The sign of the slope tells you the direction; alpha tells y",
+  "fa": "**یادت بماند.** علامت شیب جهت را می‌گوید؛ `alpha` اندازه‌ی گام را."
+ },
+ "50g8ux": {
+  "en": "What it teaches. How to pick alpha in practice.",
+  "fa": "**آنچه می‌آموزد.** در عمل `alpha` را چطور انتخاب کنیم."
+ },
+ "mtyskw": {
+  "en": "If the cost goes up and down, or only up, alpha is too large (or the c",
+  "fa": "اگر هزینه بالا و پایین می‌شود، یا فقط بالا می‌رود، `alpha` خیلی بزرگ است (یا کد اشکال دارد)."
+ },
+ "loaujq": {
+  "en": "A debugging trick: set alpha very small. The cost should then drop on ",
+  "fa": "یک ترفند اشکال‌زدایی: `alpha` را خیلی کوچک بگذار. آن‌وقت هزینه باید در هر تکرار پایین بیاید. اگر هنوز نیامد، کد غلط است. این `alpha`ی ریز برای اشکال‌زدایی است، نه آموزش واقعی، چون کند است."
+ },
+ "13tsazp": {
+  "en": "Try a range of values, about three times apart (0.001, 0.003, 0.01, 0.",
+  "fa": "بازه‌ای از مقدارها را با فاصله‌ی حدود سه برابر امتحان کن (0.001 و 0.003 و 0.01 و 0.03 و 0.1 ...) و بزرگ‌ترینی را که هنوز منحنی پیوسته‌ای پایین‌رونده می‌دهد، یا کمی کوچک‌تر، انتخاب کن."
+ },
+ "unecsm": {
+  "en": "Next: choosing and engineering your own features.",
+  "fa": "بعدی: انتخاب و مهندسی ویژگی‌های خودت."
+ },
+ "1dr4fln": {
+  "en": "Remember. Largest alpha that still descends smoothly.",
+  "fa": "**یادت بماند.** بزرگ‌ترین `alpha`ی که هنوز نرم پایین می‌آید."
+ },
+ "6wfic9": {
+  "en": "What it teaches. Putting the model, the squared-error cost and gradien",
+  "fa": "**آنچه می‌آموزد.** کنار هم گذاشتن مدل، هزینه‌ی مربع خطا و گرادیان کاهشی."
+ },
+ "eb4fcl": {
+  "en": "The slopes of the squared-error cost are: for w, the average of (predi",
+  "fa": "شیب‌های هزینه‌ی مربع خطا: برای `w`، میانگین (پیش‌بینی منهای هدف) ضربدر `x`؛ برای `b`، میانگین (پیش‌بینی منهای هدف)."
+ },
+ "cpxgf6": {
+  "en": "The factor 1/2 in the cost cancels the 2 from the derivative, which is",
+  "fa": "ضریب 1/2 در هزینه 2 حاصل از مشتق را خنثی می‌کند، که دلیل تعریف هزینه با آن است."
+ },
+ "qbjf0f": {
+  "en": "The squared-error cost for linear regression is bowl-shaped (convex): ",
+  "fa": "هزینه‌ی مربع خطا برای رگرسیون خطی کاسه‌ای (محدب) است: یک مینیمم سراسری دارد و هیچ مینیمم محلی دیگری. با نرخ یادگیری مناسب، گرادیان کاهشی همیشه به آن می‌رسد."
+ },
+ "t9llc3": {
+  "en": "Remember. Linear regression has no trap valleys: gradient descent find",
+  "fa": "**یادت بماند.** رگرسیون خطی دره‌ی تله ندارد: گرادیان کاهشی تنها بهترین خط را پیدا می‌کند."
+ },
+ "ygfpbg": {
+  "en": "What it teaches. A short explanation of RAG and why it helps.",
+  "fa": "**آنچه می‌آموزد.** توضیحی کوتاه از RAG و اینکه چرا کمک می‌کند."
+ },
+ "neub06": {
+  "en": "A plain language model answers from what it learned in training. That ",
+  "fa": "یک مدل زبانی ساده از آنچه در آموزش یاد گرفته جواب می‌دهد. این می‌تواند قدیمی باشد و منبعی نمی‌دهد."
+ },
+ "af7cwk": {
+  "en": "With RAG, the question first goes to a content store (documents, a dat",
+  "fa": "با RAG سؤال اول به یک مخزن محتوا (اسناد، پایگاه داده) می‌رود. متن بازیابی‌شده به پرامپت اضافه می‌شود و مدل از روی آن جواب می‌دهد."
+ },
+ "6et72k": {
+  "en": "Benefits: more up-to-date answers, the ability to cite sources, less m",
+  "fa": "مزیت‌ها: جواب‌های به‌روزتر، امکان ذکر منبع، ساختگی‌گویی کمتر، و مدل می‌تواند وقتی چیز مرتبطی پیدا نمی‌شود بگوید نمی‌داند."
+ },
+ "1qr9jgo": {
+  "en": "Two parts can fail: the retriever (did it find the right material?) an",
+  "fa": "دو بخش می‌توانند شکست بخورند: بازیاب (آیا مطلب درست را پیدا کرد؟) و مولد (آیا امانت‌دارانه از آن استفاده کرد؟)."
+ },
+ "17euccg": {
+  "en": "Remember. Retrieve first, then generate, and keep the source.",
+  "fa": "**یادت بماند.** اول بازیابی کن، بعد تولید کن، و منبع را نگه دار."
+ },
+ "1iue63": {
+  "en": "What it teaches. Vectorization: writing the model without loops.",
+  "fa": "**آنچه می‌آموزد.** برداری‌سازی: نوشتن مدل بدون حلقه."
+ },
+ "14mikp9": {
+  "en": "Vectorized code is shorter and runs much faster, and can use fast line",
+  "fa": "کد برداری‌شده کوتاه‌تر است و خیلی سریع‌تر اجرا می‌شود، و می‌تواند از کتابخانه‌های سریع جبر خطی و حتی GPU استفاده کند."
+ },
+ "1vqb51d": {
+  "en": "Without vectorization you write a loop over j from 0 to n-1 that adds ",
+  "fa": "بدون برداری‌سازی یک حلقه روی `j` از 0 تا `n-1` می‌نویسی که `w[j]` ضربدر `x[j]` را جمع می‌کند، بعد `b` را اضافه می‌کنی. در پایتون `range(n)` در `n-1` متوقف می‌شود."
+ },
+ "19y609i": {
+  "en": "With NumPy, np.dot(w, x) + b does the same job in one line.",
+  "fa": "با NumPy، `np.dot(w, x) + b` همین کار را در یک خط انجام می‌دهد."
+ },
+ "1ev5s0y": {
+  "en": "Remember. Replace the loop with one NumPy call: shorter to read and mu",
+  "fa": "**یادت بماند.** حلقه را با یک فراخوانی NumPy عوض کن: خواندنش کوتاه‌تر و اجرایش خیلی سریع‌تر است."
+ },
+ "1qk8juw": {
+  "en": "What it teaches. The idea of gradient descent: a systematic way to fin",
+  "fa": "**آنچه می‌آموزد.** ایده‌ی گرادیان کاهشی: راهی نظام‌مند برای پیدا کردن پارامترهای با کمترین هزینه."
+ },
+ "w6jqqg": {
+  "en": "Gradient descent is used for linear regression and for training some o",
+  "fa": "گرادیان کاهشی برای رگرسیون خطی و آموزش بعضی از بزرگ‌ترین مدل‌های هوش مصنوعی استفاده می‌شود. روی هر تابع هزینه با هر تعداد پارامتر کار می‌کند."
+ },
+ "ma1cek": {
+  "en": "Start with a guess (for example w = 0, b = 0).",
+  "fa": "با یک حدس شروع کن (مثلاً `w = 0` و `b = 0`)."
+ },
+ "bsaxpn": {
+  "en": "Repeat: look around, take a small step in the direction that goes down",
+  "fa": "تکرار کن: اطرافت را نگاه کن، در جهتی که سریع‌تر سرازیر است یک گام کوچک بردار، و وقتی به ته رسیدی متوقف شو."
+ },
+ "11b9vji": {
+  "en": "Analogy: you stand on a hill and want to reach the lowest valley by al",
+  "fa": "تشبیه: روی یک تپه ایستاده‌ای و می‌خواهی با همیشه سرازیر رفتن به پایین‌ترین دره برسی."
+ },
+ "1pcjfwr": {
+  "en": "On a surface with several valleys, where you start decides which local",
+  "fa": "روی سطحی با چند دره، جایی که شروع می‌کنی تعیین می‌کند به کدام مینیمم محلی برسی."
+ },
+ "1n8sz8w": {
+  "en": "Remember. Small downhill steps, repeated until you stop going down.",
+  "fa": "**یادت بماند.** گام‌های کوچک سرازیری، تکرارشده تا وقتی که دیگر پایین نروی."
+ },
+ "1ly5f3z": {
+  "en": "What it teaches. What multiplying two matrices means.",
+  "fa": "**آنچه می‌آموزد.** ضرب دو ماتریس یعنی چه."
+ },
+ "slzfd1": {
+  "en": "A matrix is a transformation of space. Multiplying two matrices gives ",
+  "fa": "یک ماتریس یک تبدیل فضاست. ضرب دو ماتریس تبدیل واحدی را می‌دهد که با انجام هر دو، یکی پس از دیگری، به دست می‌آید."
+ },
+ "16krfxc": {
+  "en": "Read the product from right to left: in M2 M1, the transformation M1 i",
+  "fa": "حاصل‌ضرب را از راست به چپ بخوان: در `M2 M1` اول تبدیل `M1` اعمال می‌شود، بعد `M2`."
+ },
+ "adbcet": {
+  "en": "Order matters: M2 M1 is generally not the same as M1 M2. A rotation fo",
+  "fa": "ترتیب مهم است: `M2 M1` عموماً با `M1 M2` یکی نیست. یک چرخش و بعد یک برش با یک برش و بعد یک چرخش فرق دارد."
+ },
+ "catvmw": {
+  "en": "Multiplication is associative, because composing three transformations",
+  "fa": "ضرب شرکت‌پذیر است، چون ترکیب سه تبدیل به نحوه‌ی گروه‌بندی وابسته نیست."
+ },
+ "ksyh73": {
+  "en": "This is the picture behind the matrix products of a neural network lay",
+  "fa": "این تصویر پشت حاصل‌ضرب‌های ماتریسی یک لایه‌ی شبکه‌ی عصبی است: هر لایه یک تبدیل است."
+ },
+ "13dew2y": {
+  "en": "Remember. A matrix product = do one transformation, then the other.",
+  "fa": "**یادت بماند.** حاصل‌ضرب ماتریس = یک تبدیل را انجام بده، بعد دیگری را."
+ },
+ "1g79a0k": {
+  "en": "What it teaches. The difference between the two common penalties, show",
+  "fa": "**آنچه می‌آموزد.** تفاوت دو جریمه‌ی رایج، با تصویر."
+ },
+ "1w8v7v": {
+  "en": "Ridge (L2) adds lambda times the squared weights to the cost. It shrin",
+  "fa": "**ridge (L2)** lambda ضربدر مربع وزن‌ها را به هزینه اضافه می‌کند. وزن‌ها را به سمت صفر کوچک می‌کند ولی تقریباً هیچ‌وقت یکی را دقیقاً صفر نمی‌کند."
+ },
+ "1k8eev1": {
+  "en": "Lasso (L1) adds lambda times the absolute value of the weights. It can",
+  "fa": "**lasso (L1)** lambda ضربدر قدر مطلق وزن‌ها را اضافه می‌کند. می‌تواند وزن‌ها را تا دقیقاً صفر کوچک کند، پس ویژگی‌ها را حذف می‌کند و مثل انتخاب ویژگی خودکار عمل می‌کند."
+ },
+ "5i0afh": {
+  "en": "Both reduce variance by accepting a little bias: the line is a bit wor",
+  "fa": "هر دو با پذیرفتن کمی سوگیری واریانس را کم می‌کنند: خط روی داده‌ی آموزشی کمی بدتر و روی داده‌ی جدید بهتر است."
+ },
+ "woihst": {
+  "en": "Rule of thumb: ridge when most features matter a bit, lasso when you s",
+  "fa": "قاعده‌ی سرانگشتی: ridge وقتی بیشتر ویژگی‌ها کمی مهم‌اند، lasso وقتی گمان می‌کنی خیلی‌هایشان بی‌فایده‌اند."
+ },
+ "1txahyi": {
+  "en": "Remember. Ridge shrinks; lasso shrinks and can delete.",
+  "fa": "**یادت بماند.** ridge کوچک می‌کند؛ lasso کوچک می‌کند و می‌تواند حذف کند."
+ },
+ "1y42uv9": {
+  "en": "What it teaches. A definition of machine learning, and the two main ty",
+  "fa": "**آنچه می‌آموزد.** تعریفی از یادگیری ماشین، و دو نوع اصلی."
+ },
+ "1cwsxsj": {
+  "en": "Arthur Samuel's definition: the field of study that gives computers th",
+  "fa": "تعریف Arthur Samuel: حوزه‌ای که به کامپیوترها توانایی یادگرفتن می‌دهد بدون اینکه صریحاً برنامه‌ریزی شده باشند."
+ },
+ "ikdshs": {
+  "en": "Samuel's checkers program played thousands of games against itself and",
+  "fa": "برنامه‌ی چکرز Samuel هزاران بازی با خودش کرد و بازیکنی بهتر از خود Samuel شد. بازی بیشتر یعنی تجربه‌ی بیشتر، یعنی بازیکن بهتر."
+ },
+ "1ey2b60": {
+  "en": "Supervised learning is the type used most in real applications and adv",
+  "fa": "یادگیری نظارت‌شده نوعی است که بیشترین استفاده را در کاربردهای واقعی دارد و سریع‌ترین پیشرفت را. یادگیری نظارت‌نشده نوع اصلی دیگر است. دو درس اول این تخصص روی یادگیری نظارت‌شده تمرکز دارند."
+ },
+ "r7i8uh": {
+  "en": "Knowing the algorithms is not enough: knowing how to apply them effect",
+  "fa": "دانستن الگوریتم‌ها کافی نیست: دانستن اینکه چطور مؤثر به کارشان ببری چیزی است که تیم‌های خوب را از تیم‌هایی که ماه‌ها هدر می‌دهند جدا می‌کند."
+ },
+ "f8ut0a": {
+  "en": "Remember. More data and experience should make the program better, wit",
+  "fa": "**یادت بماند.** داده و تجربه‌ی بیشتر باید برنامه را بهتر کند، بدون اینکه کسی قوانینش را بازنویسی کند."
+ },
+ "h4mve6": {
+  "en": "What it teaches. Why features with very different ranges make gradient",
+  "fa": "**آنچه می‌آموزد.** چرا ویژگی‌هایی با بازه‌های خیلی متفاوت گرادیان کاهشی را کند می‌کنند."
+ },
+ "wusv6q": {
+  "en": "House size is in the thousands of square feet; bedrooms are 1 to 5. A ",
+  "fa": "اندازه‌ی خانه در هزارها فوت مربع است؛ اتاق‌خواب‌ها 1 تا 5. وزن خوب برای اندازه کوچک است و وزن خوب برای اتاق‌خواب بزرگ."
+ },
+ "1urclgp": {
+  "en": "On the contour plot of the cost, that makes tall thin ellipses. Gradie",
+  "fa": "روی نمودار تراز هزینه، این بیضی‌های بلند و باریک می‌سازد. گرادیان کاهشی این طرف و آن طرف می‌پرد و زمان زیادی می‌برد."
+ },
+ "d887um": {
+  "en": "If the features are rescaled to comparable ranges, the contours become",
+  "fa": "اگر ویژگی‌ها به بازه‌های قابل مقایسه تغییر مقیاس بدهند، خطوط تراز گردتر می‌شوند و گرادیان کاهشی مسیر مستقیمی به مینیمم می‌گیرد."
+ },
+ "abdi5m": {
+  "en": "Remember. Different units fight each other during training; put featur",
+  "fa": "**یادت بماند.** واحدهای متفاوت هنگام آموزش با هم می‌جنگند؛ ویژگی‌ها را روی یک مقیاس بگذار."
+ },
+ "5eevgw": {
+  "en": "What it teaches. The full gradient descent update for several features",
+  "fa": "**آنچه می‌آموزد.** به‌روزرسانی کامل گرادیان کاهشی برای چند ویژگی."
+ },
+ "1wlv2k2": {
+  "en": "Write the parameters as a vector w and a number b. The update is the s",
+  "fa": "پارامترها را به‌صورت یک بردار `w` و یک عدد `b` بنویس. به‌روزرسانی همان ایده‌ی قبلی است، برای هر `j` از 1 تا `n` تکرار می‌شود."
+ },
+ "1g81ihs": {
+  "en": "For each weight: w_j = w_j minus alpha times the average over examples",
+  "fa": "برای هر وزن: `w_j` برابر `w_j` منهای `alpha` ضربدر میانگین روی نمونه‌ها‌ی (پیش‌بینی منهای هدف) ضربدر `x_j`."
+ },
+ "c0bcin": {
+  "en": "For b: b = b minus alpha times the average of (prediction minus target",
+  "fa": "برای `b`: `b` برابر `b` منهای `alpha` ضربدر میانگین (پیش‌بینی منهای هدف)."
+ },
+ "g4ilt": {
+  "en": "Update all of them simultaneously, and repeat until convergence.",
+  "fa": "همه را هم‌زمان به‌روز کن و تا همگرایی تکرار کن."
+ },
+ "1n1mnq4": {
+  "en": "A closing mention of the normal equation as an alternative for linear ",
+  "fa": "یک اشاره‌ی پایانی به معادله‌ی نرمال به‌عنوان جایگزین برای رگرسیون خطی؛ گرادیان کاهشی روش عمومی است."
+ },
+ "1bukdhk": {
+  "en": "Remember. Same recipe as one feature, with one extra loop over the wei",
+  "fa": "**یادت بماند.** همان دستور یک ویژگی، با یک حلقه‌ی اضافه روی وزن‌ها."
+ },
+ "5177cq": {
+  "en": "What it teaches. One formula for both cases of y, and the overall cost",
+  "fa": "**آنچه می‌آموزد.** یک فرمول برای هر دو حالت `y`، و هزینه‌ی کل."
+ },
+ "10hnhxh": {
+  "en": "The two-case loss can be written as one expression: loss = -y log(f) -",
+  "fa": "زیان دوحالتی را می‌شود به‌صورت یک عبارت نوشت: `loss = -y log(f) - (1 - y) log(1 - f)`. وقتی `y = 1` جمله‌ی دوم حذف می‌شود؛ وقتی `y = 0` جمله‌ی اول."
+ },
+ "1pn6bze": {
+  "en": "The cost J(w, b) is the average of this loss over all m examples.",
+  "fa": "هزینه‌ی `J(w, b)` میانگین این زیان روی همه‌ی `m` نمونه است."
+ },
+ "x5j2re": {
+  "en": "This cost comes from the statistical principle of maximum likelihood, ",
+  "fa": "این هزینه از اصل آماری بیشینه‌ی درست‌نمایی می‌آید و محدب است، پس گرادیان کاهشی می‌تواند مینیمم سراسری را پیدا کند."
+ },
+ "1cg74tv": {
+  "en": "A plot shows the better-fitting decision boundary has a lower cost tha",
+  "fa": "یک نمودار نشان می‌دهد مرز تصمیمی که بهتر برازش می‌شود هزینه‌ی کمتری از مرز بدتر دارد."
+ },
+ "1rwrh2d": {
+  "en": "Remember. J = average of -y log f - (1 - y) log(1 - f).",
+  "fa": "**یادت بماند.** `J` = میانگین `-y log f - (1 - y) log(1 - f)`."
+ },
+ "4o8q8a": {
+  "en": "What it teaches. Retrieval-augmented generation: how to give a languag",
+  "fa": "**آنچه می‌آموزد.** تولید تقویت‌شده با بازیابی (RAG): چطور به یک مدل زبانی حقایقی بدهیم که روی آن‌ها آموزش ندیده."
+ },
+ "1cep1n8": {
+  "en": "A model does not know your private or recent documents. RAG fixes that",
+  "fa": "مدل اسناد خصوصی یا تازه‌ی تو را نمی‌شناسد. RAG این را بدون آموزش دوباره درست می‌کند: اول پاراگراف‌های مرتبط را پیدا کن، بعد در پرامپت بگذارشان."
+ },
+ "1er098a": {
+  "en": "Steps: split the documents into chunks, turn each chunk into an embedd",
+  "fa": "گام‌ها: اسناد را به تکه‌ها تقسیم کن، هر تکه را به یک امبدینگ (فهرستی از عددها که معنایش را می‌گیرد) تبدیل کن، ذخیره‌شان کن، سؤال را امبد کن، نزدیک‌ترین تکه‌ها را بازیابی کن و از مدل بخواه از روی آن‌ها جواب بدهد."
+ },
+ "oapxln": {
+  "en": "The quality depends on retrieval: if the right chunk is not retrieved,",
+  "fa": "کیفیت به بازیابی بستگی دارد: اگر تکه‌ی درست بازیابی نشود مدل نمی‌تواند از آن استفاده کند. این را با یک معیار بازیابی مثل hit at k اندازه می‌گیری."
+ },
+ "16ou4u9": {
+  "en": "The video ends with a Python walk-through.",
+  "fa": "ویدیو با یک مرور قدم‌به‌قدم پایتون تمام می‌شود."
+ },
+ "1e6nrmp": {
+  "en": "Remember. The model answers from what you hand it, so retrieval is the",
+  "fa": "**یادت بماند.** مدل از آنچه به دستش می‌دهی جواب می‌دهد، پس بازیابی بخشی است که اول باید آزموده شود."
+ },
+ "1hrwxvj": {
+  "en": "What it teaches. What an AI agent is, and three levels of agency. It i",
+  "fa": "**آنچه می‌آموزد.** یک عامل هوش مصنوعی چیست، و سه سطح خودمختاری. اولین ویدیوی یک مجموعه است."
+ },
+ "3wigbi": {
+  "en": "No one agrees on a single definition. OpenAI says an LLM configured wi",
+  "fa": "هیچ‌کس روی یک تعریف توافق ندارد. OpenAI می‌گوید یک LLM که با دستورها و ابزارها پیکربندی شده؛ Hugging Face برنامه‌ریزی را اضافه می‌کند؛ Anthropic تأکید می‌کند که LLM فرایند خودش را هدایت می‌کند."
+ },
+ "13m3r03": {
+  "en": "Why agents work now: reasoning models trained with reinforcement learn",
+  "fa": "چرا عامل‌ها حالا کار می‌کنند: مدل‌های استدلالی که با یادگیری تقویتی آموزش دیده‌اند می‌توانند مسائل تازه را بدون پرامپت‌های خیلی دقیق برای هر وظیفه حل کنند."
+ },
+ "1d02wna": {
+  "en": "Level 1, an LLM plus tools: one model with a few tools, such as search",
+  "fa": "**سطح 1، یک LLM به‌علاوه‌ی ابزارها:** یک مدل با چند ابزار، مثل جستجو یا مفسر کد."
+ },
+ "1en0e4q": {
+  "en": "Level 2, an LLM workflow: a predefined sequence of steps with an LLM i",
+  "fa": "**سطح 2، گردش‌کار LLM:** دنباله‌ای از پیش‌تعریف‌شده از گام‌ها با یک LLM درونش. مثال: یک ایمیل می‌رسد، یک LLM تصمیم می‌گیرد اسپم است یا نه، اسپم به سطل زباله می‌رود، بقیه گام بعدی را دنبال می‌کنند. می‌توانی چند فراخوانی را زنجیر کنی یا موازی اجرا کنی."
+ },
+ "gdtkcs": {
+  "en": "Level 3, an LLM in a loop: the model acts, gets feedback and tries aga",
+  "fa": "**سطح 3، یک LLM در یک حلقه:** مدل عمل می‌کند، بازخورد می‌گیرد و دوباره تلاش می‌کند تا بررسی‌ها رد شوند. الگوی ارزیاب-بهینه‌ساز مثال است: یک LLM می‌نویسد، یکی دیگر بازبینی می‌کند و حلقه می‌زنند."
+ },
+ "85mrgp": {
+  "en": "Remember. More agency means more flexibility and less predictability; ",
+  "fa": "**یادت بماند.** خودمختاری بیشتر یعنی انعطاف بیشتر و پیش‌بینی‌پذیری کمتر؛ با ساده‌ترین سطحی که کار می‌کند شروع کن."
+ },
+ "1e7mmqn": {
+  "en": "What it teaches. A formal definition of unsupervised learning, and two",
+  "fa": "**آنچه می‌آموزد.** تعریف رسمی یادگیری نظارت‌نشده، و دو نوع علاوه بر خوشه‌بندی."
+ },
+ "1h4hi6d": {
+  "en": "Supervised data has inputs X and labels Y; unsupervised data has only ",
+  "fa": "داده‌ی نظارت‌شده ورودی `X` و برچسب `Y` دارد؛ داده‌ی نظارت‌نشده فقط `X`."
+ },
+ "clbpa5": {
+  "en": "Anomaly detection finds unusual events, which matters for fraud detect",
+  "fa": "**تشخیص ناهنجاری** رویدادهای غیرعادی را پیدا می‌کند، که برای تشخیص تقلب در امور مالی مهم است."
+ },
+ "1y4501o": {
+  "en": "Dimensionality reduction squeezes a big data set into fewer numbers wh",
+  "fa": "**کاهش بُعد** یک مجموعه‌داده‌ی بزرگ را به عددهای کمتر فشرده می‌کند و تا حد ممکن کم چیز از دست می‌دهد."
+ },
+ "1rgcf9p": {
+  "en": "A quiz in the video sorts four examples: spam filtering and diagnosing",
+  "fa": "یک کوییز در ویدیو چهار مثال را دسته‌بندی می‌کند: فیلتر اسپم و تشخیص دیابت نظارت‌شده‌اند (برچسب وجود دارد)؛ گروه‌بندی مقاله‌های خبری و بخش‌بندی بازار نظارت‌نشده‌اند."
+ },
+ "o4sdth": {
+  "en": "Remember. Ask one question: do I have the right answers for the traini",
+  "fa": "**یادت بماند.** یک سؤال بپرس: آیا برای نمونه‌های آموزشی جواب درست دارم؟ اگر بله، نظارت‌شده؛ اگر نه، نظارت‌نشده."
+ },
+ "1eu6fug": {
+  "en": "What it teaches. How a decision tree is built, using Gini impurity.",
+  "fa": "**آنچه می‌آموزد.** یک درخت تصمیم چطور ساخته می‌شود، با ناخالصی جینی."
+ },
+ "1dobhfy": {
+  "en": "A tree asks yes or no questions at its nodes and ends in leaves that h",
+  "fa": "یک درخت در گره‌هایش سؤال بله یا خیر می‌پرسد و به برگ‌هایی ختم می‌شود که یک پیش‌بینی دارند."
+ },
+ "syjvxx": {
+  "en": "To pick the question for a node, compute the Gini impurity of the leav",
+  "fa": "برای انتخاب سؤال یک گره، ناخالصی جینی برگ‌هایی را که هر نامزد می‌سازد حساب کن: 1 منهای مجموع مربع سهم دسته‌ها. برگ خالص نمره‌ی 0 می‌گیرد. هر برگ را با تعداد سطرهایش وزن بده و جمع بزن. نامزدی با کمترین ناخالصی وزن‌دار برنده است."
+ },
+ "142iib4": {
+  "en": "For a numeric feature such as age, sort the values, try the midpoint b",
+  "fa": "برای ویژگی عددی مثل سن، مقدارها را مرتب کن، نقطه‌ی وسط هر دو همسایه را به‌عنوان برش امتحان کن و بهترین را نگه دار."
+ },
+ "1w5d0aa": {
+  "en": "Build the tree top-down. Use a feature again on a branch only if it re",
+  "fa": "درخت را از بالا به پایین بساز. ویژگی را روی یک شاخه فقط وقتی دوباره به کار ببر که ناخالصی را آنجا کم کند؛ وقتی هیچ تقسیمی بهتر نمی‌کند متوقف شو."
+ },
+ "4g09qw": {
+  "en": "Worked example in the notes: 6 accepted and 4 not accepted gives 0.48;",
+  "fa": "مثال حل‌شده در یادداشت‌ها: 6 پذیرفته‌شده و 4 نه 0.48 می‌دهد؛ پس از یک تقسیم خوب ناخالصی وزن‌دار 0.40 است."
+ },
+ "16lz041": {
+  "en": "Remember. Pick the split that leaves the purest groups.",
+  "fa": "**یادت بماند.** تقسیمی را انتخاب کن که خالص‌ترین گروه‌ها را باقی بگذارد."
+ },
+ "16m2pf": {
+  "en": "What it teaches. What a neural network is, using handwritten digits.",
+  "fa": "**آنچه می‌آموزد.** شبکه‌ی عصبی چیست، با ارقام دست‌نویس."
+ },
+ "3lbapr": {
+  "en": "A 28 by 28 picture has 784 pixels. Each pixel feeds a neuron holding a",
+  "fa": "یک تصویر 28 در 28 دارای 784 پیکسل است. هر پیکسل یک نورون را تغذیه می‌کند که یک عدد بین 0 و 1 (فعال‌سازی‌اش) دارد."
+ },
+ "7gx6e": {
+  "en": "The example network has a layer of 784 inputs, two hidden layers of 16",
+  "fa": "شبکه‌ی مثال یک لایه‌ی 784 ورودی، دو لایه‌ی پنهان با 16 نورون و 10 خروجی دارد، یکی برای هر رقم. روشن‌ترین خروجی جواب است."
+ },
+ "1glttz5": {
+  "en": "The hope: early layers detect small pieces (edges), later layers combi",
+  "fa": "امید: لایه‌های اول تکه‌های کوچک (لبه‌ها) را تشخیص می‌دهند، لایه‌های بعد ترکیبشان می‌کنند (حلقه‌ها، خط‌ها) و لایه‌ی آخر رقم‌ها را سرهم می‌کند."
+ },
+ "1nykrhb": {
+  "en": "Each neuron computes a weighted sum of the previous layer's activation",
+  "fa": "هر نورون مجموع وزنی فعال‌سازی‌های لایه‌ی قبل به‌علاوه‌ی یک بایاس را حساب می‌کند و بعد با یک تابع فعال‌سازی فشرده‌اش می‌کند (اینجا سیگموید؛ ReLU الان بیشتر استفاده می‌شود)."
+ },
+ "fglb4n": {
+  "en": "This network has 13,002 weights and biases. Learning means finding goo",
+  "fa": "این شبکه 13,002 وزن و بایاس دارد. یادگیری یعنی پیدا کردن مقدارهای خوب برای همه‌ی آن‌ها."
+ },
+ "suhtht": {
+  "en": "Remember. A network is a function with thousands of adjustable numbers",
+  "fa": "**یادت بماند.** شبکه تابعی با هزاران عدد قابل تنظیم است."
+ },
+ "14vrbhq": {
+  "en": "What it teaches. The same cost function with both w and b, drawn two w",
+  "fa": "**آنچه می‌آموزد.** همان تابع هزینه با هر دو `w` و `b`، به دو شکل رسم‌شده."
+ },
+ "1onjktf": {
+  "en": "With two parameters, J(w, b) is a 3D surface shaped like a bowl or a h",
+  "fa": "با دو پارامتر، `J(w, b)` یک سطح سه‌بعدی به شکل کاسه یا بانوج است. هر نقطه‌ی روی سطح یک انتخاب `w` و `b` است."
+ },
+ "10zeyh8": {
+  "en": "The same function can be drawn as a contour plot, like a topographic m",
+  "fa": "همان تابع را می‌شود به‌صورت نمودار تراز، مثل نقشه‌ی توپوگرافی، رسم کرد: هر حلقه نقطه‌هایی با هزینه‌ی یکسان را وصل می‌کند و مینیمم در مرکز حلقه‌هاست."
+ },
+ "xtprwn": {
+  "en": "The contour plot shows the same information in 2D, which is easier to ",
+  "fa": "نمودار تراز همان اطلاعات را در دو بُعد نشان می‌دهد، که رسم و خواندنش آسان‌تر است."
+ },
+ "1ahvazd": {
+  "en": "Remember. Bowl = 3D picture, rings = the same bowl seen from above.",
+  "fa": "**یادت بماند.** کاسه = تصویر سه‌بعدی، حلقه‌ها = همان کاسه از بالا."
+ },
+ "uuvsym": {
+  "en": "What it teaches. The first model of the course: linear regression, and",
+  "fa": "**آنچه می‌آموزد.** اولین مدل درس: رگرسیون خطی، و واژگان یک مجموعه‌ی آموزشی."
+ },
+ "dhzq7n": {
+  "en": "Linear regression fits a straight line to data and is probably the mos",
+  "fa": "رگرسیون خطی یک خط راست به داده برازش می‌کند و احتمالاً پراستفاده‌ترین الگوریتم یادگیری در جهان است."
+ },
+ "wg4zhr": {
+  "en": "Example: house size (input) against price (output). The training set i",
+  "fa": "مثال: اندازه‌ی خانه (ورودی) در برابر قیمت (خروجی). مجموعه‌ی آموزشی جدولی از نمونه‌هاست."
+ },
+ "1j5bw90": {
+  "en": "Notation: x is the input variable (feature), y is the output variable ",
+  "fa": "نمادگذاری: `x` متغیر ورودی (ویژگی) است، `y` متغیر خروجی (هدف)، `m` تعداد نمونه‌های آموزشی، و `(x(i), y(i))` نمونه‌ی `i`ام، سطر `i`ام جدول."
+ },
+ "16yy3wa": {
+  "en": "This is regression because the model can output infinitely many possib",
+  "fa": "این رگرسیون است چون مدل می‌تواند بی‌نهایت عدد ممکن را خروجی بدهد."
+ },
+ "1vd4fkt": {
+  "en": "Remember. Training set = examples with the right answers; x goes in, y",
+  "fa": "**یادت بماند.** مجموعه‌ی آموزشی = نمونه‌هایی با جواب درست؛ `x` وارد می‌شود، `y` هدف است."
+ },
+ "qhceju": {
+  "en": "What it teaches. Creating better input features from the ones you have",
+  "fa": "**آنچه می‌آموزد.** ساختن ویژگی‌های ورودی بهتر از ویژگی‌هایی که داری."
+ },
+ "1vz15nm": {
+  "en": "The choice of features often decides how well a model works.",
+  "fa": "انتخاب ویژگی‌ها اغلب تعیین می‌کند یک مدل چقدر خوب کار می‌کند."
+ },
+ "69ctdf": {
+  "en": "Example: a house plot has frontage x1 and depth x2. The area x3 = x1 t",
+  "fa": "مثال: یک قطعه زمین عرض `x1` و عمق `x2` دارد. مساحت `x3 = x1 x2` ممکن است قیمت را بهتر از هرکدام تنها پیش‌بینی کند."
+ },
+ "191o2sz": {
+  "en": "Using knowledge of the problem to design new features by transforming ",
+  "fa": "استفاده از دانش مسئله برای طراحی ویژگی‌های تازه با تبدیل یا ترکیب ویژگی‌های اصلی **مهندسی ویژگی** نامیده می‌شود."
+ },
+ "oouelo": {
+  "en": "One flavour of this lets a linear model fit curves, shown in the next ",
+  "fa": "یک نوع از آن به یک مدل خطی اجازه می‌دهد منحنی‌ها را برازش کند، که در ویدیوی بعدی نشان داده می‌شود."
+ },
+ "1bx9psl": {
+  "en": "Remember. A good feature is often a product, ratio or other combinatio",
+  "fa": "**یادت بماند.** یک ویژگی خوب اغلب حاصل‌ضرب، نسبت یا ترکیب دیگری از ویژگی‌هایی است که به تو داده شده."
+ },
+ "1n8uyuo": {
+  "en": "What it teaches. How to use your data fairly when you both train and t",
+  "fa": "**آنچه می‌آموزد.** چطور از داده‌هایت منصفانه استفاده کنی وقتی هم آموزش می‌دهی و هم تست می‌کنی."
+ },
+ "oc6ktt": {
+  "en": "Testing on the same data you trained on tells you nothing about new da",
+  "fa": "تست روی همان داده‌ای که با آن آموزش دیده‌ای درباره‌ی داده‌ی جدید چیزی نمی‌گوید. یک تقسیم آموزش-تست تنها به شانس اینکه کدام سطرها در قسمت تست بیفتند وابسته است."
+ },
+ "c27ypl": {
+  "en": "Cross validation splits the data into blocks (folds). Each block takes",
+  "fa": "**اعتبارسنجی متقاطع** داده را به بلوک‌ها (fold) تقسیم می‌کند. هر بلوک یک نوبت مجموعه‌ی تست می‌شود در حالی که بقیه آموزش می‌بینند، و نتیجه‌ها را میانگین می‌گیری."
+ },
+ "84ydnc": {
+  "en": "Four blocks is the example; ten is common. Leave-one-out uses a single",
+  "fa": "مثال چهار بلوک است؛ ده رایج است. **leave-one-out** یک سطر را به‌عنوان هر مجموعه‌ی تست به کار می‌برد."
+ },
+ "4eq0mw": {
+  "en": "Use the average score to compare methods, or to tune a setting such as",
+  "fa": "از میانگین نمره برای مقایسه‌ی روش‌ها، یا تنظیم یک مقدار مثل قدرت منظم‌سازی استفاده کن."
+ },
+ "1mnw52n": {
+  "en": "Remember. Every row gets to be test data once.",
+  "fa": "**یادت بماند.** هر سطر یک بار داده‌ی تست می‌شود."
+ },
+ "dcqogf": {
+  "en": "What it teaches. Unsupervised learning, and its best-known kind, clust",
+  "fa": "**آنچه می‌آموزد.** یادگیری نظارت‌نشده، و شناخته‌شده‌ترین نوعش، خوشه‌بندی."
+ },
+ "ux2erz": {
+  "en": "In unsupervised learning the data has inputs but no labels. The algori",
+  "fa": "در یادگیری نظارت‌نشده داده ورودی دارد ولی برچسب ندارد. به الگوریتم جواب درست گفته نمی‌شود؛ خودش باید ساختار پیدا کند."
+ },
+ "2l774z": {
+  "en": "Clustering groups similar points together.",
+  "fa": "خوشه‌بندی نقطه‌های مشابه را با هم گروه می‌کند."
+ },
+ "8k9lxd": {
+  "en": "Examples in the video: Google News grouping related articles about the",
+  "fa": "مثال‌های ویدیو: Google News که مقاله‌های مرتبط درباره‌ی یک ماجرا را گروه می‌کند، گروه‌بندی آدم‌ها بر اساس فعالیت DNA، و گروه‌بندی مشتری‌ها در بخش‌های بازار."
+ },
+ "1qk8ztr": {
+  "en": "Remember. No labels, no right answer given: the algorithm discovers th",
+  "fa": "**یادت بماند.** بدون برچسب، بدون جواب داده‌شده: الگوریتم گروه‌ها را کشف می‌کند."
+ },
+ "bpxsxx": {
+  "en": "What it teaches. Three ways to rescale.",
+  "fa": "**آنچه می‌آموزد.** سه راه برای تغییر مقیاس."
+ },
+ "goo1a": {
+  "en": "Divide by the maximum: size from 3 to 2000 becomes about 0.0015 to 1.",
+  "fa": "**تقسیم بر بیشینه:** اندازه از 3 تا 2000 تقریباً به 0.0015 تا 1 تبدیل می‌شود."
+ },
+ "1pijhp": {
+  "en": "Mean normalization: subtract the mean, divide by (max minus min); resu",
+  "fa": "**نرمال‌سازی با میانگین:** میانگین را کم کن، بر (بیشینه منهای کمینه) تقسیم کن؛ نتیجه‌ها تقریباً بین 1- و 1 هستند."
+ },
+ "am350v": {
+  "en": "Z-score normalization: subtract the mean mu and divide by the standard",
+  "fa": "**نرمال‌سازی نمره‌ی z:** میانگین `mu` را کم کن و بر انحراف معیار `sigma` تقسیم کن. برای میانگین 600 و `sigma` برابر 450 نتیجه حول 0 متمرکز است."
+ },
+ "184vwga": {
+  "en": "A feature roughly between -1 and 1 is ideal; anything within about -3 ",
+  "fa": "ویژگی تقریباً بین 1- و 1 ایده‌آل است؛ هر چیز در حدود 3- تا 3 خوب است، ولی بازه‌های خیلی کوچک‌تر یا بزرگ‌تر شایسته‌ی تغییر مقیاس‌اند."
+ },
+ "b482hk": {
+  "en": "Rescaling makes training faster and never hurts. Next question: how do",
+  "fa": "تغییر مقیاس آموزش را سریع‌تر می‌کند و هرگز ضرر ندارد. سؤال بعدی: چطور بررسی کنیم گرادیان کاهشی واقعاً همگراست؟"
+ },
+ "1ue9n60": {
+  "en": "Remember. Z-score = (x - mean) / standard deviation.",
+  "fa": "**یادت بماند.** نمره‌ی z = `(x - mean) / standard deviation`."
+ },
+ "16c0rmv": {
+  "en": "What it teaches. The second kind of supervised learning: classificatio",
+  "fa": "**آنچه می‌آموزد.** نوع دوم یادگیری نظارت‌شده: دسته‌بندی."
+ },
+ "ib4hva": {
+  "en": "Classification predicts a category out of a small set of possible outp",
+  "fa": "دسته‌بندی یک دسته را از مجموعه‌ی کوچکی از خروجی‌های ممکن پیش‌بینی می‌کند. دسته‌ها می‌توانند عدد (0 یا 1) یا کلمه (گربه، سگ) باشند."
+ },
+ "8ak7f9": {
+  "en": "Example: is a breast tumour benign (0) or malignant (1), from tumour s",
+  "fa": "مثال: آیا یک تومور پستان از روی اندازه‌اش خوش‌خیم (0) است یا بدخیم (1). این وظیفه فقط دو خروجی ممکن دارد، که دلیل فرقش با رگرسیون است."
+ },
+ "11hoga1": {
+  "en": "With two features (tumour size and patient age) the points live in a p",
+  "fa": "با دو ویژگی (اندازه‌ی تومور و سن بیمار) نقطه‌ها در یک صفحه زندگی می‌کنند و الگوریتم مرزی پیدا می‌کند که دو دسته را جدا می‌کند."
+ },
+ "10y1sg": {
+  "en": "Output class and output category mean the same thing.",
+  "fa": "کلاس خروجی و دسته‌ی خروجی یک معنی دارند."
+ },
+ "ysobcc": {
+  "en": "Remember. Regression predicts any number; classification picks from a ",
+  "fa": "**یادت بماند.** رگرسیون هر عددی را پیش‌بینی می‌کند؛ دسته‌بندی از یک فهرست کوچک از دسته‌ها انتخاب می‌کند."
+ },
+ "8xtrq2": {
+  "en": "What it teaches. Linear regression with several input features, and th",
+  "fa": "**آنچه می‌آموزد.** رگرسیون خطی با چند ویژگی ورودی، و نمادگذاری‌اش."
+ },
+ "1d6opci": {
+  "en": "Instead of one feature x, the house has size, number of bedrooms, floo",
+  "fa": "به‌جای یک ویژگی `x`، خانه اندازه، تعداد اتاق‌خواب، طبقه و سن دارد: `x1` تا `x4`. `n` تعداد ویژگی‌هاست."
+ },
+ "kv19fx": {
+  "en": "The model becomes f(x) = w1 x1 + w2 x2 + ... + wn xn + b, called multi",
+  "fa": "مدل می‌شود `f(x) = w1 x1 + w2 x2 + ... + wn xn + b`، که رگرسیون خطی چندگانه نامیده می‌شود."
+ },
+ "r95utk": {
+  "en": "Reading the numbers: b = 80 means a base price of 80 thousand dollars ",
+  "fa": "خواندن عددها: `b = 80` یعنی قیمت پایه‌ی 80 هزار دلار برای خانه‌ای که هیچ ندارد؛ وزن 0.1 روی اندازه یعنی هر فوت مربع اضافه 0.1 هزار دلار، حدود 100 دلار، اضافه می‌کند."
+ },
+ "1vb4w78": {
+  "en": "In vector form f(x) = w . x + b, where w is the list of weights and x ",
+  "fa": "به شکل برداری `f(x) = w . x + b`، که `w` فهرست وزن‌ها و `x` فهرست ویژگی‌هاست."
+ },
+ "5u00gk": {
+  "en": "Remember. One weight per feature, plus one bias.",
+  "fa": "**یادت بماند.** یک وزن برای هر ویژگی، به‌علاوه‌ی یک بایاس."
+ },
+ "ng0p75": {
+  "en": "What it teaches. Gradient descent for linear regression with the regul",
+  "fa": "**آنچه می‌آموزد.** گرادیان کاهشی برای رگرسیون خطی با جمله‌ی منظم‌سازی."
+ },
+ "1nkbjbd": {
+  "en": "The slope for w_j gets one extra term, (lambda / m) times w_j. The slo",
+  "fa": "شیب `w_j` یک جمله‌ی اضافه می‌گیرد، `(lambda / m)` ضربدر `w_j`. شیب `b` بدون تغییر است."
+ },
+ "icwu19": {
+  "en": "Rewritten, every update first shrinks w_j a little (multiplies it by 1",
+  "fa": "بازنویسی‌شده، هر به‌روزرسانی اول `w_j` را کمی کوچک می‌کند (در `1 - alpha x lambda / m`، عددی درست زیر 1، ضربش می‌کند) و بعد به‌روزرسانی معمول را اعمال می‌کند. به همین دلیل منظم‌سازی کاهش وزن هم نامیده می‌شود."
+ },
+ "1ptsdxq": {
+  "en": "A tiny lambda barely changes anything; a larger lambda pulls the weigh",
+  "fa": "lambda ریز تقریباً چیزی را عوض نمی‌کند؛ lambda بزرگ‌تر وزن‌ها را در هر گام به سمت 0 می‌کشد."
+ },
+ "1wefzfy": {
+  "en": "Remember. Each step: shrink the weights slightly, then the normal upda",
+  "fa": "**یادت بماند.** هر گام: وزن‌ها را کمی کوچک کن، بعد به‌روزرسانی معمول."
+ },
+ "gpe0uj": {
+  "en": "What it teaches. How the learning rate alpha changes gradient descent,",
+  "fa": "**آنچه می‌آموزد.** نرخ یادگیری `alpha` گرادیان کاهشی را چطور تغییر می‌دهد، و چطور انتخابش کنیم."
+ },
+ "5716sc": {
+  "en": "If alpha is too small, gradient descent still works but takes very man",
+  "fa": "اگر `alpha` خیلی کوچک باشد، گرادیان کاهشی هنوز کار می‌کند ولی گام‌های ریز بسیار زیادی می‌خواهد."
+ },
+ "1eric6e": {
+  "en": "If alpha is too large, it can overshoot the minimum, bounce from side ",
+  "fa": "اگر `alpha` خیلی بزرگ باشد، می‌تواند از مینیمم رد شود، از این طرف به آن طرف بپرد، همگرا نشود یا حتی واگرا شود."
+ },
+ "1slw1fp": {
+  "en": "If w is already at a local minimum, the slope there is zero, so one mo",
+  "fa": "اگر `w` از قبل در یک مینیمم محلی است، شیب آنجا صفر است، پس یک گام دیگر چیزی را عوض نمی‌کند."
+ },
+ "3z9352": {
+  "en": "Near a minimum the slope gets smaller, so the steps shrink automatical",
+  "fa": "نزدیک یک مینیمم شیب کوچک‌تر می‌شود، پس گام‌ها حتی با `alpha` ثابت خودبه‌خود کوچک می‌شوند."
+ },
+ "t4gmvu": {
+  "en": "Remember. Too small = slow; too large = it may never settle. Watch the",
+  "fa": "**یادت بماند.** خیلی کوچک = کند؛ خیلی بزرگ = شاید هرگز آرام نگیرد. هنگام اجرا هزینه را تماشا کن."
+ },
+ "ni6mes": {
+  "en": "What it teaches. Why a straight-line regression is the wrong tool for ",
+  "fa": "**آنچه می‌آموزد.** چرا رگرسیون خط راست ابزار غلطی برای مسائل بله/خیر است."
+ },
+ "1mjwscn": {
+  "en": "Classification has an output y that takes one of a few values, often 0",
+  "fa": "دسته‌بندی یک خروجی `y` دارد که یکی از چند مقدار را می‌گیرد، اغلب 0 (نه، دسته‌ی منفی) و 1 (بله، دسته‌ی مثبت)."
+ },
+ "1a0e7yr": {
+  "en": "Example: tumour size against malignant (1) or benign (0). Fitting a st",
+  "fa": "مثال: اندازه‌ی تومور در برابر بدخیم (1) یا خوش‌خیم (0). برازش یک خط راست و آستانه‌گذاری در 0.5 فقط برای بعضی مجموعه‌داده‌ها کار می‌کند."
+ },
+ "mpvaa7": {
+  "en": "One extra far-away example can tilt the line and move the threshold, s",
+  "fa": "یک نمونه‌ی اضافه‌ی دور می‌تواند خط را کج کند و آستانه را جابه‌جا کند، پس نقطه‌هایی که درست دسته‌بندی شده بودند ناگهان غلط می‌شوند."
+ },
+ "1o69uks": {
+  "en": "An output below 0 or above 1 makes no sense as a yes or no. This motiv",
+  "fa": "خروجی زیر 0 یا بالای 1 به‌عنوان بله یا خیر معنا ندارد. این انگیزه‌ی رگرسیون لجستیک است."
+ },
+ "16ar8b4": {
+  "en": "Remember. A line extends forever; a probability must stay between 0 an",
+  "fa": "**یادت بماند.** یک خط تا ابد ادامه دارد؛ یک احتمال باید بین 0 و 1 بماند."
+ },
+ "1ysfzo7": {
+  "en": "What it teaches. Working with SQLite from Python. This is a build-trac",
+  "fa": "**آنچه می‌آموزد.** کار با SQLite از پایتون. این یک منبع مسیر ساخت برای پایگاه داده‌ی وام است، نه بخشی از درس یادگیری ماشین. برنامه‌ی تو گفته بود 15 دقیقه‌ی اول را ببین."
+ },
+ "b75hww": {
+  "en": "SQLite is a small database that lives in a file (or in memory), good f",
+  "fa": "SQLite یک پایگاه داده‌ی کوچک است که در یک فایل (یا در حافظه) زندگی می‌کند، برای برنامه‌های کوچک و متوسط، آزمون و نمونه‌های اولیه خوب است. هیچ سروری برای راه‌اندازی لازم نیست."
+ },
+ "aom0co": {
+  "en": "Connect with sqlite3.connect, create a cursor, run execute, and call c",
+  "fa": "با `sqlite3.connect` وصل شو، یک cursor بساز، `execute` را اجرا کن و `commit` را صدا بزن تا تغییرها ذخیره شوند. در پایان اتصال را ببند."
+ },
+ "gbzvy": {
+  "en": "Use placeholders for values (question marks or named parameters) inste",
+  "fa": "به‌جای چسباندن رشته‌ها در SQL از جانشین‌ها (علامت سؤال یا پارامترهای نام‌دار) برای مقدارها استفاده کن، و با `fetchone` و `fetchmany` یا `fetchall` بگیر."
+ },
+ "1wxrrbh": {
+  "en": "A special in-memory database (:memory:) starts fresh every run, which ",
+  "fa": "یک پایگاه داده‌ی ویژه‌ی درون‌حافظه (`:memory:`) هر اجرا از نو شروع می‌شود، که برای آزمون‌ها دم‌دستی است."
+ },
+ "p7pnw3": {
+  "en": "Remember. Parameters, not string formatting, and commit your changes.",
+  "fa": "**یادت بماند.** پارامتر، نه قالب‌بندی رشته، و تغییرهایت را commit کن."
+ },
+ "49xeyy": {
+  "en": "What it teaches. What the cost function is really doing, using a simpl",
+  "fa": "**آنچه می‌آموزد.** تابع هزینه واقعاً چه می‌کند، با یک مدل ساده‌شده که فقط `w` دارد (`b` روی 0 ثابت)."
+ },
+ "ff7j5u": {
+  "en": "With b = 0 the model is f(x) = w x, a line through the origin. Each va",
+  "fa": "با `b = 0` مدل `f(x) = w x` است، خطی از مبدأ. هر مقدار `w` خط و هزینه‌ی `J(w)` متفاوتی می‌دهد."
+ },
+ "1ac56ez": {
+  "en": "Plotting J against w gives a curve. For w = 1 the line passes exactly ",
+  "fa": "رسم `J` در برابر `w` یک منحنی می‌دهد. برای `w = 1` خط دقیقاً از نقطه‌های آموزشی می‌گذرد و هزینه 0 است. برای `w = 0.5` یا `w` منفی خط بدتر و هزینه بزرگ‌تر است."
+ },
+ "7qdxc3": {
+  "en": "Choosing w means choosing a point on the J curve; the best w is the on",
+  "fa": "انتخاب `w` یعنی انتخاب یک نقطه روی منحنی `J`؛ بهترین `w` همان است که در ته قرار دارد."
+ },
+ "15r06hw": {
+  "en": "The goal of linear regression: find the parameters (w, or w and b) tha",
+  "fa": "هدف رگرسیون خطی: پارامترها (`w`، یا `w` و `b`) را پیدا کن که کوچک‌ترین `J` ممکن را می‌دهند."
+ },
+ "1nj5l9b": {
+  "en": "Remember. Every line you could draw is one point on the cost curve; tr",
+  "fa": "**یادت بماند.** هر خطی که بتوانی بکشی یک نقطه روی منحنی هزینه است؛ آموزش جست‌وجوی پایین‌ترین نقطه است."
+ },
+ "1hus1z6": {
+  "en": "What it teaches. Gradient descent done with real numbers on a tiny hei",
+  "fa": "**آنچه می‌آموزد.** گرادیان کاهشی با عددهای واقعی روی یک مجموعه‌داده‌ی کوچک قد و وزن، یک گام در هر نوبت."
+ },
+ "bsqp7u": {
+  "en": "Start by looking at the sum of squared residuals for one intercept; tr",
+  "fa": "با نگاه به مجموع مربعات باقی‌مانده‌ها برای یک عرض از مبدأ شروع کن؛ عرض از مبدأهای بیشتر را امتحان کن و یک منحنی می‌گیری. پیدا کردن پایین‌ترین نقطه با امتحان مقدارها خیلی کند است."
+ },
+ "cr6s2a": {
+  "en": "Use the derivative of the sum of squared residuals with respect to the",
+  "fa": "از مشتق مجموع مربعات باقی‌مانده‌ها نسبت به عرض از مبدأ استفاده کن (با قاعده‌ی زنجیری). جایی که شیب نزدیک 0 است به بهترین مقدار نزدیکی."
+ },
+ "1jcadze": {
+  "en": "Step size = slope times learning rate. With learning rate 0.1 and slop",
+  "fa": "اندازه‌ی گام = شیب ضربدر نرخ یادگیری. با نرخ یادگیری 0.1 و شیب 2.3- گام 0.23- است، پس عرض از مبدأ از 0.57 به حدود 0.8 می‌رود (ویدیو این گام‌ها را نشان می‌دهد)."
+ },
+ "9g4hl7": {
+  "en": "Stop when the step size is very small or after a maximum number of ste",
+  "fa": "وقتی اندازه‌ی گام خیلی کوچک است یا پس از یک بیشینه‌ی تعداد گام متوقف شو."
+ },
+ "nh7uc0": {
+  "en": "With both intercept and slope, take the derivative with respect to eac",
+  "fa": "با هر دو عرض از مبدأ و شیب، مشتق را نسبت به هرکدام بگیر؛ بردار آن مشتق‌ها گرادیان است. گرادیان کاهشی تصادفی برای سریع‌تر شدن در هر گام از یک زیرمجموعه‌ی تصادفی داده استفاده می‌کند."
+ },
+ "opl34p": {
+  "en": "Remember. Step size = slope x learning rate; steps shrink as you appro",
+  "fa": "**یادت بماند.** اندازه‌ی گام = شیب × نرخ یادگیری؛ با نزدیک‌شدن به ته گام‌ها کوچک می‌شوند."
+ },
+ "zkcffj": {
+  "en": "What it teaches. What supervised learning is, and its first kind, regr",
+  "fa": "**آنچه می‌آموزد.** یادگیری نظارت‌شده چیست، و نوع اولش، رگرسیون."
+ },
+ "13jdzhd": {
+  "en": "Supervised learning learns a mapping from an input X to an output Y. Y",
+  "fa": "یادگیری نظارت‌شده یک نگاشت از ورودی `X` به خروجی `Y` را یاد می‌گیرد. به الگوریتم نمونه‌هایی می‌دهی که جواب‌های درست (برچسب‌ها) را دارند."
+ },
+ "zlolqa": {
+  "en": "After learning, the model takes a new input it has never seen and prod",
+  "fa": "پس از یادگیری، مدل یک ورودی جدید را که هرگز ندیده می‌گیرد و خروجی را تولید می‌کند."
+ },
+ "1do2477": {
+  "en": "Examples: spam filtering (email to spam or not), speech recognition (a",
+  "fa": "مثال‌ها: فیلتر اسپم (ایمیل به اسپم یا نه)، تشخیص گفتار (صدا به متن)، ترجمه‌ی ماشینی، تبلیغات آنلاین (تبلیغ و کاربر به کلیک یا نه)، خودروهای خودران."
+ },
+ "ibrykh": {
+  "en": "Worked example: predict a house price from its size. A straight line m",
+  "fa": "مثال حل‌شده: قیمت یک خانه را از اندازه‌اش پیش‌بینی کن. ممکن است یک خط راست جور باشد، یا یک منحنی بهتر. پیش‌بینی برای یک خانه‌ی جدید از روی خط برازش‌شده خوانده می‌شود."
+ },
+ "9lyq81": {
+  "en": "Regression means predicting a number out of infinitely many possible n",
+  "fa": "**رگرسیون** یعنی پیش‌بینی یک عدد از میان بی‌نهایت عدد ممکن، مثل 150,000 یا 183,000."
+ },
+ "16mn6l6": {
+  "en": "Remember. Supervised = inputs with the right answers; regression = the",
+  "fa": "**یادت بماند.** نظارت‌شده = ورودی‌ها با جواب درست؛ رگرسیون = جواب یک عدد است."
+ },
+ "1ert84t": {
+  "en": "What it teaches. Watching the algorithm run.",
+  "fa": "**آنچه می‌آموزد.** تماشای اجرای الگوریتم."
+ },
+ "15p7o87": {
+  "en": "The demonstration starts with w and b at zero (or another guess) and s",
+  "fa": "نمایش با `w` و `b` برابر صفر (یا حدس دیگر) شروع می‌شود و خط، نمودار تراز و سطح را با هم نشان می‌دهد. هر گام نقطه را به سمت مرکز حلقه‌ها می‌برد و خط بهتر با داده جور می‌شود."
+ },
+ "fjjvoz": {
+  "en": "This version uses all the training examples at every step; it is calle",
+  "fa": "این نسخه در هر گام همه‌ی نمونه‌های آموزشی را به کار می‌برد؛ **گرادیان کاهشی دسته‌ای (batch)** نامیده می‌شود. نسخه‌های دیگر در هر گام زیرمجموعه‌های کوچک‌تر را به کار می‌برند."
+ },
+ "37m8bw": {
+  "en": "Once trained, the model can predict, for example, the price of a house",
+  "fa": "پس از آموزش، مدل می‌تواند پیش‌بینی کند، مثلاً قیمت یک خانه را از اندازه‌اش."
+ },
+ "11d7nxw": {
+  "en": "Next week: several features, non-linear curves and practical tips.",
+  "fa": "هفته‌ی بعد: چند ویژگی، منحنی‌های غیرخطی و نکته‌های عملی."
+ },
+ "hzx9j9": {
+  "en": "Remember. Batch gradient descent = every step looks at the whole train",
+  "fa": "**یادت بماند.** گرادیان کاهشی دسته‌ای = هر گام به کل مجموعه‌ی آموزشی نگاه می‌کند."
+ },
+ "a5a42c": {
+  "en": "What it teaches. The maths of backpropagation, which is the chain rule",
+  "fa": "**آنچه می‌آموزد.** ریاضی پس‌انتشار، که قاعده‌ی زنجیری است."
+ },
+ "1i6lkw2": {
+  "en": "Start with the simplest network: one neuron per layer. The cost depend",
+  "fa": "با ساده‌ترین شبکه شروع کن: یک نورون در هر لایه. هزینه از طریق یک زنجیره به وزن بستگی دارد: وزن، بعد مجموع وزنی `z`، بعد فعال‌سازی `a`، بعد هزینه."
+ },
+ "x21w5o": {
+  "en": "The chain rule multiplies the sensitivities along that chain to get th",
+  "fa": "قاعده‌ی زنجیری حساسیت‌های طول آن زنجیره را ضرب می‌کند تا مشتق هزینه نسبت به وزن به دست بیاید."
+ },
+ "8pwmvt": {
+  "en": "The derivative with respect to the bias and with respect to the previo",
+  "fa": "مشتق نسبت به بایاس و نسبت به فعال‌سازی قبلی از همان تکه‌ها استفاده می‌کنند."
+ },
+ "1vof9ey": {
+  "en": "With many neurons per layer the idea is the same, with indices for whi",
+  "fa": "با نورون‌های زیاد در هر لایه ایده یکی است، با اندیس‌هایی برای اینکه کدام نورون و کدام لایه، و یک جمع روی نورون‌های لایه‌ی بعد."
+ },
+ "wzz785": {
+  "en": "Software libraries compute all of this automatically, so you rarely do",
+  "fa": "کتابخانه‌های نرم‌افزاری همه‌ی این‌ها را خودکار حساب می‌کنند، پس به‌ندرت با دست انجامش می‌دهی."
+ },
+ "1s7qt79": {
+  "en": "Remember. Backpropagation is the chain rule applied layer by layer.",
+  "fa": "**یادت بماند.** پس‌انتشار قاعده‌ی زنجیری است که لایه به لایه اعمال می‌شود."
+ },
+ "8671q2": {
+  "en": "What it teaches. Why vectorized code is faster, and how it helps the g",
+  "fa": "**آنچه می‌آموزد.** چرا کد برداری‌شده سریع‌تر است، و چطور به به‌روزرسانی گرادیان کاهشی کمک می‌کند."
+ },
+ "1q30ahi": {
+  "en": "A vectorized operation lets the computer do many multiplications at th",
+  "fa": "یک عملیات برداری‌شده به کامپیوتر اجازه می‌دهد چند ضرب را هم‌زمان روی سخت‌افزار موازی انجام دهد، به‌جای یکی پس از دیگری در یک حلقه."
+ },
+ "dj0nq6": {
+  "en": "Example: updating 16 weights. Without vectorization you loop and updat",
+  "fa": "مثال: به‌روزرسانی 16 وزن. بدون برداری‌سازی حلقه می‌زنی و `w1` و `w2` و همین‌طور یکی‌یکی را به‌روز می‌کنی. با برداری‌سازی یک خط می‌نویسی: `w = w - 0.1 * d`، که `d` هر 16 مشتق را دارد."
+ },
+ "r54bf1": {
+  "en": "Ng says it was mind-blowing the first time he timed the two versions.",
+  "fa": "Ng می‌گوید اولین بار که زمان دو نسخه را گرفت ذهنش منفجر شد."
+ },
+ "bjfuj9": {
+  "en": "Remember. One line, all parameters at once.",
+  "fa": "**یادت بماند.** یک خط، همه‌ی پارامترها یک‌جا."
+ },
+ "1b5tj01": {
+  "en": "What it teaches. Two numbers that summarize a confusion matrix.",
+  "fa": "**آنچه می‌آموزد.** دو عدد که یک ماتریس درهم‌ریختگی را خلاصه می‌کنند."
+ },
+ "1rfvd8e": {
+  "en": "Sensitivity (also called recall or true positive rate) = true positive",
+  "fa": "**حساسیت (sensitivity)** (بازیابی یا نرخ مثبت درست هم نامیده می‌شود) = مثبت‌های درست / (مثبت‌های درست + منفی‌های کاذب). از کسانی که واقعاً بیماری دارند، چند نفر را پیدا کردیم؟"
+ },
+ "11c4jtf": {
+  "en": "Specificity = true negatives / (true negatives + false positives). Of ",
+  "fa": "**اختصاصیت (specificity)** = منفی‌های درست / (منفی‌های درست + مثبت‌های کاذب). از کسانی که سالم‌اند، چند نفر را درست تبرئه کردیم؟"
+ },
+ "128ra7r": {
+  "en": "Use them to pick a model: if missing a sick patient is the worst error",
+  "fa": "از آن‌ها برای انتخاب مدل استفاده کن: اگر از دست‌دادن یک بیمار بدترین خطاست، مدل با حساسیت بالاتر را انتخاب کن؛ اگر هشدارهای کاذب گران‌اند، اختصاصیت بالاتر."
+ },
+ "tcnqdv": {
+  "en": "With more than two classes, calculate them one class at a time: treat ",
+  "fa": "با بیش از دو دسته، آن‌ها را یک دسته در هر نوبت حساب کن: آن دسته را مثبت و بقیه را با هم منفی بگیر."
+ },
+ "1ex6r5o": {
+  "en": "Remember. Sensitivity = catch rate for the positives; specificity = ca",
+  "fa": "**یادت بماند.** حساسیت = نرخ گرفتن مثبت‌ها؛ اختصاصیت = نرخ گرفتن منفی‌ها."
+ },
+ "1xwepdn": {
+  "en": "What it teaches. Why machine learning matters and what this course wil",
+  "fa": "**آنچه می‌آموزد.** چرا یادگیری ماشین مهم است و این درس چه کاری برای تو می‌کند. Ng نشان می‌دهد از قبل روزی چند بار از آن استفاده می‌کنی، بعد قول می‌دهد ایده‌ها را یاد می‌گیری و در کد هم پیاده می‌کنی."
+ },
+ "vvhif": {
+  "en": "Everyday examples: web search ranking pages, photo tagging, voice assi",
+  "fa": "مثال‌های روزمره: رتبه‌بندی صفحه‌ها در جستجوی وب، تگ‌کردن عکس، دستیارهای صوتی، فیلترهای اسپم."
+ },
+ "ejhp4m": {
+  "en": "It also reaches large companies and fields such as healthcare and manu",
+  "fa": "به شرکت‌های بزرگ و حوزه‌هایی مثل سلامت و تولید هم می‌رسد، نه فقط برنامه‌های مصرف‌کننده."
+ },
+ "xrw9bm": {
+  "en": "This course is the new version of the one that led to the founding of ",
+  "fa": "این درس نسخه‌ی جدید درسی است که به تأسیس Coursera انجامید."
+ },
+ "dkdwoi": {
+  "en": "Remember. Machine learning is already inside tools you use daily, whic",
+  "fa": "**یادت بماند.** یادگیری ماشین از قبل داخل ابزارهایی است که هر روز استفاده می‌کنی، به همین دلیل یادگرفتن مبانی می‌ارزد."
+ },
+ "1s93dji": {
+  "en": "What it teaches. Why logistic regression needs its own cost function.",
+  "fa": "**آنچه می‌آموزد.** چرا رگرسیون لجستیک به تابع هزینه‌ی خودش نیاز دارد."
+ },
+ "du1tif": {
+  "en": "The squared-error cost, applied to the sigmoid output, produces a wavy",
+  "fa": "هزینه‌ی مربع خطا، وقتی روی خروجی سیگموید اعمال شود، یک سطح هزینه‌ی موجی با مینیمم‌های محلی زیاد می‌دهد، پس گرادیان کاهشی می‌تواند گیر کند. به زیان متفاوتی نیاز است."
+ },
+ "u87j11": {
+  "en": "Loss for one example: if y = 1, loss = -log(f); if y = 0, loss = -log(",
+  "fa": "زیان یک نمونه: اگر `y = 1` باشد `loss = -log(f)`؛ اگر `y = 0` باشد `loss = -log(1 - f)`."
+ },
+ "1ytkn6h": {
+  "en": "If y = 1 and the model says f near 1, the loss is near 0. If it says f",
+  "fa": "اگر `y = 1` است و مدل `f` نزدیک 1 می‌گوید، زیان نزدیک 0 است. اگر `f` نزدیک 0 بگوید، زیان به سمت بی‌نهایت می‌رود: جواب غلطِ با اطمینان سخت جریمه می‌شود. حالت `y = 0` آینه‌ی این است."
+ },
+ "f4279n": {
+  "en": "Since f is always between 0 and 1, only that part of the curve matters",
+  "fa": "چون `f` همیشه بین 0 و 1 است، فقط همان بخش منحنی مهم است."
+ },
+ "eq7eor": {
+  "en": "Remember. Be confidently right and the loss is tiny; be confidently wr",
+  "fa": "**یادت بماند.** با اطمینان درست باش و زیان ناچیز است؛ با اطمینان غلط باش و منفجر می‌شود."
+ },
+ "1ytgt8z": {
+  "en": "What it teaches. Which maths to learn for machine learning, and how to",
+  "fa": "**آنچه می‌آموزد.** کدام ریاضی را برای یادگیری ماشین یاد بگیریم، و چطور یاد بگیریم که بماند."
+ },
+ "1yekin9": {
+  "en": "The speaker, a data scientist with about 10 years of teaching experien",
+  "fa": "گوینده، یک دانشمند داده با حدود 10 سال تجربه‌ی تدریس، می‌گوید فهمیدن ریاضی کسانی را که خوب پیش می‌روند از کسانی که دست‌وپا می‌زنند جدا می‌کند."
+ },
+ "7xa090": {
+  "en": "Four areas: statistics (the most important, because it stops you picki",
+  "fa": "چهار حوزه: آمار (مهم‌ترین، چون جلوی انتخاب الگوریتم غلط را می‌گیرد)، احتمال، جبر خطی، و حساب دیفرانسیل (عمدتاً برای شبکه‌های عصبی لازم)."
+ },
+ "1cl17j2": {
+  "en": "Do not just accept a formula. Ask what the point of it is and write it",
+  "fa": "فقط یک فرمول را نپذیر. بپرس منظورش چیست و آن را به زبان ساده بنویس. برای رگرسیون خطی، خط «بهترین» یعنی خطی که کمترین مجموع مربع فاصله تا نقطه‌ها را دارد."
+ },
+ "b41o7r": {
+  "en": "Topics to cover include the normal distribution, standard deviation, z",
+  "fa": "موضوع‌هایی که باید پوشش دهی شامل توزیع نرمال، انحراف معیار، نمره‌ی z، آزمون فرض، حساسیت و اختصاصیت با ماتریس‌های درهم‌ریختگی، احتمال شرطی و قضیه‌ی بیز، بردارها و ماتریس‌هاست."
+ },
+ "3k4t6v": {
+  "en": "Remember. For every formula, say in one sentence what it is trying to ",
+  "fa": "**یادت بماند.** برای هر فرمول در یک جمله بگو سعی دارد چه کاری انجام دهد."
+ },
+ "1mebyw8": {
+  "en": "What it teaches. The update rule you actually code.",
+  "fa": "**آنچه می‌آموزد.** قاعده‌ی به‌روزرسانی‌ای که واقعاً کد می‌زنی."
+ },
+ "1ssdx6z": {
+  "en": "On each step: w becomes w minus alpha times the slope of J with respec",
+  "fa": "در هر گام: `w` برابر می‌شود با `w` منهای `alpha` ضربدر شیب `J` نسبت به `w`؛ `b` برابر می‌شود با `b` منهای `alpha` ضربدر شیب `J` نسبت به `b`."
+ },
+ "ojvuwa": {
+  "en": "Alpha is the learning rate: it controls how big each step is.",
+  "fa": "`alpha` نرخ یادگیری است: اندازه‌ی هر گام را کنترل می‌کند."
+ },
+ "1tyskww": {
+  "en": "The slope (derivative) says which way is uphill, so subtracting it mov",
+  "fa": "شیب (مشتق) می‌گوید کدام طرف سربالایی است، پس کم‌کردنش تو را سرازیر می‌برد."
+ },
+ "1y0lgo0": {
+  "en": "Update w and b at the same time: compute both new values from the old ",
+  "fa": "`w` و `b` را هم‌زمان به‌روز کن: اول هر دو مقدار جدید را از روی قدیمی‌ها حساب کن، بعد جایگزین کن. به‌روز کردن یکی و بعد استفاده از آن برای حساب دیگری یک اشکال ظریف است."
+ },
+ "3gosxi": {
+  "en": "Repeat until convergence, meaning the parameters hardly change any mor",
+  "fa": "تا همگرایی تکرار کن، یعنی پارامترها دیگر به‌سختی تغییر کنند."
+ },
+ "hzggf1": {
+  "en": "Remember. New value = old value minus learning rate times slope, for e",
+  "fa": "**یادت بماند.** مقدار جدید = مقدار قدیم منهای نرخ یادگیری ضربدر شیب، برای هر پارامتر، همه یک‌جا."
+ },
+ "j04mh3": {
+  "en": "What it teaches. Why many tasks cannot be programmed by writing rules,",
+  "fa": "**آنچه می‌آموزد.** چرا خیلی از وظایف را نمی‌شود با نوشتن قانون برنامه‌ریزی کرد، و چرا یادگیری ماشین در صنعت‌های مختلف مهم است."
+ },
+ "k56z1a": {
+  "en": "Tasks such as web search, speech recognition, reading x-rays or drivin",
+  "fa": "وظایفی مثل جستجوی وب، تشخیص گفتار، خواندن عکس‌های اشعه‌ی ایکس یا رانندگی نمی‌توانند به‌صورت قانون صریح نوشته شوند، پس کامپیوتر باید آن‌ها را از نمونه‌ها یاد بگیرد."
+ },
+ "14aggwl": {
+  "en": "The course teaches the main algorithms and also the practical know-how",
+  "fa": "درس الگوریتم‌های اصلی را می‌آموزد و همچنین دانش عملی برای کارکردنشان."
+ },
+ "17glgyv": {
+  "en": "A study quoted in the video estimates that AI will add about 13 trilli",
+  "fa": "یک مطالعه‌ی نقل‌شده در ویدیو برآورد می‌کند هوش مصنوعی تا سال 2030 سالانه حدود 13 تریلیون دلار ارزش اضافه می‌کند، و ارزش خیلی بیشتری هنوز دست‌نخورده است."
+ },
+ "2s7nh6": {
+  "en": "Ng mentions the quest for AGI (human-level intelligence), which comes ",
+  "fa": "Ng به جست‌وجوی AGI (هوش در سطح انسان) اشاره می‌کند، که بعداً در درس برمی‌گردد."
+ },
+ "12e91rl": {
+  "en": "Remember. Learn from examples when rules are too hard to write.",
+  "fa": "**یادت بماند.** وقتی نوشتن قانون خیلی سخت است از نمونه‌ها یاد بگیر."
+ },
+ "t4vp7q": {
+  "en": "What it teaches. The logistic regression model.",
+  "fa": "**آنچه می‌آموزد.** مدل رگرسیون لجستیک."
+ },
+ "4ht5x1": {
+  "en": "Logistic regression is probably the most widely used classification al",
+  "fa": "رگرسیون لجستیک احتمالاً پراستفاده‌ترین الگوریتم دسته‌بندی در جهان است."
+ },
+ "15pssuc": {
+  "en": "Step 1: z = w . x + b. Step 2: pass z through the sigmoid (logistic) f",
+  "fa": "گام 1: `z = w . x + b`. گام 2: `z` را از تابع سیگموید (لجستیک) `g(z) = 1 / (1 + e^(-z))` رد کن."
+ },
+ "1rogo86": {
+  "en": "The sigmoid outputs a value between 0 and 1: near 0 for very negative ",
+  "fa": "سیگموید مقداری بین 0 و 1 می‌دهد: نزدیک 0 برای `z` خیلی منفی، 0.5 در `z = 0`، نزدیک 1 برای `z` خیلی مثبت."
+ },
+ "tk3sq6": {
+  "en": "The model is f(x) = g(w . x + b). Read the output as the probability t",
+  "fa": "مدل `f(x) = g(w . x + b)` است. خروجی را به‌عنوان احتمال `y = 1` بخوان، مثلاً 0.7 یعنی 70 درصد شانس بدخیم بودن."
+ },
+ "1w30986": {
+  "en": "Next: turning 0.3, 0.65 or 0.7 into a prediction of 0 or 1.",
+  "fa": "بعدی: تبدیل 0.3 یا 0.65 یا 0.7 به پیش‌بینی 0 یا 1."
+ },
+ "57zfjk": {
+  "en": "Remember. Linear score z, then the S-curve: that is the whole model.",
+  "fa": "**یادت بماند.** امتیاز خطی `z`، بعد منحنی S: همین کل مدل است."
+ },
+ "1jrsrfj": {
+  "en": "What it teaches. Logistic regression in plain statistics language: pre",
+  "fa": "**آنچه می‌آموزد.** رگرسیون لجستیک به زبان ساده‌ی آمار: پیش‌بینی یک احتمال، بعد یک دسته."
+ },
+ "1r6hk7j": {
+  "en": "Linear regression predicts a number and can go below 0 or above 1. Log",
+  "fa": "رگرسیون خطی یک عدد پیش‌بینی می‌کند و می‌تواند زیر 0 یا بالای 1 برود. رگرسیون لجستیک یک منحنی S‌شکل برازش می‌کند که خروجی‌اش بین 0 و 1 می‌ماند، پس می‌تواند یک احتمال باشد. مثال: احتمال چاق‌بودن یک موش با توجه به وزنش."
+ },
+ "15271fx": {
+  "en": "For classification you compare the probability with a threshold, usual",
+  "fa": "برای دسته‌بندی احتمال را با یک آستانه، معمولاً 50 درصد، مقایسه می‌کنی: بالاتر از آن چاق، پایین‌تر نه."
+ },
+ "ghqefr": {
+  "en": "It can use continuous predictors (weight) and discrete ones (genotype)",
+  "fa": "می‌تواند از پیش‌بین‌های پیوسته (وزن) و گسسته (ژنوتایپ) استفاده کند و نشان دهد کدام متغیرها مفیدند (برج تولد بی‌فایده است)."
+ },
+ "10v8fsw": {
+  "en": "A difference from linear regression: the curve is not fitted with leas",
+  "fa": "یک تفاوت با رگرسیون خطی: منحنی با کمترین مربعات برازش نمی‌شود بلکه با بیشینه‌ی درست‌نمایی (StatQuest بعدی توضیح می‌دهد)."
+ },
+ "1ri7t4s": {
+  "en": "Remember. Same linear ingredients as before, squeezed through an S-cur",
+  "fa": "**یادت بماند.** همان مواد خطی قبلی، فشرده‌شده از یک منحنی S تا جواب یک احتمال باشد."
+ }
+}

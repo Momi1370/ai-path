@@ -1,0 +1,142 @@
+{
+ "1gv9m3w": {
+  "en": "Purpose. A straight line through data is the simplest model that learn",
+  "fa": "**هدف.** یک خط راست از میان داده ساده‌ترین مدلی است که یاد می‌گیرد. رگرسیون لجستیک، شبکه‌های عصبی و حتی LLMها گونه‌هایی از آن‌اند، پس این یکی را کامل بفهم."
+ },
+ "akcbhg": {
+  "en": "Key ideas",
+  "fa": "**ایده‌های کلیدی**"
+ },
+ "6k7te4": {
+  "en": "The model is f(x) = w x + b. The weight w is the slope and the bias b ",
+  "fa": "مدل `f(x) = w x + b` است. وزن `w` شیب است و بایاس `b` مقدار در `x = 0`."
+ },
+ "1qc1hej": {
+  "en": "\"Best line\" has to be defined. The usual definition: the line that mak",
+  "fa": "«بهترین خط» باید تعریف شود. تعریف معمول: خطی که مربع فاصله‌هایش تا نقطه‌ها را تا حد ممکن کوچک می‌کند."
+ },
+ "efxabu": {
+  "en": "You can find that line in one step with a formula (least squares), or ",
+  "fa": "می‌توانی آن خط را در یک گام با یک فرمول (کمترین مربعات) پیدا کنی، یا گام‌به‌گام با گرادیان کاهشی (فصل 6)."
+ },
+ "1kyymka": {
+  "en": "With one input feature the model is called univariate linear regressio",
+  "fa": "با یک ویژگی ورودی مدل را رگرسیون خطی تک‌متغیره (univariate) می‌نامند."
+ },
+ "1emt1qc": {
+  "en": "4.1 The model",
+  "fa": "4.1 مدل"
+ },
+ "zgzqxj": {
+  "en": "Ng's running example predicts a house price from its size, using 47 ho",
+  "fa": "مثال اصلی Ng قیمت یک خانه را از روی اندازه‌اش پیش‌بینی می‌کند، با 47 خانه از Portland. اندازه را روی محور افقی و قیمت را روی محور عمودی رسم کن، نقطه‌ها به سمت راست بالا می‌روند. یک خط از میانشان بکش و برای هر اندازه می‌توانی یک قیمت بخوانی: خانه‌ی 1,250 فوت مربعی مشتری او حدود 250,000 دلار درمی‌آید."
+ },
+ "r21n12": {
+  "en": "x is the input (size), and f(x), written y-hat, is the prediction (pri",
+  "fa": "`x` ورودی (اندازه) است و `f(x)`، که y-hat نوشته می‌شود، پیش‌بینی (قیمت)."
+ },
+ "tcn1m0": {
+  "en": "w (weight, slope, coefficient): how much the prediction rises when x r",
+  "fa": "`w` (وزن، شیب، ضریب): وقتی `x` به اندازه‌ی 1 بالا می‌رود پیش‌بینی چقدر بالا می‌رود."
+ },
+ "s63r3": {
+  "en": "b (bias, intercept): the prediction when x is 0.",
+  "fa": "`b` (بایاس، عرض از مبدأ): پیش‌بینی وقتی `x` برابر 0 است."
+ },
+ "af3dmz": {
+  "en": "With w = 0.2 thousand dollars per square foot and b = 0, a 1,250 squar",
+  "fa": "با `w = 0.2` هزار دلار به ازای هر فوت مربع و `b = 0`، خانه‌ی 1,250 فوت مربعی `1,250 x 0.2 = 250` می‌دهد، یعنی 250,000 دلار. مقدارهای متفاوت `w` و `b` خط‌های متفاوتی می‌دهند و آموزش جست‌وجوی بهترین زوج است."
+ },
+ "1dsv88t": {
+  "en": "4.2 What \"best\" means",
+  "fa": "4.2 «بهترین» یعنی چه"
+ },
+ "1b7r22h": {
+  "en": "A line can pass close to some points and far from others. To compare l",
+  "fa": "یک خط ممکن است به بعضی نقطه‌ها نزدیک و از بعضی دور باشد. برای مقایسه‌ی خط‌ها به یک عدد نیاز داری که بگوید یک خط روی هم از همه‌ی نقطه‌ها چقدر فاصله دارد. دستور (Infinite Codes می‌خواهد هر فرمول را این‌طور به کلمه تبدیل کنی):"
+ },
+ "1rx31w0": {
+  "en": "For one point, the error is the prediction minus the true value: f(x) ",
+  "fa": "برای یک نقطه، خطا پیش‌بینی منهای مقدار واقعی است: `f(x) - y`."
+ },
+ "14edv6n": {
+  "en": "Square it, so that errors above and below the line both count as posit",
+  "fa": "آن را به توان دو برسان تا خطاهای بالا و پایین خط هر دو مثبت حساب شوند، و اشتباه‌های بزرگ خیلی بیشتر از کوچک‌ها بشمارند."
+ },
+ "somtms": {
+  "en": "Add up the squares over all points.",
+  "fa": "مربع‌ها را روی همه‌ی نقطه‌ها جمع بزن."
+ },
+ "pydxlp": {
+  "en": "Take three points (1, 1), (2, 2) and (3, 3). The line with w = 1 and b",
+  "fa": "سه نقطه‌ی `(1, 1)` و `(2, 2)` و `(3, 3)` را بگیر. خطی با `w = 1` و `b = 0` از هر سه می‌گذرد: همه‌ی خطاها 0 هستند. خطی با `w = 0.5` و `b = 0` مقدارهای 0.5 و 1 و 1.5 را پیش‌بینی می‌کند، پس خطاها `-0.5` و `-1` و `-1.5` هستند. به توان دو و جمع‌شده: `0.25 + 1 + 2.25 = 3.5`. خط اول واضحاً بهتر است و عدد همین را می‌گوید. فصل 5 این دستور را به تابع هزینه تبدیل می‌کند."
+ },
+ "150y9y1": {
+  "en": "4.3 Two ways to find the best line",
+  "fa": "4.3 دو راه برای پیدا کردن بهترین خط"
+ },
+ "9x5yan": {
+  "en": "A formula (least squares, the normal equation). For linear regression ",
+  "fa": "**یک فرمول** (کمترین مربعات، معادله‌ی نرمال). فقط برای رگرسیون خطی، حساب دیفرانسیل `w` و `b` را مستقیم می‌دهد، بدون گام‌های تکراری. کتابخانه‌هایی مثل NumPy و scikit-learn از آن استفاده می‌کنند."
+ },
+ "4blztv": {
+  "en": "Gradient descent. Start anywhere and improve step by step. It is slowe",
+  "fa": "**گرادیان کاهشی.** از هر جا شروع کن و گام‌به‌گام بهتر کن. اینجا کندتر است، ولی برای رگرسیون لجستیک و شبکه‌های عصبی هم کار می‌کند، جایی که فرمولی وجود ندارد."
+ },
+ "1pv5hvc": {
+  "en": "Code: the formula. Fifty noisy points around the line y = 3x + 2:",
+  "fa": "**کد: فرمول.** پنجاه نقطه‌ی نویزی دور خط `y = 3x + 2`:"
+ },
+ "1mao4lk": {
+  "en": "The true values are 3 and 2. The fit finds 3.052 and 1.757, because th",
+  "fa": "مقدارهای واقعی 3 و 2 هستند. برازش 3.052 و 1.757 را پیدا می‌کند، چون نویز آن را کمی هل می‌دهد. همین داده در فصل 6 دوباره استفاده می‌شود."
+ },
+ "e9nmj8": {
+  "en": "4.4 Using a fitted line well",
+  "fa": "4.4 استفاده‌ی درست از یک خط برازش‌شده"
+ },
+ "thjtuz": {
+  "en": "Beyond the videos.",
+  "fa": "**بیرون از ویدیوها.**"
+ },
+ "hl7cd5": {
+  "en": "Interpolation is safe, extrapolation is not. The line is only trustwor",
+  "fa": "**درون‌یابی امن است، برون‌یابی نه.** خط فقط داخل بازه‌ی اندازه‌هایی که دیده قابل‌اعتماد است. خطی که روی خانه‌های بین 300 تا 2,000 فوت مربع برازش شده درباره‌ی عمارتی 10,000 فوتی چیز زیادی نمی‌گوید."
+ },
+ "khuvof": {
+  "en": "Correlation is not causation. A good fit tells you that size and price",
+  "fa": "**همبستگی علیت نیست.** برازش خوب می‌گوید اندازه و قیمت با هم حرکت می‌کنند، نه اینکه بزرگ‌کردن یک خانه ارزشش را به اندازه‌ی شیب بالا می‌برد."
+ },
+ "nvmkph": {
+  "en": "Mind the units. If x is in square feet and y in thousands of dollars, ",
+  "fa": "**حواست به واحدها باشد.** اگر `x` به فوت مربع و `y` به هزار دلار باشد، `w` به هزار دلار بر فوت مربع است. وزن بدون واحدش بی‌معنی است."
+ },
+ "1owdajg": {
+  "en": "Loan example. Predict the monthly cost of an offer from the offered am",
+  "fa": "**مثال وام.** هزینه‌ی ماهانه‌ی یک پیشنهاد را از مبلغ پیشنهادی پیش‌بینی کن. یک مدل برازش‌شده ممکن است چنین باشد: `f(amount) = 0.029 x amount + 8` (عددهای ساختگی). آن‌وقت یک پیشنهاد 10,000 یورویی `0.029 x 10,000 + 8 = 298` یورو در ماه پیش‌بینی می‌شود. وقتی تعداد اقساط را به‌عنوان ورودی دوم اضافه کنی (فصل 7)، پیش‌بینی‌ها خیلی بهتر می‌شوند."
+ },
+ "1qknwjp": {
+  "en": "Common mistakes",
+  "fa": "**اشتباه‌های رایج**"
+ },
+ "u2w5ms": {
+  "en": "Reading w as \"the effect of x\" without checking the units or the range",
+  "fa": "خواندن `w` به‌عنوان «اثر `x`» بدون بررسی واحدها یا بازه."
+ },
+ "1o1sdq7": {
+  "en": "Predicting far outside the range of the training inputs.",
+  "fa": "پیش‌بینی بسیار دور از بازه‌ی ورودی‌های آموزشی."
+ },
+ "1q30knr": {
+  "en": "Forgetting that b exists: a model f(x) = w x forces the line through t",
+  "fa": "فراموش کردن اینکه `b` وجود دارد: مدل `f(x) = w x` خط را مجبور می‌کند از مبدأ بگذرد."
+ },
+ "cocq5o": {
+  "en": "Check yourself",
+  "fa": "**خودت را بسنج**"
+ },
+ "ej0a82": {
+  "en": "Go deeper: Ng, course 1, videos 9 and 10 · the scikit-learn linear mod",
+  "fa": "**برای مطالعه‌ی بیشتر:** Ng، درس 1، ویدیوهای 9 و 10 · راهنمای مدل‌های خطی scikit-learn · An Introduction to Statistical Learning، فصل 3 (کتاب رایگان)."
+ }
+}

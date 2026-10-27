@@ -1,0 +1,178 @@
+{
+ "cec908": {
+  "en": "Purpose. Before any formula, you need to know what problem machine lea",
+  "fa": "**هدف.** پیش از هر فرمولی باید بدانی یادگیری ماشین چه مسئله‌ای را حل می‌کند و کی ابزار درست است. هر تکنیک بعدی به این ایده آویزان است."
+ },
+ "akcbhg": {
+  "en": "Key ideas",
+  "fa": "**ایده‌های کلیدی**"
+ },
+ "190dt1z": {
+  "en": "Ordinary software follows rules a person wrote. Machine learning finds",
+  "fa": "نرم‌افزار معمولی از قوانینی پیروی می‌کند که یک انسان نوشته. یادگیری ماشین خودش قوانین را از روی نمونه‌ها پیدا می‌کند."
+ },
+ "jbqw2b": {
+  "en": "A model is a function that turns inputs into a prediction. Learning me",
+  "fa": "مدل تابعی است که ورودی‌ها را به یک پیش‌بینی تبدیل می‌کند. یادگیری یعنی انتخاب عددهای داخل آن (پارامترهایش) به‌طوری که پیش‌بینی‌هایش با نمونه‌ها جور شود."
+ },
+ "11grkoe": {
+  "en": "There are two phases: training (fit the parameters) and inference (use",
+  "fa": "دو مرحله وجود دارد: آموزش (training: پارامترها را برازش کن) و استنتاج (inference: مدل برازش‌شده را روی ورودی‌های جدید به کار ببر)."
+ },
+ "10lzc75": {
+  "en": "Good data matters more than a clever algorithm.",
+  "fa": "داده‌ی خوب از یک الگوریتم زرنگ مهم‌تر است."
+ },
+ "10j3xkr": {
+  "en": "1.1 Rules versus examples",
+  "fa": "1.1 قانون در برابر نمونه"
+ },
+ "125rhvi": {
+  "en": "Imagine you must teach a new colleague to spot loan applications that ",
+  "fa": "تصور کن باید به یک همکار تازه یاد بدهی درخواست‌های وامی را که پس داده نخواهند شد تشخیص بدهد. دو گزینه داری. اول یک کتاب قانون: «اگر درآمد زیر X است یا نسبت بدهی بالای Y است رد کن». دوم اینکه 10,000 پرونده‌ی گذشته را با نتیجه‌شان به او بدهی و بگذاری حس آن را پیدا کند. یادگیری ماشین گزینه‌ی دوم است، که کامپیوتر انجامش می‌دهد."
+ },
+ "19q4ccv": {
+  "en": "Arthur Samuel gave the classic definition in 1959: machine learning is",
+  "fa": "Arthur Samuel در سال 1959 تعریف کلاسیک را داد: یادگیری ماشین حوزه‌ای است که به کامپیوترها توانایی یادگرفتن می‌دهد بدون اینکه صریحاً برنامه‌ریزی شده باشند. برنامه‌ی چکرز او ده‌ها هزار بازی با خودش کرد و در نهایت بهتر از خودش بازی می‌کرد (Ng، ویدیوی 3). هیچ‌کس استراتژی‌اش را ننوشت. خودش یکی پیدا کرد."
+ },
+ "118sjq4": {
+  "en": "This matters because some problems have too many rules to write. Nobod",
+  "fa": "این مهم است چون بعضی مسائل قوانین زیادتر از آن دارند که بشود نوشت. هیچ‌کس نمی‌تواند قوانینی را که اسپم را از نامه‌ی واقعی جدا می‌کند، صدا را تشخیص می‌دهد یا صفحه‌های وب را رتبه‌بندی می‌کند فهرست کند. برای این مسائل نمونه‌ها کار می‌کنند و کتاب قانون نه."
+ },
+ "1yx29ba": {
+  "en": "1.2 A model is a small picture of the world",
+  "fa": "1.2 مدل یک عکس کوچک از دنیاست"
+ },
+ "913ldc": {
+  "en": "When you see dark clouds and predict rain, you are using a mental mode",
+  "fa": "وقتی ابرهای تیره می‌بینی و باران پیش‌بینی می‌کنی، از یک مدل ذهنی استفاده می‌کنی. مدل در یادگیری ماشین همان چیز است که به شکل تابع نوشته شده: ورودی‌ها می‌روند تو و یک پیش‌بینی بیرون می‌آید. ساده‌ترین مدل مفید یک خط راست است:"
+ },
+ "w65phf": {
+  "en": "The numbers m and b are the parameters. They decide whether the predic",
+  "fa": "عددهای `m` و `b` پارامترها هستند. آن‌ها تعیین می‌کنند پیش‌بینی‌ها خوب‌اند یا نه. «یادگیری» جست‌وجوی `m` و `b`ای است که بهترین جور را با نمونه‌ها دارد (Shaw Talebi، ML Foundations)."
+ },
+ "1lvo2w9": {
+  "en": "1.3 Training and inference",
+  "fa": "1.3 آموزش و استنتاج"
+ },
+ "1a221fl": {
+  "en": "When people say a model \"costs\" a lot, they usually mean training. Whe",
+  "fa": "وقتی مردم می‌گویند یک مدل «گران» است، معمولاً منظورشان آموزش است. وقتی اپلیکیشنت به یک مشتری جواب می‌دهد، آن استنتاج است."
+ },
+ "1pxhx2x": {
+  "en": "1.4 Three ways to learn",
+  "fa": "1.4 سه راه برای یادگیری"
+ },
+ "1idar1n": {
+  "en": "Supervised learning: every example comes with the right answer. The mo",
+  "fa": "**یادگیری نظارت‌شده (supervised):** هر نمونه با جواب درست می‌آید. مدل یاد می‌گیرد ورودی‌ها را به جواب‌ها نگاشت کند. بیشتر یادگیری ماشین کسب‌وکار همین است."
+ },
+ "1wyz0iw": {
+  "en": "Unsupervised learning: there are no answers. The model looks for struc",
+  "fa": "**یادگیری نظارت‌نشده (unsupervised):** جوابی وجود ندارد. مدل خودش دنبال ساختار می‌گردد، مثل گروه‌های مشتری‌های مشابه."
+ },
+ "g1zc5a": {
+  "en": "Reinforcement learning: the model tries actions and gets a reward or a",
+  "fa": "**یادگیری تقویتی (reinforcement):** مدل عمل‌هایی را امتحان می‌کند و پاداش یا جریمه می‌گیرد. با آزمون و خطا یاد می‌گیرد. AlphaGo از آن استفاده کرد و آموزش مدل‌های استدلالی مثل DeepSeek R1 هم، که برای جواب‌های درست ریاضی و کد پاداش می‌گرفتند."
+ },
+ "1kz4ses": {
+  "en": "Chapter 2 covers all three in detail. Deep learning is not a fourth wa",
+  "fa": "فصل 2 هر سه را با جزئیات می‌آورد. یادگیری عمیق یک روش چهارم برای یادگیری نیست. یک نوع مدل است، یک شبکه‌ی عصبی با لایه‌های زیاد، که می‌شود به هر یک از سه روش آموزشش داد، بیشتر به روش اول."
+ },
+ "sd5o9c": {
+  "en": "1.5 AI, machine learning, deep learning, LLMs",
+  "fa": "1.5 هوش مصنوعی، یادگیری ماشین، یادگیری عمیق، LLM"
+ },
+ "1ytx81v": {
+  "en": "These terms nest like Russian dolls. Artificial intelligence is the br",
+  "fa": "این اصطلاح‌ها مثل عروسک‌های روسی تو در تو هستند. **هوش مصنوعی** هدف گسترده است. **یادگیری ماشین** بخشی است که از داده یاد می‌گیرد. **یادگیری عمیق** بخشی از یادگیری ماشین است که از شبکه‌های عصبی بزرگ استفاده می‌کند. یک **مدل زبانی بزرگ (LLM)** یک شبکه‌ی عمیق است که روی حجم عظیمی متن آموزش دیده تا کلمه‌ی بعدی را پیش‌بینی کند، و بعد با نمونه‌های نظارت‌شده و یادگیری تقویتی بهبود یافته. این کتاب به همین ترتیب جلو می‌رود: اول یادگیری ماشین کلاسیک، چون LLMها ایده‌هایش را دوباره به کار می‌برند."
+ },
+ "1ae6vj9": {
+  "en": "1.6 Where machine learning is used",
+  "fa": "1.6 یادگیری ماشین کجا استفاده می‌شود"
+ },
+ "17f13ua": {
+  "en": "You already use it many times a day: web search ranking, tagging frien",
+  "fa": "از قبل هر روز چندین بار از آن استفاده می‌کنی: رتبه‌بندی نتایج جستجو، تگ‌کردن دوستان در عکس، پیشنهاد فیلم، دستیارهای صوتی و فیلتر اسپم. در صنعت توربین‌های بادی را بهینه می‌کند، به پزشک‌ها در تشخیص کمک می‌کند و با بینایی ماشین محصولات را در خط تولید کارخانه بازرسی می‌کند (Ng، ویدیوهای 1 و 2). Ng برآورد McKinsey را نقل می‌کند که هوش مصنوعی و یادگیری ماشین تا سال 2030 می‌توانند سالانه حدود 13 تریلیون دلار ارزش اضافه کنند، که بخش بزرگی‌اش بیرون از نرم‌افزار است: خرده‌فروشی، سفر، حمل‌ونقل و تولید. او همچنین می‌گوید هوش عمومی مصنوعی، ماشین‌هایی به هوشمندی انسان، بیش‌ازحد بزرگ‌نمایی شده و هنوز دور است."
+ },
+ "v0uyfv": {
+  "en": "1.7 When not to use machine learning",
+  "fa": "1.7 کی از یادگیری ماشین استفاده نکنیم"
+ },
+ "4u5s69": {
+  "en": "Beyond the videos. Machine learning is not always the answer:",
+  "fa": "**بیرون از ویدیوها.** یادگیری ماشین همیشه جواب نیست:"
+ },
+ "10s63ch": {
+  "en": "If the rule is clear and stable, write the rule. \"The borrower must be",
+  "fa": "اگر قانون روشن و ثابت است، قانون را بنویس. «وام‌گیرنده باید 18 سال یا بیشتر داشته باشد» یک قانون است، نه یک پیش‌بینی."
+ },
+ "1c135im": {
+  "en": "If you have no data, or only a handful of examples, a model has nothin",
+  "fa": "اگر داده نداری، یا فقط مشتی نمونه داری، مدل چیزی برای یادگرفتن ندارد."
+ },
+ "ogetk2": {
+  "en": "If a wrong prediction is very costly and nobody can explain it, you ne",
+  "fa": "اگر پیش‌بینی غلط خیلی گران تمام می‌شود و کسی نمی‌تواند آن را توضیح بدهد، به تدابیر ایمنی اضافه یا یک مدل ساده‌تر نیاز داری."
+ },
+ "kz8tlt": {
+  "en": "Always try a trivial baseline first (Chapter 3). If a clever model bar",
+  "fa": "همیشه اول یک مدل پایه‌ی بدیهی را امتحان کن (فصل 3). اگر یک مدل زرنگ به‌زحمت از آن بهتر باشد، ارزش هزینه‌اش را ندارد."
+ },
+ "1rzwnmv": {
+  "en": "1.8 The workflow in one list",
+  "fa": "1.8 گردش کار در یک فهرست"
+ },
+ "1ldz16g": {
+  "en": "Define the problem as a prediction: what is the input, and what is the",
+  "fa": "مسئله را به‌صورت یک پیش‌بینی تعریف کن: ورودی چیست و جواب چیست؟"
+ },
+ "ar76nk": {
+  "en": "Collect and clean the data.",
+  "fa": "داده را جمع‌آوری و تمیز کن."
+ },
+ "1luhtoh": {
+  "en": "Choose the inputs (features) and how to prepare them (Chapter 8).",
+  "fa": "ورودی‌ها (ویژگی‌ها) و نحوه‌ی آماده‌سازی‌شان را انتخاب کن (فصل 8)."
+ },
+ "83is4r": {
+  "en": "Train a model (Chapters 4 to 7, 9 and 10).",
+  "fa": "یک مدل را آموزش بده (فصل‌های 4 تا 7، 9 و 10)."
+ },
+ "1ck1j98": {
+  "en": "Evaluate it on data it has never seen (Chapters 3 and 12).",
+  "fa": "روی داده‌ای که هرگز ندیده ارزیابی‌اش کن (فصل‌های 3 و 12)."
+ },
+ "1kj5ex": {
+  "en": "Deploy it, watch it, and retrain when the world changes.",
+  "fa": "آن را مستقر کن، زیر نظر بگیر، و وقتی دنیا عوض شد دوباره آموزشش بده."
+ },
+ "1f62q47": {
+  "en": "Loan example. Rules handle the legal checks: is the applicant of age, ",
+  "fa": "**مثال وام.** قوانین بررسی‌های قانونی را انجام می‌دهند: آیا متقاضی به سن قانونی رسیده، آیا مبلغ در محدوده‌ی محصول است. یک مدل سؤال‌هایی را جواب می‌دهد که قانون روشنی ندارند: «این متقاضی با چه احتمالی پیشنهاد ما را می‌پذیرد؟» و «این پیشنهاد ماهانه چقدر هزینه دارد؟» اولی به یک دسته‌بند (فصل 9) نیاز دارد، دومی به یک رگرسیون (فصل 7)."
+ },
+ "1qknwjp": {
+  "en": "Common mistakes",
+  "fa": "**اشتباه‌های رایج**"
+ },
+ "1hcald1": {
+  "en": "Using machine learning where a rule would do, and then having to maint",
+  "fa": "استفاده از یادگیری ماشین جایی که یک قانون کافی بود، و بعد مجبور شدن به نگهداری مدلی که کسی نمی‌تواند توضیحش بدهد."
+ },
+ "dew00f": {
+  "en": "Judging a model by how well it does on the data it was trained on (Cha",
+  "fa": "قضاوت درباره‌ی مدل با اینکه روی داده‌ای که با آن آموزش دیده چقدر خوب است (فصل 3)."
+ },
+ "1jnwmmz": {
+  "en": "Spending weeks on the algorithm when the data is wrong.",
+  "fa": "هفته‌ها وقت گذاشتن روی الگوریتم وقتی داده غلط است."
+ },
+ "cocq5o": {
+  "en": "Check yourself",
+  "fa": "**خودت را بسنج**"
+ },
+ "utd3d5": {
+  "en": "Go deeper: Machine Learning Crash Course (Google, free) · Pedro Doming",
+  "fa": "**برای مطالعه‌ی بیشتر:** Machine Learning Crash Course (گوگل، رایگان) · Pedro Domingos، A Few Useful Things to Know about Machine Learning (کوتاه، عملی، خواندنی) · ویدیوهای پشت این فصل: ML Foundations for AI Engineers (Shaw Talebi) و Ng، درس 1، ویدیوهای 1 تا 3."
+ }
+}

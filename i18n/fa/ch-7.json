@@ -1,0 +1,174 @@
+{
+ "1hutcd9": {
+  "en": "Purpose. Real problems have many inputs: a house has a size, rooms, fl",
+  "fa": "**هدف.** مسائل واقعی ورودی‌های زیاد دارند: یک خانه اندازه، اتاق، طبقه و سن دارد؛ یک پیشنهاد مبلغ، مدت و امتیاز اعتباری. این فصل خط را به ویژگی‌های زیاد گسترش می‌دهد و نشان می‌دهد چطور با همه‌شان هم‌زمان حساب کنیم، که یادگیری ماشین را آن‌قدر سریع می‌کند که مفید باشد."
+ },
+ "akcbhg": {
+  "en": "Key ideas",
+  "fa": "**ایده‌های کلیدی**"
+ },
+ "ay6xtp": {
+  "en": "With n features the model has one weight per feature and one bias: f(x",
+  "fa": "با `n` ویژگی، مدل برای هر ویژگی یک وزن و یک بایاس دارد: `f(x) = w1 x1 + ... + wn xn + b = w . x + b`."
+ },
+ "4113yu": {
+  "en": "The dot product multiplies matching pairs and adds them up. It is the ",
+  "fa": "ضرب داخلی (dot product) درایه‌های متناظر را ضرب و جمع می‌کند. عملیات هسته‌ی یادگیری ماشین است."
+ },
+ "1l48c84": {
+  "en": "Vectorization means doing that arithmetic on whole arrays at once (Num",
+  "fa": "برداری‌سازی (vectorization) یعنی انجام آن حساب روی آرایه‌های کامل یک‌جا (NumPy). کوتاه‌تر و صدها برابر سریع‌تر از حلقه‌ی پایتون است."
+ },
+ "b6qanl": {
+  "en": "Gradient descent works the same as before, with one slope per weight.",
+  "fa": "گرادیان کاهشی مثل قبل کار می‌کند، با یک شیب برای هر وزن."
+ },
+ "12jbm56": {
+  "en": "7.1 The model with several features",
+  "fa": "7.1 مدل با چند ویژگی"
+ },
+ "vrd9u6": {
+  "en": "Ng's house now has four features: size x1, bedrooms x2, floors x3 and ",
+  "fa": "خانه‌ی Ng حالا چهار ویژگی دارد: اندازه `x1`، تعداد اتاق‌خواب `x2`، طبقه‌ها `x3` و سن `x4`. نمادگذاری: `n` تعداد ویژگی‌هاست، `x_j` ویژگی `j` است و `x^(i)` فهرست (بردار) همه‌ی ویژگی‌های نمونه‌ی `i`. خانه‌ی دوم جدولش `x^(2) = [1416, 3, 2, 40]` است و `x^(2)_3 = 2` تعداد طبقه‌هایش."
+ },
+ "1t3i7yu": {
+  "en": "The model gives each feature its own weight. Ng's example prices a hou",
+  "fa": "مدل به هر ویژگی وزن خودش را می‌دهد. مثال Ng قیمت خانه را به هزار دلار می‌دهد:"
+ },
+ "9yh9yi": {
+  "en": "b = 80: a base price of $80,000 before size, rooms and age.",
+  "fa": "`b = 80`: قیمت پایه‌ی 80,000 دلار پیش از اندازه، اتاق و سن."
+ },
+ "170ue6v": {
+  "en": "0.1 on size: every extra square foot adds 0.1 thousand dollars, $100.",
+  "fa": "0.1 روی اندازه: هر فوت مربع اضافه 0.1 هزار دلار، یعنی 100 دلار اضافه می‌کند."
+ },
+ "1ae091u": {
+  "en": "4 on bedrooms, 10 on floors: +$4,000 per bedroom and +$10,000 per floo",
+  "fa": "4 روی اتاق‌خواب، 10 روی طبقه: 4,000 دلار به ازای هر اتاق‌خواب و 10,000 دلار به ازای هر طبقه."
+ },
+ "f0p1bf": {
+  "en": "-2 on age: every year of age takes $2,000 off.",
+  "fa": "2- روی سن: هر سال سن 2,000 دلار کم می‌کند."
+ },
+ "l0yjmd": {
+  "en": "For the second house the model predicts 0.1 x 1416 + 4 x 3 + 10 x 2 - ",
+  "fa": "برای خانه‌ی دوم مدل پیش‌بینی می‌کند `0.1 x 1416 + 4 x 3 + 10 x 2 - 2 x 40 + 80 = 173.6`، یعنی 173,600 دلار."
+ },
+ "hpnhyp": {
+  "en": "Each weight says how much the prediction changes when that feature ris",
+  "fa": "هر وزن می‌گوید وقتی آن ویژگی یک واحد بالا برود پیش‌بینی چقدر تغییر می‌کند، با ثابت‌ماندن همه‌ی ویژگی‌های دیگر. این عبارت آخر وقتی ویژگی‌ها با هم حرکت می‌کنند مهم است (7.6 را ببین)."
+ },
+ "19irgmp": {
+  "en": "7.2 The dot product",
+  "fa": "7.2 ضرب داخلی"
+ },
+ "7dgsdb": {
+  "en": "Write all weights as a vector w and all features as a vector x. The do",
+  "fa": "همه‌ی وزن‌ها را به‌صورت بردار `w` و همه‌ی ویژگی‌ها را به‌صورت بردار `x` بنویس. ضرب داخلی دو فهرست هم‌طول درایه‌های متناظر را ضرب و حاصل‌ها را جمع می‌کند، پس فرمول بلند به یک فرمول کوتاه تبدیل می‌شود:"
+ },
+ "9jb5h0": {
+  "en": "Example: w = [2, 3], x = [10, 4], b = 5. The dot product is 2 x 10 + 3",
+  "fa": "مثال: `w = [2, 3]` و `x = [10, 4]` و `b = 5`. ضرب داخلی `2 x 10 + 3 x 4 = 32` است و با اضافه‌کردن `b` می‌شود 37. این مدل، با چند ویژگی و ترکیب خطی از آن‌ها، **رگرسیون خطی چندگانه** نامیده می‌شود. (Ng اشاره می‌کند «رگرسیون چندمتغیره» معنای دیگری دارد، پس از آن نام دوری کن.)"
+ },
+ "ma3oqw": {
+  "en": "7.3 Vectorization",
+  "fa": "7.3 برداری‌سازی"
+ },
+ "1evxpuz": {
+  "en": "In Python you can compute the prediction three ways. NumPy counts from",
+  "fa": "در پایتون می‌توانی پیش‌بینی را به سه روش حساب کنی. NumPy از 0 می‌شمارد، پس وزن اول `w[0]` است."
+ },
+ "8zjyev": {
+  "en": "Writing every term by hand (w[0]*x[0] + w[1]*x[1] + ...) works for 3 f",
+  "fa": "نوشتن هر جمله با دست (`w[0]*x[0] + w[1]*x[1] + ...`) برای 3 ویژگی کار می‌کند و برای 100,000 ممکن نیست. حلقه کار می‌کند ولی کند است. `np.dot(w, x)` شکل برداری است: یک خط، و خیلی سریع‌تر. دو مزیت (Ng، ویدیوی 22): کد کوتاه‌تر و خواناتر است، و خیلی سریع‌تر اجرا می‌شود، چون NumPy کار را به کد کامپایل‌شده و سخت‌افزار موازی (واحدهای برداری CPU، یا یک GPU) می‌سپارد که همه‌ی زوج‌ها را هم‌زمان ضرب می‌کند و نه یکی‌یکی (ویدیوی 23). در یک اجرا روی لپ‌تاپ من، یک میلیون ضرب در حلقه‌ی پایتون 0.116 ثانیه و با `np.dot` 0.00015 ثانیه طول کشید، حدود 750 برابر سریع‌تر. نسبت دقیق از ماشینی به ماشین دیگر فرق می‌کند؛ شکاف نه."
+ },
+ "4qgjz8": {
+  "en": "The same trick updates all weights in gradient descent: instead of 16 ",
+  "fa": "همین ترفند همه‌ی وزن‌ها را در گرادیان کاهشی به‌روز می‌کند: به‌جای 16 خط جداگانه، `w = w - 0.1 * d` هر 16 تا را یک‌جا به‌روز می‌کند. با هزاران ویژگی و یک مجموعه‌داده‌ی بزرگ، این فرق یک دقیقه با چند ساعت است."
+ },
+ "1h3udh0": {
+  "en": "7.4 Gradient descent with many features",
+  "fa": "7.4 گرادیان کاهشی با ویژگی‌های زیاد"
+ },
+ "1y30q68": {
+  "en": "The algorithm is the same as Chapter 6. For every weight there is one ",
+  "fa": "الگوریتم همان فصل 6 است. برای هر وزن یک شیب هست و همه‌ی وزن‌ها هم‌زمان به‌روز می‌شوند:"
+ },
+ "1uhvn0r": {
+  "en": "Compared with one feature, only the last factor changes: it is feature",
+  "fa": "در مقایسه با یک ویژگی، فقط آخرین ضریب عوض می‌شود: ویژگی `j` هر نمونه است، به‌جای `x`ی تنها. گذاشتن همه‌ی نمونه‌ها در یک ماتریس `X` با `m` سطر و `n` ستون کد را کوتاه می‌کند:"
+ },
+ "1q3ltd9": {
+  "en": "There are no loops over features or examples. Chapter 8 runs it on rea",
+  "fa": "هیچ حلقه‌ای روی ویژگی‌ها یا نمونه‌ها نیست. فصل 8 آن را روی داده‌ای شبیه واقعی اجرا می‌کند."
+ },
+ "r40zur": {
+  "en": "7.5 The normal equation",
+  "fa": "7.5 معادله‌ی نرمال"
+ },
+ "10egxli": {
+  "en": "For linear regression only, w and b can be computed directly, with no ",
+  "fa": "فقط برای رگرسیون خطی، `w` و `b` را می‌شود مستقیم و بدون تکرار حساب کرد. این **معادله‌ی نرمال** است. توصیه‌ی Ng: خودت پیاده‌اش نکن، و بدان که به رگرسیون لجستیک یا شبکه‌های عصبی تعمیم نمی‌یابد و وقتی تعداد ویژگی‌ها خیلی زیاد است کند می‌شود. ولی کتابخانه‌های زیادی، از جمله `LinearRegression` در scikit-learn، رگرسیون خطی را پشت صحنه این‌طور حل می‌کنند. اگر مصاحبه‌کننده‌ای گفت «معادله‌ی نرمال»، منظورش همین است."
+ },
+ "6byk0q": {
+  "en": "Beyond the videos. In practice you call np.linalg.lstsq (as in Chapter",
+  "fa": "**بیرون از ویدیوها.** در عمل به‌جای معکوس‌کردن ماتریس با دست `np.linalg.lstsq` را صدا می‌زنی (مثل فصل 4)، چون معکوس‌کردن می‌تواند از نظر عددی ناپایدار باشد. وقتی دو ویژگی کپی دقیق هم باشند فرمول تکین (singular) است."
+ },
+ "1cwwhp9": {
+  "en": "7.6 The statistics view",
+  "fa": "7.6 دید آماری"
+ },
+ "sijrrk": {
+  "en": "StatQuest's multiple regression video (5 minutes) shows how statistici",
+  "fa": "ویدیوی رگرسیون چندگانه‌ی StatQuest (5 دقیقه) نشان می‌دهد آماردان‌ها چطور به همین مدل نگاه می‌کنند. رگرسیون چندگانه به‌جای یک خط یک صفحه، یا شکلی با بُعد بالاتر، برازش می‌کند. بُعدهای اضافه فقط ستون‌های بیشتر داده‌اند."
+ },
+ "x41vit": {
+  "en": "R squared works the same way as before: it compares the errors around ",
+  "fa": "R² مثل قبل کار می‌کند: خطاهای دور خط برازش‌شده را با خطاهای دور میانگین مقایسه می‌کند. اضافه‌کردن هر ویژگی فقط می‌تواند R² را کمی بالا ببرد، پس از **R² تعدیل‌شده** استفاده کن که پارامترهای اضافه را اصلاح می‌کند."
+ },
+ "ntnwp8": {
+  "en": "Counting parameters. The tests need the number of parameters that leas",
+  "fa": "**شمردن پارامترها.** آزمون‌ها به تعداد پارامترهایی نیاز دارند که کمترین مربعات تخمین می‌زند: میانگین تنها 1 دارد، یک رگرسیون ساده 2، یک رگرسیون با دو ویژگی 3."
+ },
+ "aqflzu": {
+  "en": "Is the extra feature worth it? Compare the simple fit with the multipl",
+  "fa": "**آیا ویژگی اضافه ارزشش را دارد؟** برازش ساده را با برازش چندگانه مقایسه کن. اگر R² خیلی بهتر شود و p-value کوچک باشد، جمع‌کردن ویژگی اضافه ارزش زحمتش را داشت."
+ },
+ "16h91dt": {
+  "en": "Beyond the videos. Watch out when features are strongly correlated wit",
+  "fa": "**بیرون از ویدیوها.** مراقب باش وقتی ویژگی‌ها شدیداً با هم همبسته‌اند، مثل قد به سانتی‌متر و قد به اینچ، یا مبلغ وام و هزینه‌ی ماهانه. مدل هنوز می‌تواند خوب پیش‌بینی کند، ولی وزن‌های تک‌تک ناپایدار و تفسیرشان سخت می‌شود، چون راه‌های زیادی برای تقسیم اثر بین آن‌ها هست. این را **هم‌خطی چندگانه (multicollinearity)** می‌نامند."
+ },
+ "krgcuk": {
+  "en": "Loan example. Predict the monthly cost of an offer from two features: ",
+  "fa": "**مثال وام.** هزینه‌ی ماهانه‌ی یک پیشنهاد را از دو ویژگی پیش‌بینی کن: `x1` مبلغ پیشنهادی و `x2` تعداد اقساط. مدل `monthly cost = w1 x1 + w2 x2 + b` است، با دو وزن و یک بایاس. بارگذاری جدول پیشنهادها، ساختن `X` با دو ستون و صدا زدن تابع بالا کل تمرین است."
+ },
+ "1qknwjp": {
+  "en": "Common mistakes",
+  "fa": "**اشتباه‌های رایج**"
+ },
+ "1d1su8r": {
+  "en": "Looping over features in Python when one @ or np.dot does it.",
+  "fa": "حلقه‌زدن روی ویژگی‌ها در پایتون وقتی یک `@` یا `np.dot` کار را انجام می‌دهد."
+ },
+ "asnyt9": {
+  "en": "Reading a weight as the effect of a feature without remembering \"all e",
+  "fa": "خواندن یک وزن به‌عنوان اثر یک ویژگی بدون یادآوری «با ثابت‌ماندن بقیه»."
+ },
+ "opywac": {
+  "en": "Adding features until the training score looks perfect (Chapter 11 exp",
+  "fa": "اضافه‌کردن ویژگی تا وقتی که نمره‌ی آموزش کامل به نظر برسد (فصل 11 توضیح می‌دهد چرا نتیجه‌ی عکس می‌دهد)."
+ },
+ "l0zxkn": {
+  "en": "Mixing up shapes: X is m by n, w has n entries, err has m entries.",
+  "fa": "قاطی‌کردن شکل‌ها: `X` برابر `m` در `n` است، `w` دارای `n` درایه است، `err` دارای `m` درایه."
+ },
+ "cocq5o": {
+  "en": "Check yourself",
+  "fa": "**خودت را بسنج**"
+ },
+ "1cla2sf": {
+  "en": "Go deeper: Ng, course 1, videos 21 to 24 · StatQuest, Multiple Regress",
+  "fa": "**برای مطالعه‌ی بیشتر:** Ng، درس 1، ویدیوهای 21 تا 24 · StatQuest، Multiple Regression, Clearly Explained · راهنمای سریع NumPy · اختیاری: 3Blue1Brown، Dot products and duality."
+ }
+}

@@ -2,12 +2,14 @@ import { h } from '../dom.js';
 import { search } from '../search.js';
 import { attach } from './listen.js';
 import { farsi } from '../i18n.js';
+import { metaOf } from './watch.js';
 
 let q = '';
 
 export async function render(ctx, el, page, section) {
   if (!page) return index(ctx, el);
   if (page === 'e') return glossary(ctx, el);
+  if (page === 'v') return videoPage(ctx, el, section);
   return reader(ctx, el, page, section);
 }
 
@@ -19,7 +21,7 @@ async function index(ctx, el) {
     if (q.trim().length < 2) return;
     const hits = search(await ctx.load('content/search.json'), q, 30, { fa: ctx.state.settings.farsi });
     results.append(h('div', { class: 'label' }, `${hits.length} result${hits.length === 1 ? '' : 's'}`),
-      ...hits.map(({ entry, snippet }) => h('a', { class: 'card', style: 'text-decoration:none;color:inherit', href: entry.vid ? `#/watch/${entry.vid}` : entry.page ? `#/notes/${entry.page}` : `#/notes/ch-${entry.ch}${entry.id ? `/${entry.id}` : ''}` },
+      ...hits.map(({ entry, snippet }) => h('a', { class: 'card', style: 'text-decoration:none;color:inherit', href: entry.vid ? `#/notes/v/${entry.vid}` : entry.page ? `#/notes/${entry.page}` : `#/notes/ch-${entry.ch}${entry.id ? `/${entry.id}` : ''}` },
         h('strong', {}, entry.title), h('div', { class: 'small muted' }, entry.vid ? `Video · Session ${entry.session}` : entry.ch ? `Chapter ${entry.ch}` : 'Appendix'), h('div', { class: 'snippet' }, snippet))));
     if (!hits.length) results.append(h('div', { class: 'card empty' }, 'Nothing found. Try fewer or different words.'));
   };
@@ -31,7 +33,19 @@ async function index(ctx, el) {
   if (lastCh) el.append(h('a', { class: 'card', style: 'display:block;text-decoration:none;color:inherit;margin-top:12px', href: `#/notes/ch-${lastCh.n}` },
     h('div', { class: 'label' }, 'Continue reading'), h('strong', {}, `Chapter ${lastCh.n}: ${lastCh.title}`), h('div', { class: 'small muted' }, `${Math.round((ctx.state.scroll[last] ?? 0) * 100)}% read`)));
   for (const p of toc.parts) el.append(h('div', { class: 'part' }, h('div', { class: 'label' }, `Part ${p.letter} · ${p.name}`),
-    p.chapters.map((c) => h('a', { class: 'chrow', href: `#/notes/ch-${c.n}`, style: 'text-decoration:none;color:inherit' }, h('span', { class: 'chnum' }, c.n), h('span', { class: 'grow' }, h('div', {}, c.title), h('div', { class: 'small muted' }, `${c.minutes} min read${ctx.state.read[`ch-${c.n}`] ? ' · read' : ''}`)), h('span', { class: 'muted' }, '›')))));
+    p.chapters.map((c) => h('a', { class: 'chrow', href: `#/notes/ch-${c.n}`, style: 'text-decoration:none;color:inherit' }, h('span', { class: 'chnum' }, c.n), h('span', { class: 'grow' }, h('div', {}, c.title), h('div', { class: 'small muted' }, `${c.minutes} min read${ctx.state.read[`ch-${c.n}`] ? ' · read' : ''}`, faTag(c.fa))), h('span', { class: 'muted' }, '›')))));
+  const [weeks, vnotes, vdata] = await Promise.all([ctx.load('content/weeks.json'), ctx.load('content/vnotes.json'), ctx.load('content/videos.json')]);
+  el.append(h('div', { class: 'part' }, h('div', { class: 'label' }, 'Session notes · the text of every video'),
+    weeks.sessions.map((s) => {
+      const vids = s.videos.filter((e) => !e.missing);
+      return h('details', { class: 'session card', style: 'margin-top:8px', open: s.n === weeks.sessions.at(-1).n },
+        h('summary', {}, h('div', { class: 'label' }, `Session ${s.n} · ${s.dates}`), h('strong', {}, s.topic || `Session ${s.n}`), h('div', { class: 'small muted' }, `${vids.length} video notes`)),
+        h('div', { class: 'stack', style: 'margin-top:10px' }, vids.map((e, i) => {
+          const m = metaOf(vdata, vnotes, e.id);
+          return h('a', { class: 'vrow', href: `#/notes/v/${e.id}`, style: 'text-decoration:none;color:inherit' }, h('span', { class: 'vnum' }, i + 1),
+            h('span', { class: 'grow', style: 'min-width:0' }, h('div', {}, m.title), h('div', { class: 'small muted' }, [m.source, m.duration].filter(Boolean).join(', '), faTag(vnotes[e.id]?.fa))), h('span', { class: 'muted' }, '›'));
+        })));
+    })));
   el.append(h('div', { class: 'part' }, h('div', { class: 'label' }, 'Appendices'),
     [...toc.appendices.map((a) => [`#/notes/${a.id}`, a.id === 'e' ? 'Glossary' : a.title]), ['#/watch', 'Video index']].map(([href, title]) => h('a', { class: 'chrow', href, style: 'text-decoration:none;color:inherit' }, h('span', { class: 'grow' }, title), h('span', { class: 'muted' }, '›')))));
 }
@@ -93,9 +107,48 @@ async function glossary(ctx, el) {
   const paint = () => {
     const w = gq.trim().toLowerCase();
     const shown = w ? terms.filter((t) => `${t.front} ${t.back} ${ctx.state.settings.farsi ? `${t.fa?.f ?? ''} ${t.fa?.b ?? ''}` : ''}`.toLowerCase().includes(w)) : terms;
-    list.replaceChildren(...shown.map((t) => h('div', { class: 'card' }, h('strong', { html: t.front }), farsi(t.fa?.f), h('div', { class: 'muted', html: t.back }), farsi(t.fa?.b))), shown.length ? null : h('div', { class: 'card empty' }, 'No such term.'));
+    list.replaceChildren(...shown.map((t) => h('div', { class: 'card' }, h('strong', { html: t.front }), farsi(t.fa?.f), h('div', { class: 'muted', html: t.back }), farsi(t.fa?.b))), ...(shown.length ? [] : [h('div', { class: 'card empty' }, 'No such term.')]));
   };
   el.append(h('a', { class: 'btn small', href: '#/notes' }, '‹ Notes'), h('h1', { style: 'margin-top:14px' }, 'Glossary'), h('p', { class: 'muted' }, `${terms.length} terms, one plain line each.`),
     h('input', { type: 'search', id: 'gq', placeholder: 'Find a term', 'aria-label': 'Find a term', onInput: (e) => { gq = e.target.value; paint(); } }), list);
   paint();
+}
+
+// The small tag after a title when Farsi is on and a page has some: "فارسی" for all of it, or how many blocks.
+function faTag(fa) {
+  if (!fa || !fa.translated) return null;
+  return h('span', { class: 'fa-tag' }, fa.translated === fa.total ? ' · فارسی' : ` · فارسی ${fa.translated}/${fa.total}`);
+}
+
+// The text page of one video, inside Notes (the player lives in the Watch tab).
+async function videoPage(ctx, el, id) {
+  const [weeks, vnotes, vdata] = await Promise.all([ctx.load('content/weeks.json'), ctx.load('content/vnotes.json'), ctx.load('content/videos.json')]);
+  const note = vnotes[id];
+  const back = h('a', { class: 'btn small', href: '#/notes' }, '‹ Notes');
+  if (!note) { el.append(back, h('div', { class: 'card empty', style: 'margin-top:12px' }, 'This video has no text page.')); return; }
+  const m = metaOf(vdata, vnotes, id);
+  const sess = weeks.sessions.find((s) => s.videos.some((e) => e.id === id));
+  const list = sess ? sess.videos.filter((e) => !e.missing) : [];
+  const at = list.findIndex((e) => e.id === id);
+  const prev = at > 0 ? list[at - 1] : null, next = at >= 0 && at < list.length - 1 ? list[at + 1] : null;
+  const nav = (e, label) => (e ? h('a', { class: 'btn grow', href: `#/notes/v/${e.id}` }, label) : h('span', { class: 'grow' }));
+  const art = h('article', { class: 'read vtext', style: `--fs:${ctx.state.settings.fontScale}`, html: note.html });
+  const zoom = (d) => {
+    const v = Math.min(1.6, Math.max(0.85, +(ctx.state.settings.fontScale + d).toFixed(2)));
+    ctx.update((s) => ({ ...s, settings: { ...s.settings, fontScale: v } }));
+    art.style.setProperty('--fs', v);
+  };
+  el.append(h('div', { class: 'row' }, back, h('span', { class: 'grow' }),
+      h('button', { type: 'button', class: 'btn small', 'aria-label': 'Smaller text', onClick: () => zoom(-0.1) }, 'A−'),
+      h('button', { type: 'button', class: 'btn small', 'aria-label': 'Larger text', onClick: () => zoom(0.1) }, 'A+')),
+    sess ? h('p', { class: 'label', style: 'margin-top:16px' }, `Session ${sess.n} · video note ${at + 1} of ${list.length}`) : null,
+    h('h1', {}, note.title), h('p', { class: 'muted' }, [note.source, note.duration].filter(Boolean).join(' · ')),
+    note.fa && note.fa.translated < note.fa.total ? h('p', { class: 'fa-only small muted' }, note.fa.translated ? `Farsi: ${note.fa.translated} of ${note.fa.total} paragraphs are translated so far.` : 'Farsi is not available for this page yet.') : null,
+    art,
+    h('p', { class: 'small muted basis' }, note.basis === 'notes' ? 'Written from the course notes, not from the video transcript. Check it against the video.' : 'Based on the transcript of this video.'),
+    h('div', { class: 'stack', style: 'margin-top:12px' },
+      h('a', { class: 'btn wide primary', href: `#/watch/${id}` }, 'Watch the video'),
+      m.chapters.map((n) => h('a', { class: 'btn wide', href: `#/notes/ch-${n}` }, `Read chapter ${n}`)),
+      sess ? h('div', { class: 'row' }, nav(prev, '‹ Previous'), nav(next, 'Next ›')) : null));
+  window.scrollTo(0, 0);
 }

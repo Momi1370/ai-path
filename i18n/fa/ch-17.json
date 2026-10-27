@@ -1,0 +1,198 @@
+{
+ "1v03z1d": {
+  "en": "Purpose. Most agent projects fail by being too complicated, too early.",
+  "fa": "**هدف.** بیشتر پروژه‌های عامل با زیادی پیچیده‌بودن و خیلی زود شکست می‌خورند. این فصل توصیه‌ی Anthropic را به یک روش عملی تبدیل می‌کند: تصمیم بگیر اصلاً به عامل نیاز داری یا نه، کوچک‌ترین نسخه را بساز، هر قانون ایمنی را در کد بگذار و یاد بگیر آنچه عامل می‌بیند را بخوانی. با حلقه‌ی استفاده از ابزار تمام می‌شود که در هفته‌ی 3 با دست می‌نویسی."
+ },
+ "akcbhg": {
+  "en": "Key ideas",
+  "fa": "**ایده‌های کلیدی**"
+ },
+ "a0jfh5": {
+  "en": "Do not build an agent for everything. Check the task against four ques",
+  "fa": "برای همه‌چیز عامل نساز. اول وظیفه را با چهار سؤال بسنج."
+ },
+ "vu0bru": {
+  "en": "An agent is a model using tools in a loop. It has three parts: environ",
+  "fa": "عامل مدلی است که در یک حلقه از ابزار استفاده می‌کند. سه بخش دارد: محیط، ابزارها، پرامپت سیستم. پیش از هر چیز پیچیده‌ای روی این‌ها تکرار کن."
+ },
+ "kdtk0j": {
+  "en": "Safety rules belong in code, not in the prompt: a prompt can be talked",
+  "fa": "قوانین ایمنی جایشان در کد است، نه در پرامپت: پرامپت را می‌شود دور زد، اتصال فقط‌خواندنی را نه."
+ },
+ "1vznmr3": {
+  "en": "Put yourself in the agent's context window. If you could not do the ta",
+  "fa": "خودت را جای پنجره‌ی زمینه‌ی عامل بگذار. اگر نمی‌توانی با آنچه او می‌بیند وظیفه را انجام بدهی، او هم نمی‌تواند."
+ },
+ "1qwijvi": {
+  "en": "Measure every change on a fixed set of gold questions.",
+  "fa": "هر تغییر را روی یک مجموعه‌ی ثابت از سؤال‌های طلایی اندازه بگیر."
+ },
+ "1gesr59": {
+  "en": "17.1 Do you need an agent?",
+  "fa": "17.1 آیا به عامل نیاز داری؟"
+ },
+ "1nnbaun": {
+  "en": "Barry Zhang (Anthropic) offers a checklist. Agents suit complex, valua",
+  "fa": "Barry Zhang (Anthropic) یک فهرست بررسی پیشنهاد می‌کند. عامل‌ها به وظایف پیچیده و ارزشمند می‌خورند، و هزینه، تأخیر و بهای اشتباه‌ها همگی با خودمختاری بالا می‌روند:"
+ },
+ "cfjbhp": {
+  "en": "Coding passes the checklist: the task is ambiguous, good code is valua",
+  "fa": "کدنویسی از فهرست رد می‌شود: وظیفه مبهم است، کد خوب ارزشمند است، Claude از قبل در آن خوب است، و تست‌های واحد و یکپارچه‌سازی پیوسته خروجی را راستی‌آزمایی می‌کنند. به همین دلیل عامل‌های کدنویسی زیادی موفق‌اند."
+ },
+ "17nnyhl": {
+  "en": "17.2 Keep it simple: three parts",
+  "fa": "17.2 ساده نگه دار: سه بخش"
+ },
+ "1i9dhtl": {
+  "en": "Barry Zhang's definition: an agent is a model using tools in a loop. T",
+  "fa": "تعریف Barry Zhang: عامل مدلی است که در یک حلقه از ابزار استفاده می‌کند. سه بخش آن را تعریف می‌کنند:"
+ },
+ "1ytpg99": {
+  "en": "The environment: the system the agent works in (for you, the SQLite da",
+  "fa": "**محیط:** سیستمی که عامل در آن کار می‌کند (برای تو، پایگاه داده‌ی SQLite وام‌ها)."
+ },
+ "fensj1": {
+  "en": "The tools: the interface through which it acts and gets feedback (run_",
+  "fa": "**ابزارها:** رابطی که از طریق آن عمل می‌کند و بازخورد می‌گیرد (`run_sql`)."
+ },
+ "1f47sx9": {
+  "en": "The system prompt: the goals, constraints and ideal behaviour.",
+  "fa": "**پرامپت سیستم:** هدف‌ها، محدودیت‌ها و رفتار ایده‌آل."
+ },
+ "1yfdu0q": {
+  "en": "The three agent products he shows look very different on the surface, ",
+  "fa": "سه محصول عاملی که او نشان می‌دهد در ظاهر خیلی متفاوت‌اند، ولی تقریباً دقیقاً همان کد را دارند. پیچیدگی در ابتدا سرعت تکرار را می‌کشد، پس اول فقط روی این سه بخش تکرار کن. بعداً بهینه کن: مسیر اجرا را برای کدنویسی و استفاده از کامپیوتر کش کن، فراخوانی‌های ابزار را برای جستجو موازی اجرا کن، و پیشرفت را نشان بده تا اعتماد بسازد."
+ },
+ "17woqyc": {
+  "en": "17.3 The tool-use loop, step by step",
+  "fa": "17.3 حلقه‌ی استفاده از ابزار، گام‌به‌گام"
+ },
+ "19h6194": {
+  "en": "The model never runs your tool. It asks for it, and your code runs it ",
+  "fa": "مدل هرگز ابزار تو را اجرا نمی‌کند. آن را درخواست می‌کند و کد تو اجرایش می‌کند (صفحه‌ی Handle tool calls در Anthropic):"
+ },
+ "uir8pa": {
+  "en": "You send the question, the system prompt and the list of tools (name, ",
+  "fa": "سؤال، پرامپت سیستم و فهرست ابزارها (نام، توضیح، طرح‌واره‌ی ورودی) را می‌فرستی."
+ },
+ "7btl2q": {
+  "en": "The reply has stop_reason equal to tool_use, and one or more tool_use ",
+  "fa": "پاسخ `stop_reason` برابر `tool_use` دارد و یک یا چند بلوک `tool_use`، هرکدام با یک `id`، یک `name` و یک `input`."
+ },
+ "1infux8": {
+  "en": "Your code runs each tool.",
+  "fa": "کد تو هر ابزار را اجرا می‌کند."
+ },
+ "9qjpc2": {
+  "en": "You send a new user message that holds a tool_result block for each ca",
+  "fa": "یک پیام جدید کاربر می‌فرستی که برای هر فراخوانی یک بلوک `tool_result` دارد، با `tool_use_id` متناظر، خروجی به‌عنوان محتوا، و `is_error` برابر `true` اگر شکست خورده باشد. بلوک‌های `tool_result` باید در آن پیام اول بیایند، پیش از هر متنی."
+ },
+ "e7zx83": {
+  "en": "Repeat until the reply has a different stop_reason, which means the mo",
+  "fa": "تکرار کن تا پاسخ `stop_reason` متفاوتی داشته باشد، که یعنی مدل جواب داده. همیشه تعداد نوبت‌ها را محدود کن."
+ },
+ "1t52a6f": {
+  "en": "The door the model goes through. Every rule is enforced in code. This ",
+  "fa": "**دری که مدل از آن می‌گذرد.** هر قانونی در کد اعمال می‌شود. این طرح آزمایش‌شده یک `SELECT` روی جدول‌های شناخته‌شده را اجازه می‌دهد، یک محدودیت ردیف اضافه می‌کند و از یک اتصال فقط‌خواندنی استفاده می‌کند، پس یک کوئری بد حتی اگر بررسی‌ها از دستش بدهند نمی‌تواند چیزی را تغییر دهد:"
+ },
+ "1nldhrm": {
+  "en": "On a small test database I ran: SELECT COUNT(*) FROM applications retu",
+  "fa": "روی یک پایگاه داده‌ی آزمایشی کوچک اجرا کردم: `SELECT COUNT(*) FROM applications` مقدار `[(3,)]` برگرداند؛ `DELETE FROM offers` پیام «Refused: only a single SELECT statement is allowed» داد؛ `SELECT * FROM customers` پیام «Refused: unknown tables ['customers']» داد؛ `SELECT 1; DROP TABLE offers` هم رد شد؛ و یک نام ستون غلط «SQL error: no such column» برگرداند. این نسخه‌ی ساده کوئری‌هایی را که با `WITH` شروع می‌شوند (عبارت‌های جدول مشترک) هم رد می‌کند، چون نام‌های موقت جزو جدول‌های ناشناخته حساب می‌شوند؛ اگر لازم داری گسترشش بده. توجه کن که پیام‌های رد برای مدل نوشته شده‌اند: یک پیام روشن راهی است که مدل یاد می‌گیرد کوئری بعدی‌اش را درست کند."
+ },
+ "4orzk6": {
+  "en": "The loop. A sketch of the loop with the Anthropic SDK. I have not run ",
+  "fa": "**حلقه.** طرحی از حلقه با SDK مربوط به Anthropic. این یکی را روی API اجرا نکرده‌ام، چون به کلید تو نیاز دارد و پول خرج می‌کند: اول خودت بنویس، بعد با این و با مستندات مقایسه کن."
+ },
+ "128swkh": {
+  "en": "17.4 Designing tools the model can use",
+  "fa": "17.4 طراحی ابزارهایی که مدل بتواند استفاده کند"
+ },
+ "12ihc8c": {
+  "en": "Beyond the videos. The model only knows a tool through its name, descr",
+  "fa": "**بیرون از ویدیوها.** مدل یک ابزار را فقط از نام، توضیح و طرح‌وارهاش می‌شناسد، پس آن‌ها را طوری بنویس که انگار برای یک همکار تازه است که نمی‌تواند سؤال بپرسد:"
+ },
+ "18slimr": {
+  "en": "A clear verb name (run_sql), a one-sentence description of what it doe",
+  "fa": "یک نام فعل روشن (`run_sql`)، یک توضیح یک‌جمله‌ای از آنچه می‌کند و نمی‌کند، و توضیح پارامترها با یک مقدار نمونه."
+ },
+ "1c8hcd0": {
+  "en": "Few tools, each doing one thing. Ten overlapping tools confuse the mod",
+  "fa": "ابزار کم، هرکدام یک کار. ده ابزار هم‌پوشان مدل را گیج می‌کند."
+ },
+ "1631kfj": {
+  "en": "Return what the model needs, not everything: a limited number of rows,",
+  "fa": "آنچه مدل لازم دارد را برگردان، نه همه‌چیز را: تعداد محدودی ردیف، با نام ستون‌ها."
+ },
+ "16yw5lg": {
+  "en": "Make failures instructive: \"unknown table, allowed tables are ...\" bea",
+  "fa": "خطاها را آموزنده کن: «unknown table, allowed tables are ...» از «error» بهتر است."
+ },
+ "41sllu": {
+  "en": "The model's input is untrusted. Validate it in code like any user inpu",
+  "fa": "ورودی مدل غیرقابل‌اعتماد است. مثل هر ورودی کاربر در کد اعتبارسنجی‌اش کن و هرگز به یک ابزار بیشتر از قدرتی که وظیفه لازم دارد نده (کمترین امتیاز، least privilege)."
+ },
+ "rvdpz3": {
+  "en": "17.5 Think like your agent",
+  "fa": "17.5 مثل عاملت فکر کن"
+ },
+ "1snar5m": {
+  "en": "At every step the model sees only its context window, perhaps 10 to 20",
+  "fa": "در هر گام مدل فقط پنجره‌ی زمینه‌اش را می‌بیند، شاید 10 تا 20 هزار توکن: پرامپت سیستم، گفتگو و نتیجه‌ی ابزارها تا اینجا. تمرین Barry Zhang: تصور کن یک عامل استفاده از کامپیوتر هستی که یک اسکرین‌شات و یک توضیح بد نوشته‌شده می‌گیرد، کلیک می‌کند، و بعد سه تا پنج ثانیه تا اسکرین‌شات بعدی کور است. می‌خواستی وضوح صفحه را بدانی، کدام عمل‌ها مجازند و از چه چیزی دوری کنی. همین را برای عامل خودت بکن: یک مسیر اجرای کامل را بخوان و بپرس آیا با همان اطلاعات می‌توانستی وظیفه را انجام بدهی."
+ },
+ "16k4w4r": {
+  "en": "Then ask the model itself. Paste in the system prompt and ask \"is any ",
+  "fa": "بعد از خود مدل بپرس. پرامپت سیستم را بچسبان و بپرس «آیا چیزی از این مبهم است؟» توضیح یک ابزار را بچسبان و بپرس آیا می‌داند چطور از آن استفاده کند. یک مسیر اجرای کامل را بچسبان و بپرس «چرا اینجا این تصمیم را گرفتی و چه چیزی کمکت می‌کرد بهتر تصمیم بگیری؟» جای خواندن خودت را نمی‌گیرد، ولی نشان می‌دهد عامل دنیا را چطور می‌بیند."
+ },
+ "10vzicn": {
+  "en": "17.6 Evaluating an agent",
+  "fa": "17.6 ارزیابی یک عامل"
+ },
+ "t750pr": {
+  "en": "The rules from Chapter 12 apply. Write gold questions with their gold ",
+  "fa": "قاعده‌های فصل 12 اعمال می‌شوند. سؤال‌های طلایی را با جواب‌های طلاییشان با دست بنویس: برای عامل SQL، یک سؤال و SQLای که یک کارمند وام می‌نویسد. **دقت اجرایی** را امتیاز بده: آیا کوئری مدل همان ردیف‌های کوئری طلایی را برمی‌گرداند؟ برای هر شکست یادداشت نگه دار (جدول غلط، join غلط، تاریخ را اشتباه خواندن)، چون یادداشت‌های شکست می‌گویند چه چیزی را درست کنی. ویژگی ایمنی را با آزمون خودش بسنج: «همه‌ی درخواست‌های لغوشده را حذف کن» باید توسط کد رد شود و ارزیابی باید این را ثابت کند. هر بار یک چیز را عوض کن و همان سؤال‌ها را دوباره اجرا کن."
+ },
+ "1s2k13j": {
+  "en": "17.7 Open questions",
+  "fa": "17.7 سؤال‌های باز"
+ },
+ "13s4sn": {
+  "en": "Barry Zhang's list of unsolved problems: agents that respect a budget ",
+  "fa": "فهرست مسائل حل‌نشده‌ی Barry Zhang: عامل‌هایی که به یک بودجه (زمان، پول، توکن) احترام می‌گذارند، همان‌طور که گردش‌کارها از قبل می‌کنند؛ ابزارهایی که خودشان را بهتر می‌کنند؛ و چند عامل که با هم کار می‌کنند، جایی که زیرعامل‌ها از پنجره‌ی زمینه‌ی عامل اصلی محافظت می‌کنند ولی هیچ‌کس هنوز توافق نکرده چطور باید به‌صورت ناهمزمان با هم حرف بزنند. انتظار داشته باش این‌ها عوض شوند."
+ },
+ "1jeoqin": {
+  "en": "Loan example. The question \"What share of applications in 2016 were ca",
+  "fa": "**مثال وام.** سؤال «چه سهمی از درخواست‌های 2016 لغو شدند؟» به یک فیلتر تاریخ، یک ستون وضعیت و یک تقسیم نیاز دارد. عامل SQL را می‌نویسد، `run_sql` آن را رد می‌کند یا اجرا می‌کند، نتیجه برمی‌گردد و مدل جواب را عبارت‌بندی می‌کند. هر گام در مسیر اجرا هست، پس یک جواب غلط را می‌شود تا کوئری دقیقش ردیابی کرد."
+ },
+ "1qknwjp": {
+  "en": "Common mistakes",
+  "fa": "**اشتباه‌های رایج**"
+ },
+ "1rztfox": {
+  "en": "Starting with a framework before you understand the loop.",
+  "fa": "شروع با یک چارچوب (framework) پیش از فهمیدن حلقه."
+ },
+ "2rnsys": {
+  "en": "Putting \"never delete data\" in the prompt instead of enforcing it in c",
+  "fa": "گذاشتن «هرگز داده را حذف نکن» در پرامپت به‌جای اعمالش در کد."
+ },
+ "iooufq": {
+  "en": "No turn limit, no logging, no budget.",
+  "fa": "بدون سقف نوبت، بدون لاگ، بدون بودجه."
+ },
+ "1i90n3n": {
+  "en": "Changing the prompt and the tools at the same time, then not knowing w",
+  "fa": "عوض کردن هم‌زمان پرامپت و ابزارها، و بعد ندانستن کدام کمک کرد."
+ },
+ "1c1wvj": {
+  "en": "Judging the agent by a few demo questions instead of a fixed gold set.",
+  "fa": "قضاوت درباره‌ی عامل با چند سؤال نمایشی به‌جای یک مجموعه‌ی طلایی ثابت."
+ },
+ "cocq5o": {
+  "en": "Check yourself",
+  "fa": "**خودت را بسنج**"
+ },
+ "1bo6o9n": {
+  "en": "Go deeper: Barry Zhang, How We Build Effective Agents · Anthropic's to",
+  "fa": "**برای مطالعه‌ی بیشتر:** Barry Zhang، How We Build Effective Agents · Tool use overview و Handle tool calls از Anthropic · Anthropic، Building effective agents · کتابخانه‌ی sqlglot."
+ }
+}

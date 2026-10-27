@@ -29,7 +29,7 @@ export function allVideos(weeks, data) {
   return out;
 }
 
-const metaOf = (data, notes, id) => {
+export const metaOf = (data, notes, id) => {
   const v = videoOf(data, id), note = notes[id];
   return { ...v, title: note?.title || v.title, source: note?.source || v.source, duration: note?.duration || v.duration, chapters: note?.chapters?.length ? note.chapters : v.chapters };
 };
@@ -64,7 +64,7 @@ function session(ctx, s, data, notes) {
       h('button', { type: 'button', class: 'btn small', onClick: () => markAll(done !== list.length) }, done === list.length ? 'Mark the session as not watched' : 'Mark the whole session as watched')));
 }
 
-function row(m, num, w) {
+export function row(m, num, w) {
   return h('a', { class: 'vrow', href: `#/watch/${m.id}`, style: 'text-decoration:none;color:inherit' },
     h('span', { class: 'vnum' }, num), h('span', { class: 'grow', style: 'min-width:0' }, h('div', {}, m.title), h('div', { class: 'small muted' }, [m.source, m.duration].filter(Boolean).join(', '))),
     h('span', { class: `pill ${w ? 'done' : 'next'}` }, w ? 'Watched' : 'Next'));
@@ -111,4 +111,12 @@ async function detail(ctx, el, data, weeks, notes, id) {
       qs.length ? h('button', { type: 'button', class: 'btn wide', onClick: () => ctx.startReview(qs, `Quick check: ${m.title}`) }, `Quick check: ${qs.length} questions from chapter ${m.chapters.join(', ')}`) : null,
       m.chapters.map((n) => h('a', { class: 'btn wide', href: `#/notes/ch-${n}` }, `Read chapter ${n}`)),
       sess ? h('div', { class: 'row' }, nav(prev, '‹ Previous'), nav(next, 'Next ›')) : null));
+}
+
+// The rows of one session (outside links first, then its videos); used by the Today tab.
+export function sessionRows(ctx, s, data, notes) {
+  return [
+    (s.links ?? []).map((l) => h('a', { class: 'vrow', href: l.url, target: '_blank', rel: 'noopener', style: 'text-decoration:none;color:inherit' }, h('span', { class: 'vnum' }, '↗'), h('span', { class: 'grow', style: 'min-width:0' }, h('div', {}, l.title), h('div', { class: 'small muted' }, 'Opens in your browser')))),
+    s.videos.filter((e) => !e.missing).map((e, i) => row(metaOf(data, notes, e.id), i + 1, isWatched(ctx.state, { id: e.id, status: e.status }))),
+  ];
 }

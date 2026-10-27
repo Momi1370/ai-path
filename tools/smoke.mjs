@@ -20,6 +20,7 @@ async function check(name, hash, route, expectText, extra) {
   if (extra) await extra(b, problems);
   const text = await b.text().catch(() => '');
   if (text.includes('Could not load this page')) problems.push('screen showed the error panel');
+  if (/(^|\s)(null|undefined)(\s|$)/.test(text)) problems.push('page prints the word null or undefined');
   if (expectText && !text.toLowerCase().includes(expectText.toLowerCase())) problems.push(`missing text "${expectText}"`);
   if (await b.evaluate('document.documentElement.scrollWidth > innerWidth + 1').catch(() => false)) problems.push('page scrolls sideways');
   problems.push(...b.errors.slice(before));
@@ -30,6 +31,10 @@ async function check(name, hash, route, expectText, extra) {
 
 try {
   await check('today', '#/today', 'today', 'This week');
+  await check('today-videos', '?o=20#/today', 'today', 'Videos this week', async (br, p) => {
+    if (!(await br.evaluate('[...document.querySelectorAll("a.vrow")].some((a) => /Matrix multiplication as composition/.test(a.textContent) && a.getAttribute("href").startsWith("#/watch/"))'))) p.push('Today lists no video link');
+    if (!(await br.evaluate('[...document.querySelectorAll("a.vrow")].some((a) => /^https:/.test(a.getAttribute("href")))'))) p.push('Today has no link to the course page');
+  });
   await check('watch', '#/watch', 'watch', 'videos watched');
   await check('video', '#/watch/Kdsp6soqA7o', 'watch', 'Mark as watched', async (br, p) => { if (!(await br.evaluate('!!document.querySelector("iframe.player")'))) p.push('no player'); });
   await check('sessions', '#/watch', 'watch', 'videos watched', async (br, p) => {
@@ -53,6 +58,14 @@ try {
     if (!(await br.evaluate('[...document.images].every((i) => i.complete && i.naturalWidth > 0)'))) p.push('an image did not load');
   });
   await check('chapter12', '#/notes/ch-12', 'notes', 'Measuring a model');
+  await check('notes-sessions', '?o=21#/notes', 'notes', 'Session notes', async (br, p) => {
+    if (!(await br.evaluate('document.querySelectorAll("details.session").length >= 5'))) p.push('Notes lists fewer than 5 sessions');
+    await br.evaluate('document.querySelectorAll("details.session")[3].open = true');
+    if (!(await br.evaluate('[...document.querySelectorAll("details.session")[3].querySelectorAll("a.vrow")].some((a) => /ROC/.test(a.textContent) && a.getAttribute("href") === "#/notes/v/4jRBRDbJemM")'))) p.push('Session 4 does not link the ROC note');
+  });
+  await check('note-video', '#/notes/v/4jRBRDbJemM', 'notes', 'Watch the video', async (br, p) => {
+    if (!(await br.evaluate('/AUC/.test(document.querySelector("article.vtext")?.textContent ?? "")'))) p.push('the video note does not explain AUC');
+  });
   await check('formulas', '#/notes/a', 'notes', 'Formula sheet');
   await check('glossary', '#/notes/e', 'notes', 'Glossary');
   await check('progress', '#/progress', 'progress', 'Cards by stage');
@@ -108,7 +121,7 @@ try {
   // Notes search also finds the video page that explains a word.
   await check('search-video', '?o=7#/notes', 'notes', 'Notes', async (br, p) => {
     await br.evaluate('(() => { const i = document.getElementById("q"); i.value = "ROC"; i.dispatchEvent(new Event("input")); })()');
-    if (!(await br.waitFor('[...document.querySelectorAll("a.card")].some((a) => /Video · Session 4/.test(a.textContent))', 5000))) p.push('searching "ROC" in Notes found no video page');
+    if (!(await br.waitFor('[...document.querySelectorAll("a.card")].some((a) => /Video · Session 4/.test(a.textContent) && a.getAttribute("href") === "#/notes/v/4jRBRDbJemM")', 5000))) p.push('searching "ROC" in Notes found no video note');
   });
   // Farsi: off by default; the setting turns it on everywhere, and nothing scrolls sideways.
   await check('farsi-off', '?o=8#/notes/e', 'notes', 'Glossary', async (br, p) => {
@@ -131,8 +144,11 @@ try {
     if (!(await br.evaluate('[...document.querySelectorAll("article.read .fa")].filter((e) => e.offsetHeight > 0 && getComputedStyle(e).direction === "rtl").length > 30'))) p.push('chapter 14 shows too little Farsi');
     if (!(await br.evaluate('!!document.querySelector("article.read li > .fa")'))) p.push('no Farsi inside list items');
   });
-  await check('farsi-missing', '?o=14#/notes/ch-1', 'notes', 'What machine learning is', async (br, p) => {
-    if (!/not available for this chapter yet|translated so far/.test(await br.text())) p.push('a chapter without Farsi gives no hint');
+  await check('farsi-chapter-1', '?o=14#/notes/ch-1', 'notes', 'What machine learning is', async (br, p) => {
+    if (!(await br.evaluate('[...document.querySelectorAll("article.read .fa")].filter((e) => e.offsetHeight > 0).length > 30'))) p.push('chapter 1 shows too little Farsi');
+  });
+  await check('farsi-video-note', '?o=15#/notes/v/4jRBRDbJemM', 'notes', 'Watch the video', async (br, p) => {
+    if (!(await br.evaluate('[...document.querySelectorAll("article.vtext .fa")].filter((e) => e.offsetHeight > 0 && getComputedStyle(e).direction === "rtl").length >= 5'))) p.push('the video note shows no Farsi');
   });
   await check('farsi-off-again', '?o=12#/progress', 'progress', 'Farsi explanations', async (br, p) => {
     await br.evaluate('document.getElementById("farsi").click()');

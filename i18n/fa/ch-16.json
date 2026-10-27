@@ -1,0 +1,146 @@
+{
+ "go782o": {
+  "en": "Purpose. LLM applications are the point of this course, and the word \"",
+  "fa": "**هدف.** برنامه‌های LLM هدف این درس‌اند و کلمه‌ی «عامل (agent)» برای همه‌چیز به کار می‌رود، از یک چت‌بات با یک افزونه تا سیستمی که ساعت‌ها اجرا می‌شود. این فصل یک واژگان دقیق می‌دهد: عامل چیست، سطح‌های خودمختاری و الگوهای استاندارد گردش‌کار، تا بتوانی ساده‌ترین طراحی‌ای را که کار می‌کند انتخاب کنی."
+ },
+ "akcbhg": {
+  "en": "Key ideas",
+  "fa": "**ایده‌های کلیدی**"
+ },
+ "1y75f6t": {
+  "en": "An LLM on its own cannot look anything up or run anything. Tools conne",
+  "fa": "یک LLM به‌تنهایی نمی‌تواند چیزی را جست‌وجو یا اجرا کند. ابزارها آن را به دنیای واقعی وصل می‌کنند."
+ },
+ "1jd0osj": {
+  "en": "Everyone defines \"agent\" a little differently, but three things recur:",
+  "fa": "همه «عامل» را کمی متفاوت تعریف می‌کنند، ولی سه چیز تکرار می‌شود: یک LLM، ابزارها و مقداری خودمختاری."
+ },
+ "11aq6o": {
+  "en": "Agency is a spectrum. Level 1 is an LLM plus tools, level 2 is a fixed",
+  "fa": "خودمختاری یک طیف است. سطح 1 یک LLM به‌علاوه‌ی ابزارهاست، سطح 2 یک گردش‌کار ثابت از گام‌های LLM، و سطح 3 یک LLM در یک حلقه."
+ },
+ "6l3uy5": {
+  "en": "Anthropic describes five workflow patterns: chaining, routing, paralle",
+  "fa": "Anthropic پنج الگوی گردش‌کار را توصیف می‌کند: زنجیره‌کردن (chaining)، مسیریابی (routing)، موازی‌سازی (parallelization)، هماهنگ‌کننده-کارگرها (orchestrator-workers) و ارزیاب-بهینه‌ساز (evaluator-optimizer)."
+ },
+ "iwkv4j": {
+  "en": "16.1 An LLM alone lives in imagination land",
+  "fa": "16.1 یک LLM تنها در سرزمین خیال زندگی می‌کند"
+ },
+ "19pr1r1": {
+  "en": "Shaw Talebi's phrase: out of the box an LLM lives in an imagined reali",
+  "fa": "عبارت Shaw Talebi: یک LLM به‌صورت پیش‌فرض در یک واقعیت خیالی زندگی می‌کند که از داده‌ی آموزشی‌اش ساخته شده. نمی‌تواند وب را جست‌وجو کند، پس هر چیز تازه‌ای را از خودش درمی‌آورد. نمی‌تواند کد اجرا کند، پس اگر خروجی یک برنامه را بپرسی، یکی می‌سازد. به همین دلیل توهم (hallucination) مشکل است. **ابزارها** یک LLM را از خیال به دنیای واقعی می‌برند و به آن بازخورد واقعی می‌دهند. دلیل دوم برتری عامل‌ها بر چت‌بات‌های ساده **محاسبه‌ی زمان آزمون (test-time compute)** است: هرچه مدل هنگام کار روی یک مسئله توکن بیشتری تولید کند، جواب بهتر است، به همین دلیل مدل‌های استدلالی که پیش از جواب دادن «فکر می‌کنند» می‌توانند وظایف سخت‌تری را بدون دستور دقیق حل کنند. (مدل‌های استدلالی مثل DeepSeek R1 و o1 از OpenAI با یادگیری تقویتی آموزش دیده‌اند، فصل 2.)"
+ },
+ "100jz5n": {
+  "en": "16.2 What is an agent?",
+  "fa": "16.2 عامل چیست؟"
+ },
+ "1obfit9": {
+  "en": "Three definitions, from three organizations:",
+  "fa": "سه تعریف، از سه سازمان:"
+ },
+ "1r4n0u6": {
+  "en": "OpenAI: an LLM configured with instructions and tools.",
+  "fa": "**OpenAI:** یک LLM که با دستورها و ابزارها پیکربندی شده."
+ },
+ "t89pgk": {
+  "en": "Hugging Face: a system where an LLM executes complex tasks through pla",
+  "fa": "**Hugging Face:** سیستمی که در آن یک LLM وظایف پیچیده را با برنامه‌ریزی و استفاده از ابزارها انجام می‌دهد."
+ },
+ "1hlqlj2": {
+  "en": "Anthropic: a system where LLMs dynamically direct their own processes ",
+  "fa": "**Anthropic:** سیستمی که در آن LLMها فرایندها و استفاده‌ی خودشان از ابزارها را به‌صورت پویا هدایت می‌کنند و کنترل اینکه وظیفه را چطور انجام دهند در دست خودشان است."
+ },
+ "lj7713": {
+  "en": "They differ: OpenAI's is about tools, Hugging Face adds planning, and ",
+  "fa": "آن‌ها فرق دارند: تعریف OpenAI درباره‌ی ابزارهاست، Hugging Face برنامه‌ریزی را اضافه می‌کند و Anthropic بر خودمختاری تأکید دارد. کارورزان به‌ندرت درباره‌اش بحث می‌کنند. از **سیستم‌های عاملی (agentic)** حرف می‌زنند و می‌پرسند یکی چقدر خودمختاری دارد. سه ویژگی در هر تعریفی دیده می‌شود: یک LLM در مرکز هست؛ ابزار دارد؛ و مقداری خودمختاری هست، یعنی می‌تواند برنامه بریزد، خروجی خودش را بازبینی کند و از بازخورد دنیای واقعی استفاده کند."
+ },
+ "sbmrsh": {
+  "en": "16.3 Common tools",
+  "fa": "16.3 ابزارهای رایج"
+ },
+ "m5xs7f": {
+  "en": "16.4 Three levels of agency",
+  "fa": "16.4 سه سطح خودمختاری"
+ },
+ "1h0zh2n": {
+  "en": "Why split a task in a workflow? Deciding junk, easy or hard in one cal",
+  "fa": "چرا یک وظیفه را در یک گردش‌کار تقسیم کنیم؟ تصمیم‌گرفتن «اسپم، ساده یا سخت» در یک فراخوانی از دو فراخوانی ساده‌تر سخت‌تر است، و ممکن است گام اول حتی به LLM نیاز نداشته باشد: یک دسته‌بند کوچک آموزش‌دیده می‌تواند انجامش دهد (فصل‌های 9 و 13)."
+ },
+ "lh91yh": {
+  "en": "16.5 Five workflow patterns",
+  "fa": "16.5 پنج الگوی گردش‌کار"
+ },
+ "ln0egr": {
+  "en": "From Anthropic's post Building effective agents, with Shaw Talebi's ex",
+  "fa": "از مقاله‌ی Anthropic با عنوان Building effective agents، با مثال‌های Shaw Talebi:"
+ },
+ "to5fib": {
+  "en": "The evaluator-optimizer is different from the others, which all have a",
+  "fa": "ارزیاب-بهینه‌ساز با بقیه فرق دارد، که همه شروع و پایان روشنی دارند. چون یک حلقه است، در اصل می‌تواند تا ابد اجرا شود، پس بیشترین خودمختاری را دارد و به یک قاعده‌ی توقف نیاز دارد."
+ },
+ "1ga5yoo": {
+  "en": "16.6 A loop can also be trained",
+  "fa": "16.6 یک حلقه را می‌شود آموزش هم داد"
+ },
+ "1pd3yn6": {
+  "en": "In level 3 the model's weights stay fixed and you add checks around it",
+  "fa": "در سطح 3 وزن‌های مدل ثابت می‌مانند و تو دور آن بررسی‌هایی اضافه می‌کنی. گزینه‌ی دیگر این است که خود مدل را روی بازخورد دنیای واقعی با یادگیری تقویتی آموزش دهی تا هرچه بیشتر کار می‌کند بهتر شود. Shaw Talebi می‌گوید ایده‌ی پشت deep research و Operator از OpenAI همین است. برای تو قاعده‌ی عملی این است که با بررسی‌هایی دور یک مدل ثابت شروع کنی و فقط وقتی داده‌ی بازخورد زیادی داری به آموزش فکر کنی (پروژه‌ی 4 برنامه‌ات اینجا می‌رود)."
+ },
+ "hfuolz": {
+  "en": "16.7 Vocabulary",
+  "fa": "16.7 واژگان"
+ },
+ "12f0zcn": {
+  "en": "Beyond the videos. Terms you will see in every agent framework:",
+  "fa": "**بیرون از ویدیوها.** اصطلاح‌هایی که در هر چارچوب عاملی می‌بینی:"
+ },
+ "1y1ix9j": {
+  "en": "Context window: everything the model can see at once: instructions, co",
+  "fa": "**پنجره‌ی زمینه (context window):** هر چیزی که مدل هم‌زمان می‌بیند: دستورها، گفتگو، نتیجه‌ی ابزارها. محدود است و بر اساس توکن هزینه دارد."
+ },
+ "11bz0ie": {
+  "en": "System prompt: the standing instructions: goals, rules, style.",
+  "fa": "**پرامپت سیستم (system prompt):** دستورهای ثابت: هدف‌ها، قوانین، سبک."
+ },
+ "12jcwrx": {
+  "en": "Tool schema: the description of a tool (name, purpose, parameters) tha",
+  "fa": "**طرح‌واره‌ی ابزار (tool schema):** توصیف یک ابزار (نام، هدف، پارامترها) که مدل می‌خواند تا تصمیم بگیرد چطور صدایش بزند."
+ },
+ "1aqqm8s": {
+  "en": "Tool call and tool result: the model's request to run a tool, and what",
+  "fa": "**فراخوانی ابزار و نتیجه‌ی ابزار:** درخواست مدل برای اجرای یک ابزار، و آنچه تو پس می‌فرستی."
+ },
+ "80tr9u": {
+  "en": "Turn and trajectory: one round of the loop, and the full sequence of m",
+  "fa": "**نوبت و مسیر اجرا (turn و trajectory):** یک دور از حلقه، و کل دنباله‌ی پیام‌ها و فراخوانی‌های ابزار. خواندن مسیرهای اجرا راه اشکال‌زدایی عامل‌هاست."
+ },
+ "1u8mr2g": {
+  "en": "Loan example. Classify each incoming message as a SQL question, a poli",
+  "fa": "**مثال وام.** هر پیام ورودی را به‌صورت سؤال SQL، سؤال سیاست یا هر دو دسته‌بندی کن (مسیریابی)، مسیر درست را اجرا کن، و بگذار مسیر SQL حلقه بزند: یک کوئری بنویس، اجرایش کن، خطا را بخوان، درستش کن، تا پنج بار. این یک گردش‌کار سطح 2 با یک حلقه‌ی سطح 3 درونش است، که دقیقاً شکل پروژه‌ی 1 توست."
+ },
+ "1qknwjp": {
+  "en": "Common mistakes",
+  "fa": "**اشتباه‌های رایج**"
+ },
+ "aabtkg": {
+  "en": "Building a level 3 loop where a level 2 workflow would do: more cost, ",
+  "fa": "ساختن حلقه‌ی سطح 3 جایی که یک گردش‌کار سطح 2 کافی بود: هزینه‌ی بیشتر، تأخیر بیشتر و کنترل کمتر."
+ },
+ "15odt59": {
+  "en": "Believing the model has run code or checked a fact when it has only sa",
+  "fa": "باور اینکه مدل کد اجرا کرده یا یک واقعیت را بررسی کرده وقتی فقط گفته است."
+ },
+ "8pa7ar": {
+  "en": "Letting a loop run without a stopping rule or a turn limit.",
+  "fa": "گذاشتن حلقه برای اجرا بدون قاعده‌ی توقف یا سقف تعداد نوبت."
+ },
+ "cocq5o": {
+  "en": "Check yourself",
+  "fa": "**خودت را بسنج**"
+ },
+ "1ykmw8s": {
+  "en": "Go deeper: Shaw Talebi, An Introduction to AI Agents · Anthropic, Buil",
+  "fa": "**برای مطالعه‌ی بیشتر:** Shaw Talebi، An Introduction to AI Agents · Anthropic، Building effective agents · Yao و همکاران، ReAct: Synergizing Reasoning and Acting in Language Models (مقاله‌ی پشت حلقه‌های «اول استدلال کن، بعد عمل کن»)."
+ }
+}

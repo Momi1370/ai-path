@@ -1,0 +1,178 @@
+{
+ "3yp8zr": {
+  "en": "Purpose. You do not need to be a mathematician to be a good machine le",
+  "fa": "**هدف.** برای مهندس خوبِ یادگیری ماشین بودن لازم نیست ریاضی‌دان باشی. باید بفهمی هر فرمول سعی دارد چه کاری انجام دهد. این فصل ریاضی‌ای را که در کتاب به کار رفته جمع می‌کند، هر تکه با هدفش و یک مثال حل‌شده، و می‌گوید اول چه چیزی را بخوانی."
+ },
+ "akcbhg": {
+  "en": "Key ideas",
+  "fa": "**ایده‌های کلیدی**"
+ },
+ "1hzuf00": {
+  "en": "A formula is a goal written for a computer. Ask what it is for, and sa",
+  "fa": "فرمول هدفی است که برای کامپیوتر نوشته شده. بپرس برای چیست و آن را به زبان ساده بگو."
+ },
+ "1lc5jhq": {
+  "en": "Order of importance (Infinite Codes): statistics and probability, then",
+  "fa": "ترتیب اهمیت (Infinite Codes): آمار و احتمال، بعد جبر خطی، بعد چند ایده از حساب دیفرانسیل، بعد خودِ مفهوم‌های یادگیری ماشین."
+ },
+ "1aqiphd": {
+  "en": "You need four tools: vectors and dot products, derivatives and the cha",
+  "fa": "به چهار ابزار نیاز داری: بردارها و ضرب داخلی، مشتق‌ها و قاعده‌ی زنجیری، آمار پایه، و قضیه‌ی بیز."
+ },
+ "17nz33o": {
+  "en": "15.1 Think in purposes",
+  "fa": "15.1 با هدف فکر کن"
+ },
+ "t4f8t9": {
+  "en": "Infinite Codes' advice is to stop memorizing equations and ask what ea",
+  "fa": "توصیه‌ی Infinite Codes این است که حفظ‌کردن معادله‌ها را کنار بگذار و بپرس هرکدام سعی دارد چه کاری بکند، بعد آن را به زبان ساده بنویس. دانشجوهایی که الگوریتم‌ها را حفظ می‌کنند و scikit-learn را صدا می‌زنند در پروژه‌شان دقت عالی می‌گیرند و روی داده‌ی واقعی چرندیات، چون نمی‌توانند بگویند چرا یک مدل به یک مسئله می‌خورد و به دیگری نه. مثال ویدیو تابع زیان رگرسیون خطی است: «می‌خواهم خط به نقطه‌ها نزدیک باشد» می‌شود فاصله برابر پیش‌بینی منهای حقیقت، به توان دو تا مثبت شود، جمع‌شده روی همه‌ی نقطه‌ها، که مجموع مربعات باقی‌مانده است (فصل‌های 4 و 5). فرمول‌های ریاضی فقط به ما کمک می‌کنند هدف‌هایمان را به کامپیوتر بگوییم. هر فرمول این کتاب هدف یک‌جمله‌ای‌اش را کنار خودش دارد."
+ },
+ "1txqcgm": {
+  "en": "15.2 The checklist, and where each item appears here",
+  "fa": "15.2 فهرست بررسی، و جای هر مورد در اینجا"
+ },
+ "1xdz7pu": {
+  "en": "15.3 Vectors, matrices and the dot product",
+  "fa": "15.3 بردارها، ماتریس‌ها و ضرب داخلی"
+ },
+ "13g9bat": {
+  "en": "A vector is a list of numbers: the features of one loan, the weights o",
+  "fa": "**بردار** فهرستی از عددهاست: ویژگی‌های یک وام، وزن‌های یک مدل. **ماتریس** جدولی از عددهاست: همه‌ی وام‌ها، هرکدام یک سطر. سه عملیات بیشتر نیازت را پوشش می‌دهند:"
+ },
+ "odgjoz": {
+  "en": "Dot product: multiply matching entries and add. [2, 3] . [10, 4] = 32.",
+  "fa": "**ضرب داخلی:** درایه‌های متناظر را ضرب و جمع کن. `[2, 3] . [10, 4] = 32`. پیش‌بینی هر مدل خطی یکی از آن‌هاست (فصل 7)."
+ },
+ "1rdrsqd": {
+  "en": "Matrix times vector: a dot product of every row with the vector. X @ w",
+  "fa": "**ماتریس ضرب‌در بردار:** ضرب داخلی هر سطر با بردار. `X @ w` برای همه‌ی `m` سطر یک‌جا پیش‌بینی می‌کند."
+ },
+ "1bxxyno": {
+  "en": "Norm: the length of a vector, the square root of the sum of its square",
+  "fa": "**نُرم (norm):** طول یک بردار، ریشه‌ی دوم مجموع مربع‌هایش. مربع نرم وزن‌ها جریمه‌ی L2 فصل 11 است."
+ },
+ "b6vx1h": {
+  "en": "Cosine similarity compares the direction of two vectors: the dot produ",
+  "fa": "**شباهت کسینوسی** جهت دو بردار را مقایسه می‌کند: ضرب داخلی تقسیم بر حاصل‌ضرب طول‌هایشان. برای هم‌جهت 1، برای بی‌ارتباط 0 و برای مخالف 1- است. امبدینگ‌ها در فصل 18 این‌طور مقایسه می‌شوند."
+ },
+ "16g6502": {
+  "en": "15.4 Derivatives and the chain rule",
+  "fa": "15.4 مشتق‌ها و قاعده‌ی زنجیری"
+ },
+ "1beauam": {
+  "en": "The derivative of a function is its slope at a point: how much the out",
+  "fa": "**مشتق** یک تابع شیب آن در یک نقطه است: خروجی به ازای تغییر ریز ورودی چقدر عوض می‌شود. برای تابعی از چند ورودی، **مشتق جزئی** شیب در راستای یکی از آن‌هاست و **گرادیان** بردار همه‌ی مشتق‌های جزئی است. گرادیان کاهشی (فصل 6) ساده‌اً خلاف گرادیان راه می‌رود."
+ },
+ "1st62q8": {
+  "en": "The chain rule handles a function inside a function: multiply the slop",
+  "fa": "**قاعده‌ی زنجیری** تابعی را که داخل تابع دیگری است مدیریت می‌کند: شیب تابع بیرونی را در شیب تابع درونی ضرب کن. مربع خطای یک نمونه `(w x - y)` به توان دو است. تابع درونی `w x - y` است، با شیب `x` نسبت به `w`. تابع بیرونی مربع آن است، با شیب `2 (w x - y)`. پس مشتق نسبت به `w` برابر `2 (w x - y) x` است. 2ای که 1/2 هزینه را خنثی می‌کند از اینجا می‌آید (فصل 5). پس‌انتشار (فصل 14) همین قاعده است که لایه پس از لایه اعمال می‌شود."
+ },
+ "13njwlr": {
+  "en": "The last two lines are a useful habit: when you derive a gradient by h",
+  "fa": "دو خط آخر یک عادت مفید است: وقتی گرادیانی را با دست به دست می‌آوری، آن را با یک شیب عددی بررسی کن."
+ },
+ "w0jqye": {
+  "en": "15.5 Statistics you will use every week",
+  "fa": "15.5 آماری که هر هفته به کار می‌بری"
+ },
+ "l8temk": {
+  "en": "Mean and median: the average, and the middle value. The median is not ",
+  "fa": "**میانگین و میانه:** میانگین، و مقدار وسط. میانه با داده‌های پرت جابه‌جا نمی‌شود."
+ },
+ "x8p3pt": {
+  "en": "Variance and standard deviation: how spread out the values are. The st",
+  "fa": "**واریانس و انحراف معیار:** مقدارها چقدر پراکنده‌اند. انحراف معیار ریشه‌ی دوم واریانس است، با واحد اصلی. **نمره‌ی z** می‌گوید یک مقدار چند انحراف معیار از میانگین فاصله دارد (فصل 8): وامی با 1,000 وقتی میانگین 600 و انحراف معیار 450 است نمره‌ی z برابر 0.89 دارد."
+ },
+ "1gi3z2d": {
+  "en": "Correlation: from -1 to 1, how closely two columns move together in a ",
+  "fa": "**همبستگی:** از 1- تا 1، دو ستون چقدر نزدیک به هم و به شکل خط راست حرکت می‌کنند. هرگز علت را ثابت نمی‌کند."
+ },
+ "plk9vx": {
+  "en": "The normal distribution: the bell curve. About 68% of values lie withi",
+  "fa": "**توزیع نرمال:** منحنی زنگوله‌ای. حدود 68٪ مقدارها در 1 انحراف معیار از میانگین‌اند، 95٪ در 2 و 99.7٪ در 3."
+ },
+ "b71v44": {
+  "en": "The central limit theorem: the averages of many random samples are rou",
+  "fa": "**قضیه‌ی حد مرکزی:** میانگین‌های نمونه‌های تصادفی زیاد تقریباً زنگوله‌ای‌اند، شکل داده‌ی اصلی هرچه باشد. دلیل کارکرد این‌همه آزمون آماری است."
+ },
+ "8f7c3u": {
+  "en": "Samples and populations: you almost never see the whole population, on",
+  "fa": "**نمونه و جمعیت:** تقریباً هیچ‌وقت کل جمعیت را نمی‌بینی، فقط یک نمونه. قانون اعداد بزرگ می‌گوید با بزرگ شدن نمونه، میانگین نمونه روی حقیقت می‌نشیند."
+ },
+ "dpqeta": {
+  "en": "Significance and the p-value: a hypothesis test asks \"if there were no",
+  "fa": "**معناداری و p-value:** یک آزمون فرض می‌پرسد «اگر اثر واقعی‌ای وجود نداشت، داده‌ای مثل این چقدر شگفت‌آور بود؟» p-value کوچک (اغلب زیر 0.05) یعنی خیلی شگفت‌آور. احتمال واقعی‌بودن اثر را نمی‌دهد."
+ },
+ "13oeexx": {
+  "en": "The multiple comparisons problem: test 20 unrelated things at the 5% l",
+  "fa": "**مسئله‌ی مقایسه‌های چندگانه:** 20 چیز نامرتبط را در سطح 5٪ تست کن، و احتمال اینکه دست‌کم یکی به‌اتفاق «معنادار» به نظر برسد `1 - 0.95^20` است، حدود 64٪. راه‌حل‌ها، مثل اصلاح Bonferroni، آستانه‌ی سخت‌گیرانه‌تری می‌خواهند: 5٪ تقسیم بر تعداد آزمون‌ها. در یادگیری ماشین همین تله وقتی پیش می‌آید که ده‌ها مدل و ویژگی را امتحان می‌کنی و بهترین را گزارش می‌دهی: یک مجموعه‌ی تست نگه دار که فقط یک بار به کار می‌بری."
+ },
+ "1pur4xe": {
+  "en": "15.6 Probability and Bayes' theorem",
+  "fa": "15.6 احتمال و قضیه‌ی بیز"
+ },
+ "1ecllti": {
+  "en": "The probability of A given B, written P(A | B), is the chance of A whe",
+  "fa": "احتمال `A` به شرط `B`، که `P(A | B)` نوشته می‌شود، شانس `A` است وقتی می‌دانی `B` رخ داده. قضیه‌ی بیز آن را برعکس می‌کند:"
+ },
+ "1vinayp": {
+  "en": "It shows why precision (Chapter 12) is so often a disappointment. Usin",
+  "fa": "نشان می‌دهد چرا دقت (precision، فصل 12) این‌قدر اغلب ناامیدکننده است. با مثال وام فصل 12: 5٪ وام‌ها نکول می‌کنند، مدل 70٪ نکول‌کننده‌ها را علامت می‌زند و به‌اشتباه 2.6٪ وام‌های خوب را علامت می‌زند (25 از 950). اگر یک وام علامت خورده باشد، شانس اینکه واقعاً نکول کند چقدر است؟"
+ },
+ "k7gp0o": {
+  "en": "P(flag and default) = 0.7 x 0.05 = 0.035.",
+  "fa": "`P(flag and default) = 0.7 x 0.05 = 0.035`."
+ },
+ "9coltp": {
+  "en": "P(flag and good loan) = 0.026 x 0.95 = 0.025.",
+  "fa": "`P(flag and good loan) = 0.026 x 0.95 = 0.025`."
+ },
+ "12jcru3": {
+  "en": "P(default | flag) = 0.035 / (0.035 + 0.025) = 0.583.",
+  "fa": "`P(default | flag) = 0.035 / (0.035 + 0.025) = 0.583`."
+ },
+ "15i5aur": {
+  "en": "The answer, 58%, is exactly the precision from the confusion matrix. B",
+  "fa": "جواب، 58٪، دقیقاً همان دقت (precision) ماتریس درهم‌ریختگی است. چون نکول‌ها نادرند، حتی مدلی با نرخ هشدار کاذب 2.6٪ هشدارهای کاذبی تولید می‌کند که تقریباً به اندازه‌ی ضربه‌های واقعی زیادند. نایو بیز (فصل 13) همین قضیه است که روی هر ویژگی، با فرض استقلال، اعمال می‌شود."
+ },
+ "10ys06c": {
+  "en": "15.7 What to study first",
+  "fa": "15.7 اول چه بخوانیم"
+ },
+ "3qjs0h": {
+  "en": "Start with statistics, because it makes you better at picking and judg",
+  "fa": "با آمار شروع کن، چون در انتخاب و قضاوت مدل‌ها بهترت می‌کند. بعد جبر خطی اگر شبکه‌ی عصبی می‌خواهی، بعد حساب دیفرانسیل به اندازه‌ی مشتق‌ها و قاعده‌ی زنجیری. منابع رایگانی که در ویدیو نام برده شدند: Khan Academy برای آمار، جبر خطی و حساب دیفرانسیل (از اینجا شروع کن)، کتاب رایگان An Introduction to Statistical Learning و مجموعه‌ی ویدیوهایش، و 3Blue1Brown برای توضیح‌های تصویری."
+ },
+ "17hlc9q": {
+  "en": "Loan example. The probability that a flagged loan really defaults (58%",
+  "fa": "**مثال وام.** احتمال اینکه یک وام علامت‌خورده واقعاً نکول کند (58٪) یک احتمال شرطی است که با بیز حساب می‌شود. جریمه‌ی وزن یک نرم است. هزینه مجموع مربعات است، شیب‌هایش از قاعده‌ی زنجیری می‌آیند و مینیممش با گرادیان کاهشی پیدا می‌شود. هیچ‌چیز در پروژه‌ی وام به ریاضی بیشتر از این فصل نیاز ندارد."
+ },
+ "1qknwjp": {
+  "en": "Common mistakes",
+  "fa": "**اشتباه‌های رایج**"
+ },
+ "1o52k7s": {
+  "en": "Memorizing a formula without being able to say what it is for.",
+  "fa": "حفظ‌کردن فرمول بدون اینکه بتوانی بگویی برای چیست."
+ },
+ "tfmbiz": {
+  "en": "Reading correlation as cause, or a small p-value as \"the effect is rea",
+  "fa": "خواندن همبستگی به‌عنوان علت، یا p-value کوچک به‌عنوان «اثر واقعی است»."
+ },
+ "3hzdll": {
+  "en": "Trying many things and reporting only the best one without a fresh tes",
+  "fa": "امتحان چیزهای زیاد و گزارش فقط بهترین بدون یک آزمون تازه."
+ },
+ "214n4g": {
+  "en": "Confusing P(A | B) with P(B | A): the chance of a flag given a default",
+  "fa": "قاطی‌کردن `P(A | B)` با `P(B | A)`: شانس علامت‌خوردن به شرط نکول (70٪) شانس نکول به شرط علامت‌خوردن (58٪) نیست."
+ },
+ "cocq5o": {
+  "en": "Check yourself",
+  "fa": "**خودت را بسنج**"
+ },
+ "fnthh0": {
+  "en": "Go deeper: Infinite Codes, How Math makes Machine Learning easy · Khan",
+  "fa": "**برای مطالعه‌ی بیشتر:** Infinite Codes، How Math makes Machine Learning easy · Khan Academy: آمار و احتمال، جبر خطی، حساب دیفرانسیل · Deisenroth و Faisal و Ong، Mathematics for Machine Learning (رایگان) · Seeing Theory دانشگاه Brown، احتمال تعاملی · 3Blue1Brown درباره‌ی ضرب داخلی."
+ }
+}

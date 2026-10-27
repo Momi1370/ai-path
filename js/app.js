@@ -16,6 +16,9 @@ const TABS = [
 ];
 
 const root = document.getElementById('app');
+// an optional element that is absent (null) must never be printed as the word "null"
+const appendRaw = root.append.bind(root);
+root.append = (...items) => appendRaw(...items.flat(Infinity).filter((x) => x != null && x !== false));
 let storage = null;
 try { storage = window.localStorage; } catch { storage = null; }
 const store = createStore(storage);

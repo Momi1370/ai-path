@@ -1,0 +1,122 @@
+{
+ "1jg94ib": {
+  "en": "Purpose. When you meet a new technique, you should know which family i",
+  "fa": "**هدف.** وقتی با یک تکنیک تازه روبه‌رو می‌شوی باید بدانی به کدام خانواده تعلق دارد و چه نوع مسئله‌ای را حل می‌کند. این فصل نقشه است. فصل‌های بعدی قلمرو را پر می‌کنند."
+ },
+ "akcbhg": {
+  "en": "Key ideas",
+  "fa": "**ایده‌های کلیدی**"
+ },
+ "1nceb4z": {
+  "en": "Supervised learning learns from examples with the right answer. Its tw",
+  "fa": "یادگیری نظارت‌شده از نمونه‌هایی با جواب درست یاد می‌گیرد. دو کارش رگرسیون (پیش‌بینی یک عدد) و دسته‌بندی (پیش‌بینی یک دسته) است."
+ },
+ "1hyy8xu": {
+  "en": "Unsupervised learning has no answers and finds structure: clusters, un",
+  "fa": "یادگیری نظارت‌نشده جواب ندارد و ساختار پیدا می‌کند: خوشه‌ها، موارد غیرعادی، توصیف‌های ساده‌تر."
+ },
+ "18rj7a9": {
+  "en": "Reinforcement learning learns from rewards by trial and error.",
+  "fa": "یادگیری تقویتی با آزمون و خطا از پاداش‌ها یاد می‌گیرد."
+ },
+ "1j8mwtj": {
+  "en": "The first question to ask about any problem is: do I have the right an",
+  "fa": "اولین سؤالی که درباره‌ی هر مسئله باید بپرسی این است: آیا برای موردهای گذشته جواب درست دارم؟"
+ },
+ "prry8l": {
+  "en": "Read the map from left to right. Machine learning splits into three wa",
+  "fa": "نقشه را از چپ به راست بخوان. یادگیری ماشین به سه روش یادگیری تقسیم می‌شود، هرکدام به چند نوع، و هر نوع به مدل‌هایش. درس 1 تخصص Ng از کادر برجسته‌ی Regression شروع می‌شود. درس 2 شبکه‌های عصبی و درخت‌ها را اضافه می‌کند و درس 3 خوشه‌بندی، تشخیص ناهنجاری و یادگیری تقویتی."
+ },
+ "1pvdkdk": {
+  "en": "2.1 Supervised learning",
+  "fa": "2.1 یادگیری نظارت‌شده"
+ },
+ "byq3w4": {
+  "en": "In supervised learning each training example is a pair: an input x and",
+  "fa": "در یادگیری نظارت‌شده هر نمونه‌ی آموزشی یک زوج است: ورودی `x` و جواب درست `y` (برچسب). الگوریتم نگاشت `x` به `y` را یاد می‌گیرد تا بتواند `y` را برای ورودی‌ای که هرگز ندیده پیش‌بینی کند. Ng می‌گوید حدود 99٪ ارزش اقتصادی‌ای که امروز یادگیری ماشین می‌سازد از همین خانواده می‌آید."
+ },
+ "v1h0wu": {
+  "en": "It comes in two tasks:",
+  "fa": "دو کار دارد:"
+ },
+ "ri3h9q": {
+  "en": "Regression predicts a number from infinitely many possible values. A h",
+  "fa": "**رگرسیون** یک عدد را از میان بی‌نهایت مقدار ممکن پیش‌بینی می‌کند. قیمت خانه از روی اندازه‌اش. هزینه‌ی ماهانه‌ی وام از روی مبلغ و مدت."
+ },
+ "14bb6mn": {
+  "en": "Classification predicts a category from a small set. Spam or not spam.",
+  "fa": "**دسته‌بندی** یک دسته را از یک مجموعه‌ی کوچک پیش‌بینی می‌کند. اسپم یا غیراسپم. تومور خوش‌خیم (0) یا بدخیم (1). دسته‌ها لازم نیست عدد باشند (گربه یا سگ) و می‌توانند بیش از دو تا باشند (تب‌های Gmail: اصلی، اجتماعی، تبلیغات). با دو ورودی، الگوریتم یک خط مرزی بین دسته‌ها می‌کشد."
+ },
+ "1yvlmkc": {
+  "en": "2.2 Unsupervised learning",
+  "fa": "2.2 یادگیری نظارت‌نشده"
+ },
+ "zw6hu3": {
+  "en": "The data has inputs only. Nobody tells the algorithm what the answers ",
+  "fa": "داده فقط ورودی دارد. کسی به الگوریتم نمی‌گوید جواب‌ها چیست، پس خودش دنبال ساختار می‌گردد. مثال‌های Ng: Google News مقاله‌هایی را که کلمه‌های مشترک دارند (panda، twins، zoo) در یک گروه می‌گذارد؛ پژوهشگران آدم‌ها را بر اساس فعالیت DNA گروه‌بندی می‌کنند؛ DeepLearning.AI سه بخش از یادگیرندگان را پیدا کرد (رشد مهارت، توسعه‌ی شغلی، به‌روز ماندن). سه کار اصلی:"
+ },
+ "1gbet7m": {
+  "en": "Clustering: group similar examples.",
+  "fa": "**خوشه‌بندی:** نمونه‌های مشابه را گروه‌بندی کن."
+ },
+ "8y3mjp": {
+  "en": "Anomaly detection: find unusual examples, such as fraud.",
+  "fa": "**تشخیص ناهنجاری:** نمونه‌های غیرعادی را پیدا کن، مثل تقلب."
+ },
+ "hoo33p": {
+  "en": "Dimensionality reduction: compress many features into a few while keep",
+  "fa": "**کاهش بُعد:** ویژگی‌های زیاد را به چند ویژگی فشرده کن و بیشتر اطلاعات را نگه دار."
+ },
+ "14x8qrj": {
+  "en": "2.3 Reinforcement learning",
+  "fa": "2.3 یادگیری تقویتی"
+ },
+ "1ua4gd1": {
+  "en": "An agent takes actions in an environment and receives rewards or penal",
+  "fa": "یک **عامل** در یک **محیط** عمل می‌کند و **پاداش** یا جریمه می‌گیرد. یاد می‌گیرد کدام عمل‌ها در طول زمان بیشترین پاداش را می‌آورند. مثال‌های معروف: چکرز (Samuel)، Go (AlphaGo) و آموزش LLMهای استدلالی که برای جواب‌های درست پاداش می‌گرفتند. در وام‌دهی نادر است، چون نمی‌توانی بگذاری مدل وام‌های تصادفی را امتحان کند تا ببیند چه می‌شود، ولی برای فهمیدن اینکه LLMهای مدرن چطور ساخته می‌شوند مهم است."
+ },
+ "m2t7kq": {
+  "en": "2.4 Side by side",
+  "fa": "2.4 کنار هم"
+ },
+ "91v9m3": {
+  "en": "2.5 Choosing the family",
+  "fa": "2.5 انتخاب خانواده"
+ },
+ "1y3ewzc": {
+  "en": "Quick tests from Ng's quiz: spam filtering and diabetes prediction are",
+  "fa": "آزمون‌های سریع از کوییز Ng: فیلتر اسپم و پیش‌بینی دیابت نظارت‌شده‌اند (جواب‌ها معلوم‌اند)؛ گروه‌بندی مقاله‌های خبری و پیدا کردن بخش‌های بازار نظارت‌نشده‌اند."
+ },
+ "o1kdj8": {
+  "en": "2.6 Self-supervised learning",
+  "fa": "2.6 یادگیری خودنظارتی (Self-supervised)"
+ },
+ "zxoso9": {
+  "en": "Beyond the videos. There is a fourth label you will meet when reading ",
+  "fa": "**بیرون از ویدیوها.** برچسب چهارمی هست که هنگام خواندن درباره‌ی LLMها با آن روبه‌رو می‌شوی: **یادگیری خودنظارتی**. داده‌ی آموزشی برچسب انسانی ندارد، ولی برچسب‌ها از خود داده ساخته می‌شوند. یک LLM جمله‌ای را می‌خواند که کلمه‌ی بعدی‌اش پنهان است و یاد می‌گیرد آن را پیش‌بینی کند. «جواب درست» همان کلمه‌ی بعدی متن است. این اجازه می‌دهد مدل‌ها از کل اینترنت یاد بگیرند بدون اینکه کسی برچسب بزند."
+ },
+ "1346mss": {
+  "en": "Loan example. A table of 40,000 past offers with a column Accepted (ye",
+  "fa": "**مثال وام.** جدولی از 40,000 پیشنهاد گذشته با ستون `Accepted` (بله یا خیر) داده‌ی دسته‌بندی نظارت‌شده است. همان جدول بدون آن ستون را هم می‌شود به انواع مشتری خوشه‌بندی کرد، ولی گروه‌ها نام ندارند و باید خودت تفسیرشان کنی."
+ },
+ "1qknwjp": {
+  "en": "Common mistakes",
+  "fa": "**اشتباه‌های رایج**"
+ },
+ "cjvjnv": {
+  "en": "Calling a clustering result a classification. Clustering has no known ",
+  "fa": "نامیدن نتیجه‌ی خوشه‌بندی «دسته‌بندی». خوشه‌بندی دسته‌های معلوم ندارد. گروه‌ها را می‌سازد و بعد خودت به آن‌ها معنا می‌دهی."
+ },
+ "11bxh5m": {
+  "en": "Using regression for a yes or no question just because the labels are ",
+  "fa": "استفاده از رگرسیون برای سؤال بله یا خیر فقط چون برچسب‌ها 0 و 1 هستند (فصل 9 توضیح می‌دهد چرا غلط از آب درمی‌آید)."
+ },
+ "cocq5o": {
+  "en": "Check yourself",
+  "fa": "**خودت را بسنج**"
+ },
+ "1enq3ag": {
+  "en": "Go deeper: the scikit-learn algorithm cheat sheet (it asks you questio",
+  "fa": "**برای مطالعه‌ی بیشتر:** برگه‌ی تقلب الگوریتم‌های scikit-learn (از تو سؤال می‌پرسد و به یک روش اشاره می‌کند) · Ng، درس 1، ویدیوهای 4 تا 8 · Infinite Codes، All Machine Learning algorithms explained in 17 min."
+ }
+}
